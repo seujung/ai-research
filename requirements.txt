@@ -1,0 +1,4 @@
+# MkDocs 2.0은 플러그인 시스템이 제거될 예정이므로, 1.x 대역으로 고정합니다.
+mkdocs>=1.6,<2
+mkdocs-material>=9.5,<10
+mkdocs-rss-plugin>=1.12,<2

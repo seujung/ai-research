@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{#
+  홈 주소입니다. nav 에서 '홈' 항목을 제거했기 때문에 nav.homepage 가 비어 있을 수
+  있습니다. 사이트 루트를 직접 계산해서 헤더 로고와 좌측 홈 버튼에서 함께 씁니다.
+#}
+{% set home_url = config.extra.homepage | d("." | url, true) %}
+
+{#
+  헤더를 최소한으로 줄입니다. 검색은 헤더에서 빼고 좌측 사이드바로 옮기기 때문에,
+  여기에는 로고와 제목, 테마 전환 버튼, 저장소 링크만 남깁니다.
+#}
+{% block header %}
+  <header class="md-header md-header--flat" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+      <a
+        href="{{ home_url }}"
+        title="{{ config.site_name | e }}"
+        class="md-header__button md-logo"
+        aria-label="{{ config.site_name }}"
+        data-md-component="logo"
+      >
+        {% include "partials/logo.html" %}
+      </a>
+
+      {# 좁은 화면에서 좌측 서랍을 여는 버튼입니다. #}
+      <label class="md-header__button md-icon" for="__drawer">
+        {% set icon = config.theme.icon.menu or "material/menu" %}
+        {% include ".icons/" ~ icon ~ ".svg" %}
+      </label>
+
+      <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">{{ config.site_name }}</span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              {%- if page.meta and page.meta.title -%}
+                {{ page.meta.title }}
+              {%- else -%}
+                {{ page.title }}
+              {%- endif -%}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {% if config.theme.palette and not config.theme.palette is mapping %}
+        {% include "partials/palette.html" %}
+        {% include "partials/javascripts/palette.html" %}
+      {% endif %}
+
+      {% if config.repo_url %}
+        <div class="md-header__source">
+          {% include "partials/source.html" %}
+        </div>
+      {% endif %}
+    </nav>
+  </header>
+{% endblock %}
+
+{#
+  좌측 사이드바 맨 위에 검색창을 넣습니다.
+  검색 컴포넌트는 문서 전체에서 하나만 존재해야 하므로, 헤더에서는 제거했습니다.
+  우측 사이드바는 문서의 목차를 담당하며, 기본 동작을 그대로 유지합니다.
+#}
+{% block site_nav %}
+  {% if nav %}
+    {% if page.meta and page.meta.hide %}
+      {% set hidden = "hidden" if "navigation" in page.meta.hide %}
+    {% endif %}
+    <div
+      class="md-sidebar md-sidebar--primary"
+      data-md-component="sidebar"
+      data-md-type="navigation"
+      {{ hidden }}
+    >
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {# 좌측 레일 맨 위의 홈 버튼입니다. 어느 문서에서든 첫 화면으로 돌아옵니다. #}
+          <div class="md-sidebar__brand">
+            <a
+              href="{{ home_url }}"
+              class="md-sidebar__home{% if page and page.is_homepage %} md-sidebar__home--active{% endif %}"
+            >
+              <span class="md-sidebar__home-icon">
+                {% include ".icons/material/home-variant-outline.svg" %}
+              </span>
+              <span class="md-sidebar__home-label">홈</span>
+            </a>
+          </div>
+
+          {% if "material/search" in config.plugins %}
+            {% set search = config.plugins["material/search"] | attr("config") %}
+            {% if search.enabled %}
+              <div class="md-sidebar__search">
+                {% include "partials/search.html" %}
+              </div>
+            {% endif %}
+          {% endif %}
+          {% include "partials/nav.html" %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if "toc.integrate" not in features %}
+    {% if page.meta and page.meta.hide %}
+      {% set hidden = "hidden" if "toc" in page.meta.hide %}
+    {% endif %}
+    <div
+      class="md-sidebar md-sidebar--secondary"
+      data-md-component="sidebar"
+      data-md-type="toc"
+      {{ hidden }}
+    >
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% include "partials/toc.html" %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

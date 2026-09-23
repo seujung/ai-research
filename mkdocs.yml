@@ -1,0 +1,145 @@
+site_name: AI Research
+site_description: AI 트렌드, LLM 서적 정리, 수학 노트를 모아 두는 공간입니다.
+site_author: seujung
+site_url: https://seujung.github.io/ai-research/
+dev_addr: 127.0.0.1:8001
+
+repo_url: https://github.com/seujung/ai-research
+repo_name: seujung/ai-research
+edit_uri: edit/dev/docs/
+
+copyright: Copyright &copy; 2026 seujung
+
+theme:
+  name: material
+  language: ko
+  custom_dir: overrides
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.tooltips
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드로 전환
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드로 전환
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+plugins:
+  - search:
+      lang:
+        - ko
+        - en
+  - blog:
+      blog_dir: trends
+      blog_toc: true
+      post_url_format: "{date}/{slug}"
+      post_url_date_format: yyyy/MM/dd
+      post_date_format: long
+      pagination_per_page: 10
+      authors_file: "{blog}/.authors.yml"
+  - rss:
+      match_path: "trends/posts/.*"
+      date_from_meta:
+        as_creation: "date"
+      categories:
+        - categories
+      
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: 이 위치로 연결되는 링크
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/seujung
+
+nav:
+  - 트렌드:
+      - trends/index.md
+  - 서적:
+      - books/index.md
+      - 신경망 기초:
+          - books/book-of-llms/index.md
+          - 1. 다층 퍼셉트론: books/book-of-llms/01-mlp.md
+          - 2. 활성화 함수: books/book-of-llms/02-activations.md
+          - 3. 그래디언트: books/book-of-llms/03-gradients.md
+          - 4. 역전파: books/book-of-llms/04-backprop.md
+      - Build a LLM from Scratch:
+          - books/build-llm-from-scratch/index.md
+          - 1. 토크나이제이션: books/build-llm-from-scratch/01-tokenization.md
+          - 2. 어텐션: books/build-llm-from-scratch/02-attention.md
+  - 수학:
+      - math/index.md
+      - 선형대수:
+          - math/linear-algebra/index.md
+          - 특이값 분해: math/linear-algebra/svd.md
+      - 확률론:
+          - math/probability/index.md
+      - 최적화:
+          - math/optimization/index.md
