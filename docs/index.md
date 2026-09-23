@@ -26,6 +26,24 @@ hide:
       <time datetime="2026-09-23">2026년 9월 23일</time>
       <span class="entry__cat">서적</span>
     </div>
+    <h3 class="entry__title"><a href="books/book-of-llms/06-learning-rate/">경사 하강법과 학습률</a></h3>
+    <p class="entry__desc">학습률이 정하는 것은 방향이 아니라 보폭 하나뿐입니다. 이차 함수에서 안정 조건을 유도하고, 경계를 넘는 순간 수렴이 어떻게 무너지는지 실제 수치로 확인합니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-09-23">2026년 9월 23일</time>
+      <span class="entry__cat">서적</span>
+    </div>
+    <h3 class="entry__title"><a href="books/book-of-llms/05-loss/">손실 함수</a></h3>
+    <p class="entry__desc">손실 함수는 모델이 무엇을 최적이라고 여길지를 결정합니다. 이상치 하나가 MSE의 최적해를 어디까지 끌고 가는지, 교차 엔트로피가 왜 최대 우도와 같은지를 다룹니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-09-23">2026년 9월 23일</time>
+      <span class="entry__cat">서적</span>
+    </div>
     <h3 class="entry__title"><a href="books/book-of-llms/04-backprop/">역전파</a></h3>
     <p class="entry__desc">연쇄 법칙을 계산 그래프에 적용해 2층 MLP의 미분식을 유도하고, 수치 미분으로 검증한 뒤 XOR을 학습시킵니다. 검증이 실패했던 사례와 그 원인까지 함께 다룹니다.</p>
   </li>
