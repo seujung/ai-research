@@ -13,7 +13,7 @@ tags:
 
 | 책 | 상태 | 정리 |
 | --- | --- | --- |
-| Build a Large Language Model (From Scratch) | 진행 중 | [바로 가기](build-llm-from-scratch/index.md) |
+| 신경망 기초 | 1~7장 정리 | [바로 가기](book-of-llms/index.md) |
 
 ## 새 책을 추가하는 방법
 

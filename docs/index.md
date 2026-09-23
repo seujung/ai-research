@@ -111,23 +111,6 @@ hide:
     <p class="entry__desc">쿨백-라이블러 발산을 교차 엔트로피와 엔트로피로 분해해서, 언어 모델의 손실 함수가 왜 교차 엔트로피인지를 유도합니다.</p>
   </li>
 
-  <li class="entry">
-    <div class="entry__meta">
-      <time datetime="2026-09-23">2026년 9월 23일</time>
-      <span class="entry__cat">서적</span>
-    </div>
-    <h3 class="entry__title"><a href="books/build-llm-from-scratch/02-attention/">어텐션</a></h3>
-    <p class="entry__desc">스케일드 닷 프로덕트 어텐션에서 √d_k 로 나누는 이유를 분산 계산으로 확인하고, 인과적 마스킹의 구현을 살펴봅니다.</p>
-  </li>
-
-  <li class="entry">
-    <div class="entry__meta">
-      <time datetime="2026-09-23">2026년 9월 23일</time>
-      <span class="entry__cat">서적</span>
-    </div>
-    <h3 class="entry__title"><a href="books/build-llm-from-scratch/01-tokenization/">토크나이제이션</a></h3>
-    <p class="entry__desc">바이트 페어 인코딩이 바이트 단위에서 출발하는 이유와, 한국어가 영어보다 토큰을 훨씬 많이 소모하는 현상을 다룹니다.</p>
-  </li>
 
   <li class="entry">
     <div class="entry__meta">
