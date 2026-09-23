@@ -18,8 +18,9 @@ tags:
 - [x] [2. 활성화 함수](02-activations.md)
 - [x] [3. 그래디언트](03-gradients.md)
 - [x] [4. 역전파](04-backprop.md)
-- [x] [5. 손실 함수](05-loss.md)
-- [x] [6. 경사 하강법과 학습률](06-learning-rate.md)
+- [x] [5. 옵티마이저](05-optimizer.md)
+- [x] [6. 손실 함수](06-loss.md)
+- [x] [7. 경사 하강법과 학습률](07-learning-rate.md)
 
 ## 코드 실행 환경
 

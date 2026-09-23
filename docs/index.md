@@ -26,7 +26,16 @@ hide:
       <time datetime="2026-09-23">2026년 9월 23일</time>
       <span class="entry__cat">서적</span>
     </div>
-    <h3 class="entry__title"><a href="books/book-of-llms/06-learning-rate/">경사 하강법과 학습률</a></h3>
+    <h3 class="entry__title"><a href="books/book-of-llms/05-optimizer/">옵티마이저</a></h3>
+    <p class="entry__desc">SGD부터 AdamW까지의 계보를 직접 구현해 비교합니다. RMSProp이 최솟값 근처에서 맴도는 이유, Adam의 편향 보정이 없으면 첫 스텝 보폭이 3배가 되는 현상을 수치로 확인합니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-09-23">2026년 9월 23일</time>
+      <span class="entry__cat">서적</span>
+    </div>
+    <h3 class="entry__title"><a href="books/book-of-llms/07-learning-rate/">경사 하강법과 학습률</a></h3>
     <p class="entry__desc">학습률이 정하는 것은 방향이 아니라 보폭 하나뿐입니다. 이차 함수에서 안정 조건을 유도하고, 경계를 넘는 순간 수렴이 어떻게 무너지는지 실제 수치로 확인합니다.</p>
   </li>
 
@@ -35,7 +44,7 @@ hide:
       <time datetime="2026-09-23">2026년 9월 23일</time>
       <span class="entry__cat">서적</span>
     </div>
-    <h3 class="entry__title"><a href="books/book-of-llms/05-loss/">손실 함수</a></h3>
+    <h3 class="entry__title"><a href="books/book-of-llms/06-loss/">손실 함수</a></h3>
     <p class="entry__desc">손실 함수는 모델이 무엇을 최적이라고 여길지를 결정합니다. 이상치 하나가 MSE의 최적해를 어디까지 끌고 가는지, 교차 엔트로피가 왜 최대 우도와 같은지를 다룹니다.</p>
   </li>
 

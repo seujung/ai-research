@@ -130,8 +130,9 @@ nav:
           - 2. 활성화 함수: books/book-of-llms/02-activations.md
           - 3. 그래디언트: books/book-of-llms/03-gradients.md
           - 4. 역전파: books/book-of-llms/04-backprop.md
-          - 5. 손실 함수: books/book-of-llms/05-loss.md
-          - 6. 경사 하강법과 학습률: books/book-of-llms/06-learning-rate.md
+          - 5. 옵티마이저: books/book-of-llms/05-optimizer.md
+          - 6. 손실 함수: books/book-of-llms/06-loss.md
+          - 7. 경사 하강법과 학습률: books/book-of-llms/07-learning-rate.md
       - Build a LLM from Scratch:
           - books/build-llm-from-scratch/index.md
           - 1. 토크나이제이션: books/build-llm-from-scratch/01-tokenization.md
