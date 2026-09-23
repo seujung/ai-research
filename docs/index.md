@@ -8,7 +8,7 @@ hide:
 
 # AI Research
 
-읽고, 구현하고, 기록합니다. 설명만 적는 대신 실행 가능한 코드와 실제 출력을 함께 싣습니다.
+읽고, 유도하고, 기록합니다. 결론만 적는 대신 수식을 끝까지 따라가고 그림으로 확인합니다.
 
 </div>
 
@@ -27,7 +27,7 @@ hide:
       <span class="entry__cat">서적</span>
     </div>
     <h3 class="entry__title"><a href="books/book-of-llms/05-optimizer/">옵티마이저</a></h3>
-    <p class="entry__desc">SGD부터 AdamW까지의 계보를 직접 구현해 비교합니다. RMSProp이 최솟값 근처에서 맴도는 이유, Adam의 편향 보정이 없으면 첫 스텝 보폭이 3배가 되는 현상을 수치로 확인합니다.</p>
+    <p class="entry__desc">SGD부터 AdamW까지 각 규칙이 푸는 문제와 새로 만드는 문제를 분석합니다. RMSProp이 최솟값 근처에서 맴도는 이유와, Adam의 편향 보정이 없으면 첫 스텝 보폭이 3.16배가 되는 이유를 유도합니다.</p>
   </li>
 
   <li class="entry">
@@ -36,7 +36,7 @@ hide:
       <span class="entry__cat">서적</span>
     </div>
     <h3 class="entry__title"><a href="books/book-of-llms/07-learning-rate/">경사 하강법과 학습률</a></h3>
-    <p class="entry__desc">학습률이 정하는 것은 방향이 아니라 보폭 하나뿐입니다. 이차 함수에서 안정 조건을 유도하고, 경계를 넘는 순간 수렴이 어떻게 무너지는지 실제 수치로 확인합니다.</p>
+    <p class="entry__desc">학습률이 정하는 것은 방향이 아니라 보폭 하나뿐입니다. 안정 조건과 최적 학습률을 유도하고, 미니배치 잡음이 학습률 스케줄을 필요하게 만드는 이유를 계산합니다.</p>
   </li>
 
   <li class="entry">
@@ -45,7 +45,7 @@ hide:
       <span class="entry__cat">서적</span>
     </div>
     <h3 class="entry__title"><a href="books/book-of-llms/06-loss/">손실 함수</a></h3>
-    <p class="entry__desc">손실 함수는 모델이 무엇을 최적이라고 여길지를 결정합니다. 이상치 하나가 MSE의 최적해를 어디까지 끌고 가는지, 교차 엔트로피가 왜 최대 우도와 같은지를 다룹니다.</p>
+    <p class="entry__desc">손실 함수는 모델이 무엇을 최적이라고 여길지를 결정합니다. MSE와 MAE의 최적해가 평균과 중앙값인 이유, 교차 엔트로피와 KL 발산의 관계, 라벨 스무딩의 효과를 유도합니다.</p>
   </li>
 
   <li class="entry">
@@ -54,7 +54,7 @@ hide:
       <span class="entry__cat">서적</span>
     </div>
     <h3 class="entry__title"><a href="books/book-of-llms/04-backprop/">역전파</a></h3>
-    <p class="entry__desc">연쇄 법칙을 계산 그래프에 적용해 2층 MLP의 미분식을 유도하고, 수치 미분으로 검증한 뒤 XOR을 학습시킵니다. 검증이 실패했던 사례와 그 원인까지 함께 다룹니다.</p>
+    <p class="entry__desc">역방향 계산이 효율적인 이유를 비용으로 설명하고 2층 MLP의 그래디언트를 유도합니다. ReLU의 꺾인 점에서 검증이 실패하는 원인과, 선형 분류기가 XOR에서 ln 2 에 멈추는 증명을 다룹니다.</p>
   </li>
 
   <li class="entry">
@@ -63,7 +63,7 @@ hide:
       <span class="entry__cat">서적</span>
     </div>
     <h3 class="entry__title"><a href="books/book-of-llms/03-gradients/">그래디언트</a></h3>
-    <p class="entry__desc">편미분을 민감도로 읽는 관점에서 출발해 그래디언트, 야코비안, 헤시안을 구분합니다. Softmax 야코비안의 각 행의 합이 0인 이유를 계산으로 확인합니다.</p>
+    <p class="entry__desc">미분을 민감도로 읽는 관점에서 출발해 야코비안과 헤시안을 정의하고, 신경망 한 층과 softmax + 교차 엔트로피의 그래디언트를 단계별로 유도합니다.</p>
   </li>
 
   <li class="entry">
@@ -72,7 +72,7 @@ hide:
       <span class="entry__cat">서적</span>
     </div>
     <h3 class="entry__title"><a href="books/book-of-llms/02-activations/">활성화 함수</a></h3>
-    <p class="entry__desc">시그모이드부터 SwiGLU까지의 계보를 따라가면서, 포화 구간에서 기울기가 사라지는 현상과 softmax의 수치 안정성 문제를 실제 출력으로 보여 줍니다.</p>
+    <p class="entry__desc">비선형성이 반드시 필요한 이유를 증명하고, 시그모이드부터 SwiGLU까지 기울기 소실, softmax의 온도와 수치 안정성, 게이트의 작동 방식을 분석합니다.</p>
   </li>
 
   <li class="entry">
@@ -81,7 +81,7 @@ hide:
       <span class="entry__cat">서적</span>
     </div>
     <h3 class="entry__title"><a href="books/book-of-llms/01-mlp/">다층 퍼셉트론</a></h3>
-    <p class="entry__desc">뉴런 하나의 계산에서 시작해 층과 배치로 확장하고, 2층 MLP의 순전파를 따라가면서 텐서의 형태가 어떻게 바뀌는지 확인합니다.</p>
+    <p class="entry__desc">뉴런을 초평면으로 해석하고 층과 배치로 확장합니다. 은닉층이 공간을 접어 XOR을 푸는 과정과, ReLU의 합이 곡선을 근사하는 원리를 따라갑니다.</p>
   </li>
 
   <li class="entry">
