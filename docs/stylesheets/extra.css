@@ -1319,3 +1319,35 @@ body {
     border-radius: var(--r-full);
   }
 }
+
+/* ==========================================================================
+   19. 본문 그림
+   그림은 흰 배경의 PNG이므로, 다크 모드에서도 카드처럼 보이도록 테두리와
+   여백을 두고 캡션은 본문보다 작고 흐리게 처리합니다.
+   ========================================================================== */
+
+.md-typeset figure {
+  margin: 28px 0;
+  max-width: 100%;
+}
+
+.md-typeset figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-xl);
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.md-typeset figcaption {
+  max-width: 100%;
+  margin: 10px 4px 0;
+  font-size: var(--t-sm);
+  line-height: 1.6;
+  font-style: normal;
+  text-align: left;
+  color: var(--text-secondary);
+}
