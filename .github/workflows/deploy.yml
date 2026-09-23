@@ -23,6 +23,13 @@ jobs:
         with:
           fetch-depth: 0          # 문서의 최종 수정일을 git 이력에서 읽기 위해 필요합니다.
 
+      # Pages 기능을 GitHub Actions 소스로 켭니다.
+      # 이 단계가 없으면 저장소 설정에서 수동으로 켜지 않는 한 배포 단계가
+      # 404로 실패합니다. enablement 는 이미 켜져 있어도 문제가 없습니다.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -30,7 +37,7 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - run: mkdocs build --strict
+      - run: mkdocs build --strict --verbose
 
       - uses: actions/upload-pages-artifact@v3
         with:
