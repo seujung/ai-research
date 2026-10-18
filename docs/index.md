@@ -23,6 +23,15 @@ hide:
 
   <li class="entry">
     <div class="entry__meta">
+      <time datetime="2026-10-18">2026년 10월 18일</time>
+      <span class="entry__cat">트렌드</span>
+    </div>
+    <h3 class="entry__title"><a href="trends/2026/10/18/jev-overview/">Jev 시리즈: 글을 쓰지 않는 의사결정 AI</a></h3>
+    <p class="entry__desc">TypeSafe AI의 판단 전용 모델 Jev를 다섯 편으로 정리합니다. Choice, Noul, Score의 응답 구조, 보정과 임계값 설계, 하이브리드와 에이전트 패턴, 한계와 호환 모델까지 다룹니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
       <time datetime="2026-09-23">2026년 9월 23일</time>
       <span class="entry__cat">서적</span>
     </div>
