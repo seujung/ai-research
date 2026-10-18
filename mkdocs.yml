@@ -1,5 +1,5 @@
 site_name: AI Research
-site_description: AI 트렌드, LLM 서적 정리, 수학 노트를 모아 두는 공간입니다.
+site_description: AI 트렌드, 논문 리뷰, AI 교재 정리, 수학 교재 정리를 모아 두는 공간입니다.
 site_author: seujung
 site_url: https://seujung.github.io/ai-research/
 dev_addr: 127.0.0.1:8001
@@ -122,23 +122,58 @@ extra:
 nav:
   - 트렌드:
       - trends/index.md
-  - 서적:
-      - books/index.md
+  - 논문:
+      - papers/index.md
+      - MOPD: papers/2026-mopd.md
+  - AI:
+      - ai/index.md
       - 신경망 기초:
-          - books/book-of-llms/index.md
-          - 1. 다층 퍼셉트론: books/book-of-llms/01-mlp.md
-          - 2. 활성화 함수: books/book-of-llms/02-activations.md
-          - 3. 그래디언트: books/book-of-llms/03-gradients.md
-          - 4. 역전파: books/book-of-llms/04-backprop.md
-          - 5. 옵티마이저: books/book-of-llms/05-optimizer.md
-          - 6. 손실 함수: books/book-of-llms/06-loss.md
-          - 7. 경사 하강법과 학습률: books/book-of-llms/07-learning-rate.md
+          - ai/d2l/index.md
+          - 1. 선형 회귀: ai/d2l/01-linear-regression.md
+          - 2. 선형 분류: ai/d2l/02-linear-classification.md
+          - 3. 다층 퍼셉트론: ai/d2l/03-mlp.md
+          - 4. 합성곱 신경망: ai/d2l/04-cnn.md
+          - 5. 현대 합성곱 신경망: ai/d2l/05-modern-cnn.md
+          - 6. 순환 신경망: ai/d2l/06-rnn.md
+          - 7. 현대 순환 신경망: ai/d2l/07-modern-rnn.md
+          - 8. 어텐션과 트랜스포머: ai/d2l/08-attention-transformer.md
+          - 9. 최적화 알고리즘: ai/d2l/09-optimization.md
   - 수학:
       - math/index.md
       - 선형대수:
           - math/linear-algebra/index.md
-          - 특이값 분해: math/linear-algebra/svd.md
+          - 1. 행렬과 가우스 소거법: math/linear-algebra/01-gaussian-elimination.md
+          - 2. 벡터 공간: math/linear-algebra/02-vector-spaces.md
+          - 3. 직교성: math/linear-algebra/03-orthogonality.md
+          - 4. 행렬식: math/linear-algebra/04-determinants.md
+          - 5. 고유값과 고유벡터: math/linear-algebra/05-eigenvalues.md
+          - 6. 양의 정부호 행렬: math/linear-algebra/06-positive-definite.md
+          - 7. 행렬 계산: math/linear-algebra/07-computations.md
+          - 8. 선형 계획과 게임 이론: math/linear-algebra/08-linear-programming.md
+          - 부록. 공간의 연산과 행렬 분해: math/linear-algebra/09-appendix.md
       - 확률론:
           - math/probability/index.md
-      - 최적화:
-          - math/optimization/index.md
+          - 1. 확률 모형: math/probability/01-probability-models.md
+          - 2. 확률 변수와 분포: math/probability/02-random-variables.md
+          - 3. 기댓값: math/probability/03-expectation.md
+          - 4. 표본 분포와 극한: math/probability/04-sampling-limits.md
+          - 5. 확률 과정: math/probability/05-stochastic-processes.md
+          - 6. 통계적 추론: math/probability/06-statistical-inference.md
+          - 7. 우도 추론: math/probability/07-likelihood-inference.md
+          - 8. 베이즈 추론: math/probability/08-bayesian-inference.md
+          - 9. 최적 추론: math/probability/09-optimal-inferences.md
+          - 10. 모형 검진: math/probability/10-model-checking.md
+          - 11. 변수 사이의 관계: math/probability/11-relationships.md
+      - 볼록 최적화:
+          - math/convex-optimization/index.md
+          - 1. 서론: math/convex-optimization/01-introduction.md
+          - 2. 볼록 집합: math/convex-optimization/02-convex-sets.md
+          - 3. 볼록 함수: math/convex-optimization/03-convex-functions.md
+          - 4. 볼록 최적화 문제: math/convex-optimization/04-convex-problems.md
+          - 5. 쌍대성: math/convex-optimization/05-duality.md
+          - 6. 근사와 피팅: math/convex-optimization/06-approximation.md
+          - 7. 통계적 추정: math/convex-optimization/07-statistical-estimation.md
+          - 8. 기하 문제: math/convex-optimization/08-geometric-problems.md
+          - 9. 제약 없는 최소화: math/convex-optimization/09-unconstrained.md
+          - 10. 등식 제약 최소화: math/convex-optimization/10-equality-constrained.md
+          - 11. 내부점법: math/convex-optimization/11-interior-point.md
