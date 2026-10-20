@@ -29,9 +29,10 @@ tags:
 
 <figure markdown>
 ![동전 던지기의 상대 빈도](images/01-relative-frequency.png)
-<figcaption>
-공정한 동전을 5,000번 던지는 실험을 네 번 반복했습니다. 초반에는 상대 빈도가 크게 흔들립니다.
-던진 횟수가 늘면 네 경로가 모두 0.5 근처로 모입니다. 이 현상의 정확한 의미는 4장의 큰 수의 법칙에서 다룹니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 동전 던지기의 상대 빈도</span>
+
+던진 횟수가 늘면 네 경로의 상대 빈도가 모두 0.5 근처로 모입니다(4장의 큰 수의 법칙).
 </figcaption>
 </figure>
 
@@ -87,9 +88,10 @@ tags:
 
 <figure markdown>
 ![벤 다이어그램](images/01-venn.png)
-<figcaption>
-왼쪽: 두 사건이 만드는 네 영역입니다. $A \cup B$ 는 앞의 세 영역의 서로소 합집합입니다.
-오른쪽: 세 사건의 포함-배제 공식에서 각 영역이 더해지고 빼지는 횟수입니다. 모든 영역의 합이 정확히 1이 됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 벤 다이어그램</span>
+
+두 사건이 만드는 네 영역과, 세 사건의 포함-배제 공식에서 각 영역이 세어지는 횟수입니다.
 </figcaption>
 </figure>
 
@@ -186,9 +188,10 @@ $C = 50$ 이면 0.970입니다. 쌍의 개수 $\binom{C}{2}$ 가 $C^2$ 에 비�
 
 <figure markdown>
 ![이항 계수와 생일 문제](images/01-counting.png)
-<figcaption>
-왼쪽: 공정한 동전 10개에서 앞면이 $k$ 개일 확률 $\binom{10}{k}/2^{10}$ 입니다. 빨간 막대가 예제 1.4.8의 $k = 7$ 입니다.
-오른쪽: 생일 문제의 확률입니다. 23명에서 처음으로 0.5를 넘습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 이항 계수와 생일 문제</span>
+
+앞면 수의 확률 $\binom{10}{k}/2^{10}$ 과 생일 문제의 확률입니다. 생일 문제는 23명에서 처음 0.5를 넘습니다.
 </figcaption>
 </figure>
 
@@ -253,9 +256,10 @@ $A$ 를 "항아리 2 선택", $B$ 를 "파랑 공"이라고 둡니다.
 
 <figure markdown>
 ![예제 1.5.2의 확률 나무](images/01-urn-tree.png)
-<figcaption>
-2단계 시스템을 나무로 그렸습니다. 경로의 확률은 가지의 확률을 곱해서 얻습니다(곱셈 공식).
-파랑으로 끝나는 두 경로를 더하면 $P(B)$ 입니다(전확률 법칙). 그중 항아리 2 경로의 비율이 $P(A \mid B)$ 입니다(베이즈 정리).
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 예제 1.5.2의 확률 나무</span>
+
+가지의 확률을 곱하면 경로 확률(곱셈 공식), 경로를 더하면 $P(B)$(전확률 법칙)입니다.
 </figcaption>
 </figure>
 
@@ -285,8 +289,10 @@ $$
 
 <figure markdown>
 ![몬티 홀 문제 모의실험](images/01-monty-hall.png)
-<figcaption>
-몬티 홀 게임을 3,000번 모의실험한 누적 승률입니다. 처음 선택을 유지하는 전략은 $1/3$ 로, 바꾸는 전략은 $2/3$ 로 수렴합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 몬티 홀 문제 모의실험</span>
+
+누적 승률은 선택을 유지하면 $1/3$, 바꾸면 $2/3$ 로 수렴합니다.
 </figcaption>
 </figure>
 

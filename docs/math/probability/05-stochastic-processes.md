@@ -82,10 +82,10 @@ $E(X_n) = a + n(2p - 1)$ 에서 바로 다음 결론이 나옵니다.
 
 <figure markdown>
 ![단순 랜덤 워크의 경로](images/05-random-walk.png)
-<figcaption>
-$a = 0$ 에서 출발한 경로 6개입니다. 검은 선은 $E(X_n)$, 회색 띠는 $\pm 2$ 표준편차입니다.
-$p = 0.5$ 이면 평균이 0에 머무릅니다. $p = 0.45$ 이면 평균이 기울기 $2p - 1 = -0.1$ 로 내려갑니다.
-두 경우 모두 퍼짐은 $\sqrt{n}$ 에 비례해 커집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 단순 랜덤 워크의 경로</span>
+
+$p = 0.5$ 이면 평균이 0에 머물고, $p = 0.45$ 이면 기울기 $-0.1$ 로 내려갑니다. 퍼짐은 $\sqrt{n}$ 에 비례합니다.
 </figcaption>
 </figure>
 
@@ -133,10 +133,10 @@ $$
 
 <figure markdown>
 ![도박꾼의 파산 확률](images/05-gamblers-ruin.png)
-<figcaption>
-초기 재산 $a$ 에 따른 성공 확률 $P(\tau_c < \tau_0)$ 입니다. $p = 1/2$ 이면 직선 $a/c$ 입니다.
-$c = 1000$ 이면 $p$ 가 0.5에서 0.001만 벗어나도 곡선이 크게 휩니다.
-$p = 0.49$ 이면 목표 근처에서 출발하지 않는 한 성공 확률이 거의 0입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 도박꾼의 파산 확률</span>
+
+$p = 1/2$ 이면 성공 확률은 직선 $a/c$ 입니다. $p$ 가 0.5에서 조금만 벗어나도 곡선이 크게 휩니다.
 </figcaption>
 </figure>
 
@@ -312,10 +312,10 @@ $$
 
 <figure markdown>
 ![마르코프 체인의 전이 그래프와 분포의 수렴](images/05-markov-convergence.png)
-<figcaption>
-왼쪽: 예제 11.2.1 체인의 전이 그래프입니다. 상태 1에는 자기 자신으로 가는 화살표가 없습니다($p_{11} = 0$).
-오른쪽: 세 시작 상태 각각에서 $\mu^{(n)} = \mu^{(0)} P^n$ 을 그렸습니다. 모든 $p_{ij}$ 가 양수는 아니지만 체인은 기약이고 비주기적입니다.
-10단계 안에 세 곡선이 모두 정상 분포 $\pi = (2/9, 1/3, 4/9)$ 로 모입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 마르코프 체인의 전이 그래프와 분포의 수렴</span>
+
+세 시작 상태 모두 10단계 안에 정상 분포 $\pi = (2/9, 1/3, 4/9)$ 로 모입니다.
 </figcaption>
 </figure>
 
@@ -390,11 +390,10 @@ $$
 
 <figure markdown>
 ![메트로폴리스-헤이스팅스와 깁스 표집기](images/05-metropolis-gibbs.png)
-<figcaption>
-왼쪽: 예제 11.3.5의 체인을 $X_0 = 3$ 에서 시작했습니다. 처음 몇 단계 동안 확률이 큰 영역으로 내려옵니다(번인).
-거절되면 같은 값이 이어지므로 궤적에 평평한 구간이 생깁니다. 수락 비율은 약 55%입니다.
-가운데: 처음 500개를 버린 표본 19,500개의 히스토그램과 정규화한 목표 밀도입니다. 두 봉우리가 모두 재현됩니다.
-오른쪽: 상관계수 0.8인 이변량 정규 분포에서 깁스 표집기의 경로입니다. 이동은 축에 평행한 선분으로만 이루어집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 메트로폴리스-헤이스팅스와 깁스 표집기</span>
+
+메트로폴리스-헤이스팅스 표본이 두 봉우리를 모두 재현합니다(수락 비율 약 55%). 깁스 표집기는 축에 평행하게만 움직입니다.
 </figcaption>
 </figure>
 
@@ -508,9 +507,10 @@ $M \to \infty$ 일 때 $Y^{(M)}$ 의 분포의 극한을 **브라운 운동**(Br
 
 <figure markdown>
 ![빨라지는 랜덤 워크와 브라운 운동](images/05-brownian-limit.png)
-<figcaption>
-왼쪽: $M = 5, 50, 10000$ 인 $Y^{(M)}_t$ 경로입니다. $M$ 이 커질수록 꺾임이 촘촘해져 브라운 운동처럼 보입니다.
-오른쪽: $M = 400$ 일 때 $Y^{(400)}_1$ 의 표본 20,000개와 $N(0, 1)$ 밀도입니다. 중심 극한 정리가 $B_1 \sim N(0, 1)$ 의 근거입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 빨라지는 랜덤 워크와 브라운 운동</span>
+
+$M$ 이 커질수록 랜덤 워크가 브라운 운동처럼 보이고, $Y^{(400)}_1$ 의 분포는 $N(0, 1)$ 과 일치합니다.
 </figcaption>
 </figure>
 
@@ -569,9 +569,10 @@ $T_n$ 은 $n$ 번째 사건의 시각이고, $N_t$ 는 시각 $t$ 까지 일어�
 
 <figure markdown>
 ![포아송 과정의 경로와 N_3 의 분포](images/05-poisson-process.png)
-<figcaption>
-왼쪽: 강도 $a = 2$ 인 포아송 과정의 경로 세 개입니다. 각 경로는 사건 시각 $T_n$(아래 눈금)마다 1씩 오르는 계단 함수입니다.
-점선은 평균 $E(N_t) = at$ 입니다. 오른쪽: 지수 간격으로 만든 $N_3$ 의 모의실험 분포가 $\text{Poisson}(6)$ 과 일치합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> 포아송 과정의 경로와 N_3 의 분포</span>
+
+포아송 과정의 경로는 사건마다 1씩 오르는 계단입니다. 모의실험한 $N_3$ 의 분포가 $\text{Poisson}(6)$ 과 일치합니다.
 </figcaption>
 </figure>
 

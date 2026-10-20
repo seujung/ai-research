@@ -37,11 +37,11 @@ Jev API는 엔드포인트 하나(`POST /v1/systemone`)로 동작합니다.
 
 ```mermaid
 flowchart LR
-    S["state<br/>(문자열, JSON 객체, 텍스트 배열)"] --> J
-    Q["questions<br/>{이름: Choice | Noul | Score}"] --> J
-    J(("Jev<br/>jev-1.13.0")) --> A1["choices[이름]<br/>choice, probabilities, confidence"]
-    J --> A2["nouls[이름]<br/>noul"]
-    J --> A3["scores[이름]<br/>score, probabilities, confidence, legend"]
+    S("state<br/>(문자열, JSON 객체, 텍스트 배열)") --> J
+    Q("questions<br/>{이름: Choice | Noul | Score}") --> J
+    J(("Jev<br/>jev-1.13.0")) --> A1("choices[이름]<br/>choice, probabilities, confidence")
+    J --> A2("nouls[이름]<br/>noul")
+    J --> A3("scores[이름]<br/>score, probabilities, confidence, legend")
 ```
 
 Python SDK(`typesafe-sdk`)로 쓰면 다음과 같습니다.
@@ -199,11 +199,11 @@ Noul 값은 그대로 `if` 문의 조건이 됩니다. 예제 코드는 0.5 하�
 
 ```mermaid
 flowchart LR
-    N["noul 값"] --> A{"≥ 0.9 ?"}
-    A -- 예 --> AUTO["자동 처리"]
+    N("noul 값") --> A{"≥ 0.9 ?"}
+    A -- 예 --> AUTO("자동 처리")
     A -- 아니요 --> B{"≥ 0.5 ?"}
-    B -- 예 --> HUMAN["사람이 확인<br/>(이 구간을 버리지 않습니다)"]
-    B -- 아니요 --> NO["환불 건 아님"]
+    B -- 예 --> HUMAN("사람이 확인<br/>(이 구간을 버리지 않습니다)")
+    B -- 아니요 --> NO("환불 건 아님")
 ```
 
 임계값 0.9와 0.5는 예시 값입니다. 실제 값은 시리즈 3편의 Risk-Coverage 측정으로 정합니다.
@@ -235,10 +235,10 @@ assert abs(expected - s.score) < 0.02
 
 <figure markdown>
 ![Score 기대값과 분포 모양](images/jev-score-expectation.png)
-<figcaption>
-왼쪽은 "약간 불만"과 "화남"에 확률이 모인 경우이고, 오른쪽은 "차분함"과 "매우 화남"으로 갈라진 경우입니다.
-두 경우 모두 score는 약 1.5입니다. 오른쪽을 반올림해 "화남"으로 처리하면 실제 분포를 크게 잘못 읽습니다.
-(설명을 위해 만든 예시 값입니다.)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> Score 기대값과 분포 모양</span>
+
+설명을 위해 만든 예시입니다. 두 분포 모두 score는 약 1.5이므로, 반올림만 보면 갈라진 분포를 잘못 읽습니다.
 </figcaption>
 </figure>
 

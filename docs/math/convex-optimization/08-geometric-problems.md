@@ -107,11 +107,10 @@ $C$ 가 원점에 대해 대칭이면 배율 $n$ 을 $\sqrt{n}$ 으로 줄일 �
 
 <figure markdown>
 ![극값 부피 타원체와 세 가지 중심](images/08-ellipsoids-centers.png)
-<figcaption>
-왼쪽: 여섯 꼭짓점을 감싸는 Löwner-John 타원체(빨강)와 다각형 안의 최대 부피 내접 타원체(파랑)입니다.
-Löwner-John 타원체를 1/n = 1/2 로 축소한 점선 타원은 다각형 안에 들어갑니다. 오른쪽: 같은 다각형의 세 가지 중심입니다.
-Chebyshev 중심은 가장 큰 내접 원의 중심이라 다각형의 넓은 오른쪽으로 치우칩니다. analytic center와 최대 부피
-내접 타원체의 중심은 서로 가깝습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 극값 부피 타원체와 세 가지 중심</span>
+
+Löwner-John 타원체를 1/n 로 줄이면 다각형 안에 들어갑니다. Chebyshev 중심은 넓은 오른쪽으로 치우칩니다.
 </figcaption>
 </figure>
 
@@ -205,10 +204,10 @@ $\gamma$ 는 마진의 역수 $\|a\|_2$ 와 분류 오류의 합 사이의 trade
 
 <figure markdown>
 ![최대 마진 분리와 support vector 분류기](images/08-svm.png)
-<figcaption>
-왼쪽: 분리 가능한 두 집합의 최대 마진 초평면(실선)과 두 경계(점선)입니다. 마진은 두 점선 사이의 거리입니다.
-오른쪽: 반대편으로 넘어간 점 세 개를 더해 분리 불가능하게 만든 뒤 support vector 분류기를 풀었습니다. 동그라미 친
-점은 slack 변수가 양수인 점, 즉 경계 안쪽이나 반대편에 있는 점입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 최대 마진 분리와 support vector 분류기</span>
+
+왼쪽은 최대 마진 초평면입니다. 오른쪽 support vector 분류기에서 동그라미 친 점은 slack 변수가 양수인 점입니다.
 </figcaption>
 </figure>
 
@@ -246,9 +245,10 @@ $h$ 가 볼록이고 비감소이면 $h(\|x_i - x_j\|_2)$ 는 볼록 함수의 �
 
 <figure markdown>
 ![배치 문제와 간선 길이 분포](images/08-placement.png)
-<figcaption>
-고정점 8개와 자유점 6개를 간선 27개로 연결하고 세 가지 h 로 풀었습니다. h(z) = z 에서는 자유점 6개가 한 점에 모여
-간선 10개의 길이가 0입니다. 차수가 높아질수록 짧은 간선이 길어지고 가장 긴 간선은 1.64 → 1.48 → 1.46 으로 줄어듭니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 배치 문제와 간선 길이 분포</span>
+
+h(z) = z 에서는 자유점이 한 점에 모입니다. 차수가 높을수록 가장 긴 간선이 1.64 → 1.46 으로 줄어듭니다.
 </figcaption>
 </figure>
 

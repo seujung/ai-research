@@ -104,11 +104,10 @@ $\phi$ 가 볼록이면 이 문제도 볼록입니다. $\phi(u) = u^2$ 이면 $\
 
 <figure markdown>
 ![페널티 함수와 잔차 분포](images/06-penalty-histograms.png)
-<figcaption>
-같은 무작위 문제(A 는 100×30)를 네 가지 페널티로 푼 결과입니다. 절댓값 페널티는 잔차 30개를 정확히 0으로
-만듭니다. 이 수는 변수 개수 n = 30 과 같습니다. LP의 최적 꼭짓점에서 활성 제약이 n 개이기 때문입니다.
-제곱 페널티는 잔차가 넓고 고르게 퍼집니다. deadzone은 잔차를 폭 0.25 경계 근처로 몰고, log barrier는
-모든 잔차를 |u| < 1 안에 가둡니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 페널티 함수와 잔차 분포</span>
+
+같은 문제를 네 페널티로 푼 잔차 분포입니다. 절댓값 페널티는 잔차 30개(변수 개수 n)를 정확히 0으로 만듭니다.
 </figcaption>
 </figure>
 
@@ -130,9 +129,10 @@ $|u| = M$ 에서 값($M^2$)과 기울기($2M$)가 모두 이어지므로 미분 
 
 <figure markdown>
 ![Huber 피팅과 최소 제곱 피팅](images/06-huber-fit.png)
-<figcaption>
-참 직선 y = 1 + 0.5t 에서 만든 점 42개에 이상치 두 개를 넣었습니다. 최소 제곱 직선은 두 이상치 쪽으로
-기울어져 기울기가 0.27 로 줄어듭니다. Huber 직선의 기울기는 0.49 로 참값 0.50 에 가깝습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> Huber 피팅과 최소 제곱 피팅</span>
+
+이상치 두 개 때문에 최소 제곱 기울기는 0.27 로 줄지만, Huber 기울기는 0.49 로 참값 0.50 에 가깝습니다.
 </figcaption>
 </figure>
 
@@ -232,10 +232,10 @@ $$
 
 <figure markdown>
 ![이차 평활화와 total variation 평활화](images/06-smoothing.png)
-<figcaption>
-계단과 완만한 기울기가 섞인 신호에 잡음을 더하고 두 방법으로 복원했습니다. 이차 평활화는 잡음을 줄이지만
-두 계단을 경사로 뭉갭니다. total variation 평활화는 계단을 날카롭게 보존하는 대신 완만한 구간을 작은 계단 여러 개로
-근사합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 이차 평활화와 total variation 평활화</span>
+
+이차 평활화는 계단을 경사로 뭉갭니다. total variation 평활화는 계단을 보존하지만 완만한 구간을 작은 계단으로 근사합니다.
 </figcaption>
 </figure>
 

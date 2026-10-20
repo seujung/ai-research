@@ -84,9 +84,10 @@ $c^*$ 의 편향 $-2\sigma^2/(n+1)$ 은 $n \to \infty$ 에서 0으로 갑니다.
 
 <figure markdown>
 ![평균 제곱 오차의 편향-분산 분해](images/09-bias-variance.png)
-<figcaption>
-왼쪽: $n = 10$ 에서 $c\,s^2$ 의 MSE를 편향의 제곱과 분산으로 나눴습니다. 최솟점은 $c^* = 9/11$ 이고,
-불편 추정량($c = 1$)보다 왼쪽에 있습니다. 오른쪽: 세 추정량의 MSE를 $n$ 에 따라 그렸습니다(로그 축). 차이는 $n$ 이 작을 때 큽니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 평균 제곱 오차의 편향-분산 분해</span>
+
+MSE를 최소로 하는 $c^* = 9/11$ 은 불편 추정량($c = 1$)보다 작습니다. 추정량 사이의 차이는 $n$ 이 작을 때 큽니다.
 </figcaption>
 </figure>
 
@@ -216,9 +217,10 @@ $n = 10$ 으로 10만 번 모의실험한 분산은 0.0232와 0.0142였고, 이�
 
 <figure markdown>
 ![라오-블랙웰화와 크라메르-라오 하한](images/09-rao-blackwell.png)
-<figcaption>
-왼쪽: $\lambda = 1$, $n = 10$ 에서 $e^{-1}$ 을 추정한 값의 분포입니다. 표본 비율(회색)은 0.1 간격의 값만 가집니다.
-라오-블랙웰화한 추정량(파랑)은 참값 근처에 더 모입니다. 오른쪽: 두 추정량의 분산과 크라메르-라오 하한입니다(로그 축).
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 라오-블랙웰화와 크라메르-라오 하한</span>
+
+라오-블랙웰화한 추정량은 표본 비율보다 참값 근처에 더 모이고, 분산이 크라메르-라오 하한에 가깝습니다.
 </figcaption>
 </figure>
 
@@ -292,9 +294,10 @@ $\bar x$ 가 연속 분포이므로 $\gamma = 0$ 이고, 랜덤화가 필요 없
 
 <figure markdown>
 ![네이만-피어슨 검정의 두 오류](images/09-neyman-pearson.png)
-<figcaption>
-$\bar X$ 의 두 밀도와 기각역 $\bar x \ge 0.822$ 입니다. 파란 넓이는 제1종 오류 확률 0.05이고, 빨간 넓이는 제2종 오류 확률 0.361입니다.
-기각역을 오른쪽으로 옮기면 파란 넓이는 줄고 빨간 넓이는 늘어납니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 네이만-피어슨 검정의 두 오류</span>
+
+기각역을 오른쪽으로 옮기면 제1종 오류(0.05)는 줄고 제2종 오류(0.361)는 늘어납니다.
 </figcaption>
 </figure>
 
@@ -338,9 +341,10 @@ $n\bar X$ 가 이산 분포이므로 크기를 정확히 맞추려면 경계에�
 
 <figure markdown>
 ![검정력 함수의 비교](images/09-power.png)
-<figcaption>
-왼쪽: 정규 위치 모형에서 단측 UMP 검정과 양측 검정의 검정력 함수입니다. 오른쪽 대립가설에서는 단측 검정이 늘 더 강합니다.
-대신 왼쪽 대립가설은 전혀 잡지 못합니다. 오른쪽: 베르누이 모형에서 랜덤화하지 않은 두 검정(크기 0.169와 0.038)과 랜덤화 UMP 검정(크기 0.05)입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 검정력 함수의 비교</span>
+
+단측 UMP 검정은 오른쪽 대립가설에서 늘 더 강하지만 왼쪽은 잡지 못합니다. 이산 모형에서는 랜덤화해야 크기 0.05를 맞춥니다.
 </figcaption>
 </figure>
 
@@ -475,10 +479,10 @@ $$
 
 <figure markdown>
 ![항아리 문제의 위험 집합](images/09-risk-set.png)
-<figcaption>
-규칙 $d_k$ 의 위험을 $(R(1), R(2))$ 평면에 찍었습니다. 랜덤화한 규칙은 이웃한 점을 잇는 선분 위에 놓입니다.
-빨간 점선은 사전 위험이 같은 선이고, 이 선이 처음 닿는 점 $k = 2$ 가 베이즈 규칙입니다.
-초록 사각형은 대각선 $R(1) = R(2)$ 과 만나는 점이며, 최대 위험이 가장 작은 미니맥스 규칙입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 항아리 문제의 위험 집합</span>
+
+사전 위험 직선이 처음 닿는 $k = 2$ 가 베이즈 규칙이고, 대각선과 만나는 점이 미니맥스 규칙입니다.
 </figcaption>
 </figure>
 

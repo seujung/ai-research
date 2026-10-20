@@ -72,10 +72,10 @@ $\phi(z) = -\log p(z)$ 로 둔 것과 같습니다. **페널티 함수는 잡음
 
 <figure markdown>
 ![잡음 밀도와 페널티 함수](images/07-noise-penalty.png)
-<figcaption>
-왼쪽: 세 가지 잡음 밀도입니다. 오른쪽: 각 밀도의 음의 로그를 z = 0 에서 0이 되게 옮긴 것입니다.
-꼬리가 두꺼운 Laplace 분포는 선형 페널티를, 꼬리가 얇은 Gaussian 분포는 이차 페널티를 줍니다.
-균등 분포는 허용 범위 밖을 무한대로 막는 제약이 됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 잡음 밀도와 페널티 함수</span>
+
+잡음 밀도의 음의 로그가 페널티입니다. Laplace는 선형, Gaussian은 이차, 균등 분포는 제약이 됩니다.
 </figcaption>
 </figure>
 
@@ -107,10 +107,10 @@ $-l(a, b)$ 는 딥러닝에서 쓰는 **이진 교차 엔트로피(binary cross-
 
 <figure markdown>
 ![로지스틱 회귀의 최대우도 추정](images/07-logistic.png)
-<figcaption>
-n = 1, m = 50 인 예입니다. 원은 관측값이고, 파란 곡선은 최대우도 추정으로 얻은 확률 모델입니다.
-점선은 데이터를 만든 참 모델입니다. 관측이 50개뿐이라 추정이 참값과 조금 다르지만, 최적화 문제 자체는
-전역 최적 해가 보장됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 로지스틱 회귀의 최대우도 추정</span>
+
+관측 50개로 얻은 최대우도 모델(파랑)은 참 모델(점선)과 조금 다르지만, 전역 최적 해가 보장됩니다.
 </figcaption>
 </figure>
 
@@ -293,9 +293,10 @@ $\{x \mid x^\top W x \le 1\}$ 은 원점을 중심으로 모든 시험 벡터를
 
 <figure markdown>
 ![D-최적 실험 설계](images/07-d-optimal.png)
-<figcaption>
-R² 에서 후보 시험 벡터 20개로 D-최적 설계를 풀었습니다. 최적 설계는 세 벡터만 씁니다(λ = 0.50, 0.46, 0.04).
-세 벡터는 모두 쌍대 해가 정의하는 최소 부피 타원 위에 있습니다. 경계 안쪽의 벡터는 λ = 0 입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> D-최적 실험 설계</span>
+
+후보 20개 중 최적 설계는 세 벡터만 씁니다. 세 벡터는 모두 최소 부피 타원 위에 있습니다.
 </figcaption>
 </figure>
 

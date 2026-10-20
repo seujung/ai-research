@@ -54,9 +54,10 @@ $$
 
 <figure markdown>
 ![볼록 집합, 볼록이 아닌 집합, 볼록 껍질](images/02-convex-sets.png)
-<figcaption>
-왼쪽의 육각형은 어떤 두 점을 이어도 선분이 안에 있습니다. 가운데 집합은 오목한 부분 때문에
-선분이 밖으로 나갑니다. 오른쪽은 점 14개의 볼록 껍질이고, 꼭짓점은 그중 5개뿐입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 볼록 집합, 볼록이 아닌 집합, 볼록 껍질</span>
+
+볼록 집합은 두 점을 이은 선분이 항상 안에 있습니다. 오른쪽 볼록 껍질의 꼭짓점은 점 14개 중 5개뿐입니다.
 </figcaption>
 </figure>
 
@@ -141,9 +142,10 @@ $x \ge 0$, $z \ge 0$, $xz \ge y^2$ 입니다.
 
 <figure markdown>
 ![2×2 PSD 원뿔의 경계](images/02-psd-cone.png)
-<figcaption>
-2×2 대칭 행렬을 (x, y, z) 로 놓았을 때 PSD 원뿔의 경계 xz = y² 입니다. 원점을 꼭짓점으로 하는 원뿔이고,
-안쪽(x + z 축 방향)이 PSD 행렬의 영역입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 2×2 PSD 원뿔의 경계</span>
+
+2×2 대칭 행렬의 PSD 원뿔 경계 xz = y² 입니다. 원뿔 안쪽이 PSD 행렬의 영역입니다.
 </figcaption>
 </figure>
 
@@ -262,9 +264,10 @@ $d$ 가 가장 가까운 점이라는 가정과 모순입니다. $C$ 쪽도 같�
 
 <figure markdown>
 ![분리 초평면과 지지 초평면](images/02-hyperplanes.png)
-<figcaption>
-왼쪽: 서로소인 두 볼록 집합 C, D 사이를 초평면이 가릅니다. 오른쪽: 볼록 집합의 경계점마다
-집합 전체를 한쪽에 두는 지지 초평면이 있습니다. 화살표는 법선 벡터 a 입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 분리 초평면과 지지 초평면</span>
+
+서로소인 두 볼록 집합은 초평면으로 나뉩니다. 볼록 집합의 경계점마다 지지 초평면이 있습니다.
 </figcaption>
 </figure>
 

@@ -80,9 +80,10 @@ $$
 
 <figure markdown>
 ![베타 사전 분포의 갱신](images/08-beta-update.png)
-<figcaption>
-왼쪽: 균등 사전 분포가 데이터 40개로 Beta(11, 31)이 됩니다. 오른쪽: 참값 θ = 0.3에서 표본을 늘리면 사후 분포가 참값 주변으로 좁아집니다.
-사후 분포의 일치성을 보여 줍니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 베타 사전 분포의 갱신</span>
+
+균등 사전 분포가 데이터 40개로 Beta(11, 31)이 됩니다. 표본이 늘면 사후 분포가 참값 주변으로 좁아집니다.
 </figcaption>
 </figure>
 
@@ -109,9 +110,10 @@ $$
 
 <figure markdown>
 ![정규-정규 모형의 축소](images/08-normal-shrinkage.png)
-<figcaption>
-왼쪽: 예제 7.1.2의 사전 분포, 정규화한 가능도, 사후 분포입니다. 오른쪽: 표본 평균의 가중치 nτ₀²/(nτ₀² + σ₀²)입니다.
-사전 분포가 좁을수록(τ₀² 이 작을수록) 표본이 많아야 데이터가 사전 분포를 이깁니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 정규-정규 모형의 축소</span>
+
+표본 평균의 가중치는 nτ₀²/(nτ₀² + σ₀²)입니다. 사전 분포가 좁을수록 표본이 많아야 데이터가 사전 분포를 이깁니다.
 </figcaption>
 </figure>
 
@@ -197,9 +199,10 @@ $\tau_0^2 \to \infty$ 이면 이 구간은 $\bar x \pm z_{(1+\gamma)/2}\, \sigma
 
 <figure markdown>
 ![HPD 구간과 등꼬리 구간](images/08-hpd.png)
-<figcaption>
-치우친 사후 분포 Beta(2, 9)의 95% 구간입니다. HPD 구간은 밀도가 수평선 c 위에 있는 영역이고, 길이가 0.391입니다.
-양 꼬리에 2.5%씩 남기는 등꼬리 구간은 길이가 0.420입니다. 분포가 대칭이면 두 구간이 같습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> HPD 구간과 등꼬리 구간</span>
+
+치우친 분포에서는 HPD 구간(길이 0.391)이 등꼬리 구간(0.420)보다 짧습니다.
 </figcaption>
 </figure>
 
@@ -252,9 +255,10 @@ $$
 
 <figure markdown>
 ![베이즈 인자](images/08-bayes-factor.png)
-<figcaption>
-왼쪽: 예제 7.2.13의 설정에서 표본 평균에 따른 베이즈 인자(로그 축)와 H₀ 의 사후 확률입니다. 오른쪽: 표본 평균을 고정하고 사전 분산 τ₀² 을 키우면
-베이즈 인자가 계속 커집니다. 대립 가설의 사전 분포가 너무 퍼지면 데이터가 무엇이든 H₀ 가 이깁니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 베이즈 인자</span>
+
+사전 분산 τ₀² 을 키우면 베이즈 인자가 계속 커집니다. 대립 가설의 사전 분포가 너무 퍼지면 H₀ 가 이깁니다.
 </figcaption>
 </figure>
 
@@ -358,9 +362,10 @@ $10^5$ 번 다시 반복하면 $0.540$, 배칭 표준 오차 $0.0022$ 입니다.
 
 <figure markdown>
 ![몬테카를로와 깁스 표집](images/08-monte-carlo-gibbs.png)
-<figcaption>
-왼쪽: 예제 7.3.1의 결합 사후 분포에서 직접 뽑은 (μ, σ²) 200개입니다. 가운데: ψ = σ/μ 의 사후 분포입니다. 파란 막대는 정규 모형, 빨간 선은 t(3) 모형의 깁스 표본입니다.
-오른쪽: 깁스 표본 ψ 의 처음 400개 자취입니다. 체인이 빠르게 섞이지만 큰 값이 가끔 튀어나옵니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 몬테카를로와 깁스 표집</span>
+
+직접 뽑은 사후 표본과 깁스 표본으로 ψ = σ/μ 의 사후 분포를 구합니다. 체인은 빠르게 섞이지만 큰 값이 가끔 튑니다.
 </figcaption>
 </figure>
 
@@ -407,9 +412,10 @@ $n = 20$, $n\bar x = 5$ 이면 $\lambda \approx 2.32$ 에서 최대가 되고, �
 
 <figure markdown>
 ![경험적 베이즈](images/08-empirical-bayes.png)
-<figcaption>
-왼쪽: 예제 7.4.3의 사전 예측 분포를 λ 의 함수로 그렸습니다. 오른쪽: 선택한 사전 분포와 그 사후 분포입니다.
-균등 사전 분포의 사후 분포 Beta(6, 16)보다 1/2 쪽으로 조금 당겨집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> 경험적 베이즈</span>
+
+사전 예측 분포로 λ 를 고른 경험적 베이즈의 사후 분포는 Beta(6, 16)보다 1/2 쪽으로 조금 당겨집니다.
 </figcaption>
 </figure>
 

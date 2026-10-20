@@ -24,6 +24,42 @@ hide:
 
   <li class="entry">
     <div class="entry__meta">
+      <time datetime="2026-10-20">2026년 10월 20일</time>
+      <span class="entry__cat">트렌드</span>
+    </div>
+    <h3 class="entry__title"><a href="trends/category/llm-model/">LLM Model: Gemma, DeepSeek, Qwen, GLM, Kimi</a></h3>
+    <p class="entry__desc">다섯 오픈 모델 계열의 세대별 크기, 문맥, 학습 방법, 아키텍처를 정리합니다. 각 구성 요소는 AI 섹션의 해당 장으로 연결합니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-10-20">2026년 10월 20일</time>
+      <span class="entry__cat">AI</span>
+    </div>
+    <h3 class="entry__title"><a href="ai/attention/">어텐션 메커니즘</a></h3>
+    <p class="entry__desc">스케일드 내적, 멀티헤드, MQA·GQA, 슬라이딩 창, MLA, 희소 어텐션(DSA·IndexShare), 선형 어텐션(Gated DeltaNet, KDA), 어텐션 싱크와 게이트를 9개 장에서 작동 원리, 손계산 예시, 그림으로 설명합니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-10-20">2026년 10월 20일</time>
+      <span class="entry__cat">AI</span>
+    </div>
+    <h3 class="entry__title"><a href="ai/llm-techniques/">LLM 핵심 기법</a></h3>
+    <p class="entry__desc">RoPE, 긴 문맥 확장(YaRN 등), 정규화와 로짓 안정화(QK-Norm 등), 옵티마이저(Adam, AdamW, Muon), 전문가 혼합(MoE), 멀티 토큰 예측(MTP), Prefill과 Decode를 7개 장으로 정리합니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-10-20">2026년 10월 20일</time>
+      <span class="entry__cat">AI</span>
+    </div>
+    <h3 class="entry__title"><a href="ai/rl/">강화 학습</a></h3>
+    <p class="entry__desc">Sutton과 Barto의 Reinforcement Learning: An Introduction 2판을 13개 장으로 정리합니다. 밴딧과 MDP, 동적 계획법, 몬테카를로, 시간차 학습, 함수 근사, 정책 그래디언트를 원문 예제의 재현 실험으로 따라갑니다. 책 밖의 LLM 후속 학습 방법인 RLHF, DPO, GRPO, GSPO도 두 장으로 덧붙입니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
       <time datetime="2026-10-18">2026년 10월 18일</time>
       <span class="entry__cat">수학</span>
     </div>

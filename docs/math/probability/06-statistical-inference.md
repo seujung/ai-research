@@ -46,9 +46,10 @@ $f_T$ 와 $f_C$ 를 알면 평균 수명을 비교하면 됩니다. 문제는 �
 
 <figure markdown>
 ![스탠퍼드 심장 이식 연구의 생존 시간](images/06-heart-transplant.png)
-<figcaption>
-교재 표 5.1, 5.2의 생존 일수입니다. 이식군은 대기 일수와 이식 후 생존 일수를 더했습니다.
-빈 원은 연구 종료 시 살아 있던 환자입니다. 이 환자의 실제 생존 시간은 표시된 값보다 깁니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 스탠퍼드 심장 이식 연구의 생존 시간</span>
+
+두 군의 생존 일수입니다. 빈 원은 연구 종료 시 살아 있던 환자로, 실제 생존 시간은 표시된 값보다 깁니다.
 </figcaption>
 </figure>
 
@@ -113,9 +114,10 @@ $$
 
 <figure markdown>
 ![지수 분포를 쓰는 세 가지 추론](images/06-prediction-exponential.png)
-<figcaption>
-왼쪽: 새 기계의 수명 분포입니다. 예측값, 최단 95% 구간, 5년 이후의 꼬리 확률을 표시했습니다.
-오른쪽: 1년을 버틴 기계의 조건부 분포입니다. 분포 전체가 1만큼 오른쪽으로 옮겨 갑니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 지수 분포를 쓰는 세 가지 추론</span>
+
+새 기계의 수명 분포에서 예측값, 95% 구간, 꼬리 확률을 구합니다. 1년을 버티면 분포 전체가 1만큼 옮겨 갑니다.
 </figcaption>
 </figure>
 
@@ -290,9 +292,10 @@ $$
 
 <figure markdown>
 ![구간 폭에 따른 밀도 히스토그램](images/06-histogram-bins.png)
-<figcaption>
-같은 $N(0,1)$ 표본 10,000개로 그린 밀도 히스토그램입니다. 구간이 좁을수록 히스토그램이 정규 밀도에 가까워집니다.
-구간을 너무 좁히면 구간마다 표본이 적어져 높이가 들쭉날쭉해집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 구간 폭에 따른 밀도 히스토그램</span>
+
+구간이 좁을수록 정규 밀도에 가까워지지만, 너무 좁히면 높이가 들쭉날쭉해집니다.
 </figcaption>
 </figure>
 
@@ -391,9 +394,10 @@ $x_{(10)} = 5.0$ 을 $15.0$ 으로 바꾸면 15.0이 상한 밖에 있으므로 
 
 <figure markdown>
 ![경험적 분포 함수와 상자 그림](images/06-ecdf-boxplot.png)
-<figcaption>
-왼쪽: 예 5.5.1의 경험적 분포 함수입니다. 계단마다 높이가 $1/10$ 만큼 올라갑니다. 주황색 선은 식 5.5.3으로 구한 표본 사분위수입니다.
-오른쪽: 같은 자료의 상자 그림입니다. 가장 큰 값을 15로 바꾸면 그 값이 이상치로 표시되고, 위쪽 수염이 다음 값 4.0에서 끝납니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 경험적 분포 함수와 상자 그림</span>
+
+경험적 분포 함수는 계단마다 $1/10$ 씩 오릅니다. 가장 큰 값을 15로 바꾸면 상자 그림에서 이상치로 표시됩니다.
 </figcaption>
 </figure>
 
@@ -429,9 +433,10 @@ $x_{(10)} = 5.0$ 을 $15.0$ 으로 바꾸면 15.0이 상한 밖에 있으므로 
 
 <figure markdown>
 ![학생 30명의 키와 세 가지 추론](images/06-height-inference.png)
-<figcaption>
-왼쪽: 59.5부터 71.5까지 같은 길이의 구간 12개로 그린 밀도 히스토그램에 적합한 정규 밀도를 겹쳤습니다(교재 그림 5.5.7).
-오른쪽: 평균 키에 대한 추정값, 0.95 신뢰 구간, 가설 값 $\mu_0 = 65$ 를 한 축에 그렸습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 학생 30명의 키와 세 가지 추론</span>
+
+키의 히스토그램에 정규 밀도를 겹쳤습니다. 오른쪽은 추정값, 0.95 신뢰 구간, 가설 값 $\mu_0 = 65$ 의 비교입니다.
 </figcaption>
 </figure>
 

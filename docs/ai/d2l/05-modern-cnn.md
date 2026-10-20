@@ -84,8 +84,14 @@ $$
 $c = 64$ 로 계산해 보겠습니다. $5\times5$ 한 번은 $102{,}400$ 개입니다. $3\times3$ 두 번은 $73{,}728$ 개입니다. $7\times7$ 한 번은 $200{,}704$ 개이고 $3\times3$ 세 번은 $110{,}592$ 개입니다.
 같은 영역을 보면서 매개변수는 적습니다. 층 사이에 ReLU가 들어가므로 비선형성도 늘어납니다.
 
+<figure markdown>
 ![같은 수용 영역을 만드는 두 방법의 매개변수 수](images/05-stacked-3x3.png)
-수용 영역이 커질수록 큰 창 하나($(2L+1)^2$)와 $3\times3$ 쌓기($9L$)의 차이가 벌어집니다. $9\times9$ 에서는 81 대 36입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 같은 수용 영역을 만드는 두 방법의 매개변수 수</span>
+
+수용 영역이 커질수록 차이가 벌어집니다. $9\times9$ 에서는 81 대 36입니다.
+</figcaption>
+</figure>
 
 VGG의 약점은 완전 연결층입니다. d2l VGG-11에서 첫 완전 연결층만 $25{,}088 \times 4{,}096$ 개 가중치를 씁니다. FP32로 약 411MB입니다.
 
@@ -230,8 +236,14 @@ print(Y.ravel().round(4))   # [5.3299]
 
 이동 평균을 한 번만 갱신했으므로 $\hat{\mu} = 0.3$ 은 참 평균과 아직 멀리 있습니다. 그래서 마지막 출력이 5.33으로 훈련 출력 0.5와 다릅니다. 훈련 단계를 충분히 거치면 이동 평균이 데이터의 평균에 가까워집니다.
 
+<figure markdown>
 ![배치 크기에 따른 통계 잡음과 이동 평균](images/05-batchnorm.png)
-왼쪽은 평균 3, 표준편차 2인 데이터에서 뽑은 미니배치 평균의 분포입니다. 배치가 작을수록 넓게 퍼집니다. 오른쪽은 배치 크기 16의 배치 평균(회색 점)과 그 이동 평균(파란 선)입니다. 이동 평균은 점들보다 훨씬 덜 흔들립니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 배치 크기에 따른 통계 잡음과 이동 평균</span>
+
+배치가 작을수록 배치 평균이 넓게 퍼지고, 이동 평균은 훨씬 덜 흔들립니다.
+</figcaption>
+</figure>
 
 ### 왜 효과가 있는가
 
@@ -246,8 +258,14 @@ print(Y.ravel().round(4))   # [5.3299]
 신경망 구조 하나가 표현할 수 있는 함수의 집합을 $\mathcal{F}$ 라고 하겠습니다. 참 함수를 $f^*$ 라고 하고, $\mathcal{F}$ 안에서 $f^*$ 에 가장 가까운 함수를 $f^*_\mathcal{F}$ 라고 하겠습니다.
 층을 추가해 더 큰 클래스 $\mathcal{F}'$ 을 만들었다고 해서 $f^*_{\mathcal{F}'}$ 이 $f^*_\mathcal{F}$ 보다 낫다는 보장은 없습니다. 보장이 생기는 조건은 $\mathcal{F} \subseteq \mathcal{F}'$, 즉 **포함 관계(nested)** 입니다.
 
+<figure markdown>
 ![포함 관계가 없는 함수 클래스와 있는 함수 클래스](images/05-function-classes.png)
-왼쪽에서는 클래스를 바꿀 때마다 영역이 옮겨 가므로 $f^*$ 에 더 가까워진다는 보장이 없습니다. 오른쪽에서는 큰 클래스가 작은 클래스를 포함하므로 최선의 근사가 나빠지지 않습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 포함 관계가 없는 함수 클래스와 있는 함수 클래스</span>
+
+큰 클래스가 작은 클래스를 포함해야(오른쪽) 최선의 근사가 나빠지지 않습니다.
+</figcaption>
+</figure>
 
 새 층이 **항등 사상(identity mapping)** $f(\mathbf{x}) = \mathbf{x}$ 를 표현할 수 있으면 포함 관계가 성립합니다. 새 층이 아무 일도 하지 않으면 원래 망과 같기 때문입니다.
 
@@ -295,8 +313,14 @@ class Residual(nn.Module):
 
 잔차 연결의 효과를 작은 실험으로 확인하겠습니다. 폭 64인 층을 50개 쌓습니다. 가중치는 $\mathcal{N}(0, \sigma^2/64)$ 에서 뽑습니다. 일반 층은 $\mathbf{x} \leftarrow \mathrm{ReLU}(\mathbf{W}\mathbf{x})$ 이고, 잔차 블록은 $\mathbf{x} \leftarrow \mathbf{x} + 0.2\,\mathrm{ReLU}(\mathbf{W}\mathbf{x})$ 입니다.
 
+<figure markdown>
 ![깊이에 따른 신호 크기](images/05-residual-depth.png)
-일반 층을 50번 지나면 출력 노름이 입력의 약 $10^{-8}$ 배($\sigma=1$)와 $10^{-23}$ 배($\sigma=0.5$)로 줄어듭니다. 잔차 블록은 같은 조건에서 약 27배와 3.9배에 머뭅니다. 지름길이 신호를 보존하므로 역전파의 기울기도 같은 길로 전달됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 깊이에 따른 신호 크기</span>
+
+일반 층 50개를 지나면 신호가 $10^{-8}$ 배 이하로 줄지만, 잔차 블록은 크기를 보존합니다.
+</figcaption>
+</figure>
 
 ### ResNet-18
 
@@ -346,8 +370,14 @@ $$
 
 d2l 구성은 밀집 블록 4개에 단위를 4개씩 두고 성장률은 32입니다. 블록마다 채널이 $4 \times 32 = 128$ 개 늘어납니다. 시작 채널 64는 $64 \to 192 \to 96 \to 224 \to 112 \to 240 \to 120 \to 248$ 로 바뀝니다.
 
+<figure markdown>
 ![DenseNet의 채널 수와 RegNet의 블록 폭](images/05-dense-regnet-width.png)
-왼쪽은 d2l DenseNet의 합성곱 단위마다 채널 수입니다. 단위마다 32씩 늘고 전이층에서 절반이 됩니다. 오른쪽은 9절의 RegNet 폭 규칙입니다. 선형 폭을 2의 거듭제곱으로 맞추면 계단 모양이 됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> DenseNet의 채널 수와 RegNet의 블록 폭</span>
+
+DenseNet은 단위마다 채널이 32씩 늘고 전이층에서 절반이 됩니다. RegNet 폭은 계단 모양입니다.
+</figcaption>
+</figure>
 
 DenseNet은 앞 층 특징을 다시 계산하지 않고 재사용합니다. 그래서 d2l 구성의 매개변수가 약 76만 개로 이 장의 모델 중 가장 적습니다. 대신 연결된 특징맵을 모두 메모리에 두어야 합니다.
 
@@ -403,8 +433,14 @@ $\hat{F}(e)$ 는 뽑은 망 중 오차가 $e$ 보다 작은 망의 비율입니�
 | ResNet-18 (2015) | 잔차 연결, BN | 11.18M | 0.0% | 1.73G |
 | DenseNet (2017) | 채널 연결, 전이층 | 0.76M | 0.3% | 0.70G |
 
+<figure markdown>
 ![d2l 구성 모델의 매개변수와 연산 수](images/05-model-compare.png)
-빨간 점 두 개(AlexNet, VGG-11)는 매개변수 대부분이 완전 연결층에 있습니다. 전역 평균 풀링으로 끝나는 모델은 매개변수가 한두 자릿수 적습니다. 연산 수는 매개변수 수와 따로 움직입니다. 연산은 합성곱이 큰 해상도에서 얼마나 많이 계산되는지에 달려 있기 때문입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> d2l 구성 모델의 매개변수와 연산 수</span>
+
+AlexNet과 VGG-11(빨강)은 매개변수 대부분이 완전 연결층에 있습니다. 연산 수는 매개변수 수와 따로 움직입니다.
+</figcaption>
+</figure>
 
 ## 정리
 

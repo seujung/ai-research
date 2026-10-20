@@ -136,6 +136,47 @@ nav:
           - 7. 현대 순환 신경망: ai/d2l/07-modern-rnn.md
           - 8. 어텐션과 트랜스포머: ai/d2l/08-attention-transformer.md
           - 9. 최적화 알고리즘: ai/d2l/09-optimization.md
+      - 강화 학습:
+          - ai/rl/index.md
+          - 1. 강화 학습 문제: ai/rl/01-rl-problem.md
+          - 2. 다중 선택 밴딧: ai/rl/02-bandits.md
+          - 3. 유한 마르코프 결정 과정: ai/rl/03-finite-mdp.md
+          - 4. 동적 계획법: ai/rl/04-dynamic-programming.md
+          - 5. 몬테카를로 방법: ai/rl/05-monte-carlo.md
+          - 6. 시간차 학습: ai/rl/06-td-learning.md
+          - 7. n단계 TD와 적격 흔적: ai/rl/07-eligibility-traces.md
+          - 8. 계획과 학습: ai/rl/08-planning-learning.md
+          - 9. 함수 근사: ai/rl/09-function-approximation.md
+          - 10. 근사를 쓰는 off-policy 학습: ai/rl/10-off-policy-approximation.md
+          - 11. 정책 근사: ai/rl/11-policy-gradient.md
+          - 12. 심리학과 신경과학: ai/rl/12-psychology-neuroscience.md
+          - 13. 응용 사례와 전망: ai/rl/13-applications-frontiers.md
+          - 14. 선호 학습과 RLHF: ai/rl/14-preference-rlhf.md
+          - 15. 검증 가능한 보상의 강화 학습: ai/rl/15-rlvr-grpo.md
+      - 어텐션 메커니즘:
+          - ai/attention/index.md
+          - 1. 스케일드 내적 어텐션: ai/attention/01-scaled-dot-product.md
+          - 2. 멀티헤드 어텐션: ai/attention/02-multi-head.md
+          - 3. KV 캐시, MQA, GQA: ai/attention/03-mqa-gqa.md
+          - 4. 슬라이딩 창과 로컬·전역 교차: ai/attention/04-sliding-window.md
+          - 5. MLA: ai/attention/05-mla.md
+          - 6. 희소 어텐션: ai/attention/06-sparse-attention.md
+          - 7. 선형 어텐션과 Gated DeltaNet: ai/attention/07-linear-attention.md
+          - 8. 어텐션 싱크와 게이트 어텐션: ai/attention/08-attention-sink-gating.md
+          - "9. KDA: Kimi Delta Attention": ai/attention/09-kda.md
+      - LLM 핵심 기법:
+          - ai/llm-techniques/index.md
+          - 1. RoPE: ai/llm-techniques/01-rope.md
+          - 2. 긴 문맥 확장: ai/llm-techniques/02-long-context.md
+          - 3. 정규화와 로짓 안정화: ai/llm-techniques/03-normalization.md
+          - 4. 옵티마이저:
+              - ai/llm-techniques/optimizer/index.md
+              - 4.1 Adam: ai/llm-techniques/optimizer/01-adam.md
+              - 4.2 AdamW: ai/llm-techniques/optimizer/02-adamw.md
+              - 4.3 Muon: ai/llm-techniques/optimizer/03-muon.md
+          - 5. 전문가 혼합(MoE): ai/llm-techniques/05-moe.md
+          - 6. 멀티 토큰 예측(MTP): ai/llm-techniques/06-mtp.md
+          - 7. Prefill과 Decode: ai/llm-techniques/07-prefill-decode.md
   - 수학:
       - math/index.md
       - 선형대수:

@@ -41,9 +41,10 @@ $$
 
 <figure markdown>
 ![기댓값은 무게 중심입니다](images/03-balance-point.png)
-<figcaption>
-왼쪽: 예 3.3.2의 분포($P(X=2) = 1/2$, $P(X=3) = P(X=4) = P(X=5) = 1/6$)와 그 분포를 5만큼 옮긴 분포입니다.
-삼각형이 받침점이고, 평균도 3에서 8로 함께 옮겨 갑니다. 오른쪽: 지수 분포의 밀도와 평균 $1/\lambda$ (점선)입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 기댓값은 무게 중심입니다</span>
+
+기댓값은 분포의 무게 중심입니다. 분포를 5만큼 옮기면 평균도 3에서 8로 옮겨 갑니다.
 </figcaption>
 </figure>
 
@@ -223,10 +224,10 @@ $$
 
 <figure markdown>
 ![상관계수에 따른 산점도](images/03-correlation.png)
-<figcaption>
-앞의 네 그림: 이변량 정규 분포 $(\mu_1, \mu_2, \sigma_1, \sigma_2) = (0, 0, 1, 1)$ 에서 뽑은 표본 1000개입니다(책의 그림 3.3.2–3.3.5).
-$\lvert\rho\rvert$ 가 커질수록 점들이 직선 주위로 모입니다. 마지막 그림: $Y = X^2 - 1$ 은 $X$ 로 완전히 결정되지만 상관계수는 0입니다.
-상관계수 0은 독립을 뜻하지 않습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 상관계수에 따른 산점도</span>
+
+$\lvert\rho\rvert$ 가 클수록 점이 직선 주위로 모입니다. $Y = X^2 - 1$ 은 상관계수가 0이지만 독립이 아닙니다.
 </figcaption>
 </figure>
 
@@ -397,9 +398,10 @@ $$
 
 <figure markdown>
 ![조건부 기댓값과 조건부 표준 편차](images/03-conditional-expectation.png)
-<figcaption>
-예 3.5.9의 결합 밀도 $8xy$ 에서 뽑은 표본입니다. 파란 직선이 $E(X \mid Y = y) = 2y/3$ 이고, 띠의 폭은 조건부 표준 편차 $y/\sqrt{18}$ 입니다.
-빨간 점선은 무조건 평균 $E(X) = 8/15$ 입니다. 파란 직선을 $Y$ 의 분포로 평균하면 빨간 점선의 값이 됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 조건부 기댓값과 조건부 표준 편차</span>
+
+파란 직선이 $E(X \mid Y = y) = 2y/3$ 입니다. 이를 $Y$ 의 분포로 평균하면 $E(X) = 8/15$ 입니다.
 </figcaption>
 </figure>
 
@@ -435,9 +437,10 @@ $$
 
 <figure markdown>
 ![마르코프와 체비쇼프 상한](images/03-tail-bounds.png)
-<figcaption>
-왼쪽: Exponential(1)의 실제 꼬리 확률 $e^{-a}$ 와 마르코프 상한 $1/a$ 입니다. $a = 3$ 에서 실제 값은 0.050이고 상한은 0.333입니다.
-오른쪽: 표준 정규 분포의 $P(\lvert Z \rvert \ge a)$ 와 체비쇼프 상한 $1/a^2$ 입니다. $a = 2$ 에서 실제 값은 0.046이고 상한은 0.25입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 마르코프와 체비쇼프 상한</span>
+
+두 상한 모두 실제 꼬리 확률보다 훨씬 큽니다. 예를 들어 $a = 3$ 에서 실제 0.050, 마르코프 상한 0.333입니다.
 </figcaption>
 </figure>
 
@@ -470,9 +473,10 @@ $f$ 가 **오목**(concave)이면 부등호 방향이 바뀝니다. 예를 들�
 
 <figure markdown>
 ![젠센 부등식](images/03-jensen.png)
-<figcaption>
-왼쪽: 책의 그림 3.6.1–3.6.2를 다시 그린 것입니다. $X$ 가 2와 4를 확률 $1/2$ 씩 가지면 $E(X^4) = 136$ 이고 $(E(X))^4 = 81$ 입니다.
-접선 $g(x) = 81 + 108(x - 3)$ 이 그래프 아래에 있다는 사실이 증명의 핵심입니다. 오른쪽: 오목 함수 $\log x$ 에서는 현이 그래프 아래에 있습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 젠센 부등식</span>
+
+볼록 함수에서는 $E(X^4) = 136 \ge (E(X))^4 = 81$ 입니다. 오목 함수 $\log x$ 에서는 부등호가 반대입니다.
 </figcaption>
 </figure>
 

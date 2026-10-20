@@ -63,9 +63,10 @@ $$
 
 <figure markdown>
 ![우도 함수의 예](images/07-likelihood.png)
-<figcaption>
-왼쪽: 이항 실험과 음이항 실험의 우도는 비례하고, 최댓점이 모두 0.4입니다. 오른쪽: 위치 정규 모형의 우도와,
-최댓값의 절반 이상인 구간(우도 구간)입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 우도 함수의 예</span>
+
+이항과 음이항 실험의 우도는 비례하고 최댓점이 모두 0.4입니다. 오른쪽은 위치 정규 모형의 우도 구간입니다.
 </figcaption>
 </figure>
 
@@ -189,9 +190,10 @@ $\theta < x_{(n)}$ 이면 관측값 하나가 구간 밖에 있으므로 우도�
 
 <figure markdown>
 ![MLE 계산의 함정](images/07-mle-pitfalls.png)
-<figcaption>
-왼쪽: 예 6.2.4의 로그 우도. 점수 방정식의 근 중 매개변수 공간 안의 근 0.4785가 MLE입니다. 오른쪽: 예 6.2.5의 우도($n = 10$, $x_{(n)} = 1.916$).
-최댓값 $1.916^{-10} \approx 0.0015$ 는 불연속점에서 나옵니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> MLE 계산의 함정</span>
+
+점수 방정식의 근 중 공간 안의 근 0.4785가 MLE입니다. 오른쪽 예에서는 최댓값이 불연속점에서 나옵니다.
 </figcaption>
 </figure>
 
@@ -292,9 +294,10 @@ $\gamma = 0.95$ 이면 $z_{0.975} = 1.96$ 입니다. 구간의 반 길이를 **�
 
 <figure markdown>
 ![신뢰 구간의 포함 확률](images/07-ci-coverage.png)
-<figcaption>
-왼쪽: $N(0, 1)$ 에서 $n = 10$ 인 표본을 40번 뽑아 만든 0.95-신뢰 구간입니다. 빨간 구간 두 개는 참값 0을 놓쳤습니다(교재 그림 6.3.3과 같은 실험).
-오른쪽: 베르누이 근사 구간 (6.3.5)의 실제 포함 확률입니다. $\theta$ 가 0이나 1에 가깝거나 $n$ 이 작으면 0.95보다 크게 낮아집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 신뢰 구간의 포함 확률</span>
+
+신뢰 구간 40개 중 두 개가 참값을 놓칩니다. 근사 구간은 $\theta$ 가 0이나 1에 가깝거나 $n$ 이 작으면 포함 확률이 낮아집니다.
 </figcaption>
 </figure>
 
@@ -362,9 +365,10 @@ $H_0$ 이 참이면 이만큼 놀라운 데이터는 0.78%의 경우에만 나�
 
 <figure markdown>
 ![P-값과 검정력 함수](images/07-pvalue-power.png)
-<figcaption>
-왼쪽: $\mu_0 = 3$, $\sigma_0 = 1$, $n = 10$ 에서 관측값이 3.6일 때의 P-값입니다(설명용 값). 양쪽 꼬리의 빨간 넓이를 더하면 0.0578입니다.
-교재 그림 6.3.4의 관측값 4.2는 꼬리 넓이가 0.0001이라 그림에서 보이지 않습니다. 오른쪽: 양측 z-검정의 검정력 함수입니다. $n$ 이 클수록 $\mu_0$ 에서 벗어난 값을 더 잘 찾아냅니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> P-값과 검정력 함수</span>
+
+양쪽 꼬리 넓이를 더한 값이 P-값(0.0578)입니다. $n$ 이 클수록 검정력이 커집니다.
 </figcaption>
 </figure>
 
@@ -525,9 +529,10 @@ $$
 
 <figure markdown>
 ![붓스트랩 분포](images/07-bootstrap.png)
-<figcaption>
-왼쪽: 표본 중앙값의 붓스트랩 분포입니다. 중앙값은 원래 표본값 중 하나만 가질 수 있어서 분포가 이산적이고 비대칭입니다.
-오른쪽: 0.25-절사 평균의 붓스트랩 분포입니다. 정규 분포에 가까워 붓스트랩 신뢰 구간을 쓸 수 있습니다. 점선은 백분위 0.95-구간입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 붓스트랩 분포</span>
+
+중앙값의 붓스트랩 분포는 이산적이고 비대칭입니다. 절사 평균은 정규에 가까워 붓스트랩 신뢰 구간을 쓸 수 있습니다.
 </figcaption>
 </figure>
 
@@ -613,9 +618,10 @@ $I(\theta)$ 를 모형의 **피셔 정보**(Fisher information)라고 부릅니�
 
 <figure markdown>
 ![피셔 정보와 MLE의 근사 정규성](images/07-fisher-information.png)
-<figcaption>
-왼쪽: $\bar x = 0.4$ 로 같은 베르누이 표본의 로그 우도입니다. $n$ 이 커질수록 최댓점의 곡률 $nI(\hat\theta) = n/(\hat\theta(1-\hat\theta))$ 이 커지고, 추정이 정확해집니다.
-오른쪽: 푸아송 모형에서 MLE $\bar x$ 의 표본 분포가 $N(\lambda, 1/(nI(\lambda)))$ 에 가깝습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> 피셔 정보와 MLE의 근사 정규성</span>
+
+$n$ 이 커질수록 로그 우도의 곡률 $nI(\hat\theta)$ 가 커져 추정이 정확해집니다. MLE의 분포는 $N(\lambda, 1/(nI(\lambda)))$ 에 가깝습니다.
 </figcaption>
 </figure>
 

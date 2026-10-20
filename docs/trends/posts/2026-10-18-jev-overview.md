@@ -47,11 +47,11 @@ TypeSafe는 Jev를 **"똑똑한 if 문(smart if-statements)"**이라고도 설�
 flowchart LR
     subgraph LLM["LLM (System 2 역할)"]
         direction LR
-        P1["프롬프트"] --> G["토큰을 하나씩 생성"] --> T["자연어 또는 JSON 문자열"] --> PARSE["파싱, 검증, 재시도"] --> V1["값"]
+        P1("프롬프트") --> G("토큰을 하나씩 생성") --> T("자연어 또는 JSON 문자열") --> PARSE("파싱, 검증, 재시도") --> V1("값")
     end
     subgraph JEV["Jev (System 1 역할)"]
         direction LR
-        S["state + 질문"] --> D["후보별 확률을 한 번에 계산"] --> V2["값 + 확률 + confidence"]
+        S("state + 질문") --> D("후보별 확률을 한 번에 계산") --> V2("값 + 확률 + confidence")
     end
 ```
 

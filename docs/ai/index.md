@@ -17,6 +17,9 @@ AI 모델의 구조와 학습 방법을 다루는 교재를 장 단위로 정리
 | 교재 | 상태 | 정리 |
 | --- | --- | --- |
 | 신경망 기초 (Dive into Deep Learning) | 1~9장 정리 | [바로 가기](d2l/index.md) |
+| 강화 학습 (Sutton & Barto, Reinforcement Learning: An Introduction) | 1~13장 정리, LLM 후속 학습 2개 장 추가 | [바로 가기](rl/index.md) |
+| 어텐션 메커니즘 (최신 LLM의 어텐션 변형) | 1~9장 정리 | [바로 가기](attention/index.md) |
+| LLM 핵심 기법 (RoPE, 긴 문맥, 정규화, 옵티마이저, MoE, MTP, Prefill과 Decode) | 1~7장 정리 | [바로 가기](llm-techniques/index.md) |
 
 ## 새 교재를 추가하는 방법
 

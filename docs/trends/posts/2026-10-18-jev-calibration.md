@@ -72,10 +72,10 @@ ECE가 0이면 "0.8이라고 말한 답들은 정확히 80% 맞는다"가 모든
 
 <figure markdown>
 ![Jev 신뢰도 다이어그램](images/jev-reliability.png)
-<figcaption>
-점선은 완전 보정(confidence = 정확도)입니다. 점이 점선에 가까울수록 보정이 잘 된 것입니다.
-점 크기는 구간에 든 문항 수입니다. confidence 0.9 이상 구간에 문항 절반 이상이 몰려 있고,
-그 구간의 정확도는 개발셋 37건 중 37건, 검증셋 33건 중 32건입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> Jev 신뢰도 다이어그램</span>
+
+점이 점선에 가까울수록 보정이 잘 된 것입니다. 0.9 이상 구간의 정확도는 개발셋 37/37, 검증셋 32/33입니다.
 </figcaption>
 </figure>
 
@@ -112,9 +112,10 @@ $$
 
 <figure markdown>
 ![Risk-Coverage 곡선](images/jev-risk-coverage.png)
-<figcaption>
-같은 임계값 0.9가 개발셋에서는 자동 62%, 오류 0%였고 검증셋에서는 자동 55%, 오류 3.0%(33건 중 1건)였습니다.
-임계값을 낮춰 coverage를 70% 이상으로 넓히면 오류율이 계단처럼 뛰어오릅니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> Risk-Coverage 곡선</span>
+
+임계값 0.9의 검증셋 결과는 자동 55%, 오류 3.0%입니다. coverage를 70% 이상으로 넓히면 오류율이 계단처럼 뜁니다.
 </figcaption>
 </figure>
 
@@ -204,11 +205,11 @@ V2 = {
 
 ```mermaid
 flowchart LR
-    A["개발셋으로<br/>Risk-Coverage 측정"] --> B["무오류 범위의<br/>최저 임계값 선택"]
-    B --> C["검증셋으로<br/>한 번만 보고"]
-    C --> D["측정값과 하한을<br/>함께 기록"]
-    D --> E["운영 중<br/>표본 점검"]
-    E -- "틀린 건이 걸린 경계" --> F["criteria 수정"]
+    A("개발셋으로<br/>Risk-Coverage 측정") --> B("무오류 범위의<br/>최저 임계값 선택")
+    B --> C("검증셋으로<br/>한 번만 보고")
+    C --> D("측정값과 하한을<br/>함께 기록")
+    D --> E("운영 중<br/>표본 점검")
+    E -- "틀린 건이 걸린 경계" --> F("criteria 수정")
     F --> A
 ```
 

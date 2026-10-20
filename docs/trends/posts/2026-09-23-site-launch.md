@@ -3,8 +3,6 @@ date: 2026-09-23
 slug: site-launch
 authors:
   - seujung
-categories:
-  - 공지
 tags:
   - meta
 ---

@@ -33,9 +33,9 @@ Jev를 시스템에 넣는 방법은 여러 가지이지만, 모든 패턴에 �
 
 ```mermaid
 flowchart LR
-    IN["입력<br/>(문의, 도구 호출, 검색 결과)"] --> J["Jev<br/>작은 판단 여러 개"]
-    J -->|"확률, score"| P["정책 함수<br/>(순수 함수, 코드)"]
-    P --> ACT["행동<br/>자동 처리 / 검토 / 차단"]
+    IN("입력<br/>(문의, 도구 호출, 검색 결과)") --> J("Jev<br/>작은 판단 여러 개")
+    J -->|"확률, score"| P("정책 함수<br/>(순수 함수, 코드)")
+    P --> ACT("행동<br/>자동 처리 / 검토 / 차단")
     J -.->|"판단 로그 저장"| LOG[("판단 로그")]
     LOG -.->|"정책만 바꿔 재현<br/>API 호출 0회"| P
 ```
@@ -83,13 +83,13 @@ if client.system_one(state=text, questions={"r": REFUND}).nouls["r"].noul >= 0.9
 
 ```mermaid
 flowchart TD
-    Q["고객 문의"] --> J["Jev<br/>route: Choice(부서)<br/>spam: Noul"]
+    Q("고객 문의") --> J("Jev<br/>route: Choice(부서)<br/>spam: Noul")
     J --> S{"spam ≥ 0.95"}
-    S -- 예 --> SPAM["스팸 격리"]
+    S -- 예 --> SPAM("스팸 격리")
     S -- 아니요 --> C{"route.confidence"}
-    C -- "≥ 0.90" --> AUTO["부서로 자동 배정"]
-    C -- "0.60 ~ 0.90" --> LLM["LLM 재검토<br/>(Jev의 상위 2개 후보를 함께 전달)"]
-    C -- "< 0.60" --> HUMAN["사람 검토<br/>(모델 근거를 함께 전달)"]
+    C -- "≥ 0.90" --> AUTO("부서로 자동 배정")
+    C -- "0.60 ~ 0.90" --> LLM("LLM 재검토<br/>(Jev의 상위 2개 후보를 함께 전달)")
+    C -- "< 0.60" --> HUMAN("사람 검토<br/>(모델 근거를 함께 전달)")
 ```
 
 사람 검토 큐로 넘길 때 Jev의 상위 후보와 확률을 함께 넘깁니다.
@@ -130,6 +130,7 @@ $$
 LLM에게 넘길 때 Jev의 판단과 후보별 확률을 힌트로 함께 줍니다.
 
 ```mermaid
+%%{init: {"themeVariables": {"actorLineColor": "#b4b4b4"}}}%%
 sequenceDiagram
     participant App as 애플리케이션
     participant Jev
@@ -156,9 +157,10 @@ sequenceDiagram
 
 <figure markdown>
 ![정확도와 지연시간의 트레이드오프](images/jev-tradeoff.png)
-<figcaption>
-검증셋 3회 평균입니다. 하이브리드의 지연 중앙값은 Jev와 비슷하고, 정확도는 LLM에 가깝습니다.
-P95는 LLM으로 넘어간 건이 결정하므로 LLM과 비슷합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 정확도와 지연시간의 트레이드오프</span>
+
+검증셋 3회 평균입니다. 하이브리드는 지연 중앙값이 Jev와 비슷하고, 정확도는 LLM에 가깝습니다.
 </figcaption>
 </figure>
 
@@ -202,14 +204,14 @@ r = client.system_one(state={"고객 질문": q, "LLM 답변": a}, questions=CHE
 
 ```mermaid
 flowchart LR
-    Q["질문"] --> V["벡터 검색<br/>top-k"]
-    V --> R1["① 관련성 판정<br/>Noul: 직접 도움이 되는가"]
-    R1 --> RR["재랭킹<br/>상위 3건"]
+    Q("질문") --> V("벡터 검색<br/>top-k")
+    V --> R1("① 관련성 판정<br/>Noul: 직접 도움이 되는가")
+    R1 --> RR("재랭킹<br/>상위 3건")
     RR --> R2{"② 답변 가능 판정<br/>Score: 완전히 답할 수 있는가"}
-    R2 -- "아니요" --> NO["재검색 또는<br/>'모릅니다'"]
-    R2 -- "예" --> L["LLM 답변 생성"]
-    L --> R3["③ 근거 검증<br/>답변이 문서에 근거하는가"]
-    R3 --> OUT["응답"]
+    R2 -- "아니요" --> NO("재검색 또는<br/>'모릅니다'")
+    R2 -- "예" --> L("LLM 답변 생성")
+    L --> R3("③ 근거 검증<br/>답변이 문서에 근거하는가")
+    R3 --> OUT("응답")
 ```
 
 문서별 판정은 서로 독립적이므로 비동기 클라이언트(`AsyncTypeSafeClient`)로 동시에 보냅니다.
@@ -247,14 +249,14 @@ r = client.system_one(state={"실행하려는 도구": tool, "인자": args}, qu
 
 ```mermaid
 flowchart TD
-    REQ["사용자 요청"] --> J1["Jev<br/>도구 선택, 정보 충분성,<br/>완료 여부, 가역성, 영향도"]
-    J1 --> POL["decide()<br/>순수 함수"]
-    POL -->|execute| LLM1["LLM: 도구 인자 생성"] --> TOOL["도구 실행"]
-    POL -->|approve| APP["사람 승인"]
-    POL -->|ask_user| ASK["사용자에게 되묻기"]
-    POL -->|escalate| ESC["상담원 연결"]
-    POL -->|block| BLK["차단"]
-    TOOL --> J2["Jev: 결과 검증"]
+    REQ("사용자 요청") --> J1("Jev<br/>도구 선택, 정보 충분성,<br/>완료 여부, 가역성, 영향도")
+    J1 --> POL("decide()<br/>순수 함수")
+    POL -->|execute| LLM1("LLM: 도구 인자 생성") --> TOOL("도구 실행")
+    POL -->|approve| APP("사람 승인")
+    POL -->|ask_user| ASK("사용자에게 되묻기")
+    POL -->|escalate| ESC("상담원 연결")
+    POL -->|block| BLK("차단")
+    TOOL --> J2("Jev: 결과 검증")
 ```
 
 프로젝트 4의 README는 이 구조가 과할 수도 있다고 적습니다.

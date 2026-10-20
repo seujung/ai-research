@@ -57,9 +57,10 @@ $\ln X$ 의 평균은 $\frac14 \ln 2 + \frac14 \ln 3 = \frac14 \ln 6 \approx 0.4
 
 <figure markdown>
 ![기하 평균의 표본 분포](images/04-sampling-distribution.png)
-<figcaption>
-$n = 20$ 인 표본을 $10^4$ 번 만들어 $\ln Y_{20}$ 의 히스토그램을 그렸습니다. 빨간 곡선은 중심 극한 정리로 얻은 정규 근사입니다.
-모양은 비슷하지만 히스토그램이 완전히 대칭이지는 않습니다. $n = 20$ 에서는 정규 근사가 아직 완벽하지 않습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 기하 평균의 표본 분포</span>
+
+$\ln Y_{20}$ 의 히스토그램은 정규 근사와 비슷하지만, $n = 20$ 에서는 아직 완전히 대칭이 아닙니다.
 </figcaption>
 </figure>
 
@@ -106,9 +107,10 @@ $n$ 이 크면 앞면 비율이 0.5에서 0.01 이상 벗어날 확률이 거의
 
 <figure markdown>
 ![큰 수의 법칙: 동전 던지기의 표본 평균 경로](images/04-lln-paths.png)
-<figcaption>
-공정한 동전을 5000번 던지는 실험을 5번 반복했습니다. 앞면 비율 $M_n$ 은 처음에 크게 흔들리고 점점 0.5로 모입니다.
-회색 띠는 $0.5 \pm 3\sigma/\sqrt{n}$ ($\sigma = 0.5$) 입니다. 띠의 폭이 $1/\sqrt{n}$ 속도로 줄어듭니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 큰 수의 법칙: 동전 던지기의 표본 평균 경로</span>
+
+앞면 비율 $M_n$ 이 0.5로 모이고, 회색 띠의 폭은 $1/\sqrt{n}$ 속도로 줄어듭니다.
 </figcaption>
 </figure>
 
@@ -134,9 +136,10 @@ $$
 
 <figure markdown>
 ![확률 수렴과 확률 1 수렴의 차이](images/04-convergence-modes.png)
-<figcaption>
-왼쪽: 확률 수렴하는 수열의 $X_n - Y$ 를 10번 그렸습니다. $n$ 이 커지면 대부분의 값이 $\pm 0.25$ 안에 들어옵니다.
-오른쪽: 타자기 수열에서 $U = 0.3141$ 로 고정한 경로입니다. 1이 나오는 간격은 점점 벌어지지만, 1은 끝없이 다시 나옵니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 확률 수렴과 확률 1 수렴의 차이</span>
+
+확률 수렴은 대부분의 값이 0 근처로 모이는 것입니다. 타자기 수열은 확률 수렴하지만 1이 끝없이 다시 나옵니다.
 </figcaption>
 </figure>
 
@@ -199,9 +202,10 @@ $Z_n$ 의 평균은 0, 분산은 1입니다. 중심 극한 정리는 분포 전�
 
 <figure markdown>
 ![중심 극한 정리: 지수 분포 표본 평균](images/04-clt-exponential.png)
-<figcaption>
-$\text{Exponential}(1)$ 표본으로 $Z_n = \sqrt{n}(M_n - 1)$ 을 $10^5$ 번 계산했습니다. $n = 1$ 에서는 지수 분포 그대로입니다(위쪽이 잘렸습니다).
-$n$ 이 커지면 비대칭이 줄어들고, $n = 30$ 에서는 표준 정규 밀도(빨간 곡선)와 거의 겹칩니다. 균등 분포보다 수렴이 느립니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 중심 극한 정리: 지수 분포 표본 평균</span>
+
+$n$ 이 커지면 비대칭이 줄어들고, $n = 30$ 에서 표준 정규 밀도와 거의 겹칩니다.
 </figcaption>
 </figure>
 
@@ -268,9 +272,10 @@ $n$ 을 10배로 늘리면 구간 폭은 약 $\sqrt{10} \approx 3.16$ 배 줄어
 
 <figure markdown>
 ![몬테카를로 적분의 수렴](images/04-monte-carlo.png)
-<figcaption>
-예 4.5.3의 적분을 표본 크기 $n$ 을 늘려 가며 추정했습니다. 파란 띠는 $M_n \pm 3S/\sqrt{n}$ 입니다.
-띠는 처음부터 참값(빨간 점선)을 포함하고, 폭은 $1/\sqrt{n}$ 속도로 줄어듭니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 몬테카를로 적분의 수렴</span>
+
+$M_n \pm 3S/\sqrt{n}$ 띠가 참값을 포함한 채 $1/\sqrt{n}$ 속도로 좁아집니다.
 </figcaption>
 </figure>
 
@@ -362,9 +367,10 @@ $$
 
 <figure markdown>
 ![카이제곱 분포와 t 분포](images/04-chi2-t.png)
-<figcaption>
-왼쪽: 카이제곱 밀도는 오른쪽으로 치우쳐 있습니다. 평균이 자유도와 같으므로 자유도가 커지면 질량이 오른쪽으로 갑니다.
-오른쪽: t 분포는 표준 정규(검은 선)보다 꼬리가 두껍습니다. $t(30)$ 은 표준 정규와 거의 겹칩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> 카이제곱 분포와 t 분포</span>
+
+카이제곱 분포는 자유도가 커지면 오른쪽으로 이동합니다. t 분포는 꼬리가 두껍고, $t(30)$ 은 표준 정규와 거의 겹칩니다.
 </figcaption>
 </figure>
 

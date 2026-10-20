@@ -194,10 +194,10 @@ $$
 
 <figure markdown>
 ![LP의 가능 집합과 최적 꼭짓점](images/04-lp.png)
-<figcaption>
-제약 x₁ + x₂ ≤ 4, −x₁ + x₂ ≤ 2, x₁ ≤ 3, x ⪰ 0 아래에서 c = (−1, −2) 로 cᵀx 를 최소화합니다.
-점선은 목적 함수의 수준 집합입니다. −c 방향으로 수준 집합을 밀면 마지막으로 다면체에 닿는 점이 꼭짓점 (1, 3) 이고,
-최적값은 −7 입니다. 5장에서 이 문제의 쌍대 문제를 풉니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> LP의 가능 집합과 최적 꼭짓점</span>
+
+수준 집합을 −c 방향으로 밀면 마지막으로 닿는 꼭짓점 (1, 3) 이 최적해이고, 최적값은 −7 입니다.
 </figcaption>
 </figure>
 
@@ -358,10 +358,10 @@ $$
 
 <figure markdown>
 ![정규화 최소제곱의 Pareto 최적 곡선](images/04-pareto.png)
-<figcaption>
-정규화 최소제곱에서 적합 오차 ‖Ax − b‖² 와 해의 크기 ‖x‖² 의 Pareto 최적 곡선입니다.
-가중치 γ 로 J₁ + γJ₂ 를 최소화하면 기울기 −1/γ 의 직선(점선)이 곡선에 접하는 점을 얻습니다.
-γ 가 커질수록 해의 크기를 더 중요하게 보므로 점이 오른쪽 아래로 이동합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 정규화 최소제곱의 Pareto 최적 곡선</span>
+
+적합 오차와 해의 크기 사이의 Pareto 최적 곡선입니다. γ 가 커질수록 해가 작은 쪽으로 이동합니다.
 </figcaption>
 </figure>
 

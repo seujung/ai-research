@@ -121,16 +121,16 @@ LLM 에이전트의 시스템 프롬프트에 한 줄 적어서 될 일이라면
 
 ```mermaid
 flowchart TD
-    START["판단이 필요한 지점"] --> Q1{"출력이 글이어야 하는가?"}
-    Q1 -- 예 --> LLM["LLM"]
+    START("판단이 필요한 지점") --> Q1{"출력이 글이어야 하는가?"}
+    Q1 -- 예 --> LLM("LLM")
     Q1 -- 아니요 --> Q2{"이미 LLM 호출이 있고<br/>판단이 1~2개인가?"}
-    Q2 -- 예 --> PROMPT["프롬프트에 추가<br/>(ch13 실측: 대부분 충분)"]
+    Q2 -- 예 --> PROMPT("프롬프트에 추가<br/>(ch13 실측: 대부분 충분)")
     Q2 -- 아니요 --> Q3{"확률로 분기해야 하는가?<br/>(자동/검토/차단)"}
-    Q3 -- 예 --> JEV["Jev"]
+    Q3 -- 예 --> JEV("Jev")
     Q3 -- 아니요 --> Q4{"판단이 많거나<br/>지연과 비용이 중요한가?"}
     Q4 -- 예 --> JEV
     Q4 -- 아니요 --> Q5{"라벨이 충분한 고정 과제인가?"}
-    Q5 -- 예 --> CLF["전용 분류기"]
+    Q5 -- 예 --> CLF("전용 분류기")
     Q5 -- 아니요 --> PROMPT
 ```
 
@@ -174,10 +174,10 @@ TYPESAFE_BASE_URL=http://127.0.0.1:8010
 
 ```mermaid
 flowchart LR
-    X["state + 질문 + 후보들"] --> B["사전학습 언어 모델<br/>(고정 또는 LoRA)"]
-    B -->|"prefill 한 번<br/>토큰 생성 없음"| H["후보 점수 헤드"]
-    H --> SM["softmax"] --> P["후보별 확률"]
-    L["학습 손실<br/>Brier, label smoothing CE"] -.-> H
+    X("state + 질문 + 후보들") --> B("사전학습 언어 모델<br/>(고정 또는 LoRA)")
+    B -->|"prefill 한 번<br/>토큰 생성 없음"| H("후보 점수 헤드")
+    H --> SM("softmax") --> P("후보별 확률")
+    L("학습 손실<br/>Brier, label smoothing CE") -.-> H
 ```
 
 Cloudflare가 공개한 비교표에서 지연 중앙값은 Clef 209ms, Clef-flash 39ms, Jev 524ms였습니다.

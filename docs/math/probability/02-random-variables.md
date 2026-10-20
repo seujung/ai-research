@@ -99,9 +99,10 @@ $$
 
 <figure markdown>
 ![대표 이산 분포의 확률 함수](images/02-discrete-pmfs.png)
-<figcaption>
-왼쪽 위: $\theta$ 가 작으면 이항 분포가 왼쪽으로 치우칩니다. 오른쪽 위: 기하 분포는 0에서 가장 크고 기하급수로 줄어듭니다.
-왼쪽 아래: 푸아송 분포는 $\lambda$ 근처에 모입니다. 오른쪽 아래: Binomial$(100, 1/10)$ 과 Poisson$(10)$ 은 거의 겹칩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 대표 이산 분포의 확률 함수</span>
+
+이항, 기하, 푸아송 분포의 모양입니다. Binomial$(100, 1/10)$ 과 Poisson$(10)$ 은 거의 겹칩니다.
 </figcaption>
 </figure>
 
@@ -191,9 +192,10 @@ $\Gamma(1) = 1$, $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$, $\Gamma(n) = (n-1)
 
 <figure markdown>
 ![대표 연속 분포의 밀도 함수](images/02-continuous-densities.png)
-<figcaption>
-지수 분포는 $\lambda$ 가 클수록 0 근처에 몰립니다. 감마 분포는 $\alpha$ 가 커지면 봉우리가 오른쪽으로 갑니다.
-정규 분포의 $\mu$ 는 위치를, $\sigma^2$ 은 폭을 바꿉니다. 베타 분포는 $[0, 1]$ 위에서 평평한 모양, 한쪽으로 치우친 모양, U자 모양을 모두 만듭니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 대표 연속 분포의 밀도 함수</span>
+
+지수, 감마, 정규, 베타 분포의 밀도가 매개변수에 따라 어떻게 바뀌는지 보여 줍니다.
 </figcaption>
 </figure>
 
@@ -247,9 +249,10 @@ $\mu = 1.3$, $\sigma^2 = 4$ 이면 $P(-0.63 \le X \le 2.0) = \Phi(0.35) - \Phi(-
 
 <figure markdown>
 ![밀도 함수와 분포 함수의 관계](images/02-pdf-cdf.png)
-<figcaption>
-왼쪽: 확률 $P(-0.63 \le X \le 2)$ 는 밀도 아래의 넓이입니다. 가운데: 같은 확률이 cdf의 높이 차 $\Phi(2) - \Phi(-0.63)$ 로 나타납니다.
-오른쪽: 이산형의 cdf는 계단 함수입니다. 각 점프에서 채운 점이 함숫값이고, 이는 오른쪽 연속성을 보여 줍니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 밀도 함수와 분포 함수의 관계</span>
+
+같은 확률이 밀도 아래의 넓이이자 cdf의 높이 차입니다. 이산형의 cdf는 오른쪽 연속인 계단 함수입니다.
 </figcaption>
 </figure>
 
@@ -370,9 +373,10 @@ $$
 
 <figure markdown>
 ![결합 밀도와 주변 밀도, 이변량 정규 분포의 등고선](images/02-joint-density.png)
-<figcaption>
-왼쪽: 결합 밀도 $4x^2 y + 2y^5$ 를 색으로 나타내고, 위와 오른쪽에 주변 밀도를 그렸습니다. 밀도는 오른쪽 위 모서리에서 가장 큽니다.
-오른쪽: 이변량 표준 정규 분포의 등고선입니다. $\rho > 0$ 이면 타원이 오른쪽 위로 기울고, $\rho < 0$ 이면 반대로 기웁니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 결합 밀도와 주변 밀도, 이변량 정규 분포의 등고선</span>
+
+결합 밀도와 주변 밀도입니다. 이변량 정규 분포의 등고선은 $\rho$ 의 부호에 따라 기우는 방향이 바뀝니다.
 </figcaption>
 </figure>
 
@@ -520,9 +524,10 @@ $$
 
 <figure markdown>
 ![독립 균등 변수의 합의 밀도](images/02-convolution.png)
-<figcaption>
-$U_1 + U_2$ 의 밀도는 삼각형이고, $U_1 + U_2 + U_3$ 의 밀도는 이차 곡선 조각으로 이어진 종 모양입니다.
-옅은 막대는 표본 20만 개의 히스토그램이고 실선은 합성곱으로 구한 정확한 밀도입니다. 더할수록 정규 분포에 가까워지며, 이는 4장 중심 극한 정리의 예고입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 독립 균등 변수의 합의 밀도</span>
+
+균등 변수를 더할수록 합의 밀도가 삼각형에서 종 모양으로 바뀌어 정규 분포에 가까워집니다.
 </figcaption>
 </figure>
 
@@ -565,10 +570,10 @@ $1 - U$ 도 Uniform$[0, 1]$ 이므로 이 결과는 예제 2.6.6의 $\ln(1/U)$ �
 
 <figure markdown>
 ![역분포 함수법으로 지수 분포 난수 만들기](images/02-inverse-cdf.png)
-<figcaption>
-왼쪽: 세로축에서 균등 난수 $u$ 를 고르고 cdf 곡선에 수평으로 맞춘 뒤 아래로 내리면 $F^{-1}(u)$ 를 얻습니다.
-cdf가 완만한 구간(큰 $x$)에서는 $u$ 의 좁은 범위가 넓은 $x$ 구간에 대응하므로 표본이 드물게 떨어집니다.
-오른쪽: $-\ln(1 - U)$ 표본 10만 개의 히스토그램이 Exponential$(1)$ 밀도와 일치합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> 역분포 함수법으로 지수 분포 난수 만들기</span>
+
+균등 난수 $u$ 를 cdf로 거꾸로 따라가면 $F^{-1}(u)$ 를 얻습니다. $-\ln(1 - U)$ 표본이 Exponential$(1)$ 과 일치합니다.
 </figcaption>
 </figure>
 

@@ -67,9 +67,10 @@ $$
 
 <figure markdown>
 ![볼록 함수의 정의와 1차 조건](images/03-definition-first-order.png)
-<figcaption>
-왼쪽: 두 점을 잇는 현이 그래프보다 위에 있습니다(정의). 오른쪽: 어느 점에서 그은 접선도
-그래프 전체보다 아래에 있습니다(1차 조건).
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 볼록 함수의 정의와 1차 조건</span>
+
+볼록 함수는 현이 그래프 위에 있고(정의), 접선이 그래프 아래에 있습니다(1차 조건).
 </figcaption>
 </figure>
 
@@ -150,9 +151,10 @@ $\operatorname{diag}(p) - pp^\top$ 는 확률 $p$ 를 가진 범주형 분포의
 
 <figure markdown>
 ![log-sum-exp 와 softmax](images/03-log-sum-exp.png)
-<figcaption>
-왼쪽: 온도 T 를 넣은 T log(Σ exp(xᵢ/T)) 는 max 보다 항상 크고, T 가 작을수록 max 에 가까워집니다.
-오른쪽: 그 기울기가 softmax 이고, T 가 작을수록 계단 함수에 가까워집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> log-sum-exp 와 softmax</span>
+
+log-sum-exp 는 T 가 작을수록 max 에 가까워지고, 그 기울기인 softmax 는 계단 함수에 가까워집니다.
 </figcaption>
 </figure>
 
@@ -302,9 +304,10 @@ $f$ 가 볼록이 아니어도 **$f^*$ 는 항상 볼록**입니다. $y$ 의 아
 
 <figure markdown>
 ![켤레 함수의 기하학적 의미](images/03-conjugate.png)
-<figcaption>
-f(x) = x²/2 + 0.6 에서 y = 1.5 의 켤레 값입니다. 직선 yx 와 f(x) 의 간격은 x = 1.5 에서 가장 크고,
-그 값 0.525 가 f*(1.5) 입니다. 직선을 그만큼 내리면 f 에 접하는 지지선이 됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 켤레 함수의 기하학적 의미</span>
+
+직선 yx 와 f(x) 의 간격이 가장 큰 값이 켤레 값입니다. 이 예에서 f*(1.5) = 0.525 입니다.
 </figcaption>
 </figure>
 

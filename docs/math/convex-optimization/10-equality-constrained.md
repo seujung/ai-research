@@ -174,10 +174,10 @@ $$
 
 <figure markdown>
 ![등식 제약 아래의 뉴턴법](images/10-newton-2d.png)
-<figcaption>
-9장 예제 함수를 직선 x₁ + x₂ = 0.5 위에서 최소화한 결과입니다. feasible start 뉴턴법(파랑)은 처음부터 직선 위에서 움직입니다.
-infeasible start 뉴턴법(빨강)은 직선 밖에서 출발해 첫 반복에서 보폭 1을 받아 직선 위로 올라오고, 이후 직선 위에서 수렴합니다.
-두 방법 모두 제약 없는 최소점(+)이 아니라 직선 위의 최소점(★)으로 갑니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 등식 제약 아래의 뉴턴법</span>
+
+두 뉴턴법 모두 제약 없는 최소점(+)이 아니라 직선 위의 최소점(★)으로 수렴합니다.
 </figcaption>
 </figure>
 
@@ -285,9 +285,10 @@ $n = 100$, $p = 50$ 인 무작위 문제를 풀었습니다. feasible start는 �
 
 <figure markdown>
 ![analytic center 문제의 수렴](images/10-analytic-centering.png)
-<figcaption>
-n = 100, p = 50 인 analytic center 문제입니다. 왼쪽은 feasible start 뉴턴법의 준최적성, 오른쪽은 infeasible start 뉴턴법의 잔차 노름입니다.
-두 그래프 모두 처음 몇 번은 완만하다가 이차 수렴 단계에 들어서면 아래로 꺾입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> analytic center 문제의 수렴</span>
+
+두 방법 모두 처음 몇 번은 완만하다가, 이차 수렴 단계에 들어서면 아래로 꺾입니다.
 </figcaption>
 </figure>
 

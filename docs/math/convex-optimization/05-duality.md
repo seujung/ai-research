@@ -90,9 +90,10 @@ $g'(\lambda) = 0$ 을 풀면 $\lambda^\star = 2$ 이고 $g(2) = -12 + 1 + 16 = 5
 
 <figure markdown>
 ![Lagrangian과 쌍대 함수](images/05-dual-function.png)
-<figcaption>
-왼쪽: λ = 1, 2, 3 에 대한 Lagrangian입니다. 각 곡선의 최솟값(점)이 g(λ) 이고, 모두 p* = 5 이하입니다.
-λ = 2 의 최솟값은 정확히 (2, 5) 에 놓여 별과 겹칩니다. 오른쪽: 쌍대 함수 g(λ) 는 오목하고 λ = 2 에서 최댓값 5 를 가집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> Lagrangian과 쌍대 함수</span>
+
+Lagrangian의 최솟값이 쌍대 함수 g(λ) 이고, 모두 p* = 5 이하입니다. g(λ) 는 λ = 2 에서 최댓값 5 를 가집니다.
 </figcaption>
 </figure>
 
@@ -244,10 +245,10 @@ $t + \lambda u = g(\lambda)$ 는 기울기 $-\lambda$ 인 직선이고, $\mathca
 
 <figure markdown>
 ![쌍대성의 기하적 해석](images/05-geometry.png)
-<figcaption>
-1절 예제의 집합 𝒢 입니다. λ 마다 기울기 −λ 인 지지 직선을 대면 t 축과의 교점이 g(λ) 입니다.
-λ = 0.5 와 λ = 6 의 직선은 (0, p*) 아래에서 t 축과 만나 느슨한 하한을 줍니다. λ = 2 의 직선은 (0, p*) 를 지나므로
-하한이 정확합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 쌍대성의 기하적 해석</span>
+
+기울기 −λ 인 지지 직선의 t 절편이 g(λ) 입니다. λ = 2 의 직선만 (0, p*) 를 지나 하한이 정확합니다.
 </figcaption>
 </figure>
 
@@ -367,9 +368,10 @@ $$
 
 <figure markdown>
 ![water-filling](images/05-water-filling.png)
-<figcaption>
-바닥 높이가 α = (0.8, 0.3, 1.6, 0.5, 2.2, 1.0) 인 여섯 채널에 물 1을 붓습니다. 수위는 1/ν* = 0.867 에서 멈추고,
-바닥이 수위보다 높은 채널 3, 5, 6 에는 전력을 주지 않습니다. 각 채널의 물 높이가 x*ᵢ 입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> water-filling</span>
+
+수위는 1/ν* = 0.867 에서 멈추고, 바닥이 수위보다 높은 채널 3, 5, 6 에는 전력을 주지 않습니다.
 </figcaption>
 </figure>
 

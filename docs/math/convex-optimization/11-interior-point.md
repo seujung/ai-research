@@ -67,10 +67,10 @@ $t$ 가 클수록 $u < 0$ 영역에서 0에 가까워지므로 $I_-$ 에 가까�
 
 <figure markdown>
 ![log barrier와 지시 함수](images/11-log-barrier.png)
-<figcaption>
-지시 함수 I₋(u)(검정)와 log barrier 근사입니다. t 가 커질수록 u < 0 쪽에서 0에 가까워지고,
-u = 0 근처에서만 급격히 커집니다. 근사는 모든 t 에서 u → 0 일 때 무한대로 발산하므로
-반복점이 가능 집합 밖으로 나가지 못합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> log barrier와 지시 함수</span>
+
+t 가 커질수록 log barrier가 지시 함수에 가까워집니다. u → 0 에서 발산하므로 반복점이 가능 집합 밖으로 나가지 못합니다.
 </figcaption>
 </figure>
 
@@ -162,10 +162,10 @@ $x^\star(t)$ 는 이 힘들이 평형을 이루는 점입니다. $t$ 를 키우�
 
 <figure markdown>
 ![LP 의 central path](images/11-central-path.png)
-<figcaption>
-제약 6개인 2변수 LP 의 central path입니다. t → 0 이면 analytic center(검정 점)에서 출발하고,
-t 가 커질수록 −c 방향으로 이동해 최적 꼭짓점 x* = (1.5, 2.5) 에 다가갑니다.
-t = 10 인 점은 준최적성이 m/t = 0.6 이하임이 보장됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> LP 의 central path</span>
+
+central path는 analytic center에서 출발해 t 가 커질수록 최적 꼭짓점 x* = (1.5, 2.5) 로 다가갑니다.
 </figcaption>
 </figure>
 
@@ -207,10 +207,10 @@ $t^{(0)} = 1$ 에서 시작해 쌍대 간극 $10^{-6}$ 까지 줄였고, 첫 중
 
 <figure markdown>
 ![barrier method의 쌍대 간극](images/11-barrier-gap.png)
-<figcaption>
-누적 뉴턴 반복 횟수에 대한 쌍대 간극 m/t 입니다. 계단의 가로 길이는 중심화 1회의 뉴턴 반복 횟수이고,
-세로 낙차는 log μ 입니다. μ = 2 는 계단이 낮고 짧으며, μ = 50, 150 은 계단이 높고 깁니다.
-세 경우 모두 간극을 10⁸ 배 줄이는 데 100회 미만의 뉴턴 반복이 필요합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> barrier method의 쌍대 간극</span>
+
+μ 가 클수록 계단이 높고 깁니다. 세 경우 모두 간극을 10⁸ 배 줄이는 데 뉴턴 반복 100회 미만이 듭니다.
 </figcaption>
 </figure>
 

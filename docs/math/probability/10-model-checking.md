@@ -175,10 +175,10 @@ $n$ 이 크면 $r_1^*, \dots, r_n^*$ 은 근사적으로 $N(0, 1)$ 의 독립 �
 
 <figure markdown>
 ![세 분포에서 뽑은 표본의 표준화 잔차](images/10-residual-plots.png)
-<figcaption>
-교재 그림 9.1.3–9.1.5를 다시 그렸습니다. 세 분포 모두 평균 0, 분산 1이고 표본 크기는 100입니다.
-$t(3)/\sqrt{3}$ 은 꼬리가 두꺼워서 $(-3, 3)$ 밖의 점(검은 테두리)이 나옵니다.
-지수 분포는 오른쪽으로 치우쳐서 큰 양의 잔차가 나옵니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 세 분포에서 뽑은 표본의 표준화 잔차</span>
+
+$t(3)/\sqrt{3}$ 은 꼬리가 두꺼워 $(-3, 3)$ 밖의 잔차가, 지수 분포는 큰 양의 잔차가 나옵니다.
 </figcaption>
 </figure>
 
@@ -208,10 +208,10 @@ $\Phi^{-1}(i/(n+1))$ 을 $x_{(i)}$ 의 **정규 점수**(normal score)라고 부
 
 <figure markdown>
 ![정규 확률 그림 세 가지](images/10-normal-probability-plots.png)
-<figcaption>
-왼쪽: 예제 9.1.6의 자료입니다. 직선에서 조금 벗어나지만, 크기 10인 표본에서 흔한 정도입니다.
-가운데와 오른쪽: 교재 그림 9.1.10–9.1.11처럼 $Y = e^X$, $X \sim N(0, 1)$ 표본 50개를 그렸습니다.
-$Y$ 는 뚜렷하게 휘고, $\ln Y$ 는 직선에 가깝습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 정규 확률 그림 세 가지</span>
+
+크기 10인 표본은 직선에서 조금 벗어나도 흔한 정도입니다. $Y = e^X$ 는 뚜렷하게 휘고, $\ln Y$ 는 직선에 가깝습니다.
 </figcaption>
 </figure>
 
@@ -290,9 +290,10 @@ $$
 
 <figure markdown>
 ![카이제곱 적합도 검정의 두 예](images/10-chi-square-gof.png)
-<figcaption>
-왼쪽: 예제 9.1.7의 도수는 기대 도수 1000 주변에 흩어져 있고, P-값은 0.27입니다.
-오른쪽: 예제 9.1.8에서 첫 두 구간의 표준화 잔차가 ±3을 넘습니다. 적합된 지수 분포는 짧은 수명을 너무 많이 예측합니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 카이제곱 적합도 검정의 두 예</span>
+
+왼쪽은 기대 도수 주변에 흩어져 P-값이 0.27입니다. 오른쪽은 첫 두 구간의 잔차가 ±3을 넘어 모형이 맞지 않습니다.
 </figcaption>
 </figure>
 
@@ -405,9 +406,10 @@ $y = 35$ 를 관측하면 확률이 $m(35)$ 이하인 값은 $y = 0$ 과 $y \ge 
 
 <figure markdown>
 ![베타-이항 사전 예측 분포](images/10-prior-predictive.png)
-<figcaption>
-교재 그림 9.2.1–9.2.2입니다. 빨간 막대는 관측값보다 확률이 작거나 같은 값이고, 그 합이 충돌 검진의 P-값입니다.
-왼쪽은 $y = 3$ 이 놀랍지 않고, 오른쪽은 $y = 35$ 가 5% 경계에 있습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 베타-이항 사전 예측 분포</span>
+
+빨간 막대의 합이 충돌 검진의 P-값입니다. $y = 3$ 은 놀랍지 않고, $y = 35$ 는 5% 경계에 있습니다.
 </figcaption>
 </figure>
 
@@ -452,8 +454,10 @@ $$
 
 <figure markdown>
 ![검진 횟수에 따른 오기각 확률](images/10-multiple-checks.png)
-<figcaption>
-모형이 옳아도 개별 기준 0.05로 검진을 많이 하면 거의 확실하게 기각합니다. 개별 기준을 0.0001로 낮추면 $n = 100$ 에서도 오기각 확률이 0.01입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 검진 횟수에 따른 오기각 확률</span>
+
+모형이 옳아도 개별 기준 0.05로 검진을 많이 하면 거의 확실하게 기각합니다.
 </figcaption>
 </figure>
 

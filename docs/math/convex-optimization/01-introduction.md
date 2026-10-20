@@ -207,9 +207,10 @@ $$
 
 <figure markdown>
 ![볼록 함수와 볼록이 아닌 함수의 최솟값](images/01-local-global.png)
-<figcaption>
-볼록 함수(왼쪽)는 내려가는 방향을 따라가면 반드시 전역 최솟값에 도착합니다.
-볼록이 아닌 함수(오른쪽)는 출발점에 따라 지역 최솟값에 멈출 수 있습니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 볼록 함수와 볼록이 아닌 함수의 최솟값</span>
+
+볼록 함수는 내려가면 반드시 전역 최솟값에 닿습니다. 볼록이 아닌 함수는 출발점에 따라 지역 최솟값에 멈출 수 있습니다.
 </figcaption>
 </figure>
 

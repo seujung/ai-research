@@ -65,8 +65,14 @@ $$
 이 식이 **합성곱층(convolutional layer)** 입니다. $\mathbf{V}$ 를 **커널(kernel)** 또는 **필터(filter)** 라고 부릅니다.
 $\Delta = 5$ 이면 매개변수는 $(2\cdot5+1)^2 = 121$ 개입니다.
 
+<figure markdown>
 ![층 종류별 매개변수 수](images/04-param-count.png)
-같은 1000×1000 입력을 처리할 때 가정을 하나씩 더할수록 매개변수 수가 줄어듭니다. 세로축은 로그 축이므로 막대 하나의 차이가 수천 배입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 층 종류별 매개변수 수</span>
+
+가정을 하나씩 더할수록 매개변수 수가 수천 배씩 줄어듭니다(로그 축).
+</figcaption>
+</figure>
 
 | 층 | 가정 | 매개변수 수 |
 | --- | --- | --- |
@@ -106,8 +112,14 @@ $$
 
 ### 손으로 계산하는 예
 
+<figure markdown>
 ![교차 상관 계산](images/04-cross-correlation.png)
-주황색 2×2 창이 입력 위를 지나가며 출력 한 칸씩을 만듭니다. 그림은 첫 번째 칸 19를 계산하는 위치를 보여 줍니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 교차 상관 계산</span>
+
+2×2 창이 입력 위를 지나며 출력 한 칸씩을 만듭니다. 표시한 위치가 첫 칸 19입니다.
+</figcaption>
+</figure>
 
 $\mathbf{X} = \begin{bmatrix} 0 & 1 & 2 \\ 3 & 4 & 5 \\ 6 & 7 & 8 \end{bmatrix}$, $\mathbf{K} = \begin{bmatrix} 0 & 1 \\ 2 & 3 \end{bmatrix}$ 이면 출력은 2×2입니다.
 
@@ -182,8 +194,14 @@ print(round(loss, 3), W)
 학습률은 0.03입니다. 손실은 2번째 반복에서 3.73, 4번째에서 0.626, 10번째에서 0.003으로 줄어듭니다.
 10번 반복 뒤 커널은 $[0.990, -0.990]$ 이고 목표 $[1, -1]$ 에 가깝습니다.
 
+<figure markdown>
 ![경계 검출과 커널 학습](images/04-edge-detection.png)
-왼쪽은 입력, 가운데는 $[1,-1]$ 커널의 출력입니다. 오른쪽은 무작위 값에서 출발한 두 커널 원소가 경사 하강으로 1과 $-1$ 에 다가가는 과정입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 경계 검출과 커널 학습</span>
+
+$[1,-1]$ 커널이 경계를 검출하고, 학습한 두 커널 원소는 1과 $-1$ 에 다가갑니다.
+</figcaption>
+</figure>
 
 이 예의 요점은 커널을 사람이 설계하지 않아도 된다는 것입니다. 실제 신경망에서는 수십~수백 개의 커널이 분류 손실을 줄이는 방향으로 동시에 학습됩니다.
 
@@ -203,8 +221,14 @@ $$
 
 3×3 합성곱 한 층의 수용 영역은 3×3이고 두 층은 5×5입니다.
 
+<figure markdown>
 ![수용 영역의 성장](images/04-receptive-field.png)
-빨간 칸은 깊은 층의 원소 하나입니다. 3×3 합성곱을 하나 거슬러 올라갈 때마다 영향을 주는 입력 범위가 한 변에 2칸씩 넓어집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 수용 영역의 성장</span>
+
+3×3 합성곱을 하나 거슬러 오를 때마다 수용 영역이 한 변에 2칸씩 넓어집니다.
+</figcaption>
+</figure>
 
 수치로 확인합니다. 5×5 입력 $0, 1, \dots, 24$ 에 모든 원소가 1인 3×3 커널을 두 번 적용하면 1×1 출력 972가 나옵니다.
 이 값은 입력에 가중치 $w_{a,b} = c_a c_b$, $c = (1, 2, 3, 2, 1)$ 를 곱해 더한 값과 같습니다. 25개 입력이 모두 출력에 영향을 줍니다.
@@ -238,8 +262,14 @@ $$
 이 식은 다음처럼 읽습니다. 패딩한 입력에서 커널이 놓일 수 있는 시작 위치의 범위는 $n_h - k_h + p_h$ 칸입니다.
 첫 위치 하나에 더해 $s_h$ 칸마다 하나씩 위치가 생기므로 $\lfloor (n_h - k_h + p_h)/s_h \rfloor + 1$ 개입니다. 이 값을 정리하면 위 식이 됩니다.
 
+<figure markdown>
 ![패딩과 스트라이드](images/04-padding-stride.png)
-5×5 입력에 0을 한 겹 채우고 3×3 커널을 옮깁니다. 스트라이드 1이면 출력이 5×5로 입력과 같고, 스트라이드 2이면 커널이 두 칸씩 건너뛰어 출력이 3×3입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 패딩과 스트라이드</span>
+
+패딩 1에서 스트라이드 1이면 출력이 5×5, 스트라이드 2이면 3×3입니다.
+</figcaption>
+</figure>
 
 8×8 입력에 대해 공식을 적용한 값과 NumPy로 직접 계산한 출력 모양이 같습니다.
 
@@ -341,8 +371,14 @@ print(Y_mm[:, 0, 0], Y_mm[:, 1, 1], np.allclose(Y_mm, Y_cv))
 
 둘째 역할은 해상도를 줄이는 것입니다. 해상도가 줄면 계산이 줄고, 다음 층의 수용 영역이 빠르게 넓어집니다.
 
+<figure markdown>
 ![최대 풀링과 평균 풀링](images/04-pooling.png)
-4×4 입력을 겹치지 않는 2×2 창 네 개로 나눕니다. 같은 색의 창이 출력의 같은 색 칸 하나로 요약됩니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> 최대 풀링과 평균 풀링</span>
+
+겹치지 않는 2×2 창 하나가 출력의 같은 색 칸 하나로 요약됩니다.
+</figcaption>
+</figure>
 
 ### 패딩, 스트라이드, 채널
 

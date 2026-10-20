@@ -109,10 +109,10 @@ $$
 
 <figure markdown>
 ![backtracking line search](images/09-backtracking.png)
-<figcaption>
-6절 예제 함수에서 그래디언트 방향으로 선 탐색을 한 결과입니다. 초록 영역은 파란 직선 아래에 곡선이 놓이는
-보폭, 즉 정지 조건을 만족하는 보폭입니다(t ≤ 0.044). t = 1, 0.5, …, 0.0625 는 거부되고(빨간 ×),
-t = 0.03125 가 처음으로 받아들여집니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> backtracking line search</span>
+
+초록 영역이 정지 조건을 만족하는 보폭(t ≤ 0.044)입니다. t = 0.03125 가 처음으로 받아들여집니다.
 </figcaption>
 </figure>
 
@@ -180,9 +180,10 @@ $\gamma = 10$ 에서 46회, $\gamma = 100$ 에서 461회, $\gamma = 1000$ 에서
 
 <figure markdown>
 ![조건수와 반복 횟수](images/09-condition.png)
-<figcaption>
-정확한 선 탐색을 쓰는 경사 하강법의 반복 횟수입니다. 측정값(점)이 닫힌 형태의 예측(선)과 일치합니다.
-γ 가 클 때 기울기 1인 직선, 즉 반복 횟수 ∝ γ 입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 조건수와 반복 횟수</span>
+
+측정한 반복 횟수가 예측과 일치합니다. γ 가 크면 반복 횟수가 γ 에 비례합니다.
 </figcaption>
 </figure>
 
@@ -339,10 +340,10 @@ $$
 
 <figure markdown>
 ![경사 하강법과 뉴턴법](images/09-gd-vs-newton.png)
-<figcaption>
-왼쪽: 같은 출발점에서의 궤적입니다. 경사 하강법은 등고선에 수직으로 움직이므로 지그재그를 그리고,
-뉴턴법은 곡률을 반영해 최적점(★)을 향해 바로 갑니다. 오른쪽: 준최적성의 로그 그래프입니다.
-경사 하강법은 직선(선형 수렴), 뉴턴법은 아래로 꺾이는 곡선(이차 수렴)입니다.
+<figcaption markdown>
+<span class="fig-title"><b>Figure 3.</b> 경사 하강법과 뉴턴법</span>
+
+경사 하강법은 지그재그로 선형 수렴하고, 뉴턴법은 최적점으로 바로 가며 이차 수렴합니다.
 </figcaption>
 </figure>
 
