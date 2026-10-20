@@ -1063,7 +1063,14 @@ body {
    15. 푸터
    -------------------------------------------------------------------------- */
 
+/*
+  18절에서 사이드바 스크롤 영역의 높이를 화면 높이로 고정하므로, 페이지 끝에서는
+  스크롤 영역이 사이드바 밖으로 넘쳐 푸터 위에 놓입니다. 그러면 이전·다음 링크의
+  클릭을 사이드바가 가져갑니다. 푸터를 사이드바보다 위에 쌓아 클릭을 되찾습니다.
+*/
 .md-footer {
+  position: relative;
+  z-index: 4;
   border-top: 1px solid var(--border-subtle);
   background: var(--surface);
 }
@@ -1350,4 +1357,91 @@ body {
   font-style: normal;
   text-align: left;
   color: var(--text-secondary);
+}
+
+/*
+  캡션 첫 줄(그림 번호와 제목)은 가운데 정렬합니다. 마크다운에서 제목 줄 뒤에
+  빈 줄을 두므로 제목과 설명은 서로 다른 문단이 되고, 그 사이에 한 줄 간격이 생깁니다.
+*/
+.md-typeset figcaption .fig-title {
+  display: block;
+  text-align: center;
+  color: var(--text-strong);
+}
+
+.md-typeset figcaption p {
+  margin: 0;
+}
+
+.md-typeset figcaption p + p {
+  margin-top: 0.8em;
+}
+
+
+/* ==========================================================================
+   19. Mermaid 다이어그램
+
+   Material은 다이어그램을 shadow DOM 안에 그리므로 CSS 규칙으로는 안쪽을
+   고칠 수 없습니다. 대신 안쪽 스타일이 읽는 CSS 변수를 .mermaid 요소에서
+   다시 정의합니다. 변수는 shadow DOM 안으로 상속되고, 사이트의 다른 UI
+   색에는 영향을 주지 않습니다.
+
+   기본값은 옅은 회색 채움에 진한 강조색 테두리입니다. 여기서는 흰 바탕,
+   얇은 중립 테두리, 회색 화살표로 본문 표와 같은 인상을 줍니다.
+   ========================================================================== */
+
+[data-md-color-scheme="default"] .mermaid {
+  --md-mermaid-node-bg-color:  var(--gray-0);
+  --md-mermaid-node-fg-color:  rgba(var(--alpha-base), 0.22);
+  --md-mermaid-label-fg-color: var(--text-strong);
+  --md-mermaid-label-bg-color: var(--surface);
+  --md-mermaid-edge-color:     #a3a3a3;
+
+  /* 그룹(subgraph) 상자의 채움과 테두리입니다. */
+  --md-default-fg-color--lightest: var(--gray-50);
+  --md-default-fg-color--lighter:  rgba(var(--alpha-base), 0.12);
+}
+
+[data-md-color-scheme="slate"] .mermaid {
+  --md-mermaid-node-bg-color:  var(--gray-100);
+  --md-mermaid-node-fg-color:  rgba(var(--alpha-base), 0.18);
+  --md-mermaid-label-fg-color: var(--text-strong);
+  --md-mermaid-label-bg-color: var(--surface);
+  --md-mermaid-edge-color:     #6e6e6e;
+
+  --md-default-fg-color--lightest: var(--gray-25);
+  --md-default-fg-color--lighter:  rgba(var(--alpha-base), 0.10);
+}
+
+.md-typeset .mermaid {
+  margin: 1.5em 0;
+  text-align: center;
+}
+
+/*
+  시퀀스 다이어그램 변수는 :root 에서 노드 변수를 참조해 이미 값이 정해진 채로
+  상속됩니다. 그래서 위의 노드 변수만 바꾸면 참가자 테두리와 반복 구간이
+  강조색으로 남습니다. 같은 기준으로 다시 정의합니다.
+*/
+.mermaid {
+  --md-mermaid-sequence-actor-bg-color:      var(--md-mermaid-node-bg-color);
+  --md-mermaid-sequence-actor-border-color:  var(--md-mermaid-node-fg-color);
+  --md-mermaid-sequence-actor-fg-color:      var(--md-mermaid-label-fg-color);
+  --md-mermaid-sequence-actor-line-color:    var(--md-mermaid-node-fg-color);
+  --md-mermaid-sequence-actorman-bg-color:   var(--md-mermaid-node-bg-color);
+  --md-mermaid-sequence-actorman-line-color: var(--md-mermaid-edge-color);
+  --md-mermaid-sequence-box-bg-color:        var(--md-default-fg-color--lightest);
+  --md-mermaid-sequence-box-fg-color:        var(--md-mermaid-label-fg-color);
+  --md-mermaid-sequence-label-bg-color:      var(--md-mermaid-node-bg-color);
+  --md-mermaid-sequence-label-fg-color:      var(--md-mermaid-label-fg-color);
+  --md-mermaid-sequence-loop-bg-color:       transparent;
+  --md-mermaid-sequence-loop-border-color:   var(--md-mermaid-node-fg-color);
+  --md-mermaid-sequence-loop-fg-color:       var(--md-mermaid-label-fg-color);
+  --md-mermaid-sequence-message-fg-color:    var(--md-mermaid-label-fg-color);
+  --md-mermaid-sequence-message-line-color:  var(--md-mermaid-edge-color);
+  --md-mermaid-sequence-note-bg-color:       var(--md-default-fg-color--lightest);
+  --md-mermaid-sequence-note-border-color:   var(--md-mermaid-node-fg-color);
+  --md-mermaid-sequence-note-fg-color:       var(--md-mermaid-label-fg-color);
+  --md-mermaid-sequence-number-bg-color:     var(--md-mermaid-edge-color);
+  --md-mermaid-sequence-number-fg-color:     var(--surface);
 }
