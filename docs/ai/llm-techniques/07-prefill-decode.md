@@ -46,9 +46,21 @@ LLM이 답을 만드는 과정은 성격이 다른 두 단계로 나뉩니다.
 | 횟수 | 요청마다 1번 | 출력 토큰마다 1번 |
 
 <figure markdown>
+![행렬 단위로 본 prefill과 decode](images/t07-pipeline.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 행렬 단위로 본 prefill과 decode</span>
+
+층 하나의 어텐션에서 행렬 모양을 따라간 그림입니다. 색은 차원을 나타냅니다. 보라는 토큰 수 $n$, 주황은 은닉 차원 $d$, 빨강은 $d_k$, 파랑은 $d_v$, 초록은 캐시 길이 $c$ 입니다.
+(a) prefill은 $n$ 행을 한 번에 사상하고, $\mathbf{K}$ 와 $\mathbf{V}$ 를 그대로 KV 캐시에 씁니다. 점수는 $n \times n$ 이고, 빗금 칸은 인과 마스크가 가린 칸입니다. 첫 답 토큰은 출력 $\mathbf{O}$ 의 마지막 행에서 나옵니다.
+(b) decode는 새 토큰 1행만 사상합니다. 캐시에 진한 보라색 1행을 붙이고, 쿼리 1개로 캐시 $c$ 행을 모두 읽습니다. 점수는 $1 \times c$ 이고, 캐시에는 앞 토큰만 있으므로 마스크가 필요 없습니다.
+두 단계의 가중치 $\mathbf{W}_Q, \mathbf{W}_K, \mathbf{W}_V$ 는 같습니다. prefill은 가중치를 한 번 읽어 $n$ 행에 쓰고, decode는 1행을 위해 가중치 전체를 다시 읽습니다. 이 차이가 2절의 산술 강도 차이로 이어집니다.
+</figcaption>
+</figure>
+
+<figure markdown>
 ![prefill과 decode의 타임라인](images/t07-timeline.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 1.</b> prefill과 decode의 타임라인</span>
+<span class="fig-title"><b>Figure 2.</b> prefill과 decode의 타임라인</span>
 
 prefill은 긴 계산 한 번으로 첫 토큰을 내고, decode는 짧은 계산을 토큰마다 반복합니다.
 </figcaption>
@@ -136,7 +148,7 @@ $$
 <figure markdown>
 ![H100 루프라인과 prefill·decode의 위치](images/t07-roofline.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 2.</b> H100 루프라인과 prefill·decode의 위치</span>
+<span class="fig-title"><b>Figure 3.</b> H100 루프라인과 prefill·decode의 위치</span>
 
 2K 이상의 prefill은 계산 한계 구간에, decode는 배치 256에서도 메모리 한계 구간에 있습니다.
 </figcaption>
@@ -152,7 +164,7 @@ $$
 <figure markdown>
 ![프롬프트 길이에 따른 TTFT와 배치에 따른 decode 처리량](images/t07-length-batch.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 3.</b> 프롬프트 길이에 따른 TTFT와 배치에 따른 decode 처리량</span>
+<span class="fig-title"><b>Figure 4.</b> 프롬프트 길이에 따른 TTFT와 배치에 따른 decode 처리량</span>
 
 GPU 8장에 이상적으로 나눈 하한입니다. 문맥 32K에서는 KV 캐시 읽기가 지배해 decode 처리량이 일찍 포화합니다.
 </figcaption>
@@ -211,7 +223,7 @@ Sarathi-Serve는 이 방법과 decode를 멈추지 않는 스케줄링(stall-fre
 <figure markdown>
 ![청크 prefill의 스케줄](images/t07-chunked.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 4.</b> 청크 prefill의 스케줄</span>
+<span class="fig-title"><b>Figure 5.</b> 청크 prefill의 스케줄</span>
 
 prefill을 1K 조각으로 나누면 decode와 함께 실행되므로, 다른 요청의 토큰 간격이 고르게 유지됩니다.
 </figcaption>
@@ -232,7 +244,7 @@ KV 캐시는 요청마다 길이가 다르고 생성하면서 계속 늘어납�
 <figure markdown>
 ![블록 표와 물리 블록](images/t07-paged-kv.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 블록 표와 물리 블록</span>
+<span class="fig-title"><b>Figure 6.</b> 블록 표와 물리 블록</span>
 
 같은 시스템 프롬프트로 시작하는 두 요청은 앞 블록을 같은 물리 블록(#2, #5)으로 공유합니다.
 </figcaption>
