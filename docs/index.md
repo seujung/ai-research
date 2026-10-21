@@ -18,9 +18,19 @@ hide:
   <a class="chip" href="papers/">논문</a>
   <a class="chip" href="ai/">AI</a>
   <a class="chip" href="math/">수학</a>
+  <a class="chip" href="cs/">컴퓨터 과학</a>
 </nav>
 
 <ul class="entry-list">
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-10-21">2026년 10월 21일</time>
+      <span class="entry__cat">컴퓨터 과학</span>
+    </div>
+    <h3 class="entry__title"><a href="cs/algorithms/">알고리즘</a></h3>
+    <p class="entry__desc">CLRS의 Introduction to Algorithms 4판을 35개 장으로 정리합니다. 정렬과 자료 구조, 동적 계획법과 탐욕 알고리즘, 그래프와 최대 흐름, FFT와 정수론, NP-완전성과 근사 알고리즘을 작은 입력의 실행 과정 그림으로 따라갑니다.</p>
+  </li>
 
   <li class="entry">
     <div class="entry__meta">

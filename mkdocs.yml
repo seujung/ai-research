@@ -216,3 +216,42 @@ nav:
           - 9. 제약 없는 최소화: math/convex-optimization/09-unconstrained.md
           - 10. 등식 제약 최소화: math/convex-optimization/10-equality-constrained.md
           - 11. 내부점법: math/convex-optimization/11-interior-point.md
+  - 컴퓨터 과학:
+      - cs/index.md
+      - 알고리즘:
+          - cs/algorithms/index.md
+          - 1. 컴퓨팅에서 알고리즘의 역할: cs/algorithms/01-role-of-algorithms.md
+          - 2. 삽입 정렬과 병합 정렬: cs/algorithms/02-getting-started.md
+          - 3. 실행 시간의 점근 표기: cs/algorithms/03-running-times.md
+          - 4. 분할 정복: cs/algorithms/04-divide-and-conquer.md
+          - 5. 확률적 분석과 무작위 알고리즘: cs/algorithms/05-randomized.md
+          - 6. 힙 정렬: cs/algorithms/06-heapsort.md
+          - 7. 퀵 정렬: cs/algorithms/07-quicksort.md
+          - 8. 선형 시간 정렬: cs/algorithms/08-linear-sorting.md
+          - 9. 중앙값과 순서 통계량: cs/algorithms/09-order-statistics.md
+          - 10. 기본 자료 구조: cs/algorithms/10-elementary-ds.md
+          - 11. 해시 테이블: cs/algorithms/11-hash-tables.md
+          - 12. 이진 탐색 트리: cs/algorithms/12-bst.md
+          - 13. 레드-블랙 트리: cs/algorithms/13-red-black-trees.md
+          - 14. 동적 계획법: cs/algorithms/14-dynamic-programming.md
+          - 15. 탐욕 알고리즘: cs/algorithms/15-greedy.md
+          - 16. 분할 상환 분석: cs/algorithms/16-amortized.md
+          - 17. 자료 구조 확장: cs/algorithms/17-augmenting.md
+          - 18. B-트리: cs/algorithms/18-b-trees.md
+          - 19. 서로소 집합 자료 구조: cs/algorithms/19-disjoint-sets.md
+          - 20. 기본 그래프 알고리즘: cs/algorithms/20-graph-basics.md
+          - 21. 최소 신장 트리: cs/algorithms/21-mst.md
+          - 22. 단일 출발점 최단 경로: cs/algorithms/22-single-source-sp.md
+          - 23. 모든 쌍 최단 경로: cs/algorithms/23-all-pairs-sp.md
+          - 24. 최대 흐름: cs/algorithms/24-max-flow.md
+          - 25. 이분 그래프 매칭: cs/algorithms/25-bipartite-matching.md
+          - 26. 병렬 알고리즘: cs/algorithms/26-parallel.md
+          - 27. 온라인 알고리즘: cs/algorithms/27-online.md
+          - 28. 행렬 연산: cs/algorithms/28-matrix-operations.md
+          - 29. 선형 계획법: cs/algorithms/29-linear-programming.md
+          - 30. 다항식과 FFT: cs/algorithms/30-fft.md
+          - 31. 정수론 알고리즘: cs/algorithms/31-number-theory.md
+          - 32. 문자열 매칭: cs/algorithms/32-string-matching.md
+          - 33. 머신러닝 알고리즘: cs/algorithms/33-ml-algorithms.md
+          - 34. NP-완전성: cs/algorithms/34-np-completeness.md
+          - 35. 근사 알고리즘: cs/algorithms/35-approximation.md

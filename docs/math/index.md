@@ -13,6 +13,7 @@ tags:
 그 이론을 신경망에 적용하는 내용은 [AI](../ai/index.md) 섹션에 둡니다.
 예를 들어 볼록 문제의 경사 하강법과 뉴턴법은 이 섹션의 [볼록 최적화](convex-optimization/index.md)에 있습니다.
 비볼록 손실 위의 SGD와 Adam은 AI 섹션의 [최적화 알고리즘](../ai/d2l/09-optimization.md)에 있습니다.
+알고리즘과 자료 구조 교재는 [컴퓨터 과학](../cs/index.md) 섹션에 둡니다.
 
 ## 주제
 
