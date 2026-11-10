@@ -1,5 +1,5 @@
 site_name: AI Research
-site_description: AI 트렌드, 논문 리뷰, AI 교재 정리, 수학 교재 정리를 모아 두는 공간입니다.
+site_description: AI 트렌드, 논문 리뷰, AI 교재 정리, 수학·컴퓨터 과학·물리 교재 정리를 모아 두는 공간입니다.
 site_author: seujung
 site_url: https://seujung.github.io/ai-research/
 dev_addr: 127.0.0.1:8001
@@ -255,3 +255,19 @@ nav:
           - 33. 머신러닝 알고리즘: cs/algorithms/33-ml-algorithms.md
           - 34. NP-완전성: cs/algorithms/34-np-completeness.md
           - 35. 근사 알고리즘: cs/algorithms/35-approximation.md
+  - 물리:
+      - physics/index.md
+      - 양자역학:
+          - physics/quantum-mechanics/index.md
+          - 1. 파동 함수: physics/quantum-mechanics/01-wave-function.md
+          - 2. 시간에 무관한 슈뢰딩거 방정식: physics/quantum-mechanics/02-time-independent-schrodinger.md
+          - 3. 형식 체계: physics/quantum-mechanics/03-formalism.md
+          - 4. 3차원 양자역학: physics/quantum-mechanics/04-three-dimensions.md
+          - 5. 동일 입자: physics/quantum-mechanics/05-identical-particles.md
+          - 6. 시간에 무관한 섭동 이론: physics/quantum-mechanics/06-time-independent-perturbation.md
+          - 7. 변분 원리: physics/quantum-mechanics/07-variational-principle.md
+          - 8. WKB 근사: physics/quantum-mechanics/08-wkb.md
+          - 9. 시간에 의존하는 섭동 이론: physics/quantum-mechanics/09-time-dependent-perturbation.md
+          - 10. 단열 근사: physics/quantum-mechanics/10-adiabatic.md
+          - 11. 산란: physics/quantum-mechanics/11-scattering.md
+          - "12. 맺음말: 양자역학의 해석": physics/quantum-mechanics/12-afterword.md

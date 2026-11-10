@@ -19,9 +19,19 @@ hide:
   <a class="chip" href="ai/">AI</a>
   <a class="chip" href="math/">수학</a>
   <a class="chip" href="cs/">컴퓨터 과학</a>
+  <a class="chip" href="physics/">물리</a>
 </nav>
 
 <ul class="entry-list">
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-10-29">2026년 10월 29일</time>
+      <span class="entry__cat">물리</span>
+    </div>
+    <h3 class="entry__title"><a href="physics/quantum-mechanics/">양자역학</a></h3>
+    <p class="entry__desc">Griffiths의 Introduction to Quantum Mechanics 1판을 11개 장과 맺음말로 정리합니다. 파동 함수와 슈뢰딩거 방정식, 형식 체계, 수소 원자와 스핀, 동일 입자, 섭동·변분·WKB 근사, 산란, 벨 정리를 다룹니다. 1 nm 우물 속 전자의 에너지나 알파 붕괴 반감기처럼 숫자를 끝까지 넣은 예시로 따라갑니다.</p>
+  </li>
 
   <li class="entry">
     <div class="entry__meta">
