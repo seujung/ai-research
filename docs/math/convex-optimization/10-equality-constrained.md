@@ -10,8 +10,8 @@ tags:
 
 9장의 뉴턴법에 등식 제약 $Ax = b$ 를 더합니다. 결론부터 말하면 뉴턴법의 구조는 거의 바뀌지 않습니다.
 뉴턴 단계를 구할 때 푸는 선형 방정식이 헤시안 하나에서 **KKT 시스템**으로 커질 뿐입니다.
-이 장은 등식 제약을 다루는 세 가지 방법(제거, 쌍대, 뉴턴)을 비교합니다. 그리고 시작점이 제약을 만족하지 않아도
-쓸 수 있는 **infeasible start 뉴턴법**을 유도합니다. 이 방법은 11장 원시-쌍대 내부점법의 원형입니다.
+이 장은 등식 제약을 다루는 세 가지 방법(제거, 쌍대, 뉴턴)을 비교합니다. 시작점이 제약을 만족하지 않아도
+쓸 수 있는 **infeasible start 뉴턴법**도 유도합니다. 이 방법은 11장 원시-쌍대 내부점법의 원형입니다.
 
 !!! info "원문과 자료"
     - 교재: Boyd & Vandenberghe, *Convex Optimization*, 10장 Equality constrained minimization (p.521–560)
@@ -30,7 +30,7 @@ $$
 $f : \mathbf{R}^n \to \mathbf{R}$ 은 볼록이고 두 번 연속 미분 가능합니다. $A \in \mathbf{R}^{p \times n}$ 이고 $\operatorname{rank} A = p < n$ 이라고 가정합니다.
 즉 제약의 개수가 변수보다 적고, 중복된 제약이 없습니다.
 
-5장의 KKT 조건에 따르면 $x^\star$ 가 최적일 필요충분조건은 다음을 만족하는 $\nu^\star \in \mathbf{R}^p$ 가 존재하는 것입니다.
+5장의 KKT 조건에 따르면 $x^\star$ 가 최적일 필요충분조건은 다음을 만족하는 $\nu^\star \in \mathbf{R}^p$ 의 존재입니다.
 
 $$
 A x^\star = b, \qquad \nabla f(x^\star) + A^\top \nu^\star = 0
@@ -95,7 +95,7 @@ g(\nu) = -b^\top \nu + \inf_x \big(f(x) + \nu^\top A x\big) = -b^\top \nu - f^*(
 $$
 
 쌍대 문제는 제약이 없는 최대화 문제입니다. Slater 조건이 성립하므로 강쌍대성이 성립합니다.
-$g$ 가 두 번 미분 가능하면 9장의 방법으로 $\nu^\star$ 를 구하고, $\nabla f(x) + A^\top \nu^\star = 0$ 을 풀어 $x^\star$ 를 복원합니다.
+$g$ 가 두 번 미분 가능하면 9장의 방법으로 $\nu^\star$ 를 구합니다. 그다음 $\nabla f(x) + A^\top \nu^\star = 0$ 을 풀어 $x^\star$ 를 복원합니다.
 $p \ll n$ 이면 쌍대 변수가 훨씬 적으므로 유리합니다.
 
 ### 방법 3: 등식 제약 뉴턴법
@@ -236,7 +236,7 @@ $$
 \frac{d}{dt} \lVert r(y + t\Delta y_{\text{pd}}) \rVert_2 \Big|_{t=0} = -\lVert r(y) \rVert_2
 $$
 
-그래서 선 탐색 기준을 $f$ 가 아니라 $\lVert r \rVert_2$ 로 바꿉니다.
+따라서 선 탐색 기준을 $f$ 가 아니라 $\lVert r \rVert_2$ 로 바꿉니다.
 
 1. $x \in \operatorname{dom} f$ 와 임의의 $\nu$ 에서 시작합니다.
 2. $\Delta x_{\text{nt}}$, $\Delta \nu_{\text{nt}}$ 를 계산합니다.
@@ -281,7 +281,7 @@ $$
 
 $n = 100$, $p = 50$ 인 무작위 문제를 풀었습니다. feasible start는 가능점 $\hat{x}$ 에서, infeasible start는 $x^{(0)} = \mathbf{1}$ 에서 출발했습니다.
 두 방법 모두 6회 이내에 기계 정밀도에 도달합니다. infeasible start 뉴턴법은 첫 반복부터 보폭 1을 받았으므로
-첫 반복 뒤 원시 잔차가 0이 되고, 잔차 노름이 $49.4 \to 1.7 \to 0.18 \to 5.1 \times 10^{-3} \to 8.8 \times 10^{-6} \to 3.5 \times 10^{-11}$ 로 줄었습니다.
+첫 반복 뒤 원시 잔차가 0이 되었습니다. 잔차 노름은 $49.4 \to 1.7 \to 0.18 \to 5.1 \times 10^{-3} \to 8.8 \times 10^{-6} \to 3.5 \times 10^{-11}$ 로 줄었습니다.
 
 <figure markdown>
 ![analytic center 문제의 수렴](images/10-analytic-centering.png)
@@ -302,7 +302,7 @@ $$
 = -\begin{bmatrix} g \\ h \end{bmatrix}
 $$
 
-KKT 행렬은 대칭이지만 양의 정부호가 아닙니다. 그래서 촐레스키 분해를 바로 쓸 수 없습니다. 세 가지 방법이 있습니다.
+KKT 행렬은 대칭이지만 양의 정부호가 아닙니다. 따라서 촐레스키 분해를 바로 쓸 수 없습니다. 세 가지 방법이 있습니다.
 
 | 방법 | 내용 | 적합한 경우 |
 | --- | --- | --- |
@@ -317,7 +317,7 @@ $$
 $$
 
 $S = -AH^{-1}A^\top$ 를 $H$ 의 **Schur complement**라고 합니다. $H$ 가 양의 정부호이고 $A$ 가 행 최대 랭크이면
-$AH^{-1}A^\top$ 는 양의 정부호이므로 촐레스키 분해로 풉니다. analytic center 문제는 $H$ 가 대각이므로
+$AH^{-1}A^\top$ 는 양의 정부호입니다. 따라서 촐레스키 분해로 풉니다. analytic center 문제는 $H$ 가 대각이므로
 $H^{-1}$ 계산이 $O(n)$ 이고, 전체 비용은 $AH^{-1}A^\top$ 를 만드는 $O(p^2 n)$ 과 분해하는 $O(p^3)$ 입니다.
 위 예제의 그림도 이 방법으로 계산했습니다.
 
@@ -335,4 +335,4 @@ $H^{-1}$ 계산이 $O(n)$ 이고, 전체 비용은 $AH^{-1}A^\top$ 를 만드는
 
 ## 다음 장
 
-[11. 내부점법](11-interior-point.md)은 부등식 제약을 log barrier로 바꾸고, 이 장의 뉴턴법을 반복해서 써서 일반 볼록 문제를 풉니다.
+[11. 내부점법](11-interior-point.md)은 부등식 제약을 log barrier로 바꿉니다. 그다음 이 장의 뉴턴법을 반복해서 써서 일반 볼록 문제를 풉니다.

@@ -10,7 +10,7 @@ tags:
 
 Muon은 행렬 매개변수의 모멘텀을 **직교화**해서 갱신하는 옵티마이저입니다. Adam이 좌표마다 크기를 맞췄다면, Muon은 행렬의 특잇 방향마다 크기를 맞춥니다.
 GLM-4.5·GLM-5, Kimi K2, DeepSeek V4가 사전학습에 Muon을 씁니다.
-이 페이지는 직교화가 무엇을 하는지, 뉴턴-슐츠 반복이 SVD 없이 이를 계산하는 원리, AdamW의 학습률을 재사용하는 크기 맞춤, 그리고 대규모 학습에서 생긴 문제와 변형(Muon Split, QK-Clip)을 다룹니다.
+이 페이지는 직교화가 무엇을 하는지와 뉴턴-슐츠 반복이 SVD 없이 이를 계산하는 원리를 다룹니다. 이어서 AdamW의 학습률을 재사용하는 크기 맞춤, 대규모 학습에서 생긴 문제와 변형(Muon Split, QK-Clip)을 정리합니다.
 Adam과 AdamW는 [4.1](01-adam.md), [4.2](02-adamw.md)에 있습니다.
 
 !!! info "자료"
@@ -107,7 +107,7 @@ $$
     \mathbf{A} = \mathbf{X}\mathbf{X}^\top,\qquad \mathbf{X} \leftarrow a\mathbf{X} + (b\mathbf{A} + c\mathbf{A}^2)\mathbf{X}
     $$
 
-3. **특잇값에 미치는 효과.** $\mathbf{X} = \mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^\top$ 이면 $\mathbf{A}\mathbf{X} = \mathbf{U}\boldsymbol{\Sigma}^3\mathbf{V}^\top$ 입니다. 그래서 반복 한 번은 특잇값마다 다항식 $\varphi(\sigma) = a\sigma + b\sigma^3 + c\sigma^5$ 를 적용합니다. $\mathbf{U}, \mathbf{V}$ 는 그대로입니다.
+3. **특잇값에 미치는 효과.** $\mathbf{X} = \mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^\top$ 이면 $\mathbf{A}\mathbf{X} = \mathbf{U}\boldsymbol{\Sigma}^3\mathbf{V}^\top$ 입니다. 따라서 반복 한 번은 특잇값마다 다항식 $\varphi(\sigma) = a\sigma + b\sigma^3 + c\sigma^5$ 를 적용합니다. $\mathbf{U}, \mathbf{V}$ 는 그대로입니다.
 
 목표는 $[0, 1]$ 의 모든 값을 1 근처로 보내는 $\varphi$ 입니다.
 
@@ -143,7 +143,7 @@ Muon 기본 구현은 튜닝 계수로 5회 반복합니다. 정확히 1이 아�
 <figcaption markdown>
 <span class="fig-title"><b>Figure 3.</b> 뉴턴-슐츠 반복이 특잇값에 하는 일</span>
 
-튜닝 계수는 작은 $\sigma$ 를 빠르게 끌어올리지만 1 주변에서 진동하고, 기본 계수는 느리지만 정확히 1로 갑니다.
+튜닝 계수는 작은 $\sigma$ 를 빠르게 끌어올리지만 1 주변에서 진동합니다. 기본 계수는 느리지만 정확히 1로 갑니다.
 </figcaption>
 </figure>
 
@@ -224,7 +224,7 @@ Muon is Scalable 논문은 계산 최적 학습에서 Muon이 AdamW 성능에 �
 ### 대가: 어텐션 로짓 폭주
 
 모든 방향을 같은 크기로 갱신하므로 일부 헤드의 $\mathbf{W}_Q, \mathbf{W}_K$ 노름이 빠르게 커져 **어텐션 로짓이 폭주**할 수 있습니다. Kimi K2 보고서는 이 현상이 AdamW보다 Muon에서 자주 생겼다고 설명합니다.
-그래서 Muon을 쓰는 계열은 모두 로짓을 막는 장치를 함께 둡니다.
+따라서 Muon을 쓰는 계열은 모두 로짓을 막는 장치를 함께 둡니다.
 
 | 계열 | 로짓 폭주 대책 | 위치 |
 | --- | --- | --- |

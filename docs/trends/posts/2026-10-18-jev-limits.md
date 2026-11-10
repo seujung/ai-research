@@ -68,7 +68,7 @@ TypeSafe는 Jev가 타입 오류와 환각이 없다고 홍보합니다.
 [Alex Molas](https://www.alexmolas.com/2026/09/23/jev-cant-be-calibrated.html)의 비판 요지는 이렇습니다.
 보정은 데이터 분포에 묶인 성질입니다. 한 모델이 모든 사용자의 분포에서 동시에 보정될 수는 없습니다.
 그는 사용자들이 보고한 예로 "공정한 동전이 앞면이 나온다"에 0.92가 나온 사례를 듭니다.
-권하는 대응은 자신의 라벨 수백 건으로 Platt scaling 같은 사후 보정을 하는 것입니다.
+권하는 대응은 자신의 라벨 수백 건으로 하는 Platt scaling 같은 사후 보정입니다.
 
 $$
 p_{\text{보정}} = \sigma\bigl(a \cdot \operatorname{logit}(p_{\text{Jev}}) + b\bigr),
@@ -93,7 +93,7 @@ $$
 | 프롬프트 주입 탐지 | 정확도 86.35% (9개 중 4위), 지연 중앙값 348ms | DeBERTa 분류기 89.01%, 54ms |
 | 콘텐츠 안전성 | 정확도 86.20% (9개 중 1위), 360ms | |
 
-Red Hat의 결론은 판단 모델이 LLM 판정기나 작은 전용 분류기보다 빠르지도, 싸지도, 낫지도 않았다는 것입니다.
+Red Hat의 결론은 다음과 같습니다. 판단 모델은 LLM 판정기나 작은 전용 분류기보다 빠르지도, 싸지도, 낫지도 않았습니다.
 **학습 데이터가 충분한 고정 과제에서는 전용 분류기가 여전히 강합니다.**
 Jev의 장점은 라벨 없이 `criteria`만 바꿔 새 판단을 바로 만들 수 있다는 점입니다.
 
@@ -143,7 +143,7 @@ flowchart TD
 
 [Laya](https://github.com/NandhaKishorM/laya)는 Convai Innovations가 Apache-2.0으로 공개한 모델입니다.
 `laya-serve`는 Jev와 같은 경로(`/v1/systemone`)를 여는 FastAPI 서버입니다.
-그래서 Jev SDK의 기본 주소만 바꾸면 그대로 동작합니다. 예제 저장소의 `ch12/laya_compare.py`가 이 방법으로 API 키 없이 실습합니다.
+Jev SDK의 기본 주소만 바꾸면 그대로 동작합니다. 예제 저장소의 `ch12/laya_compare.py`가 이 방법으로 API 키 없이 실습합니다.
 
 ```bash
 pip install "laya[serve]"

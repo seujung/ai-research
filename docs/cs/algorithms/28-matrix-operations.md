@@ -15,7 +15,7 @@ tags:
     - 원문: CLRS 4판 28장 Matrix Operations (28.1~28.3). 연습 문제와 장 끝 문제는 생략했습니다.
     - 함께 읽기: [선형대수 1장 행렬과 가우스 소거법](../../math/linear-algebra/01-gaussian-elimination.md)(LU 분해의 유도), [3장 직교성](../../math/linear-algebra/03-orthogonality.md)(최소제곱의 기하), [6장 양의 정부호 행렬](../../math/linear-algebra/06-positive-definite.md)(판정법과 Cholesky), [7장 행렬 계산](../../math/linear-algebra/07-computations.md)(조건수와 수치 안정성)
     - 전제: [4. 분할 정복](04-divide-and-conquer.md)의 행렬 곱셈과 Strassen 방법
-    - 본문의 행렬과 데이터는 새로 만든 것입니다. 수치는 Python의 `fractions` 로 정확히 계산해 확인했습니다.
+    - 본문의 행렬과 데이터는 새로 만들었습니다. 수치는 Python의 `fractions` 로 정확히 계산해 확인했습니다.
 
 ## 1. LUP 분해로 연립 방정식 풀기
 
@@ -79,7 +79,7 @@ $$
 <figcaption markdown>
 <span class="fig-title"><b>Figure 1.</b> LUP 분해의 단계</span>
 
-매 단계 피벗 행을 바꾸고, 곱수를 L 자리에 저장하고, 나머지를 Schur 보수로 바꿉니다. 하나의 배열 안에서 L과 U가 함께 완성됩니다.
+매 단계 피벗 행을 바꿉니다. 곱수는 L 자리에 저장하고, 나머지는 Schur 보수로 바꿉니다. 하나의 배열 안에서 L과 U가 함께 완성됩니다.
 </figcaption>
 </figure>
 
@@ -171,7 +171,7 @@ $$
 $B$ 와 $S$ 가 대칭 양의 정부호이므로 재귀 중에 역행렬이 항상 존재합니다. 이 성질은 3절의 보조정리에서 나옵니다.
 일반 정칙 행렬 $A$ 는 $A^{-1} = (A^T A)^{-1} A^T$ 로 바꿉니다. $A^T A$ 는 대칭 양의 정부호이고, 곱셈 두 번이 더 듭니다.
 
-결론은 Strassen 방법을 쓰면 역행렬도 $O(n^{\lg 7})$ 에 구할 수 있다는 것입니다.
+결론적으로 Strassen 방법을 쓰면 역행렬도 $O(n^{\lg 7})$ 에 구할 수 있습니다.
 
 ## 3. 대칭 양의 정부호 행렬과 최소제곱
 

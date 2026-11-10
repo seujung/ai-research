@@ -10,7 +10,7 @@ tags:
 Michael J. Evans와 Jeffrey S. Rosenthal의 *Probability and Statistics: The Science of Uncertainty*
 (2nd Edition, W. H. Freeman, 2010)를 장 단위로 정리합니다.
 각 장은 책의 절 순서를 따르고, **핵심 개념과 책에 나오는 대표 예제**를 중심으로 구성합니다.
-정의와 정리를 먼저 세우고, 예제를 직접 계산하고, 시뮬레이션 삽화로 의미를 확인합니다.
+정의와 정리를 먼저 세웁니다. 예제를 직접 계산하고, 시뮬레이션 삽화로 의미를 확인합니다.
 예제의 수치는 모두 Python(NumPy, SciPy)으로 다시 계산해서 검증했습니다.
 
 이 책은 1–4장에서 확률론을, 5–10장에서 통계적 추론을 다룹니다.

@@ -21,7 +21,7 @@ tags:
 
 ### 문제: 상태를 매번 덮어쓴다
 
-기본 RNN은 $\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{\textrm{xh}} + \mathbf{H}_{t-1}\mathbf{W}_{\textrm{hh}} + \mathbf{b}_\textrm{h})$ 로 상태를 갱신합니다. 매 단계에서 이전 상태 전체가 행렬 곱과 비선형 함수를 다시 통과합니다. 그래서 $k$ 단계 전의 정보는 $k$ 번 변형되고, 역전파 기울기도 $k$ 개 야코비 행렬의 곱이 됩니다. 곱의 크기가 1보다 작으면 기울기가 지수적으로 줄어듭니다.
+기본 RNN은 $\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{\textrm{xh}} + \mathbf{H}_{t-1}\mathbf{W}_{\textrm{hh}} + \mathbf{b}_\textrm{h})$ 로 상태를 갱신합니다. 매 단계에서 이전 상태 전체가 행렬 곱과 비선형 함수를 다시 통과합니다. 따라서 $k$ 단계 전의 정보는 $k$ 번 변형되고, 역전파 기울기도 $k$ 개 야코비 행렬의 곱이 됩니다. 곱의 크기가 1보다 작으면 기울기가 지수적으로 줄어듭니다.
 
 **LSTM(long short-term memory)** 은 상태를 둘로 나눕니다. **메모리 셀(memory cell)** $\mathbf{C}_t$ 는 정보를 장기간 보관합니다. 은닉 상태 $\mathbf{H}_t$ 는 셀에서 필요한 부분만 꺼내 출력합니다. 셀은 행렬 곱을 거치지 않고 원소별 곱과 덧셈으로만 갱신됩니다.
 
@@ -142,7 +142,7 @@ $$
 | $\mathbf{Z}_t = 0$, $\mathbf{R}_t = 1$ | $\tilde{\mathbf{H}}_t$ | 기본 RNN과 같습니다 |
 | $\mathbf{Z}_t = 0$, $\mathbf{R}_t = 0$ | $\tanh(\mathbf{X}_t \mathbf{W}_{\textrm{xh}} + \mathbf{b}_\textrm{h})$ | 과거를 잊고 현재 입력만 봅니다 |
 
-$\mathbf{Z}_t$ 는 LSTM의 망각 게이트 역할을 합니다. $1 - \mathbf{Z}_t$ 는 입력 게이트 역할을 합니다. GRU는 두 게이트의 합을 1로 묶어 둔 것입니다. 그래서 $\partial \mathbf{H}_t / \partial \mathbf{H}_{t-1}$ 의 직접 경로는 $\operatorname{diag}(\mathbf{Z}_t)$ 이고, LSTM과 같은 원리로 기울기를 보존합니다.
+$\mathbf{Z}_t$ 는 LSTM의 망각 게이트 역할을 합니다. $1 - \mathbf{Z}_t$ 는 입력 게이트 역할을 합니다. GRU는 두 게이트의 합을 1로 묶어 두었습니다. 따라서 $\partial \mathbf{H}_t / \partial \mathbf{H}_{t-1}$ 의 직접 경로는 $\operatorname{diag}(\mathbf{Z}_t)$ 이고, LSTM과 같은 원리로 기울기를 보존합니다.
 
 ### 수치 예시
 
@@ -295,7 +295,7 @@ $\mathbf{c}$ 는 두 군데로 들어갑니다. 첫째, 인코더 마지막 상�
 
 ### 교사 강요
 
-학습할 때 디코더 입력으로 무엇을 줄까요? **교사 강요(teacher forcing)** 는 모델의 예측 대신 정답 토큰을 넣습니다. 디코더 입력은 `<bos>` 뒤에 정답 시퀀스의 마지막 토큰을 뺀 것입니다. 레이블은 정답 시퀀스를 한 칸 왼쪽으로 민 것입니다.
+학습할 때 디코더 입력으로 무엇을 줄까요? **교사 강요(teacher forcing)** 는 모델의 예측 대신 정답 토큰을 넣습니다. 디코더 입력은 `<bos>` 뒤에 정답 시퀀스의 마지막 토큰을 뺀 시퀀스입니다. 레이블은 정답 시퀀스를 한 칸 왼쪽으로 민 시퀀스입니다.
 
 | 시점 $t'$ | 1 | 2 | 3 | 4 |
 | --- | --- | --- | --- | --- |

@@ -20,14 +20,14 @@ $$
 \mathbf{o}_t = \sum_{j \le t} a_{tj}\,\mathbf{v}_j,\qquad a_{tj} = \frac{\exp(\mathbf{q}_t^\top\mathbf{k}_j/\sqrt{d})}{\sum_{l \le t}\exp(\mathbf{q}_t^\top\mathbf{k}_l/\sqrt{d})}
 $$
 
-소프트맥스는 $\mathbf{q}_t$ 와 $\mathbf{k}_j$ 를 지수 함수 안에서 묶습니다. 그래서 $\mathbf{q}_t$ 가 정해져야 합을 계산할 수 있고, 이전 키를 모두 보관해야 합니다.
-소프트맥스를 빼고 점수를 $\mathbf{q}_t^\top\mathbf{k}_j$ 그대로 쓰면 식을 다시 묶을 수 있습니다.
+소프트맥스는 $\mathbf{q}_t$ 와 $\mathbf{k}_j$ 를 지수 함수 안에서 묶습니다. 따라서 $\mathbf{q}_t$ 가 정해져야 합을 계산할 수 있습니다. 이전 키도 모두 보관해야 합니다.
+소프트맥스 없이 점수 $\mathbf{q}_t^\top\mathbf{k}_j$ 를 그대로 쓰면 식을 다시 묶을 수 있습니다.
 
 $$
 \mathbf{o}_t = \sum_{j \le t} \mathbf{v}_j\,(\mathbf{k}_j^\top\mathbf{q}_t) = \Big(\underbrace{\sum_{j \le t} \mathbf{v}_j\mathbf{k}_j^\top}_{\mathbf{S}_t}\Big)\mathbf{q}_t
 $$
 
-괄호 안은 $\mathbf{q}_t$ 와 무관합니다. 그래서 한 토큰씩 갱신할 수 있습니다.
+괄호 안은 $\mathbf{q}_t$ 와 무관합니다. 따라서 한 토큰씩 갱신할 수 있습니다.
 
 $$
 \mathbf{S}_t = \mathbf{S}_{t-1} + \mathbf{v}_t\mathbf{k}_t^\top,\qquad \mathbf{o}_t = \mathbf{S}_t\,\mathbf{q}_t
@@ -40,7 +40,7 @@ $\mathbf{S}_t \in \mathbb{R}^{d_v \times d_k}$ 는 크기가 고정된 **상태(
 <figcaption markdown>
 <span class="fig-title"><b>Figure 1.</b> 행렬 단위로 본 선형 어텐션의 전체 흐름</span>
 
-선형 어텐션은 $n \times n$ 점수 행렬 대신 $d_v \times d_k$ 상태 하나를 씁니다. 그래서 메모리와 토큰당 계산량이 문맥 길이와 무관합니다.
+선형 어텐션은 $n \times n$ 점수 행렬 대신 $d_v \times d_k$ 상태 하나를 씁니다. 따라서 메모리와 토큰당 계산량이 문맥 길이와 무관합니다.
 </figcaption>
 </figure>
 
@@ -80,7 +80,7 @@ print(torch.allclose(O_par, torch.stack(O_rec), atol=1e-5))   # True
 
 ### 커널 관점
 
-소프트맥스 어텐션은 유사도 함수 $\operatorname{sim}(\mathbf{q}, \mathbf{k}) = \exp(\mathbf{q}^\top\mathbf{k}/\sqrt{d})$ 로 가중 평균을 내는 것입니다.
+소프트맥스 어텐션은 유사도 함수 $\operatorname{sim}(\mathbf{q}, \mathbf{k}) = \exp(\mathbf{q}^\top\mathbf{k}/\sqrt{d})$ 로 가중 평균을 냅니다.
 유사도를 특징 사상 $\phi$ 의 내적 $\phi(\mathbf{q})^\top\phi(\mathbf{k})$ 로 바꾸면 같은 재배열이 가능합니다.
 
 $$
@@ -91,7 +91,7 @@ $$
 
 Katharopoulos et al.(2020)은 $\phi(x) = \operatorname{elu}(x) + 1$ 을 써서 가중치가 양수가 되게 했습니다.
 지수 함수는 무한 차원 특징 사상에 해당하므로 유한한 $\phi$ 로는 정확히 흉내 낼 수 없습니다. 선형 어텐션은 처음부터 다른 함수입니다.
-최근 방법(Gated DeltaNet 포함)은 분모를 없애고, 대신 쿼리와 키를 L2 정규화해 크기를 맞춥니다.
+최근 방법(Gated DeltaNet 포함)은 분모를 없앱니다. 대신 쿼리와 키를 L2 정규화해 크기를 맞춥니다.
 
 ## 2. 문제: 덮어쓰지 못하는 기억
 
@@ -112,7 +112,7 @@ Katharopoulos et al.(2020)은 $\phi(x) = \operatorname{elu}(x) + 1$ 을 써서 �
 
 ## 3. 델타 규칙: 오차만큼 고치기
 
-**DeltaNet**은 저장하기 전에 현재 상태가 이 키로 무엇을 돌려주는지 먼저 봅니다. 그리고 목표 값과의 차이(델타)만큼만 고칩니다.
+**DeltaNet**은 저장하기 전에 현재 상태가 이 키로 무엇을 돌려주는지 먼저 봅니다. 그다음 목표 값과의 차이(델타)만큼만 고칩니다.
 
 $$
 \mathbf{S}_t = \mathbf{S}_{t-1} + \beta_t\,(\mathbf{v}_t - \mathbf{S}_{t-1}\mathbf{k}_t)\,\mathbf{k}_t^\top
@@ -232,7 +232,7 @@ Kimi Linear와 Kimi K3는 KDA를 MLA와 3 : 1로 섞습니다. 갱신식, 손계
 ### 왜 필요한가
 
 순환 형태는 토큰을 하나씩 처리하므로 GPU의 병렬성을 쓰지 못합니다. 병렬 형태는 $n \times n$ 행렬이 필요하고, 델타 규칙은 $\mathbf{S}_{t-1}$ 에 의존하므로 단순한 병렬 형태도 없습니다.
-그래서 시퀀스를 길이 $C$ 의 청크로 나눕니다. **청크 안은 행렬 곱으로 한 번에, 청크 사이만 순환으로** 계산합니다. Qwen3-Next의 참조 구현은 $C = 64$ 를 씁니다.
+따라서 시퀀스를 길이 $C$ 의 청크로 나눕니다. **청크 안은 행렬 곱으로 한 번에, 청크 사이만 순환으로** 계산합니다. Qwen3-Next의 참조 구현은 $C = 64$ 를 씁니다.
 
 ### 유도 ($\alpha = 1$)
 
@@ -298,7 +298,7 @@ print(torch.allclose(torch.cat(chunks), O_rec, atol=1e-5), torch.allclose(S0, S,
 ### 왜 섞는가
 
 3절의 회상 실험처럼, 고정 크기 상태는 먼 과거의 특정 정보를 정확히 꺼내는 능력이 약합니다.
-그래서 Qwen3-Next와 Qwen3.5는 4층마다 1층을 소프트맥스 어텐션으로 남겼습니다(`full_attention_interval: 4`).
+따라서 Qwen3-Next와 Qwen3.5는 4층마다 1층을 소프트맥스 어텐션으로 남겼습니다(`full_attention_interval: 4`).
 남은 어텐션층은 [8장](08-attention-sink-gating.md)의 게이트 어텐션입니다.
 
 ```mermaid
@@ -341,7 +341,7 @@ Qwen3.5-397B로 문맥별 합계를 계산합니다.
 
 ## 7. 회상 능력의 한계: GLM-5 보고서의 비교
 
-GLM-5 보고서는 9B 전체 어텐션 모델을 64K 문맥으로 190B 토큰 이어 학습하면서, 일부 층을 효율 어텐션으로 바꾼 결과를 비교했습니다.
+GLM-5 보고서는 9B 전체 어텐션 모델의 일부 층을 효율 어텐션으로 바꿨습니다. 64K 문맥으로 190B 토큰을 이어 학습한 결과를 비교했습니다.
 
 | 방법 | RULER 64K | RULER 128K | RepoQA 64K | RepoQA 128K |
 | --- | --- | --- | --- | --- |
@@ -363,7 +363,7 @@ SimpleGDN은 합성곱과 명시적 게이트를 빼고, 기존 어텐션의 Q·
 </figure>
 
 이 결과는 해석에 주의가 필요합니다. **처음부터 하이브리드로 학습한 모델이 아니라, 전체 어텐션 모델을 짧게 이어 학습한 경우**입니다.
-Qwen3-Next와 Qwen3.5는 처음부터 하이브리드 구조로 학습했습니다. 그래서 이 표는 "이미 학습한 밀집 모델을 선형 어텐션으로 바꾸면 회상 능력이 줄어든다"로 읽는 것이 정확합니다.
+Qwen3-Next와 Qwen3.5는 처음부터 하이브리드 구조로 학습했습니다. 따라서 이 표는 "이미 학습한 밀집 모델을 선형 어텐션으로 바꾸면 회상 능력이 줄어든다"로 읽어야 정확합니다.
 3절의 실험과 같은 방향의 결과입니다. 고정 크기 상태는 저장 용량에 한계가 있고, 하이브리드 구조는 남은 소프트맥스 층으로 이 한계를 보완합니다.
 
 ## 정리

@@ -28,9 +28,9 @@ $$
 \textbf{GDN:}\quad \mathbf{S}_t = \alpha_t\,\mathbf{S}_{t-1}\big(\mathbf{I} - \beta_t\mathbf{k}_t\mathbf{k}_t^\top\big) + \beta_t\mathbf{v}_t\mathbf{k}_t^\top,\qquad \alpha_t \in [0, 1]
 $$
 
-$\alpha_t$ 는 헤드마다 스칼라 하나입니다. 그래서 다음 두 요구가 충돌합니다.
+$\alpha_t$ 는 헤드마다 스칼라 하나입니다. 따라서 다음 두 요구가 충돌합니다.
 
-- 지금 쓰고 있는 키 방향의 오래된 내용을 빨리 지우고 싶습니다. 그러면 $\alpha_t$ 를 낮춰야 합니다.
+- 지금 쓰는 키 방향의 오래된 내용을 빨리 지우고 싶습니다. 그러면 $\alpha_t$ 를 낮춰야 합니다.
 - 다른 키 방향에 저장한 장기 정보는 남기고 싶습니다. 그러면 $\alpha_t$ 를 1 가까이 둬야 합니다.
 
 델타 규칙은 현재 키 방향만 고치므로 첫 요구를 어느 정도 해결합니다. 하지만 $\alpha_t < 1$ 인 순간 상태의 **모든** 채널이 함께 줄어듭니다.
@@ -52,7 +52,7 @@ $$
 
 $\boldsymbol{\alpha}_t = \alpha_t\mathbf{1}$ 이면 $\operatorname{Diag}(\boldsymbol{\alpha}_t) = \alpha_t\mathbf{I}$ 이므로 GDN과 같습니다. KDA는 GDN을 포함하는 일반화입니다.
 
-Kimi Linear 보고서는 상태를 $\mathbf{S} \in \mathbb{R}^{d_k \times d_v}$ 로 써서 $\mathbf{S}_t = (\mathbf{I} - \beta_t\mathbf{k}_t\mathbf{k}_t^\top)\operatorname{Diag}(\boldsymbol{\alpha}_t)\mathbf{S}_{t-1} + \beta_t\mathbf{k}_t\mathbf{v}_t^\top$ 로 적습니다. 위 식을 전치한 것입니다. $\operatorname{Diag}(\boldsymbol{\alpha}_t)$ 와 $\mathbf{I} - \beta_t\mathbf{k}_t\mathbf{k}_t^\top$ 가 대칭이므로 두 표기는 같습니다.
+Kimi Linear 보고서는 상태를 $\mathbf{S} \in \mathbb{R}^{d_k \times d_v}$ 로 써서 $\mathbf{S}_t = (\mathbf{I} - \beta_t\mathbf{k}_t\mathbf{k}_t^\top)\operatorname{Diag}(\boldsymbol{\alpha}_t)\mathbf{S}_{t-1} + \beta_t\mathbf{k}_t\mathbf{v}_t^\top$ 로 적습니다. 위 식을 전치한 꼴입니다. $\operatorname{Diag}(\boldsymbol{\alpha}_t)$ 와 $\mathbf{I} - \beta_t\mathbf{k}_t\mathbf{k}_t^\top$ 가 대칭이므로 두 표기는 같습니다.
 
 <figure markdown>
 ![행렬 단위로 본 KDA의 전체 흐름](images/a09-pipeline.png)
@@ -186,7 +186,7 @@ $\mathbf{M}_t$ 는 대각 행렬에서 랭크 1 행렬을 뺀 **DPLR(Diagonal-Pl
 ### 보고서가 밝힌 효율
 
 - 일반 DPLR 청크 알고리즘은 청크 안의 누적 감쇠 $\prod \boldsymbol{\alpha}$ 의 역수를 다룹니다. 누적 감쇠가 0에 가까우면 역수가 커져 수치적으로 불안정합니다.
-- KDA는 $\mathbf{a}, \mathbf{b}$ 가 같은 키에서 나온다는 제약을 이용해 이 역수 계산을 없애고, 청크를 두 번 더 나누는 보조 단계도 없앴다고 설명합니다.
+- KDA는 두 가지를 없앴다고 설명합니다. $\mathbf{a}, \mathbf{b}$ 가 같은 키에서 나온다는 제약을 이용해 이 역수 계산을 없앴습니다. 청크를 두 번 더 나누는 보조 단계도 없앴습니다.
 - 보고서는 KDA 커널이 일반 DPLR 커널보다 64K 길이까지 약 2배 빠르다고 보고합니다. 프리필 지연은 GDN 하이브리드(GDN-H)와 거의 같았습니다.
 
 여기서는 커널 유도 대신, 위 DPLR 전이 행렬이 2절의 갱신식과 같다는 점을 코드로 확인합니다.
@@ -239,7 +239,7 @@ flowchart LR
 | --- | --- | --- | --- | --- | --- |
 | 검증 PPL | 5.77 | 5.66 | **5.65** | 5.70 | 5.82 |
 
-선형층이 너무 적으면 효율이 떨어지고, 너무 많으면 품질이 떨어집니다. 3 : 1은 Qwen3-Next·Qwen3.5(7장 6절)와 같은 비율입니다.
+선형층이 너무 적으면 효율이 떨어집니다. 너무 많으면 품질이 떨어집니다. 3 : 1은 Qwen3-Next·Qwen3.5(7장 6절)와 같은 비율입니다.
 
 ### MLA층의 NoPE
 

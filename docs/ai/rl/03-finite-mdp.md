@@ -108,7 +108,7 @@ $$
 
 ### 할인된 이득
 
-해결책은 먼 미래의 보상을 덜 세는 것입니다. **할인율(discount rate)** $\gamma \in [0, 1]$ 을 도입합니다.
+먼 미래의 보상을 덜 세면 해결됩니다. **할인율(discount rate)** $\gamma \in [0, 1]$ 을 도입합니다.
 
 $$
 G_t \doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
@@ -467,7 +467,7 @@ $$
 
 ### 재활용 로봇의 $v_*$
 
-재활용 로봇의 벨만 최적 방정식은 두 식입니다. h는 high, l은 low입니다. $r_{\text{s}}$ 와 $r_{\text{w}}$ 는 $r_{\text{search}}$ 와 $r_{\text{wait}}$ 를 줄여 쓴 것입니다.
+재활용 로봇의 벨만 최적 방정식은 두 식입니다. h는 high, l은 low입니다. $r_{\text{s}}$ 와 $r_{\text{w}}$ 는 $r_{\text{search}}$ 와 $r_{\text{wait}}$ 를 줄여 쓴 기호입니다.
 
 $$
 \begin{aligned}

@@ -108,7 +108,7 @@ $$
 \mathbb{E}[\mathbf{m}_t] = \mathbb{E}[\mathbf{g}]\,(1 - \beta_1)\sum_{i=1}^{t}\beta_1^{t-i} = \mathbb{E}[\mathbf{g}]\,(1 - \beta_1^t)
 $$
 
-그래서 $\mathbf{m}_t$ 는 참값보다 $1 - \beta_1^t$ 배 작습니다. 이 값으로 나누면 치우침이 사라집니다. $\mathbf{v}_t$ 도 같은 방법으로 $1 - \beta_2^t$ 로 나눕니다.
+따라서 $\mathbf{m}_t$ 는 참값보다 $1 - \beta_1^t$ 배 작습니다. 이 값으로 나누면 치우침이 사라집니다. $\mathbf{v}_t$ 도 같은 방법으로 $1 - \beta_2^t$ 로 나눕니다.
 
 **보정이 없으면 생기는 일.** 기울기가 계속 1이라고 가정합니다. 보정 없이 $m_t/\sqrt{v_t} = (1 - \beta_1^t)/\sqrt{1 - \beta_2^t}$ 입니다.
 
@@ -165,7 +165,7 @@ $\beta_2$ 가 1에 가까울수록 $v_t$ 가 오래 작게 머무르므로, 초�
 | $\epsilon$ | $10^{-8}$ | $10^{-8}$ (Qwen 1세대), $10^{-20}$ (DeepSeek V4의 AdamW 부분) | 분모가 0이 되는 것을 막는 값. 기울기가 $\epsilon$ 보다 작은 좌표에서는 갱신이 줄어듭니다 |
 
 GPT-3는 Adam에 $\beta_1 = 0.9$, $\beta_2 = 0.95$, $\epsilon = 10^{-8}$ 을 썼습니다([Brown et al., 2020](https://arxiv.org/abs/2005.14165) 부록 B).
-이 장에서 다루는 모델 중 설정을 밝힌 AdamW 사용 모델(Qwen 1세대, DeepSeek V2·V3, DeepSeek V4의 AdamW 부분)도 모두 $\beta_2 = 0.95$ 입니다.
+이 장에서 다루는 모델 가운데 설정을 밝힌 AdamW 사용 모델도 모두 $\beta_2 = 0.95$ 입니다. Qwen 1세대, DeepSeek V2·V3, DeepSeek V4의 AdamW 부분이 여기에 해당합니다.
 보고서들은 이 값을 고른 이유를 따로 설명하지 않습니다. 아래는 $\beta_2$ 가 갱신에 미치는 효과를 직접 계산한 결과입니다.
 
 ### β2와 기울기 급변
@@ -207,7 +207,7 @@ ZeRO 논문([Rajbhandari et al., 2019](https://arxiv.org/abs/1910.02054))의 계
 | 합계 | **16** |
 
 **예제.** DeepSeek-V3의 총 매개변수 671B로 계산하면 $671 \times 10^9 \times 16 = 10.7\,\text{TB}$ 입니다. 그중 $\mathbf{m}, \mathbf{v}$ 만 5.4TB입니다.
-그래서 대규모 학습은 이 상태를 여러 GPU에 나눠 저장합니다(ZeRO, FSDP). Gemma 보고서가 "옵티마이저 상태를 ZeRO-3와 비슷하게 샤딩"한다고 적은 것도 이 부분입니다.
+따라서 대규모 학습은 이 상태를 여러 GPU에 나눠 저장합니다(ZeRO, FSDP). Gemma 보고서가 "옵티마이저 상태를 ZeRO-3와 비슷하게 샤딩"한다고 적은 것도 이 부분입니다.
 Muon은 상태가 1개이므로 매개변수당 12바이트입니다([4.3 Muon](03-muon.md)).
 
 ## 7. 구현
