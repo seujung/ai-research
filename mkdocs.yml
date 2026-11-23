@@ -47,6 +47,10 @@ theme:
     text: Inter
     code: JetBrains Mono
 
+# 작업용 설계 문서와 계획서는 저장소에만 두고 사이트에는 내보내지 않습니다.
+exclude_docs: |
+  superpowers/
+
 plugins:
   - search:
       lang:
