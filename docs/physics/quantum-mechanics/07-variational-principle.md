@@ -73,6 +73,14 @@ $$
 답을 아는 문제로 시작합니다. $V = \frac{1}{2} m \omega^2 x^2$ 이고 정확한 바닥 상태 에너지는 $\hbar\omega/2$ 입니다. 시험 함수로 $\psi = A e^{-bx^2}$ 을 고릅니다.
 
 규격화: $\int_{-\infty}^{\infty} e^{-2bx^2} dx = \sqrt{\pi/2b}$ 이므로 $A^2 = \sqrt{2b/\pi}$ 입니다.
+가우스 적분은 $I_n = \int_{-\infty}^{\infty}x^{2n}e^{-\alpha x^2}dx$ 를 매개변수 $\alpha$ 로 미분해 얻습니다. $I_0 = \sqrt{\pi/\alpha}$ 이고 $\alpha = 2b$ 입니다.
+
+$$
+I_1 = -\frac{dI_0}{d\alpha} = \frac{\sqrt\pi}{2}\alpha^{-3/2}
+= \frac{1}{4b}\sqrt{\frac{\pi}{2b}}
+$$
+
+이 값이 $\langle x^2\rangle$ 의 분자입니다.
 
 운동 에너지: $\psi' = -2bx\psi$ 이므로
 
@@ -82,7 +90,7 @@ $$
 = \frac{\hbar^2 b}{2m}
 $$
 
-퍼텐셜 에너지: $\langle x^2 \rangle = 1/(4b)$ 이므로 $\langle V \rangle = \frac{1}{2} m\omega^2 \cdot \frac{1}{4b} = \frac{m\omega^2}{8b}$ 입니다.
+퍼텐셜 에너지: 규격화로 나누면 $\langle x^2 \rangle = I_1/I_0 = 1/(4b)$ 입니다. $\langle V \rangle = \frac{1}{2} m\omega^2 \cdot \frac{1}{4b} = \frac{m\omega^2}{8b}$ 입니다.
 
 $$
 \langle H \rangle(b) = \frac{\hbar^2 b}{2m} + \frac{m\omega^2}{8b}
@@ -100,16 +108,31 @@ $$
 
 정확한 값이 나왔습니다. 가우스 함수 가족 안에 진짜 바닥 상태 $e^{-m\omega x^2/2\hbar}$ 가 들어 있기 때문입니다. 비유로 말하면, 고른 길이 골짜기 바닥을 지난 경우입니다.
 
+
 ### 수치 예 2: 모양이 틀린 시험 함수
 
 같은 조화 진동자에 일부러 모양이 다른 두 시험 함수를 써 봅니다. 계산 방법은 똑같습니다.
 
 **삼각형** $\psi = A(a - |x|)$, $|x| < a$ 밖에서는 0:
-$A^2 = 3/(2a^3)$, $\langle T \rangle = 3\hbar^2/(2ma^2)$, $\langle V \rangle = m\omega^2 a^2/20$ 입니다.
+규격화는 $2A^2\int_0^a(a-x)^2dx = 2A^2\cdot a^3/3 = 1$ 에서 $A^2 = 3/(2a^3)$ 입니다.
+미분은 $\psi' = \mp A$ 로 크기가 일정합니다. $\int|\psi'|^2dx = 2A^2 a = 3/a$ 입니다.
+
+$$
+\langle T \rangle = \frac{\hbar^2}{2m}\cdot\frac{3}{a} = \frac{3\hbar^2}{2ma^2}, \qquad
+\langle V \rangle = \frac{1}{2}m\omega^2\cdot 2A^2\int_0^a x^2(a-x)^2dx = \frac{m\omega^2a^2}{20}
+$$
+
 $\langle H \rangle$ 를 최소화하면 $a^2 = \sqrt{30}\,\hbar/(m\omega)$ 에서 $\langle H \rangle_{\min} = \frac{\sqrt{30}}{10}\hbar\omega = 0.548\,\hbar\omega$ 입니다.
 
 **로런츠형** $\psi = A/(x^2 + b^2)$:
-$A^2 = 2b^3/\pi$, $\langle T \rangle = \hbar^2/(4mb^2)$, $\langle V \rangle = m\omega^2 b^2/2$ 입니다.
+규격화는 $\int dx/(x^2+b^2)^2 = \pi/(2b^3)$ 에서 $A^2 = 2b^3/\pi$ 입니다.
+미분은 $\psi' = -2xA/(x^2+b^2)^2$ 입니다. 적분 $\int x^2dx/(x^2+b^2)^4 = \pi/(16b^5)$ 를 씁니다.
+
+$$
+\langle T \rangle = \frac{\hbar^2}{2m}A^2\cdot\frac{4\pi}{16b^5} = \frac{\hbar^2}{4mb^2}, \qquad
+\langle V \rangle = \frac{1}{2}m\omega^2\cdot\frac{b^2}{1} = \frac{m\omega^2b^2}{2}
+$$
+
 최소화하면 $b^2 = \hbar/(\sqrt{2}\,m\omega)$ 에서 $\langle H \rangle_{\min} = \hbar\omega/\sqrt{2} = 0.707\,\hbar\omega$ 입니다.
 
 | 시험 함수 | $\langle H \rangle_{\min} / \hbar\omega$ | 정확한 값 대비 | 모양의 결함 |
@@ -129,6 +152,7 @@ $A^2 = 2b^3/\pi$, $\langle T \rangle = \hbar^2/(4mb^2)$, $\langle V \rangle = m\
 
 왼쪽은 시험 함수의 폭(표준 편차)을 바꿀 때 $\langle H \rangle$ 가 어떻게 변하는지입니다. 모든 곡선이 점선($\hbar\omega/2$) 위에 있고, 가우스만 점선에 닿습니다.
 오른쪽은 각 시험 함수를 최적 폭에서 정확한 바닥 상태와 겹쳐 그렸습니다.
+세 곡선의 최솟값 차이가 곧 시험 함수의 결함이 만든 오차입니다. 가우스는 0, 삼각형은 $+9.5\%$, 로런츠형은 $+41\%$ 입니다.
 </figcaption>
 </figure>
 
@@ -257,14 +281,18 @@ $$
 
 세 가지 적분이 필요합니다.
 
-1. 수소꼴 1s 상태에서 $\langle 1/r \rangle = Z/a$ 입니다.
-2. 전자 반발의 기댓값은 전하 분포 둘의 정전기 에너지입니다. 계산하면 $\langle V_{ee} \rangle = \frac{5Z}{8a}\cdot\frac{e^2}{4\pi\epsilon_0}$ 입니다.
+1. 수소꼴 1s 상태에서 $\langle 1/r \rangle = Z/a$ 입니다. 밀도 $(Z/a)^3e^{-2Zr/a}/\pi$ 를 넣고 구면 적분하면 $4(Z/a)^3\int_0^\infty r e^{-2Zr/a}dr = Z/a$ 입니다.
+2. 전자 반발의 기댓값은 전하 분포 둘의 정전기 에너지입니다. $r_{12}$ 를 적분 변수로 두고 계산하면 $\langle V_{ee} \rangle = \frac{5Z}{8a}\cdot\frac{e^2}{4\pi\epsilon_0}$ 입니다.
+   적분은 6차원이지만 두 분포가 모두 구 대칭이므로, $r_1$ 과 $r_2$ 의 대소를 나누어 1차원 적분 두 개로 줄어듭니다. 안쪽 전하를 점전하로 보는 가우스 법칙을 쓰기 때문입니다.
 3. $\frac{e^2}{4\pi\epsilon_0 a} = -2E_1 = 27.2\,\mathrm{eV}$ 라는 관계를 써서 모두 $E_1$ 로 나타냅니다.
 
 $$
 \langle H \rangle = 2Z^2 E_1 + 2(Z - 2)\cdot\frac{Z}{a}\cdot\frac{e^2}{4\pi\epsilon_0} + \frac{5Z}{8a}\cdot\frac{e^2}{4\pi\epsilon_0}
 = 2Z^2 E_1 - 4Z(Z - 2)E_1 - \frac{5Z}{4}E_1
 $$
+
+마지막 항의 계수를 확인합니다. $\frac{5Z}{8a}\cdot\frac{e^2}{4\pi\epsilon_0} = \frac{5Z}{8}\cdot(-2E_1) = -\frac{5Z}{4}E_1$ 입니다.
+가운데 항은 $\langle 1/r_1\rangle + \langle 1/r_2\rangle = 2Z/a$ 이므로 $2(Z-2)\cdot\frac{2Z}{a}\cdot\frac{e^2}{4\pi\epsilon_0} = -4Z(Z-2)E_1$ 입니다. 모으면 다음과 같습니다.
 
 $$
 \langle H \rangle(Z) = \left[-2Z^2 + \frac{27}{4}Z\right] E_1
@@ -343,7 +371,11 @@ I = \int \psi_0(r_1)\psi_0(r_2)\,d^3r = e^{-x}\left(1 + x + \frac{x^2}{3}\right)
 A_\pm^2 = \frac{1}{2(1 \pm I)}
 $$
 
-$R \to 0$ 이면 $I \to 1$, $R \to \infty$ 이면 $I \to 0$ 입니다.
+$I$ 를 계산하는 요령은 적분 변수를 바꾸는 것입니다. $r_1 + r_2$ 가 일정한 면이 회전 타원체이므로, 그 좌표에서 적분이 1차원으로 줄어듭니다.
+$\psi_0(r_1)\psi_0(r_2) = e^{-(r_1+r_2)/a}/(\pi a^3)$ 이므로 $x = R/a$ 를 넣고 적분하면 위 식이 나옵니다.
+$R \to 0$ 이면 $I \to 1$, $R \to \infty$ 이면 $I \to 0$ 입니다. $R \to 0$ 을 확인합니다. $x = 0$ 에서 $e^0(1+0+0) = 1$ 입니다.
+
+규격화 상수도 $I$ 에서 나옵니다. $\int|\psi_0(r_1)\pm\psi_0(r_2)|^2d^3r = 2 \pm 2I$ 이므로 $A_\pm^2 = 1/[2(1\pm I)]$ 입니다.
 
 ### 기댓값 계산
 
@@ -362,7 +394,16 @@ $$
 
 **직접 적분** $D$ 는 양성자 1에 묶인 전자 구름이 양성자 2에게서 받는 인력입니다. 고전 정전기학으로도 나오는 양입니다.
 **교환 적분** $X$ 는 전자가 두 궤도에 동시에 걸쳐 있을 때만 생기는 항입니다. 고전적인 대응물이 없습니다.
-전자의 에너지는 다음과 같습니다.
+
+전자의 에너지는 다음과 같이 묶입니다. $\psi_+$ 로 계산하는 과정을 보입니다.
+
+$$
+\langle H \rangle_+ = A_+^2\left[\langle\psi_0(r_1)|H|\psi_0(r_1)\rangle + \langle\psi_0(r_2)|H|\psi_0(r_2)\rangle
++ 2\langle\psi_0(r_1)|H|\psi_0(r_2)\rangle\right]
+$$
+
+앞의 두 항은 서로 같습니다. 각각 $E_1(1 + \text{인력 항})$ 꼴이고, 인력 항이 $D$ 입니다. 셋째 항은 $E_1 I + X$ 꼴입니다.
+$A_+^2 = 1/[2(1+I)]$ 를 곱해 정리하면 다음이 나옵니다.
 
 $$
 \langle H \rangle_\pm = E_1\left[1 + 2\frac{D \pm X}{1 \pm I}\right]
