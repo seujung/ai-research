@@ -60,9 +60,17 @@ $$
 $$
 
 이를 대입하고 실수부와 허수부를 나누면 두 방정식이 나옵니다.
+먼저 미분을 계산합니다. $A$, $\phi$ 는 실수 함수입니다.
 
 $$
-A'' - A\,(\phi')^2 = -\frac{p^2}{\hbar^2}A, \qquad 2A'\phi' + A\phi'' = 0
+\psi' = \left(A' + iA\phi'\right)e^{i\phi}, \qquad
+\psi'' = \left(A'' + 2iA'\phi' + iA\phi'' - A(\phi')^2\right)e^{i\phi}
+$$
+
+$\psi'' = -(p^2/\hbar^2)\psi$ 에 넣고 $e^{i\phi}$ 를 나눕니다. 실수부와 허수부를 따로 0으로 둡니다.
+
+$$
+A'' - A(\phi')^2 = -\frac{p^2}{\hbar^2}A, \qquad 2A'\phi' + A\phi'' = 0
 $$
 
 두 번째 식은 $(A^2 \phi')' = 0$ 과 같으므로 $A = C/\sqrt{\phi'}$ 입니다. 여기까지는 정확합니다.
@@ -72,6 +80,16 @@ WKB 근사는 첫 번째 식에서 $A''$ 를 버립니다. 진폭이 파장에 �
 $$
 \psi(x) \approx \frac{C}{\sqrt{p(x)}}\,\exp\!\left(\pm\frac{i}{\hbar}\int^x p(x')\,dx'\right), \qquad |\psi|^2 \approx \frac{|C|^2}{p(x)}
 $$
+
+<figure markdown>
+![WKB 세 영역과 전환점](images/08-wkb-regions.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 고전적 허용 영역과 금지 영역</span>
+
+초록 영역은 $E > V$ 인 고전적 허용 영역입니다. 여기서 해는 진동합니다. 회색 영역은 금지 영역이고 해는 지수적으로 감쇠합니다.
+전환점 $x_1$, $x_2$ 에서 $p = 0$ 이므로 WKB 진폭 $1/\sqrt p$ 가 발산합니다. 두 영역을 그대로 잇지 못하는 이유입니다.
+</figcaption>
+</figure>
 
 일반해는 두 부호의 선형 결합입니다. 실수 형태로 쓰면 $\psi \approx \dfrac{1}{\sqrt{p}}\left[C_1 \sin\!\left(\frac{1}{\hbar}\int p\,dx\right) + C_2 \cos\!\left(\frac{1}{\hbar}\int p\,dx\right)\right]$ 입니다.
 
@@ -146,7 +164,7 @@ $$
 <figure markdown>
 ![1 eV 사각 장벽을 터널링하는 전자의 파동 함수](images/08-tunneling-sketch.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 2.</b> 0.5 nm 두께의 1 eV 장벽을 터널링하는 0.5 eV 전자</span>
+<span class="fig-title"><b>Figure 3.</b> 0.5 nm 두께의 1 eV 장벽을 터널링하는 0.5 eV 전자</span>
 
 장벽 왼쪽에서는 입사파와 반사파가 겹쳐 진동하고, 장벽 안(주황)에서는 지수적으로 줄어들며, 오른쪽에는 작아진 진폭의 투과파가 남습니다. 파동 함수는 정확한 사각 장벽 해로 그렸습니다. $\gamma$ 는 주황 영역에서 $\kappa$ 를 적분한 값입니다.
 </figcaption>
@@ -186,7 +204,7 @@ WKB가 4배 작게 나왔습니다. 이유는 앞 계수입니다. $\kappa a \gg
 <figure markdown>
 ![장벽 두께에 따른 투과 확률](images/08-barrier-width.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 3.</b> 장벽 두께에 따른 투과 확률</span>
+<span class="fig-title"><b>Figure 4.</b> 장벽 두께에 따른 투과 확률</span>
 
 로그 축에서 세 곡선은 같은 기울기 $-2\kappa$ 를 가집니다. WKB(빨간 파선)는 정확한 값보다 일정한 배수만큼 아래에 있습니다. 계수 $16E(V_0 - E)/V_0^2$ 를 붙인 초록 점선은 $a > 0.4\,\mathrm{nm}$ 에서 정확한 값과 겹칩니다.
 </figcaption>
@@ -211,7 +229,29 @@ STM이 원자를 하나씩 구별하는 이유가 바로 이 지수 함수의 �
 알파 입자의 에너지 $E$ 는 쿨롱 장벽의 꼭대기($r = r_1$ 에서 $30\,\mathrm{MeV}$ 정도)보다 훨씬 낮습니다. 고전적으로는 영원히 갇혀 있어야 합니다.
 
 장벽의 바깥 전환점 $r_2$ 는 $V(r_2) = E$ 에서 정해집니다. $e^2/4\pi\epsilon_0 = 1.44\,\mathrm{MeV\,fm}$ 을 쓰면 $r_2 = 2Z_d \times 1.44\,\mathrm{MeV\,fm}/E$ 입니다.
-$\gamma$ 적분은 닫힌 형태로 됩니다.
+적분 안의 $\frac{2Z_de^2}{4\pi\epsilon_0 r} = \frac{E r_2}{r}$ 로 다시 씁니다.
+
+$$
+\gamma = \frac{\sqrt{2mE}}{\hbar}\int_{r_1}^{r_2}\sqrt{\frac{r_2}{r} - 1}\,dr
+$$
+
+$r = r_2\sin^2\theta$ 로 치환합니다. $dr = 2r_2\sin\theta\cos\theta\,d\theta$ 이고 $\sqrt{r_2/r - 1} = \sqrt{\csc^2\theta - 1} = \cot\theta$ 입니다.
+
+$$
+\gamma = \frac{\sqrt{2mE}}{\hbar}\int_{\theta_1}^{\pi/2}\cot\theta\cdot 2r_2\sin\theta\cos\theta\,d\theta
+= \frac{\sqrt{2mE}}{\hbar}\,2r_2\int_{\theta_1}^{\pi/2}\cos^2\theta\,d\theta
+$$
+
+적분 한계는 $r = r_1$ 일 때 $\sin\theta_1 = \sqrt{r_1/r_2}$ 에서 정해집니다. $\int\cos^2\theta\,d\theta = \frac{\theta}{2} + \frac{\sin 2\theta}{4}$ 를 씁니다.
+$\pi/2$ 에서 값은 $\pi/4$ 이고, $\theta_1$ 에서 값은 $\frac{\theta_1}{2} + \frac{\sin\theta_1\cos\theta_1}{2}$ 입니다.
+$\theta_1 = \arcsin\sqrt{r_1/r_2}$ 이고 $\cos\theta_1 = \sqrt{1 - r_1/r_2}$ 이므로 $\sin\theta_1\cos\theta_1 = \sqrt{r_1(r_2-r_1)}/r_2$ 입니다.
+
+$$
+\gamma = \frac{\sqrt{2mE}}{\hbar}\cdot 2r_2\left[\frac{\pi}{4} - \frac{\theta_1}{2} - \frac{\sqrt{r_1(r_2-r_1)}}{2r_2}\right]
+= \frac{\sqrt{2mE}}{\hbar}\left[r_2\left(\frac{\pi}{2} - \theta_1\right) - \sqrt{r_1(r_2 - r_1)}\right]
+$$
+
+$\frac{\pi}{2} - \arcsin x = \arccos x$ 이므로 $r_2(\frac\pi2 - \theta_1) = r_2\arccos\sqrt{r_1/r_2}$ 입니다. 대입하면 닫힌 형태가 나옵니다.
 
 $$
 \gamma = \frac{1}{\hbar}\int_{r_1}^{r_2}\sqrt{2m\left(\frac{2Z_d e^2}{4\pi\epsilon_0 r} - E\right)}\,dr
@@ -273,7 +313,7 @@ $\gamma \approx K_1 Z_d/\sqrt{E} - K_2\sqrt{Z_d r_1}$ 에서 $Z_d$ 와 $r_1$ 은
 <figure markdown>
 ![가이거-누탈 관계: 측정값과 가모프 모형](images/08-geiger-nuttall.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 4.</b> 가이거-누탈 관계: 측정값과 가모프 모형</span>
+<span class="fig-title"><b>Figure 5.</b> 가이거-누탈 관계: 측정값과 가모프 모형</span>
 
 파란 점은 7개 핵종의 측정 반감기이고, 빨간 × 는 각 핵종의 $Z_d$, $A_d$ 로 계산한 가모프 모형 값입니다. 빨간 파선은 $Z_d = 86$ 으로 고정한 모형입니다. 세로축 한 칸이 10배이고, 전체 범위가 $10^{-7}$ 초에서 $10^{18}$ 초까지 25자릿수입니다.
 </figcaption>
@@ -312,6 +352,17 @@ $$
 
 한편 직선 퍼텐셜에서 WKB 해의 위상 적분은 $\frac{1}{\hbar}\int_x^{x_2} p\,dx' = \frac{2}{3}|z|^{3/2}$ 이고, $1/\sqrt{p} \propto 1/|z|^{1/4}$ 입니다.
 형태가 정확히 같습니다. 따라서 "전환점에서 충분히 멀어 WKB가 성립하지만, 직선 근사가 아직 유효한" 겹침 영역에서 계수를 맞출 수 있습니다.
+
+계수를 맞추는 순서는 다음과 같습니다. 금지 영역($x > x_2$)의 WKB 해를 $\frac{D}{\sqrt{|p|}}e^{-\frac{1}{\hbar}\int_{x_2}^x|p|dx'}$ 로 씁니다.
+이 해는 에어리 함수의 $z \gg 0$ 점근형과 같은 모양입니다. 두 식을 비교하면 $\mathrm{Ai}$ 앞의 계수가 정해집니다.
+그 $\mathrm{Ai}$ 를 $z \ll 0$ 영역으로 넘기면 사인 형태가 나옵니다. 사인 점근형과 WKB 진동 해를 다시 비교하면 위상 $\pi/4$ 와 진폭 인자 2가 나옵니다.
+
+$$
+\mathrm{Ai}(z) \approx \frac{1}{\sqrt\pi|z|^{1/4}}\sin\left(\tfrac{2}{3}|z|^{3/2}+\tfrac\pi4\right)
+\quad\Longleftrightarrow\quad
+\frac{2D}{\sqrt p}\sin\left(\frac{1}{\hbar}\int_x^{x_2}p\,dx' + \frac{\pi}{4}\right)
+$$
+
 결과가 **연결 공식**(connection formulas)입니다. 오른쪽($x > x_2$)이 금지 영역일 때 다음과 같습니다.
 
 $$
@@ -328,7 +379,7 @@ $\pi/4$ 는 "완만한 벽에서는 파동이 벽 안으로 조금 스며들어,
 <figure markdown>
 ![전환점 근처에서 에어리 함수가 두 WKB 해를 잇는 모습](images/08-airy-patch.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 전환점 근처에서 에어리 함수가 두 WKB 해를 잇는 모습</span>
+<span class="fig-title"><b>Figure 6.</b> 전환점 근처에서 에어리 함수가 두 WKB 해를 잇는 모습</span>
 
 파란 선은 $\mathrm{Ai}(z)$ 입니다. 빨간 파선(고전 영역)과 초록 파선(금지 영역)은 연결 공식의 WKB 해이며, 전환점 $z = 0$ 에서 발산합니다. 그러나 $|z| \gtrsim 1.5$ 만 벗어나면 에어리 함수와 겹칩니다. 이 겹침 영역이 계수를 맞추는 자리입니다.
 </figcaption>
@@ -353,12 +404,21 @@ $$
 
 ### 검산: 조화 진동자
 
-$V = \frac12 m\omega^2 x^2$ 의 전환점은 $x_{1,2} = \mp\sqrt{2E/m\omega^2} \equiv \mp x_0$ 입니다. 적분은 반지름 $x_0$ 인 반원의 넓이 꼴입니다.
+$V = \frac12 m\omega^2 x^2$ 의 전환점은 $x_{1,2} = \mp\sqrt{2E/m\omega^2} \equiv \mp x_0$ 입니다. 전환점에서 $E = \frac12 m\omega^2x_0^2$ 이므로 $2mE = m^2\omega^2x_0^2$ 입니다.
+적분 안을 $x_0$ 로 다시 씁니다.
+
+$$
+2m\left(E - \tfrac{1}{2}m\omega^2x^2\right) = m^2\omega^2x_0^2 - m^2\omega^2x^2 = m^2\omega^2\left(x_0^2 - x^2\right)
+$$
+
+제곱근을 빼면 $m\omega\sqrt{x_0^2-x^2}$ 입니다. 남은 적분은 반지름 $x_0$ 인 반원의 넓이입니다.
+$\int_{-x_0}^{x_0}\sqrt{x_0^2-x^2}\,dx = \frac{\pi x_0^2}{2}$ 를 넣고 $x_0^2 = 2E/(m\omega^2)$ 를 대입합니다.
 
 $$
 \int_{-x_0}^{x_0} \sqrt{2m\left(E - \tfrac12 m\omega^2 x^2\right)}\,dx
 = m\omega\int_{-x_0}^{x_0}\sqrt{x_0^2 - x^2}\,dx
-= m\omega\cdot\frac{\pi x_0^2}{2} = \frac{\pi E}{\omega}
+= m\omega\cdot\frac{\pi x_0^2}{2}
+= m\omega\cdot\frac{\pi}{2}\cdot\frac{2E}{m\omega^2} = \frac{\pi E}{\omega}
 $$
 
 양자화 조건 $\pi E/\omega = (n - \tfrac12)\pi\hbar$ 에서 다음이 나옵니다.
@@ -402,7 +462,7 @@ $n$ 이 커지면 파장이 짧아져 "퍼텐셜이 한 파장 안에서 천천�
 <figure markdown>
 ![x^4 퍼텐셜의 WKB 에너지와 수치 대각화 비교](images/08-quartic-levels.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 6.</b> $V = \alpha x^4$ 의 WKB 에너지와 수치 대각화 비교</span>
+<span class="fig-title"><b>Figure 7.</b> $V = \alpha x^4$ 의 WKB 에너지와 수치 대각화 비교</span>
 
 왼쪽은 처음 8개 준위입니다. 파란 실선이 수치 대각화, 빨간 파선이 WKB입니다. 바닥 상태만 눈에 띄게 어긋납니다. 오른쪽은 상대 오차를 로그 축에 그린 것으로, $n$ 이 커질수록 꾸준히 줄어듭니다.
 </figcaption>
