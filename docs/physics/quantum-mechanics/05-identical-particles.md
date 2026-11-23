@@ -64,7 +64,33 @@ $P^2 = 1$ 이므로 고유값은 $\pm 1$ 입니다. 두 입자의 질량과 퍼�
 
 대칭·반대칭이 실제로 무엇을 바꾸는지 보기 위해 두 입자 사이 거리의 제곱 $\langle (x_1 - x_2)^2 \rangle$ 을 계산합니다.
 1차원에서 규격화된 직교 상태 $\psi_a$, $\psi_b$ 를 쓰고 $\langle x \rangle_a = \int x |\psi_a|^2 dx$, $\langle x \rangle_{ab} = \int x \psi_a^* \psi_b \, dx$ 로 표기합니다.
-$(x_1 - x_2)^2 = x_1^2 + x_2^2 - 2x_1x_2$ 를 전개해 각 항의 기댓값을 구하면 세 경우가 다음과 같이 나옵니다.
+
+두 입자의 대칭 조합과 반대칭 조합은 다음과 같습니다.
+
+$$
+\psi_\pm(x_1, x_2) = \frac{1}{\sqrt 2}\left[\psi_a(x_1)\psi_b(x_2) \pm \psi_b(x_1)\psi_a(x_2)\right]
+$$
+
+$\psi_\pm$ 의 제곱을 전개합니다. 두 항의 크기 제곱과 교차항이 나옵니다.
+
+$$
+|\psi_\pm|^2 = \frac{1}{2}\left[|\psi_a(x_1)|^2|\psi_b(x_2)|^2 + |\psi_b(x_1)|^2|\psi_a(x_2)|^2
+\pm 2\,\mathrm{Re}\left(\psi_a^*(x_1)\psi_b(x_1)\psi_b^*(x_2)\psi_a(x_2)\right)\right]
+$$
+
+$(x_1 - x_2)^2 = x_1^2 + x_2^2 - 2x_1x_2$ 의 기댓값을 구합니다. 앞의 두 항은 교차항 없이 계산되어 구별 가능한 경우와 같습니다.
+
+$$
+\langle x_1^2 + x_2^2 \rangle_\pm = \langle x^2 \rangle_a + \langle x^2 \rangle_b
+$$
+
+$-2x_1x_2$ 항만 다릅니다. 교차항 때문에 $x_1x_2$ 의 기댓값에 $\pm 2\langle x\rangle_{ab}\langle x\rangle_{ab}^*$ 가 더해집니다.
+
+$$
+\langle x_1 x_2 \rangle_\pm = \langle x \rangle_a \langle x \rangle_b \pm \left|\langle x \rangle_{ab}\right|^2
+$$
+
+모으면 세 경우가 다음과 같이 나옵니다.
 
 | 경우 | 파동 함수 | $\langle (x_1 - x_2)^2 \rangle$ |
 | --- | --- | --- |
@@ -264,11 +290,40 @@ $$
 E_F = \frac{\hbar^2}{2m}(3\rho\pi^2)^{2/3}
 $$
 
-채워진 모든 전자의 에너지를 더하면 총 에너지는 $E_{\text{tot}} = \frac{3}{5}NqE_F$ 입니다. 전자 하나가 평균 $\frac{3}{5}E_F$ 를 가집니다.
-상자를 줄이면 $E_F \propto V^{-2/3}$ 이 커지므로 에너지가 올라갑니다. 즉 전자 기체는 바깥으로 미는 압력을 가집니다.
+채워진 모든 전자의 에너지를 더합니다. 상태 하나에 전자 두 개가 들어가므로 스핀 인자 2를 곱합니다.
+$\mathbf k$ 공간에서 밀도는 $V/(2\pi)^3$ 이고, 구 전체를 적분합니다.
 
 $$
-P = -\frac{dE_{\text{tot}}}{dV} = \frac{2}{3}\frac{E_{\text{tot}}}{V} = \frac{2}{5}\rho E_F
+E_{\text{tot}} = 2\cdot\frac{V}{(2\pi)^3}\int_{k<k_F}\frac{\hbar^2k^2}{2m}\,d^3k
+= \frac{2V}{8\pi^3}\cdot\frac{\hbar^2}{2m}\cdot 4\pi\int_0^{k_F}k^4dk
+$$
+
+$\int_0^{k_F}k^4dk = k_F^5/5$ 입니다. 계수를 정리하면 다음이 나옵니다.
+
+$$
+E_{\text{tot}} = \frac{V\hbar^2k_F^5}{10\pi^2 m}
+$$
+
+$Nq = \frac{Vk_F^3}{3\pi^2}$ 이므로 이 식을 $NqE_F$ 로 다시 씁니다. $E_F = \hbar^2k_F^2/(2m)$ 입니다.
+
+$$
+E_{\text{tot}} = \frac{Vk_F^3}{10\pi^2}\cdot\frac{\hbar^2k_F^2}{m}
+= \frac{3}{5}\cdot\underbrace{\frac{Vk_F^3}{3\pi^2}}_{Nq}\cdot\underbrace{\frac{\hbar^2k_F^2}{2m}}_{E_F}
+= \frac{3}{5}Nq\,E_F
+$$
+
+전자 하나가 평균 $\frac{3}{5}E_F$ 를 가집니다.
+상자를 줄이면 $E_F \propto V^{-2/3}$ 이 커지므로 에너지가 올라갑니다. 즉 전자 기체는 바깥으로 미는 압력을 가집니다.
+$E_F = C V^{-2/3}$ ($C$ 는 부피에 무관한 상수) 이므로 연쇄 법칙으로 다음을 얻습니다.
+
+$$
+\frac{dE_F}{dV} = -\frac{2}{3}\frac{E_F}{V}
+$$
+
+$E_{\text{tot}} = \frac{3}{5}NqE_F$ 를 $V$ 로 미분합니다.
+
+$$
+P = -\frac{dE_{\text{tot}}}{dV} = \frac{3}{5}Nq\left(\frac{2}{3}\frac{E_F}{V}\right) = \frac{2}{5}\frac{NqE_F}{V} = \frac{2}{5}\rho E_F
 $$
 
 이 압력은 열운동이나 전기적 반발과 무관합니다. 배타 원리 때문에 전자를 같은 낮은 상태에 몰아넣을 수 없어서 생깁니다. **축퇴 압력**(degeneracy pressure)이라고 부르는 이유입니다.
@@ -337,7 +392,38 @@ $$
 $$
 
 봉우리 사이에서는 자유 입자 해 $A\sin kx + B\cos kx$ 이고, 봉우리에서 [2장](02-time-independent-schrodinger.md)의 델타 함수 경계 조건(도함수의 불연속)을 적용합니다.
-블로흐 조건까지 맞추면 $K$ 와 $k$ 사이의 관계 하나가 남습니다. $z = ka$, $\beta = m\alpha a/\hbar^2$ 로 두면 다음과 같습니다.
+$0 < x < a$ 구간의 해를 $\psi_1 = A\sin kx + B\cos kx$ 로 두고, 다음 칸 $a < x < 2a$ 의 해를 블로흐 조건으로 씁니다.
+
+$$
+\psi_2(x) = e^{-iKa}\left[A\sin k(x-a) + B\cos k(x-a)\right]
+$$
+
+$x = a$ 에서 $\psi$ 가 연속이어야 합니다. 두 식의 값을 맞춥니다.
+
+$$
+A\sin ka + B\cos ka = e^{-iKa}B
+$$
+
+$x = a$ 에서 $\psi'$ 는 $\frac{2m\alpha}{\hbar^2}\psi(a)$ 만큼 점프합니다. $x = a$ 직전 값과 직후 값을 각각 미분해 씁니다.
+
+$$
+k\left[A\cos ka - B\sin ka\right] - e^{-iKa}kA = \frac{2m\alpha}{\hbar^2}\left(A\sin ka + B\cos ka\right)
+$$
+
+두 식을 $A$, $B$ 에 대한 연립 방정식으로 정리합니다. $\beta = m\alpha a/\hbar^2$, $z = ka$ 로 두면 계수가 깔끔해집니다.
+자명하지 않은 해가 있으려면 계수 행렬식이 0이어야 합니다. $e^{-iKa}$ 를 $e$ 로 줄여 쓰면 행렬식이 다음 꼴입니다.
+
+$$
+e^2 - 2\left(\cos z + \beta\frac{\sin z}{z}\right)e + 1 = 0
+$$
+
+양변을 $e$ 로 나눕니다. $e + 1/e$ 가 남습니다.
+
+$$
+e + \frac{1}{e} = 2\left(\cos z + \beta\frac{\sin z}{z}\right)
+$$
+
+$e = e^{-iKa}$ 이므로 $e + 1/e = 2\cos(Ka)$ 입니다. 대입하면 $K$ 와 $k$ 사이의 관계 하나가 남습니다.
 
 $$
 \cos(Ka) = \cos z + \beta\,\frac{\sin z}{z}, \qquad E = \frac{\hbar^2 k^2}{2m} = \left(\frac{z}{\pi}\right)^2 E_1, \quad E_1 = \frac{\pi^2\hbar^2}{2ma^2}
@@ -451,7 +537,52 @@ for name, ws in [("dist", states), ("boson", bosons), ("fermion", fermions)]:
 | 페르미-디랙 | 페르미온 | $\prod_n \dfrac{d_n!}{N_n!\,(d_n - N_n)!}$ |
 
 보손의 식은 "공 $N_n$ 개를 상자 $d_n$ 개에 넣는 방법", 페르미온의 식은 "상자 $d_n$ 개 가운데 $N_n$ 개를 고르는 방법"입니다.
-이 수의 로그를 $\sum N_n = N$, $\sum N_n E_n = E$ 라는 두 제약 아래에서 최대화합니다. 라그랑주 승수 두 개($\alpha$, $\beta$)를 도입하고 스털링 근사를 쓰면 세 경우 모두 같은 꼴이 나옵니다.
+이 수의 로그를 $\sum N_n = N$, $\sum N_n E_n = E$ 라는 두 제약 아래에서 최대화합니다. 라그랑주 승수 두 개($\alpha$, $\beta$)를 도입합니다.
+
+페르미-디랙을 예로 전 과정을 봅니다. 먼저 로그를 취하고 스털링 근사 $\ln M! \approx M\ln M - M$ 을 씁니다.
+
+$$
+\ln W = \sum_n \left[d_n\ln d_n - N_n\ln N_n - (d_n - N_n)\ln(d_n - N_n)\right]
+$$
+
+제약을 붙인 함수를 만듭니다.
+
+$$
+F = \ln W + \alpha\left(N - \sum_n N_n\right) + \beta\left(E - \sum_n N_n E_n\right)
+$$
+
+$N_n$ 으로 편미분해 0으로 둡니다.
+
+$$
+\frac{\partial F}{\partial N_n} = -\ln N_n + \ln(d_n - N_n) - \alpha - \beta E_n = 0
+$$
+
+로그를 묶습니다.
+
+$$
+\ln\frac{d_n - N_n}{N_n} = \alpha + \beta E_n
+\quad \Longrightarrow \quad
+\frac{d_n}{N_n} - 1 = e^{\alpha + \beta E_n}
+$$
+
+$N_n/d_n$ 에 대해 풉니다.
+
+$$
+\frac{N_n}{d_n} = \frac{1}{e^{\alpha + \beta E_n} + 1}
+$$
+
+맥스웰-볼츠만과 보스-아인슈타인도 같은 절차입니다. 로그의 모양만 달라 $\ln(d_n/N_n)$ 또는 $\ln((N_n+d_n)/N_n)$ 이 나옵니다. 정리하면 세 경우 모두 같은 꼴이 됩니다.
+
+<figure markdown>
+![세 통계 분포의 유도 흐름](images/05-statistics-derivation.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> 세 통계 분포를 얻는 순서</span>
+
+맨 위가 입자를 준위에 나누어 담는 방법의 수입니다. 여기에 로그와 스털링 근사를 적용합니다.
+제약 두 개를 라그랑주 승수로 붙이고 $N_n$ 으로 미분해 0으로 두면 맨 아래 분포가 나옵니다.
+세 통계의 차이는 로그의 모양에서 오고, 결과는 분모의 $\mp 1$ 로만 갈립니다.
+</figcaption>
+</figure>
 
 $$
 n(\epsilon) = \frac{N_n}{d_n} =
@@ -484,7 +615,7 @@ $E_F = 7.03\,\mathrm{eV}$ 인 구리에서 $E_F$ 보다 $0.1\,\mathrm{eV}$ 높�
 <figure markdown>
 ![페르미-디랙 분포](images/05-fermi-dirac.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 6.</b> 온도에 따른 페르미-디랙 분포 ($E_F = 7.03\,\mathrm{eV}$)</span>
+<span class="fig-title"><b>Figure 7.</b> 온도에 따른 페르미-디랙 분포 ($E_F = 7.03\,\mathrm{eV}$)</span>
 
 $T = 0$ 에서는 계단, $300\,\mathrm{K}$ 에서는 폭 $0.1\,\mathrm{eV}$ 정도만 흐려집니다. $3000\,\mathrm{K}$ 에서도 흐려진 폭은 $1\,\mathrm{eV}$ 안팎입니다.
 전자 대부분은 온도와 무관하게 깊이 묻혀 있습니다.
@@ -530,7 +661,7 @@ for T in (3000, 6000):
 <figure markdown>
 ![플랑크 흑체 스펙트럼](images/05-planck-spectrum.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 7.</b> 3000 K 와 6000 K 흑체의 플랑크 스펙트럼</span>
+<span class="fig-title"><b>Figure 8.</b> 3000 K 와 6000 K 흑체의 플랑크 스펙트럼</span>
 
 온도가 2배 오르면 최대 파장은 절반으로 짧아지고, 총 복사량은 $T^4$ 에 따라 16배로 늘어납니다. 노란 영역이 가시광선(380~750 nm)입니다.
 </figcaption>
