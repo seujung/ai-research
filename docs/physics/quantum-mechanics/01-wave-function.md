@@ -236,7 +236,20 @@ $$
 \Psi(x, 0) = \begin{cases} A\,x(a - x) & 0 \le x \le a \\ 0 & \text{그 밖} \end{cases}
 $$
 
-규격화 상수를 구합니다.
+규격화 상수를 구합니다. 먼저 $x^2(a-x)^2$ 를 전개합니다.
+
+$$
+x^2(a-x)^2 = x^2(a^2 - 2ax + x^2) = a^2 x^2 - 2a x^3 + x^4
+$$
+
+항마다 적분합니다. $\int_0^a x^n dx = a^{n+1}/(n+1)$ 에 $n = 2, 3, 4$ 를 넣으면 $a^3/3$, $a^4/4$, $a^5/5$ 입니다.
+
+$$
+\int_0^a x^2 (a - x)^2 \, dx = a^2 \cdot \frac{a^3}{3} - 2a \cdot \frac{a^4}{4} + \frac{a^5}{5}
+= a^5\left(\frac{1}{3} - \frac{1}{2} + \frac{1}{5}\right) = \frac{a^5}{30}
+$$
+
+따라서 규격화 조건은 다음과 같습니다.
 
 $$
 \int_0^a A^2 x^2 (a - x)^2 \, dx = A^2 \left( \frac{a^5}{3} - \frac{2a^5}{4} + \frac{a^5}{5} \right) = A^2 \frac{a^5}{30} = 1
@@ -253,9 +266,24 @@ $$
 </figure>
 
 이제 기댓값을 구합니다. 대칭이므로 $\langle x \rangle = a/2$ 입니다. 직접 적분해도 같습니다.
+적분할 때는 $x$ 를 한 번 더 곱한 뒤 전개합니다.
+
+$$
+x \cdot x^2(a-x)^2 = a^2 x^3 - 2a x^4 + x^5
+\quad \Rightarrow \quad
+\int_0^a = \frac{a^6}{4} - \frac{2a^6}{5} + \frac{a^6}{6} = \frac{a^6}{60}
+$$
 
 $$
 \langle x \rangle = \frac{30}{a^5} \int_0^a x \cdot x^2 (a-x)^2 \, dx = \frac{30}{a^5} \cdot \frac{a^6}{60} = \frac{a}{2}
+$$
+
+$x^2$ 은 같은 방식으로 거듭제곱이 하나 더 올라갑니다.
+
+$$
+x^2 \cdot x^2(a-x)^2 = a^2 x^4 - 2a x^5 + x^6
+\quad \Rightarrow \quad
+\int_0^a = \frac{a^7}{5} - \frac{2a^7}{6} + \frac{a^7}{7} = \frac{a^7}{105}
 $$
 
 $$
@@ -298,6 +326,21 @@ $$
 $$
 
 $V$ 가 실수이므로 퍼텐셜 항은 서로 지워집니다. 남는 항은 전미분 꼴로 묶입니다.
+묶이는 이유는 곱의 미분 규칙입니다. 괄호 안을 $x$ 로 미분해 봅니다.
+
+$$
+\frac{\partial}{\partial x}\left(\Psi^* \frac{\partial \Psi}{\partial x} - \frac{\partial \Psi^*}{\partial x}\Psi\right)
+= \frac{\partial \Psi^*}{\partial x}\frac{\partial \Psi}{\partial x} + \Psi^* \frac{\partial^2 \Psi}{\partial x^2}
+- \frac{\partial^2 \Psi^*}{\partial x^2}\Psi - \frac{\partial \Psi^*}{\partial x}\frac{\partial \Psi}{\partial x}
+$$
+
+첫 항과 넷째 항이 같은 값이라 지워집니다. 가운데 두 항만 남습니다.
+
+$$
+= \Psi^* \frac{\partial^2 \Psi}{\partial x^2} - \frac{\partial^2 \Psi^*}{\partial x^2}\Psi
+$$
+
+이 결과를 식 (위)의 오른쪽 변과 맞춥니다. 두 식이 같으므로 다음이 성립합니다.
 
 $$
 \frac{\partial}{\partial t} |\Psi|^2 = \frac{i\hbar}{2m} \left( \Psi^* \frac{\partial^2 \Psi}{\partial x^2} - \frac{\partial^2 \Psi^*}{\partial x^2} \Psi \right)
@@ -330,12 +373,60 @@ $$
 이 값은 "입자가 평균적으로 있는 위치"가 아닙니다. 같은 상태 $\Psi$ 로 준비한 입자를 많이 만들어 각각 한 번씩 위치를 측정한 결과의 평균입니다.
 한 입자를 반복 측정하면 같은 값만 나옵니다. 첫 측정에서 파동 함수가 붕괴하기 때문입니다.
 
-시간이 지나면 $\Psi$ 가 변하므로 $\langle x \rangle$ 도 변합니다. 앞 절의 연속 방정식에 부분 적분을 두 번 적용하면 다음 식이 나옵니다.
+시간이 지나면 $\Psi$ 가 변하므로 $\langle x \rangle$ 도 변합니다.
+위치 기댓값을 시간으로 미분하면 적분 안의 $|\Psi|^2$ 만 미분하면 됩니다. $x$ 는 시간에 무관하기 때문입니다.
+
+$$
+\frac{d \langle x \rangle}{dt} = \int x \frac{\partial}{\partial t} |\Psi|^2 \, dx
+$$
+
+앞 절의 연속 방정식 $\partial_t |\Psi|^2 = -\partial_x J$ 를 넣습니다.
+
+$$
+= \int x \left(-\frac{\partial J}{\partial x}\right) dx
+$$
+
+부분 적분합니다. $u = x$, $dv = -\partial_x J\, dx$ 로 두면 $[xJ]$ 항이 나옵니다. 확률 흐름 $J$ 는 $x \to \pm\infty$ 에서 0이므로 이 경계항이 사라집니다.
+
+$$
+= -\left[xJ\right]_{-\infty}^{\infty} + \int J \, dx = \int J \, dx
+$$
+
+연속 방정식과 같은 규약에서 $J = \frac{i\hbar}{2m}\left(\frac{\partial \Psi^*}{\partial x}\Psi - \Psi^* \frac{\partial \Psi}{\partial x}\right)$ 입니다. 넣으면 두 적분이 나옵니다.
+
+$$
+= \frac{i\hbar}{2m}\left[\int \frac{\partial \Psi^*}{\partial x}\Psi \, dx - \int \Psi^* \frac{\partial \Psi}{\partial x} \, dx\right]
+$$
+
+첫 적분에 다시 부분 적분을 적용합니다. 경계항 $[\Psi^*\Psi]_{-\infty}^{\infty}$ 은 0이고, 남는 것은 $\int \Psi^* \partial_x \Psi \, dx$ 에 $-1$ 을 곱한 값입니다.
+
+$$
+\int \frac{\partial \Psi^*}{\partial x}\Psi \, dx = -\int \Psi^* \frac{\partial \Psi}{\partial x} \, dx
+$$
+
+대입하면 두 항이 같은 모양이 되어 더해집니다.
+
+$$
+= \frac{i\hbar}{2m} \cdot \left(-2\right)\int \Psi^* \frac{\partial \Psi}{\partial x} \, dx
+= -\frac{i\hbar}{m} \int \Psi^* \frac{\partial \Psi}{\partial x} \, dx
+$$
+
+따라서 다음 식을 얻습니다.
 
 $$
 \frac{d \langle x \rangle}{dt} = \int x \frac{\partial}{\partial t} |\Psi|^2 \, dx
 = -\frac{i\hbar}{m} \int \Psi^* \frac{\partial \Psi}{\partial x} \, dx
 $$
+
+<figure markdown>
+![확률 흐름과 부분 적분의 경계항](images/01-probability-current.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 확률 흐름 $J$ 와 위치 기댓값의 시간 변화</span>
+
+주황 화살표가 확률이 흐르는 방향입니다. 위치 기댓값의 변화율은 이 흐름을 공간 전체에서 더한 값 $\int J\,dx$ 입니다.
+부분 적분에서 생기는 경계항 $[xJ]$ 는 회색 영역처럼 $J$ 가 0으로 가는 먼 곳에서 사라집니다. 적분은 $J$ 만의 식으로 정리됩니다.
+</figcaption>
+</figure>
 
 이 값을 **속도의 기댓값** $\langle v \rangle$ 로 해석합니다. 운동량 기댓값은 질량을 곱한 값입니다.
 
@@ -371,6 +462,14 @@ $$
 \langle T \rangle = -\frac{\hbar^2}{2m} \int \Psi^* \frac{\partial^2 \Psi}{\partial x^2} \, dx
 $$
 
+이 식은 부분 적분으로 다른 꼴로도 쓸 수 있습니다. $\Psi^* \Psi'' = \partial_x(\Psi^*\Psi') - (\Psi^*)'\Psi'$ 이고, 경계항 $[\Psi^*\Psi']$ 은 0입니다.
+
+$$
+\langle T \rangle = \frac{\hbar^2}{2m} \int \left|\frac{\partial \Psi}{\partial x}\right|^2 dx
+$$
+
+이 꼴은 기울기의 제곱을 적분하므로 항상 0 이상입니다. 운동 에너지가 음수일 수 없다는 사실이 식에 드러납니다.
+
 ### 수치 예: 포물선 파동 함수의 운동량
 
 4절의 $\Psi = A x(a-x)$ 에 적용합니다. 운동량 기댓값은 0입니다.
@@ -382,7 +481,7 @@ $$
 적분값이 0인 이유는 피적분 함수가 $x = a/2$ 에 대해 홀함수이기 때문입니다.
 실수 파동 함수의 운동량 기댓값은 항상 0입니다. 오른쪽으로 갈 확률과 왼쪽으로 갈 확률이 같습니다.
 
-$p^2$ 의 기댓값은 0이 아닙니다.
+$p^2$ 의 기댓값은 0이 아닙니다. $\Psi = Ax(a-x)$ 를 두 번 미분하면 상수만 남습니다. $\frac{d^2}{dx^2}[x(a-x)] = -2$ 이고, $\int_0^a x(a-x)dx = a^2/2 - a^2/3 = a^3/6$ 입니다.
 
 $$
 \langle p^2 \rangle = -\hbar^2 A^2 \int_0^a x(a-x) \cdot (-2) \, dx = 2\hbar^2 \frac{30}{a^5} \cdot \frac{a^3}{6} = \frac{10 \hbar^2}{a^2}
@@ -405,11 +504,19 @@ $a = 1\,\mathrm{nm}$ 인 전자라면 다음 숫자가 나옵니다.
 
 ### 에렌페스트 정리
 
-$\langle p \rangle$ 의 시간 변화도 같은 방법으로 구할 수 있습니다. 결과는 다음과 같습니다.
+$\langle p \rangle$ 의 시간 변화도 같은 방법으로 구합니다. $\langle p \rangle = \int \Psi^*(-i\hbar\partial_x)\Psi\,dx$ 를 시간으로 미분합니다.
+
+$$
+\frac{d\langle p\rangle}{dt} = -i\hbar\int\left(\frac{\partial \Psi^*}{\partial t}\frac{\partial \Psi}{\partial x} + \Psi^*\frac{\partial^2 \Psi}{\partial t\,\partial x}\right)dx
+$$
+
+시간 미분과 공간 미분은 순서를 바꿀 수 있습니다. 슈뢰딩거 방정식으로 두 시간 미분을 바꿔 넣고 부분 적분하면, 퍼텐셜이 들어 있는 항만 남습니다.
 
 $$
 \frac{d \langle p \rangle}{dt} = \left\langle -\frac{\partial V}{\partial x} \right\rangle
 $$
+
+이 유도는 항이 많아 생략했습니다. 결과의 뜻은 분명합니다. 운동량 기댓값의 변화율은 힘의 기댓값입니다.
 
 $d\langle x \rangle / dt = \langle p \rangle / m$ 과 합치면 기댓값이 뉴턴 법칙을 따른다는 **에렌페스트 정리**(Ehrenfest's theorem)입니다.
 양자역학은 고전역학을 버린 것이 아니라 평균 수준에서 포함합니다.
@@ -421,7 +528,7 @@ $d\langle x \rangle / dt = \langle p \rangle / m$ 과 합치면 기댓값이 뉴
 <figure markdown>
 ![조화 퍼텐셜 속 가우스 묶음의 위치와 운동량 기댓값](images/01-ehrenfest.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 4.</b> 에렌페스트 정리의 수치 확인</span>
+<span class="fig-title"><b>Figure 5.</b> 에렌페스트 정리의 수치 확인</span>
 
 파란 실선은 슈뢰딩거 방정식을 크랭크-니콜슨 방법으로 푼 뒤 구한 $\langle x \rangle(t)$ 와 $\langle p \rangle(t)$ 입니다. 빨간 점선은 같은 초기 조건의 고전 궤도입니다.
 두 주기 동안 최대 차이는 0.008로, 격자 간격에서 오는 수치 오차입니다. 규격화 적분의 변동은 $10^{-13}$ 이하입니다.
@@ -462,7 +569,7 @@ $$
 <figure markdown>
 ![좁은 파동 묶음과 넓은 파동 묶음](images/01-packet-width.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 파동 묶음의 폭과 파장의 선명도</span>
+<span class="fig-title"><b>Figure 6.</b> 파동 묶음의 폭과 파장의 선명도</span>
 
 왼쪽은 포락선(빨간 점선)이 좁아 위치는 분명하지만 안에 진동이 두 번도 안 들어가 파장이 불분명합니다. 오른쪽은 진동이 여러 번 들어가 파장이 분명하지만 위치는 넓게 퍼져 있습니다.
 </figcaption>
@@ -485,7 +592,7 @@ $$
 <figure markdown>
 ![가우스 파동 묶음의 위치 분포와 운동량 분포](images/01-gaussian-xp.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 6.</b> 가우스 파동 묶음: $\sigma_x$ 가 작아지면 $\sigma_p$ 가 커집니다</span>
+<span class="fig-title"><b>Figure 7.</b> 가우스 파동 묶음: $\sigma_x$ 가 작아지면 $\sigma_p$ 가 커집니다</span>
 
 같은 색이 같은 상태입니다. 위치 분포가 좁은 파란 상태는 운동량 분포가 가장 넓습니다. 세 상태 모두 $\sigma_x \sigma_p = \hbar/2$ 입니다.
 </figcaption>
