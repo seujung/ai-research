@@ -46,7 +46,22 @@ $T_e \gg T_i$ 이면 **단열 과정**(adiabatic process)이라고 부릅니다.
 에너지는 $E_1 = \pi^2 \hbar^2 / 2ma^2$ 에서 $\pi^2 \hbar^2 / 8ma^2$ 으로 4분의 1이 됩니다. 사라진 에너지는 전자가 벽을 밀어내면서 한 일입니다.
 
 **급격한 극한.** 벽을 순간적으로 치우면 파동 함수는 바뀔 틈이 없습니다. 상태는 여전히 $\psi_1^{(a)}$ 이고, 이것을 새 우물의 고유 상태로 전개합니다.
-새 바닥 상태에 있을 확률은 겹침 적분의 제곱입니다.
+새 바닥 상태에 있을 확률은 겹침 적분의 제곱입니다. 적분은 곱을 합으로 바꿔 계산합니다.
+$\sin A\sin B = \frac{1}{2}[\cos(A-B) - \cos(A+B)]$ 에 $A = \pi x/(2a)$, $B = \pi x/a$ 를 넣습니다.
+
+$$
+\sin\!\left(\frac{\pi x}{2a}\right)\sin\!\left(\frac{\pi x}{a}\right)
+= \frac{1}{2}\left[\cos\!\left(\frac{\pi x}{2a}\right) - \cos\!\left(\frac{3\pi x}{2a}\right)\right]
+$$
+
+$[0, a]$ 에서 적분하면 각 항이 $\frac{2a}{\pi}\sin\frac{\pi}{2} = \frac{2a}{\pi}$ 와 $\frac{2a}{3\pi}\sin\frac{3\pi}{2} = -\frac{2a}{3\pi}$ 입니다. 차이를 반으로 나누면 다음이 나옵니다.
+
+$$
+\int_0^a \sin\!\left(\frac{\pi x}{2a}\right)\sin\!\left(\frac{\pi x}{a}\right) dx
+= \frac{1}{2}\left(\frac{2a}{\pi} + \frac{2a}{3\pi}\right) = \frac{4a}{3\pi}
+$$
+
+앞의 인자 $\sqrt2/a$ 를 곱하면 계수입니다.
 
 $$
 c_1 = \int_0^a \psi_1^{(2a)} \psi_1^{(a)} \, dx
@@ -201,6 +216,22 @@ H(t) = \frac{\hbar \omega_1}{2}
 $$
 
 순간 고유 스피너는 자기장 방향으로 "위"와 "아래"인 상태이고, 에너지는 $\pm \hbar \omega_1 / 2$ 로 시간에 무관합니다.
+고유 스피너를 구합니다. $\chi = \binom{a}{b}$ 로 두고 $H\chi = +\frac{\hbar\omega_1}{2}\chi$ 를 풉니다. 공통 인자 $\hbar\omega_1/2$ 를 나눕니다.
+
+$$
+\cos\alpha\cdot a + e^{-i\omega t}\sin\alpha\cdot b = a, \qquad
+e^{i\omega t}\sin\alpha\cdot a - \cos\alpha\cdot b = b
+$$
+
+첫 식에서 $(\cos\alpha - 1)a = -e^{-i\omega t}\sin\alpha\, b$ 입니다. 반각 공식 $1-\cos\alpha = 2\sin^2\frac\alpha2$, $\sin\alpha = 2\sin\frac\alpha2\cos\frac\alpha2$ 를 씁니다.
+
+$$
+-2\sin^2\frac\alpha2\, a = -e^{-i\omega t}\cdot 2\sin\frac\alpha2\cos\frac\alpha2\, b
+\quad\Longrightarrow\quad
+b = e^{i\omega t}\tan\frac\alpha2\, a
+$$
+
+$a = \cos\frac\alpha2$, $b = e^{i\omega t}\sin\frac\alpha2$ 로 규격화하면 첫 고유 스피너가 됩니다. 에너지 $-\hbar\omega_1/2$ 인 상태는 같은 방법으로 다음이 나옵니다.
 
 $$
 \chi_+(t) = \begin{pmatrix} \cos(\alpha/2) \\ e^{i\omega t} \sin(\alpha/2) \end{pmatrix}, \qquad
@@ -345,6 +376,16 @@ $$
 스핀 ½ 의 베리 위상은 자기장 방향이 쓸고 간 **입체각의 절반**에 음의 부호를 붙인 값입니다. 반각이 얼마든, 모양이 원이 아니어도 성립합니다.
 $\chi_-$ 에 대해서는 부호가 반대입니다.
 
+<figure markdown>
+![베리 위상과 입체각의 관계](images/10-berry-solid-angle.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 6.</b> 베리 위상은 입체각의 절반입니다</span>
+
+왼쪽은 자기장 방향이 그리는 원뿔입니다. 주황 영역이 원뿔이 잘라낸 구면 조각이고, 그 넓이가 입체각 $\Omega$ 입니다.
+오른쪽에서 파란 곡선($\gamma_+$)은 항상 주황 곡선($\Omega$)의 정확히 절반이고 부호가 반대입니다. 두 곡선 모두 $\alpha = 180°$ 에서 최댓값에 이릅니다.
+</figcaption>
+</figure>
+
 | 반각 $\alpha$ | 입체각 $\Omega = 2\pi(1 - \cos\alpha)$ | $\gamma_+ = -\Omega/2$ | 수치 적분 ($\omega / \omega_1 = 0.005$) |
 | --- | --- | --- | --- |
 | 30° | 0.842 sr | −0.421 rad (−24.1°) | −0.423 rad |
@@ -359,7 +400,7 @@ $\alpha = 90°$ 는 특별합니다. 자기장이 적도면에서 한 바퀴 돌
 <figure markdown>
 ![전이 확률과 베리 위상](images/10-spin-flip-berry.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 6.</b> 회전 속도에 따른 최대 전이 확률(왼쪽)과 반각에 따른 베리 위상(오른쪽)</span>
+<span class="fig-title"><b>Figure 7.</b> 회전 속도에 따른 최대 전이 확률(왼쪽)과 반각에 따른 베리 위상(오른쪽)</span>
 
 왼쪽에서 $\omega / \omega_1$ 이 작으면 최대 전이 확률이 $(\omega / \omega_1)^2$ 에 비례해 사라집니다. 점은 수치 적분, 선은 정확한 공식입니다. 오른쪽에서 수치 적분으로 얻은 기하학적 위상(점)이 $-\pi(1 - \cos\alpha)$ (선) 위에 놓입니다.
 </figcaption>
@@ -385,7 +426,22 @@ $$
 -\frac{\hbar^2}{2mb^2} \left( \frac{d}{d\phi} - i\frac{q\Phi}{2\pi\hbar} \right)^2 \psi = E\, \psi
 $$
 
-해는 $\psi = A e^{in\phi}$ 꼴이고, 한 바퀴 돌아 제자리에서 이어져야 하므로 $n$ 은 정수입니다. 에너지는 다음과 같습니다.
+해는 $\psi = A e^{in\phi}$ 꼴이고, 한 바퀴 돌아 제자리에서 이어져야 하므로 $n$ 은 정수입니다.
+괄호 안의 연산자를 먼저 $Ae^{in\phi}$ 에 작용시킵니다.
+
+$$
+\left(\frac{d}{d\phi} - i\frac{q\Phi}{2\pi\hbar}\right)e^{in\phi}
+= \left(in - i\frac{q\Phi}{2\pi\hbar}\right)e^{in\phi}
+$$
+
+한 번 더 적용하면 인자가 제곱됩니다.
+
+$$
+\left(\frac{d}{d\phi} - i\frac{q\Phi}{2\pi\hbar}\right)^2 e^{in\phi}
+= -\left(n - \frac{q\Phi}{2\pi\hbar}\right)^2 e^{in\phi}
+$$
+
+$\Phi_0 = 2\pi\hbar/q$ 를 넣으면 $q\Phi/(2\pi\hbar) = \Phi/\Phi_0$ 입니다. 앞의 $-\frac{\hbar^2}{2mb^2}$ 와 부호가 상쇄되어 에너지가 나옵니다.
 
 $$
 E_n = \frac{\hbar^2}{2mb^2} \left( n - \frac{\Phi}{\Phi_0} \right)^2, \qquad \Phi_0 \equiv \frac{2\pi\hbar}{q} = \frac{h}{q}, \quad n = 0, \pm 1, \pm 2, \ldots
@@ -418,7 +474,7 @@ for f in (0.0, 0.25, 0.5):
 <figure markdown>
 ![고리 위 전자의 에너지와 선속](images/10-ab-ring.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 7.</b> 고리 위 전자의 에너지 준위와 솔레노이드 선속</span>
+<span class="fig-title"><b>Figure 8.</b> 고리 위 전자의 에너지 준위와 솔레노이드 선속</span>
 
 각 $n$ 의 에너지는 $\Phi / \Phi_0 = n$ 에서 0이 되는 포물선입니다. $\Phi / \Phi_0$ 이 반정수일 때 두 준위가 만나고, 정수일 때 처음 모양으로 돌아옵니다. 바닥 상태(빨간 띠)는 선속을 따라 $n$ 을 바꿔 갑니다.
 </figcaption>
