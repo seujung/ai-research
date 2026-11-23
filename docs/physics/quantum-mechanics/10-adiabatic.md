@@ -238,8 +238,39 @@ $$
 \chi_-(t) = \begin{pmatrix} e^{-i\omega t} \sin(\alpha/2) \\ -\cos(\alpha/2) \end{pmatrix}
 $$
 
-$\chi_+(0)$ 에서 출발한 스핀의 시간에 의존하는 슈뢰딩거 방정식은 정확히 풀립니다. 회전 좌표계로 옮기면 해밀토니안이 시간에 무관해지므로 손으로 풀 수 있습니다.
-그 계에서 두 준위의 에너지 차가 $\hbar\lambda$ 입니다. 유도는 길어서 결과만 적으면, 시각 $t$ 에 스핀이 뒤집혀 $\chi_-(t)$ 에 있을 확률은 다음과 같습니다.
+$\chi_+(0)$ 에서 출발한 스핀의 시간에 의존하는 슈뢰딩거 방정식은 정확히 풀립니다.
+먼저 $H(t)$ 를 파울리 행렬로 풀어 씁니다. $e^{\pm i\omega t} = \cos\omega t \pm i\sin\omega t$ 입니다.
+
+$$
+H(t) = \frac{\hbar\omega_1}{2}\left[\sigma_z\cos\alpha + \sigma_x\sin\alpha\cos\omega t + \sigma_y\sin\alpha\sin\omega t\right]
+$$
+
+**회전 좌표계.** 자기장과 함께 $\omega$ 로 도는 좌표계로 옮깁니다. 변환은 $\chi = U\chi_R$, $U = e^{i\omega t\sigma_z/2}$ 입니다.
+$U^\dagger \sigma_z U = \sigma_z$ 이고 $U^\dagger \sigma_x U = \sigma_x\cos\omega t + \sigma_y\sin\omega t$ 입니다.
+$\tilde H = U^\dagger H U - i\hbar U^\dagger \dot U$ 에 넣습니다. $\dot U = i\frac{\omega}{2}\sigma_z U$ 이므로 시간 의존 항이 정확히 지워집니다.
+
+$$
+\tilde H = \frac{\hbar}{2}\left[(\omega_1\cos\alpha - \omega)\sigma_z + \omega_1\sin\alpha\,\sigma_x\right]
+$$
+
+**에너지 차이.** $\gamma \equiv \omega_1\cos\alpha - \omega$, $\Omega \equiv \omega_1\sin\alpha$ 로 두고 $2\times2$ 행렬의 고유값을 구합니다.
+
+$$
+\tilde H = \frac{\hbar}{2}\begin{pmatrix}\gamma & \Omega \\ \Omega & -\gamma\end{pmatrix}
+$$
+
+고유값은 $\pm\frac{\hbar}{2}\sqrt{\gamma^2+\Omega^2}$ 이므로 두 준위 차이가 $\hbar\lambda$ 입니다. $\lambda^2$ 을 풀어 씁니다.
+
+$$
+\lambda = \sqrt{\gamma^2 + \Omega^2}
+= \sqrt{\omega^2 + \omega_1^2 - 2\omega\omega_1\cos\alpha}
+$$
+
+**전이 확률.** 시각 $0$ 의 스핀은 자기장 방향 $\chi_+(0)$ 입니다. 회전 좌표계에서도 같은 벡터입니다.
+그 벡터를 $\tilde H$ 의 고유 벡터로 전개하면 두 성분이 모두 0이 아닙니다. 초기 상태가 $\tilde H$ 의 고유 상태가 아니기 때문입니다.
+두 성분이 고유값 $\pm \hbar\lambda/2$ 로 다른 속도로 돌면서 간섭합니다. 그 간섭이 전이 확률의 $\sin^2(\lambda t/2)$ 를 만듭니다.
+진폭의 계수는 회전 좌표계에서 생긴 시간 의존 항에서 옵니다. 장과 함께 도는 속도가 클수록 커집니다.
+계산을 마치면 다음이 나옵니다. 이 식은 직접 수치 적분한 슈뢰딩거 방정식과 $10^{-9}$ 수준에서 일치합니다.
 
 $$
 P_{+\to-}(t) = \left[ \frac{\omega}{\lambda} \sin\alpha\, \sin\!\left(\frac{\lambda t}{2}\right) \right]^2, \qquad
