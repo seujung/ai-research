@@ -37,8 +37,21 @@ $$
 ### 변수 분리
 
 퍼텐셜이 원점에서의 거리에만 의존하면, 즉 $V = V(r)$ 이면 구면 좌표 $(r, \theta, \phi)$ 가 편합니다.
-해를 $\psi(r, \theta, \phi) = R(r)\, Y(\theta, \phi)$ 로 놓고 대입합니다. $RY$ 로 나누면 $r$ 에만 의존하는 묶음과 각에만 의존하는 묶음이 갈라집니다.
-두 묶음의 합이 0이므로 각각은 상수여야 합니다. 그 상수를 $l(l+1)$ 로 쓰면 다음 두 방정식이 나옵니다.
+구면 좌표의 라플라시안을 $\psi = R(r)Y(\theta,\phi)$ 에 넣습니다.
+
+$$
+\nabla^2\psi = \frac{1}{r^2}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right)Y
++ \frac{R}{r^2}\left[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial Y}{\partial\theta}\right) + \frac{1}{\sin^2\theta}\frac{\partial^2 Y}{\partial\phi^2}\right]
+$$
+
+이것을 슈뢰딩거 방정식에 넣고 양변을 $RY$ 로 나눕니다. $r$ 만의 항과 각도만의 항이 갈라집니다.
+
+$$
+\underbrace{\frac{1}{R}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) - \frac{2mr^2}{\hbar^2}[V(r)-E]}_{r\ \text{만의 함수}}
+= -\underbrace{\frac{1}{Y}\left[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial Y}{\partial\theta}\right) + \frac{1}{\sin^2\theta}\frac{\partial^2 Y}{\partial\phi^2}\right]}_{\text{각도만의 함수}}
+$$
+
+왼쪽은 $r$ 만의 함수이고 오른쪽은 각도만의 함수입니다. 두 변수를 따로 움직여도 항상 같으려면 양쪽이 같은 상수여야 합니다. 그 상수를 $l(l+1)$ 로 씁니다.
 
 $$
 \frac{1}{R}\frac{d}{dr}\!\left(r^2 \frac{dR}{dr}\right) - \frac{2mr^2}{\hbar^2}\,[V(r) - E] = l(l+1)
@@ -143,7 +156,26 @@ $$
 V(r) = -\frac{e^2}{4\pi\epsilon_0}\frac{1}{r}
 $$
 
-속박 상태이므로 $E < 0$ 입니다. $\kappa \equiv \sqrt{-2m_e E}/\hbar$ 로 두고 $\rho \equiv \kappa r$ 로 길이를 무차원화합니다. 그러면 지름 방정식은 다음이 됩니다.
+속박 상태이므로 $E < 0$ 입니다. $\kappa \equiv \sqrt{-2m_e E}/\hbar$ 로 두고 $\rho \equiv \kappa r$ 로 길이를 무차원화합니다.
+지름 방정식에서 $u = rR$ 을 쓰면 1차원 꼴이 됩니다.
+
+$$
+-\frac{\hbar^2}{2m_e}\frac{d^2u}{dr^2} + \left[-\frac{e^2}{4\pi\epsilon_0}\frac{1}{r} + \frac{\hbar^2 l(l+1)}{2m_e r^2}\right]u = Eu
+$$
+
+$r = \rho/\kappa$ 이므로 $\frac{d^2u}{dr^2} = \kappa^2\frac{d^2u}{d\rho^2}$ 입니다. 양변에 $-\frac{2m_e}{\hbar^2\kappa^2}$ 을 곱합니다. $\kappa^2 = -2m_eE/\hbar^2$ 이므로 에너지 항이 $-1$ 로 바뀝니다.
+
+$$
+\frac{d^2u}{d\rho^2} + \left[\frac{2m_e}{\hbar^2\kappa}\frac{e^2}{4\pi\epsilon_0}\frac{1}{\rho} - \frac{l(l+1)}{\rho^2}\right]u = -u
+$$
+
+쿨롱 항의 계수를 $\rho_0$ 으로 묶습니다.
+
+$$
+\rho_0 \equiv \frac{2m_e}{\hbar^2\kappa}\frac{e^2}{4\pi\epsilon_0} = \frac{m_e e^2}{2\pi\epsilon_0\hbar^2\kappa}
+$$
+
+좌변의 $-u$ 를 오른쪽으로 옮기면 지름 방정식이 다음이 됩니다.
 
 $$
 \frac{d^2 u}{d\rho^2} = \left[1 - \frac{\rho_0}{\rho} + \frac{l(l+1)}{\rho^2}\right] u, \qquad \rho_0 \equiv \frac{m_e e^2}{2\pi\epsilon_0 \hbar^2 \kappa}
@@ -155,11 +187,30 @@ $$
 
 1. **멀리서의 거동.** $\rho \to \infty$ 이면 $u'' \approx u$ 이므로 $u \sim e^{-\rho}$ 입니다. 지수 증가 해는 규격화가 안 되므로 버립니다.
 2. **원점 근처의 거동.** $\rho \to 0$ 이면 원심 항이 지배하고 $u \sim \rho^{l+1}$ 입니다.
-3. **가운데 부분.** 두 거동을 뽑아내고 $u = \rho^{l+1} e^{-\rho} v(\rho)$ 로 놓습니다. $v$ 를 거듭제곱 급수 $\sum c_j \rho^j$ 로 전개하면 계수 사이에 점화식이 나옵니다.
+3. **가운데 부분.** 두 거동을 뽑아내고 $u = \rho^{l+1} e^{-\rho} v(\rho)$ 로 놓습니다. 앞의 $\rho^{l+1}$ 이 $\rho \to 0$ 에서의 거동을, $e^{-\rho}$ 가 $\rho \to \infty$ 에서의 거동을 담당합니다.
+   이것을 지름 방정식에 넣고 정리하면 $v$ 에 대한 방정식이 나옵니다.
 
-    $$
-    c_{j+1} = \frac{2(j + l + 1) - \rho_0}{(j+1)(j + 2l + 2)}\, c_j
-    $$
+   $$
+   \rho\, v'' + (2l + 2 - 2\rho)\, v' + (\rho_0 - 2l - 2)\, v = 0
+   $$
+
+   $v$ 를 거듭제곱 급수로 씁니다. $v = \sum_{j} c_j \rho^j$ 입니다.
+
+   $$
+   v' = \sum_j j c_j \rho^{j-1}, \qquad v'' = \sum_j j(j-1)c_j\rho^{j-2}
+   $$
+
+   방정식에 넣고 $\rho^{j}$ 의 계수를 모으면 다음이 남습니다.
+
+   $$
+   (j+1)(j + 2l + 2)\,c_{j+1} = \left[2(j + l + 1) - \rho_0\right] c_j
+   $$
+
+   계수 사이에 점화식이 나옵니다.
+
+   $$
+   c_{j+1} = \frac{2(j + l + 1) - \rho_0}{(j+1)(j + 2l + 2)}\, c_j
+   $$
 
 4. **급수의 종결.** $j$ 가 크면 $c_{j+1}/c_j \approx 2/j$ 이고, 이것은 $e^{2\rho}$ 의 계수 비율입니다. 급수가 끝나지 않으면 $u \sim e^{+\rho}$ 가 되어 1단계에서 버린 해로 돌아갑니다. 그러므로 어떤 $j_{\max}$ 에서 분자가 0이 되어야 합니다. $n \equiv j_{\max} + l + 1$ 로 두면 조건은 $\rho_0 = 2n$ 입니다.
 
@@ -247,7 +298,30 @@ $$
 
 분포가 오른쪽으로 긴 꼬리를 가져서 평균이 최빈값보다 큽니다.
 
-**$r < a$ 일 확률.** 부분 적분을 두 번 하면 다음이 나옵니다.
+**$r < a$ 일 확률.** 부분 적분을 두 번 합니다. $u = r^2$, $dv = e^{-2r/a}dr$ 로 두면 $v = -\frac{a}{2}e^{-2r/a}$ 입니다.
+
+$$
+\int_0^a r^2 e^{-2r/a}dr
+= \left[-\frac{a}{2}r^2 e^{-2r/a}\right]_0^a + a\int_0^a r e^{-2r/a}dr
+$$
+
+경계항은 $x = a$ 에서 $-\frac{a^3}{2}e^{-2}$ 이고 $x = 0$ 에서 0입니다. 남은 적분에 다시 부분 적분을 적용합니다. $u = r$, $dv = e^{-2r/a}dr$ 로 둡니다.
+
+$$
+\int_0^a r e^{-2r/a}dr
+= \left[-\frac{a}{2}r e^{-2r/a}\right]_0^a + \frac{a}{2}\int_0^a e^{-2r/a}dr
+= -\frac{a^2}{2}e^{-2} + \frac{a^2}{4}\left(1 - e^{-2}\right)
+$$
+
+마지막 등호에서 $\int_0^a e^{-2r/a}dr = \frac{a}{2}(1 - e^{-2})$ 를 넣었습니다.
+두 결과를 모읍니다.
+
+$$
+\int_0^a r^2 e^{-2r/a}dr = -\frac{a^3}{2}e^{-2} + a\left[\frac{a^2}{4} - \frac{3a^2}{4}e^{-2}\right]
+= \frac{a^3}{4}\left(1 - 5e^{-2}\right)
+$$
+
+따라서 확률은 다음과 같습니다.
 
 $$
 P(r < a) = \frac{4}{a^3}\int_0^a r^2 e^{-2r/a} dr = 1 - 5e^{-2} = 0.323
@@ -289,7 +363,34 @@ print(1 / (R * (1/4 - 1/9)))                           # 656.1 nm
 ### 교환 관계만으로 풀기
 
 고전역학의 각운동량 $\mathbf{L} = \mathbf{r} \times \mathbf{p}$ 를 연산자로 바꾸면 $L_z = xp_y - yp_x$ 등입니다.
-$[x, p_x] = i\hbar$ 를 쓰면 세 성분 사이의 **교환 관계**(commutation relation)가 나옵니다.
+$[x, p_x] = i\hbar$ 를 써서 교환 관계를 구합니다. $L_x = yp_z - zp_y$, $L_y = zp_x - xp_z$ 입니다.
+$[L_x, L_y]$ 를 풀면 항이 네 개 나옵니다.
+
+$$
+[L_x, L_y] = [yp_z,\; zp_x] - [yp_z,\; xp_z] - [zp_y,\; zp_x] + [zp_y,\; xp_z]
+$$
+
+항마다 계산합니다. 서로 다른 좌표와 운동량은 교환하므로 $[y, x] = 0$ 같은 항은 사라집니다.
+첫 항에는 $p_z z = z p_z - i\hbar$ 를 넣습니다.
+
+$$
+[yp_z,\; zp_x] = y\,p_z z\,p_x - z\,p_x y\,p_z = y\left(z p_z - i\hbar\right)p_x - y z\, p_x p_z = -i\hbar\, y p_x
+$$
+
+둘째 항과 셋째 항은 0입니다. $p_z$ 와 $x$ 가, $p_y$ 와 $z$ 가 각각 교환하기 때문입니다.
+넷째 항에도 $p_z z = z p_z - i\hbar$ 를 넣습니다.
+
+$$
+[zp_y,\; xp_z] = z\,p_y x\,p_z - x\,p_z z\,p_y = x z\,p_y p_z - x\left(z p_z - i\hbar\right)p_y = i\hbar\, x p_y
+$$
+
+네 항을 모으면 $L_z$ 가 나옵니다.
+
+$$
+[L_x, L_y] = -i\hbar\, yp_x + i\hbar\, x p_y = i\hbar(xp_y - yp_x) = i\hbar L_z
+$$
+
+같은 방법으로 나머지 두 식을 얻습니다. 세 성분 사이의 **교환 관계**(commutation relation)입니다.
 
 $$
 [L_x, L_y] = i\hbar L_z, \qquad [L_y, L_z] = i\hbar L_x, \qquad [L_z, L_x] = i\hbar L_y
@@ -309,7 +410,25 @@ $$
 $L^2$ 은 $L_\pm$ 과 교환하므로 $\lambda$ 는 바뀌지 않습니다.
 
 사다리는 끝이 있어야 합니다. $\langle L_x^2 + L_y^2 \rangle \ge 0$ 이므로 $\mu^2 \le \lambda$ 이기 때문입니다.
-맨 위 칸을 $\hbar l$, 맨 아래 칸을 $\hbar \bar{l}$ 이라 하면 $L_+ f_{\mathrm{top}} = 0$ 과 $L_- f_{\mathrm{bottom}} = 0$ 에서 각각 $\lambda = \hbar^2 l(l+1)$ 과 $\lambda = \hbar^2 \bar{l}(\bar{l} - 1)$ 이 나옵니다. 둘이 같으려면 $\bar{l} = -l$ 입니다.
+$L^2$ 을 $L_\pm$ 으로 다시 써야 끝의 조건을 계산할 수 있습니다. $L_\mp L_\pm = L_x^2 + L_y^2 \mp \hbar L_z$ 를 쓰면 다음 두 식이 나옵니다.
+
+$$
+L^2 = L_- L_+ + L_z^2 + \hbar L_z, \qquad L^2 = L_+ L_- + L_z^2 - \hbar L_z
+$$
+
+맨 위 칸 $f_{\mathrm{top}}$ 에는 $L_+$ 를 적용할 수 없습니다. 더 올라갈 상태가 없기 때문입니다. 즉 $L_+ f_{\mathrm{top}} = 0$ 입니다. 첫 식에 넣으면 $L_-L_+$ 항이 사라집니다. $L_z$ 고유값이 $\hbar l$ 이므로 다음이 나옵니다.
+
+$$
+\lambda = (\hbar l)^2 + \hbar\cdot\hbar l = \hbar^2 l(l+1)
+$$
+
+맨 아래 칸 $f_{\mathrm{bottom}}$ 에는 $L_- f_{\mathrm{bottom}} = 0$ 입니다. 둘째 식에 넣고 고유값을 $\hbar\bar l$ 로 두면 다음이 나옵니다.
+
+$$
+\lambda = (\hbar \bar l)^2 - \hbar\cdot\hbar\bar l = \hbar^2 \bar l(\bar l - 1)
+$$
+
+두 $\lambda$ 가 같아야 하므로 $\hbar^2 l(l+1) = \hbar^2 \bar l(\bar l - 1)$ 입니다. $\bar l = -l$ 과 $\bar l = l+1$ 이 근입니다. 맨 아래가 맨 위보다 작아야 하므로 $\bar l = -l$ 입니다.
 맨 아래에서 맨 위까지 $\hbar$ 씩 정수 번 올라가므로 $2l$ 은 정수입니다. 결론은 다음과 같습니다.
 
 $$
@@ -321,6 +440,16 @@ $$
 
 각운동량의 크기는 $\hbar\sqrt{l(l+1)}$ 이고 $z$ 성분의 최댓값은 $\hbar l$ 입니다. 둘은 결코 같지 않습니다.
 각운동량 벡터가 $z$ 축에 완전히 나란히 설 수 없다는 뜻입니다. 그렇게 되면 $L_x = L_y = 0$ 이 확정되어 불확정성 원리에 어긋나기 때문입니다.
+
+<figure markdown>
+![L_z 사다리와 사다리 연산자](images/04-ladder-lz.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> $l = 2$ 의 $L_z$ 사다리</span>
+
+수평선 하나가 $L_z$ 고유값 하나입니다. 주황 화살표가 $L_+$ 의 작용이고, 옆의 숫자가 계수 $\hbar\sqrt{l(l+1)-m(m+1)}$ 입니다.
+위로 갈수록 계수가 작아져 맨 위 칸에서 0이 됩니다. 그 조건이 $\lambda = \hbar^2l(l+1)$ 을 정합니다.
+</figcaption>
+</figure>
 
 ### 손계산 예: $l = 1$ 을 3×3 행렬로
 
@@ -434,7 +563,7 @@ $$
 <figure markdown>
 ![기울어진 스핀의 S_x 측정 확률](images/04-spin-measurement.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 각 $\theta$ 로 기운 스핀 상태와 $S_x$ 측정 확률</span>
+<span class="fig-title"><b>Figure 6.</b> 각 $\theta$ 로 기운 스핀 상태와 $S_x$ 측정 확률</span>
 
 왼쪽은 스피너 $(\cos\theta/2, \sin\theta/2)$ 가 가리키는 방향입니다. 오른쪽은 $S_x$ 를 쟀을 때 $+\hbar/2$ 가 나올 확률 $(1 + \sin\theta)/2$ 입니다. 스핀이 $x$ 축을 향하면 확률 1이고, $z$ 축을 향하면 반반입니다.
 </figcaption>
@@ -455,7 +584,7 @@ $$
 <figure markdown>
 ![연속 슈테른-게를라흐 실험](images/04-stern-gerlach.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 6.</b> $z$, $x$, $z$ 순서로 이어 붙인 슈테른-게를라흐 장치</span>
+<span class="fig-title"><b>Figure 7.</b> $z$, $x$, $z$ 순서로 이어 붙인 슈테른-게를라흐 장치</span>
 
 가운데의 $x$ 측정이 없다면 세 번째 장치에서 빔은 갈라지지 않고 전부 위로 나옵니다. $x$ 측정을 끼워 넣는 순간 $z$ 결과가 다시 무작위가 됩니다. $S_x$ 와 $S_z$ 가 교환하지 않는다는 사실의 실험적 의미입니다.
 </figcaption>
@@ -472,7 +601,23 @@ $$
 \chi(t) = \begin{pmatrix} \cos(\alpha/2)\, e^{i\gamma Bt/2} \\ \sin(\alpha/2)\, e^{-i\gamma Bt/2} \end{pmatrix}
 $$
 
-기댓값을 계산하면 다음이 나옵니다.
+기댓값을 계산합니다. $\langle S_x\rangle = \chi^\dagger \frac{\hbar}{2}\sigma_x\chi$ 입니다. $\sigma_x$ 를 곱하면 두 성분의 순서가 바뀝니다.
+
+$$
+\chi^\dagger \sigma_x \chi
+= \left(\cos\frac\alpha2 e^{-i\gamma Bt/2},\ \sin\frac\alpha2 e^{i\gamma Bt/2}\right)
+\begin{pmatrix} \sin\frac\alpha2 e^{-i\gamma Bt/2} \\ \cos\frac\alpha2 e^{i\gamma Bt/2}\end{pmatrix}
+$$
+
+곱을 전개하면 두 항이 나옵니다. 각 항의 지수가 서로 켤레입니다.
+
+$$
+= \cos\frac\alpha2\sin\frac\alpha2\, e^{-i\gamma Bt} + \sin\frac\alpha2\cos\frac\alpha2\, e^{i\gamma Bt}
+= 2\sin\frac\alpha2\cos\frac\alpha2 \cos(\gamma Bt)
+$$
+
+$2\sin\frac\alpha2\cos\frac\alpha2 = \sin\alpha$ 입니다. $\frac{\hbar}{2}$ 를 곱하면 첫 식이 나옵니다.
+$\langle S_y\rangle$ 는 $\sigma_y$ 의 허수 성분 때문에 두 항의 부호가 반대로 붙어 $-\sin(\gamma Bt)$ 가 됩니다. $\langle S_z\rangle$ 는 대각 행렬이라 각 성분의 크기 제곱만 남습니다.
 
 $$
 \langle S_x \rangle = \frac{\hbar}{2}\sin\alpha\cos(\gamma Bt), \qquad
@@ -497,7 +642,7 @@ $$
 <figure markdown>
 ![라모어 세차](images/04-larmor.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 7.</b> $B = 1\,\mathrm{T}$ 속 전자 스핀 기댓값의 시간 변화 ($\alpha = 60°$)</span>
+<span class="fig-title"><b>Figure 8.</b> $B = 1\,\mathrm{T}$ 속 전자 스핀 기댓값의 시간 변화 ($\alpha = 60°$)</span>
 
 $\langle S_x \rangle$ 와 $\langle S_y \rangle$ 는 위상이 $90°$ 어긋난 채 35.7 ps 주기로 진동하고, $\langle S_z \rangle$ 는 일정합니다. 기댓값 벡터가 $z$ 축 둘레를 원뿔 모양으로 도는 모습입니다.
 </figcaption>
