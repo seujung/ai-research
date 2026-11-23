@@ -148,12 +148,57 @@ $$
 
 처음에 전자가 포물선 모양 $\Psi(x, 0) = A\, x (a - x)$ 에 있다고 가정합니다. 우물 가운데가 볼록한 종 모양입니다.
 먼저 규격화합니다. $\int_0^a A^2 x^2 (a - x)^2 dx = A^2 a^5 / 30 = 1$ 에서 $A = \sqrt{30 / a^5}$ 입니다.
-계수는 푸리에의 묘수로 구합니다. 부분 적분을 두 번 하면 닫힌 식이 나옵니다.
+계수는 푸리에의 묘수로 구합니다. 적분에 부분 적분을 두 번 적용합니다.
+$u = x(a-x)$, $dv = \sin(kx)dx$, $k = n\pi/a$ 로 둡니다. $u' = a - 2x$ 이고 $v = -\cos(kx)/k$ 입니다.
+
+$$
+\int_0^a x(a-x)\sin(kx)\,dx
+= \left[-\frac{x(a-x)}{k}\cos kx\right]_0^a + \frac{1}{k}\int_0^a (a-2x)\cos kx\,dx
+$$
+
+양 끝 $x = 0$ 과 $x = a$ 에서 $x(a-x) = 0$ 이므로 경계항이 사라집니다. 남은 적분에 다시 부분 적분을 적용합니다.
+$u = a-2x$, $dv = \cos(kx)dx$ 로 두면 $u' = -2$, $v = \sin(kx)/k$ 입니다.
+
+$$
+\frac{1}{k}\int_0^a (a-2x)\cos kx\,dx
+= \left[\frac{(a-2x)\sin kx}{k^2}\right]_0^a + \frac{2}{k^2}\int_0^a \sin kx\,dx
+$$
+
+경계항은 $\sin 0 = 0$ 과 $\sin(n\pi) = 0$ 이므로 다시 사라집니다. 마지막 적분은 다음과 같습니다.
+
+$$
+\int_0^a \sin kx\,dx = \frac{1 - \cos(n\pi)}{k}
+= \frac{1 - (-1)^n}{k}
+$$
+
+$n$ 이 홀수이면 $1 - (-1)^n = 2$ 이고, 짝수이면 0입니다. 홀수일 때 적분값을 모으면 다음과 같습니다.
+
+$$
+\frac{2}{k^2} \cdot \frac{2}{k} = \frac{4}{k^3} = \frac{4a^3}{(n\pi)^3}
+$$
+
+여기에 규격화 상수를 곱합니다. $\sqrt{2/a}\cdot\sqrt{30/a^5} = \sqrt{60/a^6}$ 이고 $\sqrt{60} = 2\sqrt{15}$ 입니다.
+
+$$
+c_n = \frac{2\sqrt{15}}{a^3} \cdot \frac{4a^3}{(n\pi)^3} = \frac{8\sqrt{15}}{(n\pi)^3}
+$$
+
+따라서 계수는 다음과 같습니다.
 
 $$
 c_n = \sqrt{\frac{2}{a}} \sqrt{\frac{30}{a^5}} \int_0^a x(a - x) \sin\frac{n\pi x}{a}\, dx
 = \begin{cases} \dfrac{8\sqrt{15}}{(n\pi)^3} & n \text{ 홀수} \\[6pt] 0 & n \text{ 짝수} \end{cases}
 $$
+
+<figure markdown>
+![푸리에 계수의 피적분 함수](images/02-fourier-coefficient.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 2.</b> 푸리에 계수의 피적분 함수</span>
+
+파란 영역은 양의 값, 빨간 영역은 음의 값입니다. $n = 1$ 과 $n = 3$ 은 양의 넓이가 남습니다.
+$n = 2$ 는 두 영역이 정확히 같아 적분이 0입니다. 초기 상태가 우물 중심의 짝함수이고 $\psi_2$ 가 홀함수라서 생기는 상쇄입니다.
+</figcaption>
+</figure>
 
 짝수 항이 0인 이유는 대칭입니다. 초기 상태는 우물 중심에 대해 짝함수이고, 짝수 $n$ 의 $\psi_n$ 은 홀함수이므로 적분이 상쇄됩니다.
 
@@ -187,11 +232,33 @@ print(sum(ci**2 * n**2 for n, ci in enumerate(c, 1)) * E1, 10 / np.pi**2 * E1)
 $\Psi(x, 0) = (\psi_1 + \psi_2) / \sqrt{2}$ 에서 출발합니다. 시간이 지나면 각 항에 자기 위상이 붙습니다.
 
 $$
+\Psi(x, t) = \frac{1}{\sqrt{2}}\left[\psi_1(x)e^{-iE_1t/\hbar} + \psi_2(x)e^{-iE_2t/\hbar}\right]
+$$
+
+제곱은 $\Psi^* \Psi$ 입니다. 두 항씩 곱하면 네 항이 나옵니다.
+
+$$
+|\Psi|^2 = \frac{1}{2}\left[\psi_1^2 + \psi_2^2
++ \psi_1\psi_2 e^{i(E_1-E_2)t/\hbar} + \psi_1\psi_2 e^{-i(E_1-E_2)t/\hbar}\right]
+$$
+
+$\psi_1$, $\psi_2$ 는 실수 함수이므로 $\psi_1^* = \psi_1$, $\psi_2^* = \psi_2$ 입니다. 마지막 두 항은 서로 켤레이고, 오일러 공식 $e^{i\theta} + e^{-i\theta} = 2\cos\theta$ 로 묶입니다.
+
+$$
 |\Psi(x, t)|^2 = \frac{1}{2}\left[\psi_1^2 + \psi_2^2 + 2 \psi_1 \psi_2 \cos(\omega t)\right], \qquad
 \omega = \frac{E_2 - E_1}{\hbar} = \frac{3 E_1}{\hbar}
 $$
 
-교차항이 $\cos \omega t$ 로 진동합니다. 위치 기댓값을 계산하면 다음과 같습니다.
+가운데 두 지수에서 차 $E_2 - E_1$ 만 남는 것에 주목합니다. 두 항의 공통 위상 $e^{-iE_1t/\hbar}$ 는 제곱에서 사라집니다.
+
+교차항이 $\cos \omega t$ 로 진동합니다. 위치 기댓값은 $\int x|\Psi|^2dx$ 이고, $\psi_1^2$ 과 $\psi_2^2$ 의 적분은 각각 $a/2$ 입니다.
+
+$$
+\langle x \rangle(t) = \frac{1}{2}\left[\frac{a}{2} + \frac{a}{2}\right] + \cos(\omega t)\int_0^a x\psi_1\psi_2\,dx
+= \frac{a}{2} + x_{12}\cos(\omega t)
+$$
+
+교차 적분 $x_{12}$ 는 3장에서 구합니다. $\psi_1$ 과 $\psi_2$ 를 넣고 $\sin\frac{\pi x}{a}\sin\frac{2\pi x}{a}$ 를 곱을 합으로 바꾸면 $x_{12} = -\frac{16a}{9\pi^2}$ 입니다. 넣으면 다음 식입니다.
 
 $$
 \langle x \rangle(t) = \frac{a}{2} - \frac{16 a}{9 \pi^2} \cos(\omega t)
@@ -204,7 +271,7 @@ $$
 <figure markdown>
 ![두 상태 중첩의 확률 밀도와 위치 기댓값의 시간 변화](images/02-two-state-evolution.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 2.</b> $(\psi_1 + \psi_2)/\sqrt{2}$ 의 시간 변화</span>
+<span class="fig-title"><b>Figure 3.</b> $(\psi_1 + \psi_2)/\sqrt{2}$ 의 시간 변화</span>
 
 왼쪽은 반주기 동안 확률 밀도가 왼쪽에서 오른쪽으로 옮겨 가는 모습입니다. 오른쪽은 위치 기댓값입니다. 폭 1 nm 전자 우물에서 주기는 3.67 fs 입니다.
 </figcaption>
@@ -227,7 +294,27 @@ $$
 a_\pm = \frac{1}{\sqrt{2\hbar m \omega}} (\mp i \hat p + m \omega \hat x)
 $$
 
-**정준 교환 관계**(canonical commutation relation) $[\hat x, \hat p] = i\hbar$ 를 쓰면 다음이 나옵니다.
+**정준 교환 관계**(canonical commutation relation) $[\hat x, \hat p] = i\hbar$ 를 씁니다. 먼저 $a_-a_+$ 를 전개합니다. 정의에서 상수 인자를 빼면
+
+$$
+a_- a_+ = \frac{1}{2\hbar m\omega}(m\omega x + ip)(m\omega x - ip)
+$$
+
+괄호를 풉니다. $x$ 와 $p$ 는 교환하지 않으므로 순서를 바꾸면 항이 달라집니다.
+
+$$
+(m\omega x + ip)(m\omega x - ip) = m^2\omega^2 x^2 + p^2 - im\omega(xp - px)
+$$
+
+$xp - px = [x,p] = i\hbar$ 입니다. 마지막 항은 $-im\omega \cdot i\hbar = m\hbar\omega$ 입니다. 대입합니다.
+
+$$
+a_- a_+ = \frac{1}{2\hbar m\omega}\left(m^2\omega^2 x^2 + p^2 + m\hbar\omega\right)
+= \frac{1}{\hbar\omega}\left(\frac{p^2}{2m} + \frac{1}{2}m\omega^2x^2\right) + \frac{1}{2}
+$$
+
+괄호 안이 정확히 $\hat H$ 입니다. 따라서 $a_-a_+ = \hat H/(\hbar\omega) + 1/2$ 입니다.
+같은 방법으로 $a_+a_-$ 를 전개하면 교환자 항의 부호가 반대로 나와 $\hat H/(\hbar\omega) - 1/2$ 입니다. 두 식을 빼면 다음이 나옵니다.
 
 $$
 a_- a_+ = \frac{1}{\hbar\omega} \hat H + \frac{1}{2}, \qquad
@@ -240,11 +327,29 @@ $$
 $a_+$ 를 **올림 연산자**(raising operator), $a_-$ 를 **내림 연산자**(lowering operator)라고 부릅니다.
 
 내림을 반복하면 에너지가 $V_{\min} = 0$ 아래로 내려가야 하는데, 1절에서 그런 해는 없다고 했습니다. 그러므로 사다리의 맨 아래 칸 $\psi_0$ 가 있어야 하고 $a_- \psi_0 = 0$ 입니다.
-이것은 1계 미분 방정식입니다.
+$a_- = \frac{1}{\sqrt{2\hbar m\omega}}(m\omega x + i\hat p)$ 에 $\hat p = -i\hbar\frac{d}{dx}$ 를 넣습니다. $i\hat p = \hbar\frac{d}{dx}$ 이므로 괄호가 실수 연산자가 됩니다.
 
 $$
 \frac{1}{\sqrt{2\hbar m\omega}} \left(\hbar \frac{d}{dx} + m\omega x\right) \psi_0 = 0
-\;\Longrightarrow\;
+$$
+
+이것은 1계 미분 방정식입니다. 변수를 분리합니다.
+
+$$
+\frac{d\psi_0}{\psi_0} = -\frac{m\omega}{\hbar}x\,dx
+$$
+
+양변을 적분합니다. $\int x\,dx = x^2/2$ 입니다.
+
+$$
+\ln\psi_0 = -\frac{m\omega}{2\hbar}x^2 + C
+\quad \Longrightarrow \quad
+\psi_0 = A\,e^{-m\omega x^2/2\hbar}
+$$
+
+상수 $A$ 는 규격화로 정합니다. $\int_{-\infty}^{\infty}e^{-m\omega x^2/\hbar}dx = \sqrt{\pi\hbar/(m\omega)}$ 이고, $A^2$ 에 이 값을 곱해 1로 놓습니다.
+
+$$
 \psi_0(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} e^{-m\omega x^2 / 2\hbar}
 $$
 
@@ -261,7 +366,7 @@ $$
 <figure markdown>
 ![무한 우물과 조화 진동자의 에너지 준위 비교](images/02-energy-ladders.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 3.</b> 무한 우물과 조화 진동자의 에너지 사다리</span>
+<span class="fig-title"><b>Figure 4.</b> 무한 우물과 조화 진동자의 에너지 사다리</span>
 
 왼쪽은 폭 1 nm 전자 우물로 간격이 $n^2$ 으로 벌어집니다. 오른쪽은 HCl 분자의 진동으로 간격이 일정합니다. 두 사다리 모두 맨 아래가 0이 아닙니다.
 </figcaption>
@@ -298,7 +403,7 @@ $\psi_1$ 은 홀함수이고 원점에 마디가 하나 있습니다. 규격화 
 <figure markdown>
 ![조화 진동자의 처음 네 정상 상태와 고전적 회귀점](images/02-oscillator-states.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 4.</b> 조화 진동자의 정상 상태</span>
+<span class="fig-title"><b>Figure 5.</b> 조화 진동자의 정상 상태</span>
 
 각 파동 함수를 자기 에너지 높이에 그렸습니다. 점은 $E_n = V(x)$ 가 되는 고전적 회귀점입니다. 고전 입자는 점 밖으로 나갈 수 없지만, 파동 함수는 점 밖으로 지수적으로 새어 나갑니다.
 </figcaption>
@@ -377,7 +482,7 @@ $\hbar / m_e = 0.1158\,\mathrm{nm^2/fs}$ 를 넣으면 $t = 9\,\mathrm{fs}$ 에 
 <figure markdown>
 ![자유 전자 가우스 파동 묶음의 이동과 퍼짐](images/02-wave-packet.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 자유 전자 파동 묶음의 시간 변화</span>
+<span class="fig-title"><b>Figure 6.</b> 자유 전자 파동 묶음의 시간 변화</span>
 
 중심은 군속도 0.579 nm/fs 로 등속 이동합니다. 폭은 9 fs 동안 0.5 nm 에서 1.16 nm 로 퍼집니다. 전체 넓이(확률)는 항상 1 입니다.
 </figcaption>
@@ -491,7 +596,7 @@ $8.10 / (\pi/2) = 5.16$ 이므로 속박 상태는 6개입니다. 교점을 수�
 <figure markdown>
 ![유한 우물 초월 방정식의 그래프 풀이](images/02-finite-well-graphical.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 6.</b> 유한 우물의 그래프 풀이</span>
+<span class="fig-title"><b>Figure 7.</b> 유한 우물의 그래프 풀이</span>
 
 파란 곡선 $\tan z$ 와 빨간 곡선 $-\cot z$ 가 초록 곡선 $\sqrt{(z_0/z)^2 - 1}$ 과 만나는 점이 속박 상태입니다. $z_0 = 8.10$ 에서 교점은 6개입니다. 초록 곡선은 $z = z_0$ 에서 0이 되어 끝나므로 그 뒤의 가지와는 만나지 않습니다.
 </figcaption>
@@ -532,7 +637,40 @@ $S$ 에는 속박 상태 정보도 들어 있습니다. $k \to i\kappa$ 로 해�
 
 ### 수치 예: 사각 장벽의 투과율
 
-높이 $V_0$, 폭 $L$ 인 사각 장벽을 봅니다. 경계 조건 네 개를 맞추면 투과율이 닫힌 식으로 나옵니다.
+높이 $V_0$, 폭 $L$ 인 사각 장벽을 봅니다. 세 영역의 해를 씁니다. 입사 에너지가 $E < V_0$ 인 경우입니다.
+
+$$
+\psi = \begin{cases}
+A e^{ikx} + B e^{-ikx} & x < 0, \quad k = \sqrt{2mE}/\hbar \\
+C e^{\kappa x} + D e^{-\kappa x} & 0 < x < L, \quad \kappa = \sqrt{2m(V_0 - E)}/\hbar \\
+F e^{ikx} & x > L
+\end{cases}
+$$
+
+경계 $x = 0$ 과 $x = L$ 에서 $\psi$ 와 $\psi'$ 가 연속이어야 합니다. 네 조건을 적습니다.
+
+$$
+A + B = C + D, \qquad ik(A - B) = \kappa(C - D)
+$$
+
+$$
+C e^{\kappa L} + D e^{-\kappa L} = F e^{ikL}, \qquad \kappa\left(C e^{\kappa L} - D e^{-\kappa L}\right) = ikF e^{ikL}
+$$
+
+오른쪽 경계의 두 식에서 $C$, $D$ 를 $F$ 로 풉니다. 두 식을 더하고 빼면 다음과 같습니다.
+
+$$
+C = \frac{F}{2}e^{(ik-\kappa)L}\left(1 + \frac{ik}{\kappa}\right), \qquad
+D = \frac{F}{2}e^{(ik+\kappa)L}\left(1 - \frac{ik}{\kappa}\right)
+$$
+
+이 값을 왼쪽 경계의 두 식에 넣고 $B$ 를 소거하면 $A$ 와 $F$ 의 비가 나옵니다. 정리하면 다음 식입니다.
+
+$$
+\frac{1}{T} = \frac{|A|^2}{|F|^2} = 1 + \frac{(k^2 + \kappa^2)^2}{4k^2\kappa^2}\sinh^2(\kappa L)
+$$
+
+$k^2 + \kappa^2 = 2mV_0/\hbar^2$ 입니다. 또 $4k^2\kappa^2 = 4\cdot\frac{2mE}{\hbar^2}\cdot\frac{2m(V_0-E)}{\hbar^2}$ 입니다. 두 식의 비를 정리하면 $\frac{V_0^2}{4E(V_0-E)}$ 입니다. 넣으면 투과율이 닫힌 식으로 나옵니다.
 
 $$
 T(E) = \begin{cases}
@@ -540,6 +678,8 @@ T(E) = \begin{cases}
 \left[1 + \dfrac{V_0^2 \sin^2(k' L)}{4E(E - V_0)}\right]^{-1}, & E > V_0,\quad k' = \sqrt{2m(E - V_0)}/\hbar
 \end{cases}
 $$
+
+$E > V_0$ 인 경우는 $\kappa \to ik'$ 로 바꾸면 같은 결과입니다. $\sinh(ix) = i\sin x$ 이므로 쌍곡선 함수가 삼각 함수로 바뀝니다.
 
 $V_0 = 10\,\mathrm{eV}$, $L = 0.5\,\mathrm{nm}$ 장벽에 전자를 쏩니다.
 
@@ -562,7 +702,7 @@ $V_0 = 10\,\mathrm{eV}$, $L = 0.5\,\mathrm{nm}$ 장벽에 전자를 쏩니다.
 <figure markdown>
 ![사각 장벽의 투과율 곡선](images/02-barrier-transmission.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 7.</b> 사각 장벽(높이 10 eV, 폭 0.5 nm)의 투과율</span>
+<span class="fig-title"><b>Figure 8.</b> 사각 장벽(높이 10 eV, 폭 0.5 nm)의 투과율</span>
 
 왼쪽은 선형 축입니다. 장벽 높이 위에서 투과율이 진동하고, 빨간 점에서 1이 됩니다. 오른쪽은 장벽 아래 영역을 로그 축으로 그린 그래프입니다. 에너지가 1 eV 에서 9 eV 로 오르는 동안 투과율이 네 자릿수 넘게 커집니다.
 </figcaption>
