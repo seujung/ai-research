@@ -68,9 +68,35 @@ $$
 이 식이 섭동 이론에서 가장 많이 쓰는 결과입니다. **1차 에너지 보정은 섭동을 비섭동 상태에서 평균한 값입니다.**
 직관적으로 보면 입자는 $|\psi_n^0|^2$ 의 분포로 퍼져 있습니다. 추가 퍼텐셜 $H'$ 를 그 분포로 가중 평균한 값이 에너지 증가분입니다.
 
+<figure markdown>
+![섭동 차수별 방정식과 푸는 순서](images/06-perturbation-orders.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 1.</b> 차수별로 나누어 푸는 순서</span>
+
+맨 위가 $\lambda$ 차수별로 나눈 방정식입니다. $\lambda^1$ 식에 $\psi_n^0$ 를 내적하면 1차 에너지가, $\psi_m^0$ 를 내적하면 1차 파동 함수가 나옵니다.
+$\lambda^2$ 식에 $\psi_n^0$ 를 내적하고 1차 파동 함수를 넣으면 2차 에너지가 나옵니다.
+분모의 에너지 차가 작을수록 상태가 많이 섞입니다.
+</figcaption>
+</figure>
+
 ### 1차 파동 함수
 
 $\psi_n^1$ 은 비섭동 상태들의 선형 결합으로 씁니다. $\psi_n^0$ 자신의 성분은 규격화로 흡수되므로 $m \neq n$ 만 남습니다.
+$\lambda^1$ 식에 $\psi_m^0$ 를 내적합니다. $H^0 \psi_m^0 = E_m^0\psi_m^0$ 이므로 왼쪽 첫 항이 정리됩니다.
+
+$$
+\langle \psi_m^0 | H^0 | \psi_n^1 \rangle + \langle \psi_m^0 | H' | \psi_n^0 \rangle
+= E_n^0\langle \psi_m^0 | \psi_n^1 \rangle + E_n^1\langle \psi_m^0 | \psi_n^0 \rangle
+$$
+
+$\psi_m^0$ 와 $\psi_n^0$ 는 직교하므로 마지막 항은 $m = n$ 일 때만 살아납니다. $m \ne n$ 을 보므로 이 항은 0입니다.
+$H^0$ 는 에르미트이므로 $\langle \psi_m^0|H^0|\psi_n^1\rangle = E_m^0\langle \psi_m^0|\psi_n^1\rangle$ 입니다. 대입해 정리합니다.
+
+$$
+\left(E_m^0 - E_n^0\right)\langle \psi_m^0 | \psi_n^1 \rangle = -\langle \psi_m^0 | H' | \psi_n^0 \rangle
+$$
+
+$\langle \psi_m^0|\psi_n^1\rangle$ 은 $\psi_n^1$ 에서 $\psi_m^0$ 성분의 계수입니다. 따라서 다음이 나옵니다.
 
 $$
 \psi_n^1 = \sum_{m \neq n} \frac{\langle \psi_m^0 | H' | \psi_n^0 \rangle}{E_n^0 - E_m^0}\, \psi_m^0
@@ -81,10 +107,20 @@ $$
 
 ### 2차 에너지
 
-$\lambda^2$ 식에 $\psi_n^0$ 를 내적하고 위의 $\psi_n^1$ 을 넣으면 다음을 얻습니다.
+$\lambda^2$ 식에 $\psi_n^0$ 를 내적합니다.
 
 $$
-E_n^2 = \sum_{m \neq n} \frac{|\langle \psi_m^0 | H' | \psi_n^0 \rangle|^2}{E_n^0 - E_m^0}
+\langle \psi_n^0 | H^0 | \psi_n^2 \rangle + \langle \psi_n^0 | H' | \psi_n^1 \rangle
+= E_n^0\langle \psi_n^0 | \psi_n^2 \rangle + E_n^1\langle \psi_n^0 | \psi_n^1 \rangle + E_n^2
+$$
+
+$\langle\psi_n^0|\psi_n^1\rangle = 0$ 이므로 가운데 오른쪽 항이 사라집니다. 왼쪽 첫 항과 오른쪽 첫 항이 같아 상쇄됩니다.
+남는 식에 $\psi_n^1$ 의 전개를 넣습니다.
+
+$$
+E_n^2 = \langle \psi_n^0 | H' | \psi_n^1 \rangle
+= \sum_{m \neq n}\frac{\langle \psi_m^0|H'|\psi_n^0\rangle}{E_n^0 - E_m^0}\langle \psi_n^0|H'|\psi_m^0\rangle
+= \sum_{m \neq n} \frac{|\langle \psi_m^0 | H' | \psi_n^0 \rangle|^2}{E_n^0 - E_m^0}
 $$
 
 바닥 상태($n = 1$)에서는 모든 분모가 음수이므로 $E_1^2 \le 0$ 입니다. **2차 보정은 바닥 상태 에너지를 항상 낮춥니다.**
@@ -147,7 +183,7 @@ $n = 3$ 에서 오차가 유독 작은 이유가 있습니다. $\langle 2|H'|3 \
 <figure markdown>
 ![턱이 있는 우물의 바닥 상태 파동 함수](images/06-step-well-wavefunction.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 1.</b> 턱이 있는 우물의 바닥 상태 파동 함수</span>
+<span class="fig-title"><b>Figure 2.</b> 턱이 있는 우물의 바닥 상태 파동 함수</span>
 
 왼쪽 절반에 0.5 eV 턱을 두면 전자는 퍼텐셜이 낮은 오른쪽으로 밀립니다. 1차 보정 $\psi_1^0 + \psi_1^1$ (파랑)은 정확한 해(빨강 점선)의 모양을 이미 잘 따라갑니다.
 </figcaption>
@@ -158,7 +194,7 @@ $n = 3$ 에서 오차가 유독 작은 이유가 있습니다. $\langle 2|H'|3 \
 <figure markdown>
 ![섭동 차수에 따른 에너지 오차](images/06-step-well-errors.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 2.</b> 섭동 차수에 따른 에너지 오차</span>
+<span class="fig-title"><b>Figure 3.</b> 섭동 차수에 따른 에너지 오차</span>
 
 1차까지 더한 오차는 $V_0^2$ 에, 2차까지 더한 오차는 $V_0^3$ 에 비례합니다. 작은 $V_0$ 에서 오차가 평평해지는 부분은 기준으로 쓴 수치 해 자체의 격자 오차입니다. 초록 선은 $E_2^0 - E_1^0 = 1.13\,\mathrm{eV}$ 로, 섭동 급수가 믿을 만한 범위의 대략적인 상한입니다.
 </figcaption>
@@ -260,7 +296,7 @@ $\lambda = 0.2$ 에서는 2차 근사가 소수 셋째 자리까지 맞습니다
 <figure markdown>
 ![3×3 행렬의 고유값과 섭동 근사](images/06-avoided-crossing.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 3.</b> 3×3 행렬의 고유값과 섭동 근사</span>
+<span class="fig-title"><b>Figure 4.</b> 3×3 행렬의 고유값과 섭동 근사</span>
 
 굵은 선은 정확한 고유값, 점선은 1차, 파선은 2차 근사입니다. 1차 준위가 교차하는 $\lambda = 2/3$ 근처에서 정확한 준위는 서로 밀어내고, 섭동 급수는 그 근처부터 쓸 수 없게 됩니다.
 </figcaption>
@@ -288,13 +324,33 @@ $\alpha$ 는 단위가 없는 수입니다. 보어 모형에서 전자 속도는
 
 ### 상대론적 보정
 
-운동 에너지의 정확한 식은 $T = \sqrt{p^2 c^2 + m^2 c^4} - mc^2$ 입니다. $p \ll mc$ 에서 전개하면 첫 항이 $p^2/2m$ 이고 다음 항이 보정입니다.
+운동 에너지의 정확한 식은 $T = \sqrt{p^2 c^2 + m^2 c^4} - mc^2$ 입니다. $p \ll mc$ 에서 전개합니다. $mc^2$ 을 밖으로 빼면 다음과 같습니다.
+
+$$
+T = mc^2\left(\sqrt{1 + \frac{p^2}{m^2c^2}} - 1\right)
+$$
+
+$\sqrt{1+x} \approx 1 + \frac{x}{2} - \frac{x^2}{8}$ 에 $x = p^2/(m^2c^2)$ 를 넣습니다.
+
+$$
+T \approx mc^2\left[\frac{p^2}{2m^2c^2} - \frac{p^4}{8m^4c^4}\right]
+= \frac{p^2}{2m} - \frac{p^4}{8m^3c^2}
+$$
+
+첫 항이 비섭동 운동 에너지이고, 다음 항이 보정입니다.
 
 $$
 H'_r = -\frac{p^4}{8 m^3 c^2}
 $$
 
-1차 보정은 $E_r^1 = -\frac{1}{8m^3c^2}\langle p^4 \rangle$ 입니다. $p^2 = 2m(E - V)$ 를 써서 $\langle p^4 \rangle$ 을 $\langle 1/r \rangle$ 과 $\langle 1/r^2 \rangle$ 으로 바꾸면 다음 결과가 나옵니다.
+1차 보정은 $E_r^1 = -\frac{1}{8m^3c^2}\langle p^4 \rangle$ 입니다. 수소 원자에서 $p^2 = 2m(E - V)$ 를 씁니다. $V = -e^2/(4\pi\epsilon_0 r)$ 이므로 제곱하면 두 기댓값이 나옵니다.
+
+$$
+\langle p^4 \rangle = (2m)^2\langle (E_n - V)^2 \rangle = 4m^2\left[E_n^2 - 2E_n\left\langle V \right\rangle + \langle V^2 \rangle\right]
+$$
+
+수소의 알려진 기댓값 $\langle 1/r \rangle = 1/(n^2a)$, $\langle 1/r^2 \rangle = 1/(n^3(l+\frac12)a^2)$ 를 넣습니다. $E_n$ 도 $\langle V \rangle = -e^2/(4\pi\epsilon_0)\langle 1/r\rangle$ 꼴로 씁니다.
+정리하면 괄호가 $E_n^2\left[\frac{4n}{l+1/2} - 3\right]$ 로 묶입니다. 이것이 다음 식의 근거입니다.
 
 $$
 E_r^1 = -\frac{(E_n)^2}{2 m c^2} \left[ \frac{4n}{l + 1/2} - 3 \right]
@@ -364,7 +420,7 @@ $$
 <figure markdown>
 ![수소 n = 2 준위의 미세 구조와 초미세 분리의 눈금](images/06-hydrogen-n2-levels.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 4.</b> 수소 n = 2 준위의 미세 구조와 초미세 분리의 눈금</span>
+<span class="fig-title"><b>Figure 5.</b> 수소 n = 2 준위의 미세 구조와 초미세 분리의 눈금</span>
 
 보어 준위 $-3.4\,\mathrm{eV}$ 가 미세 구조로 $2p_{3/2}$ 와 $2s_{1/2}, 2p_{1/2}$ 로 갈라집니다. 오른쪽은 5절의 1s 초미세 분리를 눈금 비교용으로 함께 그렸습니다. 세 효과의 크기 비율은 $1 : 10^{-5} : 10^{-6}$ 이라 그림은 실제 비율이 아닙니다.
 </figcaption>
@@ -472,7 +528,7 @@ for B in (0.0, 0.1, 1.0):
 <figure markdown>
 ![수소 2p 준위의 제이만 분리](images/06-zeeman-n2.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 수소 2p 준위의 제이만 분리</span>
+<span class="fig-title"><b>Figure 6.</b> 수소 2p 준위의 제이만 분리</span>
 
 파란 선은 6×6 행렬을 정확히 대각화한 여섯 준위입니다. 0.5 T 아래에서는 란데 g 인자의 직선(빨간 파선)이, 2 T 위에서는 파셴-바크의 직선(초록 파선)이 잘 맞습니다. $m_j = \pm 3/2$ 의 두 준위는 섞일 상대가 없어서 모든 자기장에서 직선입니다.
 </figcaption>
@@ -547,4 +603,4 @@ print(dE/eV, nu/1e6, c/nu*100)     # 5.877e-06 eV, 1421.2 MHz, 21.09 cm
 | 초미세 | $\vert F\,m_F\rangle$ | $\Delta E = \frac{4 g_p \hbar^4}{3 m_p m_e^2 c^2 a^4}$ | $5.88 \times 10^{-6}\,\mathrm{eV}$ = 1420 MHz = 21 cm |
 
 섭동 이론을 쓸 때 가장 먼저 좋은 상태를 고릅니다. $H^0$ 와 $H'$ 모두와 교환하는 연산자를 찾으면 그 고유 상태가 좋은 상태입니다.
-그다음 "섭동 행렬 원소 대 준위 간격"의 비율을 확인합니다. 이 비율이 1에 가까워지면 Figure 3처럼 급수가 무너집니다. 그때는 행렬을 직접 대각화해야 합니다.
+그다음 "섭동 행렬 원소 대 준위 간격"의 비율을 확인합니다. 이 비율이 1에 가까워지면 Figure 4처럼 급수가 무너집니다. 그때는 행렬을 직접 대각화해야 합니다.
