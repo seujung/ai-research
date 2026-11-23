@@ -106,8 +106,24 @@ $$
 
 ### 손계산 예: 3×3 행렬
 
-$C = \begin{pmatrix} 2 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}$ 의 고유값은 $2 - \sqrt 2 = 0.586$, $2$, $2 + \sqrt 2 = 3.414$ 입니다.
-고유벡터는 차례로 $\frac{1}{2}(1, -\sqrt 2, 1)$, $\frac{1}{\sqrt 2}(1, 0, -1)$, $\frac{1}{2}(1, \sqrt 2, 1)$ 입니다.
+$C = \begin{pmatrix} 2 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}$ 의 고유값을 구합니다. 특성 방정식 $\det(C - \lambda I) = 0$ 을 씁니다.
+행렬식은 첫 행을 따라 전개합니다.
+
+$$
+\det(C-\lambda I) = (2-\lambda)\begin{vmatrix} 2-\lambda & 1 \\ 1 & 2-\lambda\end{vmatrix}
+- 1\cdot\begin{vmatrix} 1 & 1 \\ 0 & 2-\lambda\end{vmatrix}
+= (2-\lambda)\left[(2-\lambda)^2 - 1\right] - (2-\lambda)
+$$
+
+괄호를 정리합니다.
+
+$$
+= (2-\lambda)\left[(2-\lambda)^2 - 2\right]
+$$
+
+이 식이 0이므로 $2-\lambda = 0$ 이거나 $(2-\lambda)^2 = 2$ 입니다. 고유값은 $2 - \sqrt 2 = 0.586$, $2$, $2 + \sqrt 2 = 3.414$ 입니다.
+고유벡터는 $(C - \lambda I)\mathbf v = 0$ 을 풉니다. $\lambda = 2$ 를 넣으면 첫 행이 $0\cdot v_1 + v_2 + 0 = 0$ 이고 셋째 행이 $0 + v_2 + 0 = 0$ 입니다. 따라서 $v_2 = 0$ 이고 $v_1 = -v_3$ 입니다. 규격화하면 $\frac{1}{\sqrt 2}(1, 0, -1)$ 입니다.
+$\lambda = 2 \pm \sqrt2$ 는 같은 연립 방정식에 넣어 풉니다. 고유벡터는 차례로 $\frac{1}{2}(1, -\sqrt 2, 1)$, $\frac{1}{2}(1, \sqrt 2, 1)$ 입니다.
 상태 $\psi = \frac{1}{\sqrt 3}(1, 1, 1)$ 을 전개하면 가운데 고유벡터와의 내적은 $(1 + 0 - 1)/\sqrt 6 = 0$ 입니다.
 
 | 고유값 | $c_n$ | $|c_n|^2$ |
@@ -161,7 +177,36 @@ $$
 H = E_1 \begin{pmatrix} 1 & 0 & 0 & \cdots \\ 0 & 4 & 0 & \cdots \\ 0 & 0 & 9 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix}
 $$
 
-위치 연산자 $x$ 는 이 기저에서 대각 행렬이 아닙니다. 성분을 적분으로 구하면 다음과 같습니다.
+위치 연산자 $x$ 는 이 기저에서 대각 행렬이 아닙니다. 성분을 적분으로 구합니다.
+삼각 함수의 곱은 합으로 바꿉니다. $\sin A \sin B = \frac{1}{2}[\cos(A-B) - \cos(A+B)]$ 입니다.
+
+$$
+\sin\frac{m\pi x}{a}\sin\frac{n\pi x}{a}
+= \frac{1}{2}\left[\cos\frac{(m-n)\pi x}{a} - \cos\frac{(m+n)\pi x}{a}\right]
+$$
+
+대입하면 적분이 두 개로 갈라집니다.
+
+$$
+x_{mn} = \frac{1}{a}\int_0^a x\left[\cos\frac{(m-n)\pi x}{a} - \cos\frac{(m+n)\pi x}{a}\right]dx
+$$
+
+$\int x\cos(kx)dx = \frac{x\sin kx}{k} + \frac{\cos kx}{k^2}$ 를 씁니다. $k = (m-n)\pi/a$ 인 항과 $k = (m+n)\pi/a$ 인 항에 각각 넣습니다.
+$\sin(k\pi \cdot \text{정수}) = 0$ 이므로 사인 항은 양 끝에서 사라집니다. 남는 것은 코사인 항의 차이입니다.
+
+$$
+x_{mn} = \frac{1}{a}\left[\frac{\cos(m-n)\pi}{k_1^2} - \frac{1}{k_1^2}\right] - \frac{1}{a}\left[\frac{\cos(m+n)\pi}{k_2^2} - \frac{1}{k_2^2}\right], \qquad k_1 = \frac{(m-n)\pi}{a},\ k_2 = \frac{(m+n)\pi}{a}
+$$
+
+한 항씩 정리합니다. $\cos(\text{정수}\cdot\pi) = (-1)^{\text{정수}}$ 이고 $\frac{1}{k_1^2} - \frac{1}{k_2^2} = \frac{a^2}{\pi^2}\left[\frac{1}{(m-n)^2} - \frac{1}{(m+n)^2}\right]$ 입니다. 이 차이는 $\frac{4mn}{(m^2-n^2)^2}$ 입니다.
+
+$$
+x_{mn} = \frac{a}{\pi^2}\left[\frac{(-1)^{m-n} - 1}{(m-n)^2} - \frac{(-1)^{m+n} - 1}{(m+n)^2}\right]
+$$
+
+$m+n$ 이 짝수이면 $m-n$ 도 짝수이고 두 분자가 모두 0입니다. 그래서 $x_{mn} = 0$ 입니다.
+$m+n$ 이 홀수이면 두 분자가 모두 $-2$ 입니다. 공통 인자를 빼면 $\frac{4mn}{(m^2-n^2)^2}$ 이 남고, 부호가 음수입니다.
+$m = n$ 은 $\sin^2$ 적분이라 따로 계산하면 $a/2$ 입니다. 세 경우를 모으면 다음과 같습니다.
 
 $$
 x_{mn} = \frac{2}{a} \int_0^a x \sin\frac{m \pi x}{a} \sin\frac{n \pi x}{a} \, dx =
@@ -302,7 +347,38 @@ $$
 \Phi(p) = \langle f_p | \psi_1 \rangle = \frac{1}{\sqrt{2\pi\hbar}} \int_0^a \sqrt{\frac{2}{a}} \sin\frac{\pi x}{a}\, e^{-ipx/\hbar} \, dx
 $$
 
-적분을 끝까지 하면 $u = pa/\hbar$ 로 두었을 때 다음과 같습니다.
+적분을 끝까지 합니다. 먼저 규격화 인자를 하나로 합칩니다. $\frac{1}{\sqrt{2\pi\hbar}}\sqrt{\frac{2}{a}} = \frac{1}{\sqrt{\pi a\hbar}}$ 입니다.
+사인은 지수 함수 두 개로 바꿉니다. $\sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$ 입니다.
+
+$$
+\Phi(p) = \frac{1}{2i\sqrt{\pi a\hbar}}\int_0^a \left[e^{i\pi x/a} - e^{-i\pi x/a}\right]e^{-ipx/\hbar}dx
+$$
+
+$u = pa/\hbar$ 로 치환하면 $px/\hbar = ux/a$ 이고 적분 변수는 $[0, a]$ 입니다. 지수를 합칩니다.
+
+$$
+\Phi(p) = \frac{1}{2i\sqrt{\pi a\hbar}}\int_0^a \left[e^{i(\pi - u)x/a} - e^{-i(\pi + u)x/a}\right]dx
+$$
+
+$\int_0^a e^{i\alpha x/a}dx = \frac{a}{i\alpha}\left(e^{i\alpha} - 1\right)$ 를 $\alpha = \pi - u$ 와 $\alpha = -(\pi+u)$ 에 넣습니다.
+
+$$
+\Phi(p) = \frac{\sqrt{a}}{2i\sqrt{\pi\hbar}}\left[\frac{e^{i(\pi-u)} - 1}{i(\pi-u)} - \frac{e^{-i(\pi+u)} - 1}{-i(\pi+u)}\right]
+$$
+
+$\frac{e^{i\alpha}-1}{i\alpha} = e^{i\alpha/2}\frac{2\sin(\alpha/2)}{\alpha}$ 로 묶습니다. $\alpha = \pi - u$ 에서 $\sin\frac{\pi-u}{2} = \cos\frac{u}{2}$ 이고, $\alpha = -(\pi+u)$ 에서 $\sin\frac{-\pi-u}{2} = -\cos\frac{u}{2}$ 입니다. 두 항의 위상도 $e^{i\pi/2} = i$ 와 $e^{-i\pi/2} = -i$ 로 정리됩니다.
+
+$$
+\Phi(p) = \frac{\sqrt{a}}{2i\sqrt{\pi\hbar}}\, e^{-iu/2}\, i\cos\frac{u}{2}\left[\frac{2}{\pi - u} + \frac{2}{\pi + u}\right]
+$$
+
+대괄호를 통분하면 $\frac{4\pi}{\pi^2 - u^2}$ 입니다. $i$ 가 지워지고 실수 함수가 남습니다.
+
+$$
+\Phi(p) = \sqrt{\frac{4a}{\pi\hbar}}\, e^{-iu/2}\, \frac{\pi\cos(u/2)}{\pi^2 - u^2}
+$$
+
+제곱하면 위상 인자 $e^{-iu/2}$ 의 크기가 1이라 사라집니다. 결과는 다음과 같습니다.
 
 $$
 |\Phi(p)|^2 = \frac{4\pi a}{\hbar}\, \frac{\cos^2(u/2)}{(\pi^2 - u^2)^2}
@@ -357,7 +433,30 @@ $$
 
 1장에서 증명 없이 쓴 $\sigma_x \sigma_p \ge \hbar/2$ 는 임의의 두 관측량으로 일반화됩니다.
 $f = (\hat A - \langle A \rangle)\Psi$, $g = (\hat B - \langle B \rangle)\Psi$ 로 두면 $\sigma_A^2 = \langle f | f \rangle$, $\sigma_B^2 = \langle g | g \rangle$ 입니다.
-슈바르츠 부등식 $\langle f | f \rangle \langle g | g \rangle \ge |\langle f | g \rangle|^2$ 과 $|z|^2 \ge [\mathrm{Im}\, z]^2 = \left[ \frac{1}{2i}(z - z^*) \right]^2$ 을 쓰면 다음이 나옵니다.
+슈바르츠 부등식 $\langle f | f \rangle \langle g | g \rangle \ge |\langle f | g \rangle|^2$ 을 먼저 씁니다. 이 식은 두 벡터의 길이 곱이 내적보다 작지 않다는 뜻입니다.
+
+남은 것은 $|\langle f | g \rangle|^2$ 의 하한입니다. 복소수 $z = \langle f | g \rangle$ 를 실수부와 허수부로 씁니다. $z = x + iy$ 이면 $|z|^2 = x^2 + y^2 \ge y^2$ 입니다.
+$y$ 는 $y = \frac{z - z^*}{2i}$ 입니다.
+
+$$
+|z|^2 \ge \left[\frac{\langle f | g \rangle - \langle g | f \rangle}{2i}\right]^2
+$$
+
+이제 $f$, $g$ 를 원래 연산자로 되돌립니다. $\langle f | g \rangle = \langle (A-\langle A\rangle)\Psi | (B-\langle B\rangle)\Psi \rangle$ 입니다.
+$A$, $B$ 가 에르미트이므로 $\langle f | g \rangle = \langle \Psi | (A - \langle A\rangle)(B - \langle B\rangle) | \Psi \rangle$ 로 옮길 수 있습니다. 두 번째 항의 켤레 복소수를 가져오면 다음이 나옵니다.
+
+$$
+\langle f | g \rangle - \langle g | f \rangle
+= \langle \Psi | (A - \langle A\rangle)(B - \langle B\rangle) - (B - \langle B\rangle)(A - \langle A\rangle) | \Psi \rangle
+$$
+
+평균값 항끼리 상쇄되는 것을 확인합니다. $-\langle B\rangle A + \langle A\rangle\langle B\rangle$ 와 $-(-\langle A\rangle B + \langle A\rangle \langle B\rangle)$ 의 평균은 서로 지웁니다. 남는 것은 교환자입니다.
+
+$$
+= \langle \Psi | [\hat A, \hat B] | \Psi \rangle = \langle [\hat A, \hat B] \rangle
+$$
+
+대입하면 다음이 나옵니다.
 
 $$
 \sigma_A^2 \sigma_B^2 \ge \left( \frac{1}{2i} \langle [\hat A, \hat B] \rangle \right)^2
@@ -365,6 +464,17 @@ $$
 
 여기서 $[\hat A, \hat B] = \hat A \hat B - \hat B \hat A$ 는 **교환자**(commutator)입니다.
 두 연산자가 교환하지 않으면 두 양을 동시에 확정할 수 없습니다. 교환하면 공통 고유 함수가 있어 동시에 확정할 수 있습니다.
+
+<figure markdown>
+![슈바르츠 부등식의 기하](images/03-schwarz-geometry.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 슈바르츠 부등식이 만드는 하한</span>
+
+벡터 $f$, $g$ 의 길이 곱 $\langle f|f\rangle\langle g|g\rangle$ 는 내적 크기의 제곱 $|z|^2$ 보다 작지 않습니다. 슈바르츠 부등식입니다.
+$z$ 를 실수부와 허수부로 나누면 $|z|^2 \ge y^2$ 입니다. 빨간 선분이 $y$ 입니다.
+$f$, $g$ 에 편차 연산자를 넣으면 $y = \frac{1}{2i}\langle[\hat A,\hat B]\rangle$ 이 되어 불확정성 하한이 나옵니다.
+</figcaption>
+</figure>
 
 ### 손계산 예: $[x, p] = i\hbar$
 
@@ -403,7 +513,7 @@ $$
 <figure markdown>
 ![가우스 파동 묶음의 위치 폭과 운동량 폭](images/03-gaussian-tradeoff.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 가우스 파동 묶음의 위치 폭과 운동량 폭</span>
+<span class="fig-title"><b>Figure 6.</b> 가우스 파동 묶음의 위치 폭과 운동량 폭</span>
 
 $\sigma_x = 0.5, 1, 2$ 인 세 가우스 파동 묶음과 각각의 운동량 분포입니다($\hbar = 1$).
 위치 폭을 4배 늘리면 운동량 폭은 4배 줄어들고, 곱은 항상 $\hbar / 2$ 입니다. 무한 우물의 바닥 상태는 가우스가 아니어서 $0.568\hbar$ 로 이 값보다 큽니다.
