@@ -45,7 +45,20 @@ $$
 
 정상 상태의 위상 인자 $e^{-iE t/\hbar}$ 를 미리 빼 두었습니다. 따라서 섭동이 없으면 $c_a$, $c_b$ 는 상수입니다. 섭동이 있을 때 $c_a$, $c_b$ 가 어떻게 변하는지만 보면 됩니다.
 이 식을 시간에 의존하는 슈뢰딩거 방정식 $i\hbar \, \partial\Psi/\partial t = (H^0 + H')\Psi$ 에 넣습니다. $H^0$ 항은 위상 인자의 미분과 정확히 상쇄됩니다.
-남은 식에 $\psi_a^*$ 와 $\psi_b^*$ 를 차례로 곱해 적분하면 두 계수에 대한 **결합 방정식**이 나옵니다. 대각 원소 $H'_{aa} = H'_{bb} = 0$ 인 경우(이 장의 모든 예가 그렇습니다)에는 다음과 같습니다.
+남은 식에 $\psi_a^*$ 와 $\psi_b^*$ 를 차례로 곱해 적분합니다. $\psi_a^*$ 를 곱한 경우부터 봅니다.
+
+$$
+i\hbar\left(\dot c_a e^{-iE_at/\hbar}\psi_a + \dot c_b e^{-iE_bt/\hbar}\psi_b\right)
+= H'\left(c_a e^{-iE_at/\hbar}\psi_a + c_b e^{-iE_bt/\hbar}\psi_b\right)
+$$
+
+$\psi_a$ 와 $\psi_b$ 는 정규 직교이므로, $\psi_a^*$ 를 곱해 적분하면 $\psi_b$ 항이 사라집니다. $H'_{ij} = \langle\psi_i|H'|\psi_j\rangle$ 를 넣습니다.
+
+$$
+i\hbar\,\dot c_a e^{-iE_at/\hbar} = c_a H'_{aa}e^{-iE_at/\hbar} + c_b H'_{ab}e^{-iE_bt/\hbar}
+$$
+
+$e^{-iE_at/\hbar}$ 를 나누면 지수가 $e^{-i(E_b-E_a)t/\hbar}$ 로 바뀝니다. 대각 원소 $H'_{aa} = H'_{bb} = 0$ 인 경우(이 장의 모든 예가 그렇습니다)에는 두 계수에 대한 **결합 방정식**이 나옵니다.
 
 $$
 \dot{c}_a = -\frac{i}{\hbar} H'_{ab} \, e^{-i\omega_0 t} \, c_b, \qquad
@@ -168,7 +181,25 @@ $|V_{ab}|/\hbar = 0.05\,\omega_0$ 로 두고 세 시각에서 그렸습니다. �
 ### 공명에서 정확히 풀기: 라비 진동
 
 공명 근처에서는 섭동이 아무리 약해도 시간이 충분히 지나면 1차 근사가 깨집니다. 다행히 회전파 근사를 유지한 채 결합 방정식을 **정확히** 풀 수 있습니다.
-$\cos \omega t$ 에서 공명 항만 남기면 결합 방정식은 $\dot{c}_b = -(iV_{ba}/2\hbar) e^{i(\omega_0 - \omega)t} c_a$ 와 그 짝이 됩니다. 이 식은 계수가 상수인 2계 선형 미분 방정식으로 바뀌어 손으로 풀립니다.
+$\cos \omega t$ 에서 공명 항만 남기면 결합 방정식은 $\dot{c}_b = -(iV_{ba}/2\hbar) e^{i(\omega_0 - \omega)t} c_a$ 와 그 짝이 됩니다.
+두 식을 합쳐 2계 방정식으로 만듭니다. $\dot c_b$ 를 시간으로 한 번 더 미분하고 $\dot c_a$ 를 넣습니다.
+
+$$
+\ddot c_b = -\frac{iV_{ba}}{2\hbar}\left[i(\omega_0-\omega)c_a + \dot c_a\right]e^{i(\omega_0-\omega)t}
+$$
+
+$\dot c_a = -\frac{iV_{ab}}{2\hbar}e^{-i(\omega_0-\omega)t}c_b$ 를 넣고 이조 $\Delta = \omega - \omega_0$ 를 씁니다.
+
+$$
+\ddot c_b = -\frac{iV_{ba}}{2\hbar}i(\omega_0-\omega)c_a e^{i(\omega_0-\omega)t} - \left(\frac{|V_{ab}|}{2\hbar}\right)^2 c_b
+$$
+
+첫 항은 다시 $\dot c_b$ 로 되돌아갑니다. 이렇게 얻은 식이 감쇠 진동자 꼴입니다.
+
+$$
+\ddot c_b + i\Delta\dot c_b + \frac{\Omega^2}{4}c_b = 0
+$$
+
 세 개의 진동수를 정의합니다.
 
 $$
@@ -177,7 +208,15 @@ $$
 \Omega' \equiv \sqrt{\Omega^2 + \Delta^2}
 $$
 
-정확한 전이 확률은 다음과 같습니다.
+$c_b \propto e^{i\lambda t}$ 를 넣으면 특성 방정식이 $\lambda^2 + \Delta\lambda - \Omega^2/4 = 0$ 입니다. 근은 $\lambda = \frac{-\Delta \pm \Omega'}{2}$ 입니다.
+해는 $c_b = e^{i\Delta t/2}\left[A\cos\frac{\Omega't}{2} + B\sin\frac{\Omega't}{2}\right]$ 꼴입니다. 초기 조건 $c_b(0) = 0$ 에서 $A = 0$ 입니다.
+$\dot c_b(0) = -iV_{ba}/(2\hbar) = -i\Omega/2$ 에서 $B = -i\Omega/\Omega'$ 입니다.
+
+$$
+c_b(t) = -\frac{i\Omega}{\Omega'}\,e^{i\Delta t/2}\sin\left(\frac{\Omega't}{2}\right)
+$$
+
+정확한 전이 확률은 이 계수의 크기 제곱입니다.
 
 $$
 P_{a \to b}(t) = \frac{\Omega^2}{\Omega'^2} \sin^2\!\left(\frac{\Omega' t}{2}\right)
@@ -287,10 +326,24 @@ P_{a \to b}(t) = \frac{2|\wp|^2}{\varepsilon_0 \hbar^2} \int_0^\infty \rho(\omeg
 $$
 
 Figure 2 에서 본 것처럼 피적분 함수의 $\sin^2 / (\cdot)^2$ 부분은 $\omega_0$ 근처의 폭 $4\pi/t$ 안에 몰려 있습니다. $\rho(\omega)$ 가 그 폭 안에서 거의 일정하면 $\rho(\omega_0)$ 를 적분 밖으로 꺼낼 수 있습니다. 남은 적분은 치환 $x = (\omega_0 - \omega)t/2$ 로 계산됩니다.
+치환하면 $d\omega = -(2/t)dx$ 이고 적분 한계가 뒤집히면서 부호가 상쇄됩니다.
 
 $$
 \int_{-\infty}^{\infty} \frac{\sin^2\!\left[(\omega_0 - \omega)t/2\right]}{(\omega_0 - \omega)^2} \, d\omega = \frac{t}{2} \int_{-\infty}^{\infty} \frac{\sin^2 x}{x^2} \, dx = \frac{\pi t}{2}
 $$
+
+마지막 적분이 $\pi$ 인 것은 $\frac{\sin^2x}{x^2}$ 의 그래프 넓이로 확인합니다. 이 함수는 봉우리 하나가 아니라 $\sin^2$ 의 부차 봉우리들이 계속 이어지는데, 그 넓이를 모두 더하면 정확히 $\pi$ 입니다.
+
+<figure markdown>
+![공명 봉우리의 폭과 높이](images/09-lorentzian-limit.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 4.</b> 시간이 길어질수록 봉우리가 좁아지고 높아집니다</span>
+
+곡선 셋은 같은 전이 확률을 측정 시각만 바꾸어 그린 것입니다. 세 곡선의 넓이는 모두 같습니다.
+시간이 $n$ 배가 되면 높이는 $n$ 배, 폭은 $1/n$ 이 됩니다. 그래서 넓이가 $\pi$ 로 일정합니다.
+이 극한이 델타 함수이고, 그것이 페르미 황금률이 공명 진동수만 골라내는 이유입니다.
+</figcaption>
+</figure>
 
 수치로 확인하면 $t = 7.3$ 에서 적분값 11.4668 과 $\pi t/2 = 11.4668$ 이 일치합니다. 결과는 다음과 같습니다.
 
@@ -412,7 +465,9 @@ A = w0**3*(e*z)**2/(3*np.pi*eps0*hbar*c**3)                           # 6.25e8 /
 tau = 1/A                                                             # 1.60e-9 s
 ```
 
-여기서 $R_{nl}$ 은 반지름 파동 함수이고 $\sqrt{3}/4\pi = Y_0^0 Y_1^0 / \cos\theta$ 입니다. 반지름 부분 $1.290\,a$ 와 각 부분 $1/\sqrt{3}$ 의 곱이 $0.745\,a$ 입니다. 이제 수명을 구합니다.
+여기서 $R_{nl}$ 은 반지름 파동 함수입니다. 각도 적분은 $Y_0^0 = 1/\sqrt{4\pi}$ 와 $Y_1^0 = \sqrt{3/4\pi}\cos\theta$ 를 곱해 계산합니다.
+$z = r\cos\theta$ 이므로 적분에 $Y_1^0$ 의 $\cos\theta$ 가 들어가고, $|Y_0^0|^2 = 1/4\pi$ 입니다. 각도 적분값은 $1/\sqrt3$ 입니다.
+반지름 부분 $1.290\,a$ 와 각 부분 $1/\sqrt{3}$ 의 곱이 $0.745\,a$ 입니다. 이제 수명을 구합니다.
 
 | 양 | 값 |
 | --- | --- |
@@ -428,7 +483,7 @@ $m = \pm 1$ 인 2p 상태는 $z$ 성분이 0이고 대신 $x$, $y$ 성분이 살
 <figure markdown>
 ![수소 쌍극자 행렬 원소의 반지름 피적분 함수와 각 피적분 함수](images/09-dipole-integrand.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 4.</b> 쌍극자 행렬 원소의 피적분 함수: 허용 전이와 금지 전이</span>
+<span class="fig-title"><b>Figure 5.</b> 쌍극자 행렬 원소의 피적분 함수: 허용 전이와 금지 전이</span>
 
 왼쪽은 반지름 적분입니다. 2p→1s 의 피적분 함수는 양수만 갖고 $1.290\,a$ 가 됩니다. 2s→1s 는 부호가 바뀌지만 적분은 $-0.559\,a$ 로 0이 아닙니다.
 오른쪽은 각 적분입니다. 허용 전이 2p→1s 는 $\cos^2\theta$ 꼴이라 양수만 갖습니다. 2s→1s 와 3d→1s 는 $\theta = \pi/2$ 를 중심으로 양과 음이 정확히 상쇄되어 0이 됩니다. 반지름 적분이 0이 아니어도 각 적분이 0이면 전이는 금지됩니다.
@@ -469,7 +524,7 @@ $$
 <figure markdown>
 ![수소 원자 준위와 허용·금지 전이](images/09-hydrogen-transitions.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 수소 원자의 전기 쌍극자 선택 규칙</span>
+<span class="fig-title"><b>Figure 6.</b> 수소 원자의 전기 쌍극자 선택 규칙</span>
 
 같은 $l$ 열 안에서 수직으로 떨어지는 전이(2s→1s)와 두 열을 건너뛰는 전이(3d→1s)는 금지됩니다. 허용 전이는 항상 이웃한 열로 비스듬히 갑니다.
 준위 간격은 모식도입니다. 실제 $E_2 - E_1 = 10.2\,\mathrm{eV}$ 는 $E_3 - E_2 = 1.89\,\mathrm{eV}$ 의 다섯 배가 넘습니다.
@@ -493,7 +548,7 @@ $$
 <figure markdown>
 ![아인슈타인 A 계수의 진동수 의존성과 자발·유도 방출 비율](images/09-einstein-a.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 6.</b> $A \propto \omega^3$ 과 열평형에서의 자발·유도 방출 비율</span>
+<span class="fig-title"><b>Figure 7.</b> $A \propto \omega^3$ 과 열평형에서의 자발·유도 방출 비율</span>
 
 왼쪽은 쌍극자 행렬 원소를 수소 2p→1s 값으로 고정했을 때의 $A$ 입니다. 파장이 열 배 길어질 때마다 천 배 느려집니다.
 오른쪽은 $e^{\hbar\omega/k_B T} - 1$ 입니다. 300 K 에서 가시광은 자발 방출이 압도하고(점, $10^{41}$ 배), 1 cm 마이크로파는 유도 방출이 200배 흔합니다. 온도가 3000 K 로 오르면 경계가 짧은 파장 쪽으로 열 배 움직입니다.
