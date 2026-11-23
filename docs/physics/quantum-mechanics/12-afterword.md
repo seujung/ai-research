@@ -96,6 +96,9 @@ EPR의 논증은 두 가정에 기댑니다.
 
 검출기 A는 단위 벡터 $a$ 방향의 스핀을, 검출기 B는 $b$ 방향의 스핀을 잽니다. 결과는 각각 $\pm 1$ 로 적습니다. 단위는 $\hbar/2$ 입니다.
 두 결과의 곱의 평균을 **상관 함수**(correlation function) $P(a, b)$ 라고 합니다. 양자역학의 예측은 다음과 같습니다.
+단일항 $|\psi\rangle = \frac{1}{\sqrt2}(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle)$ 에 두 연산자를 작용시킵니다.
+$\sigma\cdot a$ 는 첫 입자에, $\sigma\cdot b$ 는 둘째 입자에 작용합니다. 단일항은 첫 입자 방향의 결과와 둘째 입자 방향의 결과가 반대로 나오는 상태입니다.
+$a$, $b$ 가 같은 방향이면 곱이 항상 $-1$ 이고, 서로 수직이면 두 결과가 무관해 평균이 0입니다. 각도 $\theta$ 에 대해 결과를 모두 더하면 다음이 나옵니다.
 
 $$
 P(a, b) = \langle \psi | (\sigma \cdot a) \otimes (\sigma \cdot b) | \psi \rangle = -\, a \cdot b = -\cos\theta
@@ -150,7 +153,19 @@ P(a, b) = \int \rho(\lambda)\, A(a, \lambda)\, B(b, \lambda)\, d\lambda
 $$
 
 같은 축에서 완전 반상관이어야 하므로 $B(a, \lambda) = -A(a, \lambda)$ 입니다. 그러면 $P(a, b) = -\int \rho\, A(a, \lambda) A(b, \lambda)\, d\lambda$ 입니다.
-세 축 $a$, $b$, $c$ 를 고르고 두 상관 함수의 차를 씁니다. $A(b, \lambda)^2 = 1$ 을 끼워 넣습니다.
+세 축 $a$, $b$, $c$ 를 고르고 두 상관 함수의 차를 씁니다. $A(b,\lambda)^2 = 1$ 을 곱하고 더해도 값이 그대로인 것을 씁니다.
+
+$$
+P(a,b) - P(a,c) = -\int\rho A(a)A(b)\,d\lambda + \int\rho A(a)A(c)\,d\lambda
+$$
+
+두 번째 적분에 $A(b)^2 = 1$ 을 곱합니다. 값은 바뀌지 않습니다.
+
+$$
+= -\int\rho A(a)A(b)\,d\lambda + \int\rho A(a)A(c)A(b)^2\,d\lambda
+$$
+
+두 적분에 공통인 $A(a)A(b)$ 를 묶어냅니다.
 
 $$
 P(a, b) - P(a, c) = -\int \rho\, A(a, \lambda) A(b, \lambda) \bigl[1 - A(b, \lambda) A(c, \lambda)\bigr] d\lambda
@@ -393,14 +408,22 @@ P_1(t) = \cos^2(\alpha t) \approx 1 - (\alpha t)^2 \quad (\alpha t \ll 1)
 $$
 
 핵심은 짧은 시간에 떠날 확률이 $t$ 에 비례하지 않고 $t^2$ 에 비례한다는 점입니다.
+$\cos^2 x = 1 - \sin^2 x$ 이고 $x \ll 1$ 에서 $\sin x \approx x$ 이므로 첫 식이 성립합니다.
 전체 시간 $T$ 를 $n$ 등분하고 매 구간 끝에 "아직 $|1\rangle$ 인가"를 잽니다. 측정마다 상태는 $|1\rangle$ 또는 $|2\rangle$ 로 붕괴합니다.
 한 구간을 살아남을 확률은 $\cos^2(\alpha T / n)$ 입니다. $n$ 구간을 모두 살아남을 확률은 다음과 같습니다.
 
 $$
-P_{\text{생존}}(n) = \Bigl[\cos^2\Bigl(\frac{\alpha T}{n}\Bigr)\Bigr]^n \approx \Bigl[1 - \Bigl(\frac{\alpha T}{n}\Bigr)^2\Bigr]^n \approx 1 - \frac{(\alpha T)^2}{n}
+P_{\text{생존}}(n) = \Bigl[\cos^2\Bigl(\frac{\alpha T}{n}\Bigr)\Bigr]^n \approx \Bigl[1 - \Bigl(\frac{\alpha T}{n}\Bigr)^2\Bigr]^n
+$$
+
+마지막 근사는 이항 정리 $(1-x)^n \approx 1 - nx$ 를 씁니다. $x = (\alpha T/n)^2$ 이므로 $nx = (\alpha T)^2/n$ 입니다.
+
+$$
+P_{\text{생존}}(n) \approx 1 - n\left(\frac{\alpha T}{n}\right)^2 = 1 - \frac{(\alpha T)^2}{n}
 $$
 
 $n \to \infty$ 에서 생존 확률은 1로 갑니다. 측정을 멈추지 않으면 전이가 일어나지 않습니다.
+근사식은 $n$ 이 커서 $\alpha T/n \ll 1$ 일 때만 쓸 수 있습니다. $n$ 이 작으면 $1-x$ 가 음수가 되어 의미가 없으므로, 아래 표는 정확한 식으로 계산했습니다.
 
 ### 수치 예
 
@@ -428,6 +451,8 @@ for n in [1, 2, 10, 100, 1000]:
 <span class="fig-title"><b>Figure 5.</b> 측정 횟수에 따른 생존 확률</span>
 
 측정 횟수가 10배 늘 때마다 떠날 확률이 약 10분의 1로 줄어듭니다. 점선은 $1 - (\alpha T)^2 / n$ 근사입니다.
+근사식은 $n$ 이 작으면 쓸 수 없습니다. $n = 1$ 에서 $1 - (\alpha T)^2$ 가 음수이기 때문입니다. 곡선은 정확한 식 $\cos^{2n}(\alpha T/n)$ 으로 그렸습니다.
+짧은 시간의 생존 확률은 $t$ 가 아니라 $t^2$ 으로 줄어듭니다. 그래서 구간을 잘게 나눌수록 손실이 급격히 작아집니다.
 </figcaption>
 </figure>
 
