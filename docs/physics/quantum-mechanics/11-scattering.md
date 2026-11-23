@@ -44,12 +44,17 @@ b = R\sin\!\left(\frac{\pi - \theta}{2}\right) = R\cos\frac{\theta}{2}, \qquad
 \frac{db}{d\theta} = -\frac{R}{2}\sin\frac{\theta}{2}
 $$
 
-이고 미분 단면적은
+미분 단면적 $D(\theta) = \frac{b}{\sin\theta}\left|\frac{db}{d\theta}\right|$ 에 대입합니다.
 
 $$
 D(\theta) = \frac{R\cos(\theta/2)}{\sin\theta}\cdot\frac{R}{2}\sin\frac{\theta}{2}
-= \frac{R^2}{4}\cdot\frac{\cos(\theta/2)\sin(\theta/2)}{2\sin(\theta/2)\cos(\theta/2)}\cdot 2
-= \frac{R^2}{4}
+$$
+
+$\sin\theta = 2\sin\frac\theta2\cos\frac\theta2$ 를 넣어 분자를 약분합니다.
+
+$$
+D(\theta) = \frac{R^2}{2}\cdot\frac{\cos(\theta/2)\sin(\theta/2)}{2\sin(\theta/2)\cos(\theta/2)}
+= \frac{R^2}{2}\cdot\frac{1}{2} = \frac{R^2}{4}
 $$
 
 입니다. 모든 방향으로 똑같이 튀어 나갑니다. 전체 단면적은 $\sigma = (R^2/4)\cdot 4\pi = \pi R^2$ 이고, 공의 그림자 넓이와 같습니다. 직관과 맞습니다.
@@ -65,7 +70,21 @@ $$
 
 ### 수치 예: 러더퍼드 산란
 
-전하 $q_1$ 인 입자가 전하 $q_2$ 인 고정된 표적의 쿨롱 퍼텐셜에 산란될 때는 $b = \dfrac{q_1 q_2}{8\pi\epsilon_0 E}\cot\dfrac{\theta}{2}$ 입니다. 같은 계산으로 **러더퍼드 공식**(Rutherford formula)이 나옵니다.
+전하 $q_1$ 인 입자가 전하 $q_2$ 인 고정된 표적의 쿨롱 퍼텐셜에 산란될 때는 $b = \dfrac{q_1 q_2}{8\pi\epsilon_0 E}\cot\dfrac{\theta}{2}$ 입니다.
+$\theta$ 로 미분합니다. $\frac{d}{d\theta}\cot\frac\theta2 = -\frac{1}{2}\csc^2\frac\theta2$ 입니다.
+
+$$
+\frac{db}{d\theta} = -\frac{q_1q_2}{8\pi\epsilon_0E}\cdot\frac{1}{2\sin^2(\theta/2)}
+= -\frac{q_1q_2}{16\pi\epsilon_0E}\cdot\frac{1}{\sin^2(\theta/2)}
+$$
+
+$D = \frac{b}{\sin\theta}\left|\frac{db}{d\theta}\right|$ 에 넣습니다. $\sin\theta = 2\sin\frac\theta2\cos\frac\theta2$ 입니다.
+
+$$
+D(\theta) = \frac{q_1q_2}{8\pi\epsilon_0E}\cdot\frac{\cos(\theta/2)}{\sin\theta}\cdot\frac{q_1q_2}{16\pi\epsilon_0E\sin^2(\theta/2)}
+$$
+
+분모의 $\sin\theta\sin^2\frac\theta2 = 2\sin^3\frac\theta2\cos\frac\theta2$ 이므로 코사인이 약분됩니다.
 
 $$
 D(\theta) = \left[\frac{q_1 q_2}{16\pi\epsilon_0 E\,\sin^2(\theta/2)}\right]^2
@@ -160,9 +179,18 @@ $\theta = 0$ 에서 $P_l(1) = 1$ 이므로 $\mathrm{Im}\,f(0) = \frac{1}{k}\sum_
 
 ### 수치 예: 단단한 공의 양자 산란
 
-반지름 $R$ 안으로 들어갈 수 없는 퍼텐셜($r < R$ 에서 $V = \infty$)을 생각합니다. 경계 조건은 $\psi(R, \theta) = 0$ 입니다. $l$ 번째 바깥 해를 $j_l(kr)\cos\delta_l - n_l(kr)\sin\delta_l$ 로 적고 $r = R$ 에서 0으로 놓으면
+반지름 $R$ 안으로 들어갈 수 없는 퍼텐셜($r < R$ 에서 $V = \infty$)을 생각합니다. 경계 조건은 $\psi(R, \theta) = 0$ 입니다. $l$ 번째 바깥 해를 $j_l(kr)\cos\delta_l - n_l(kr)\sin\delta_l$ 로 적습니다.
+$r = R$ 에서 0이어야 하므로 다음이 성립합니다.
 
 $$
+j_l(kR)\cos\delta_l - n_l(kR)\sin\delta_l = 0
+$$
+
+$\cos\delta_l$ 로 나눕니다.
+
+$$
+j_l(kR) - n_l(kR)\tan\delta_l = 0
+\quad\Longrightarrow\quad
 \tan\delta_l = \frac{j_l(kR)}{n_l(kR)}
 $$
 
@@ -257,6 +285,8 @@ $$
 
 부분파 분석은 퍼텐셜이 구면 대칭이고 $kR$ 이 작을 때 편합니다. 반대로 고에너지이거나 퍼텐셜이 구면 대칭이 아니면 다른 방법이 필요합니다.
 슈뢰딩거 방정식을 $(\nabla^2 + k^2)\psi = Q$, $Q = (2m/\hbar^2)V\psi$ 로 적으면 헬름홀츠 방정식의 **그린 함수**(Green's function) $G(\mathbf r) = -e^{ikr}/4\pi r$ 로 해를 적분 꼴로 쓸 수 있습니다.
+그린 함수는 $(\nabla^2 + k^2)G = \delta^3(\mathbf r)$ 을 만족하는 함수입니다. 원점을 뺀 곳에서는 $(\nabla^2+k^2)G = 0$ 이고, 원점에서 $\delta$ 함수만큼 특이합니다.
+발산하는 구면파 $e^{ikr}/r$ 이 그 조건을 만족하며, 앞의 $-1/4\pi$ 는 $\delta$ 함수의 세기를 1로 맞추는 상수입니다.
 
 $$
 \psi(\mathbf r) = \psi_0(\mathbf r) - \frac{m}{2\pi\hbar^2}\int \frac{e^{ik|\mathbf r - \mathbf r_0|}}{|\mathbf r - \mathbf r_0|}\,V(\mathbf r_0)\,\psi(\mathbf r_0)\,d^3 r_0
@@ -279,7 +309,19 @@ $$
 f(\theta, \phi) \approx -\frac{m}{2\pi\hbar^2}\int e^{i(\mathbf k' - \mathbf k)\cdot\mathbf r_0}\,V(\mathbf r_0)\,d^3 r_0
 $$
 
-입니다. 산란 진폭이 퍼텐셜의 **푸리에 변환**이 됩니다. 변환 변수는 운동량 전달 $\boldsymbol\kappa \equiv \mathbf k' - \mathbf k$ 이고, 크기는 $\kappa = 2k\sin(\theta/2)$ 입니다.
+입니다. 산란 진폭이 퍼텐셜의 **푸리에 변환**이 됩니다. 변환 변수는 운동량 전달 $\boldsymbol\kappa \equiv \mathbf k' - \mathbf k$ 입니다.
+입사 파수와 산란 파수의 크기가 같으므로 삼각형이 이등변입니다. 꼭짓각이 $\theta$ 이므로 크기는 $\kappa = 2k\sin(\theta/2)$ 입니다.
+
+<figure markdown>
+![운동량 이동 벡터와 산란각의 관계](images/11-momentum-transfer.png)
+<figcaption markdown>
+<span class="fig-title"><b>Figure 5.</b> 운동량 전달 $\boldsymbol\kappa$ 와 산란각</span>
+
+왼쪽은 $\mathbf k'$ 과 $\mathbf k$ 를 두 변으로 하는 이등변 삼각형입니다. 닫는 변이 $\boldsymbol\kappa = \mathbf k' - \mathbf k$ 이고, 꼭짓각이 산란각 $\theta$ 입니다.
+오른쪽처럼 $\kappa$ 는 전방 산란($\theta = 0$)에서 0이고 후방 산란($\theta = \pi$)에서 $2k$ 입니다.
+보른 진폭이 $\kappa$ 의 함수라는 것은 작은 각도일수록 퍼텐셜의 긴 파장 성분을 본다는 뜻입니다.
+</figcaption>
+</figure>
 
 두 가지 특수한 경우가 자주 쓰입니다.
 
@@ -325,7 +367,7 @@ $$
 <figure markdown>
 ![약한 퍼텐셜과 강한 퍼텐셜에서 보른 근사와 정확한 단면적의 비교](images/11-born-soft-sphere.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 5.</b> 부드러운 공: 1차 보른 근사와 정확한 값</span>
+<span class="fig-title"><b>Figure 6.</b> 부드러운 공: 1차 보른 근사와 정확한 값</span>
 
 왼쪽($V_0 = 1$)은 $ka \gtrsim 3$ 에서 두 곡선이 겹칩니다. 오른쪽($V_0 = 10$, 로그 축)은 저에너지에서 20배 넘게 어긋나고 $ka = 6$ 에서도 30% 차이가 남습니다. 점선은 저에너지 보른 극한 $4\pi(V_0/3)^2$ 입니다.
 </figcaption>
@@ -393,7 +435,7 @@ $1\,\mathrm{keV}$ 에서는 0.23이라 쓸 만합니다. 에너지가 10배 오�
 <figure markdown>
 ![전자가 가림 길이 0.1 nm의 쿨롱 퍼텐셜에 산란될 때 세 에너지의 각 분포](images/11-yukawa.png)
 <figcaption markdown>
-<span class="fig-title"><b>Figure 6.</b> 유카와 퍼텐셜의 보른 각 분포</span>
+<span class="fig-title"><b>Figure 7.</b> 유카와 퍼텐셜의 보른 각 분포</span>
 
 실선은 유카와, 점선은 가림이 없는 러더퍼드입니다. 큰 각도($\kappa \gg \mu$)에서는 둘이 같습니다. 작은 각도에서는 가림 때문에 유카와가 유한한 값 $0.143\,\mathrm{nm^2}$ 에서 멈추고, 러더퍼드는 발산합니다. 에너지가 높을수록 분포가 앞쪽으로 몰립니다.
 </figcaption>
