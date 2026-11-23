@@ -238,7 +238,8 @@ $$
 \chi_-(t) = \begin{pmatrix} e^{-i\omega t} \sin(\alpha/2) \\ -\cos(\alpha/2) \end{pmatrix}
 $$
 
-$\chi_+(0)$ 에서 출발한 스핀의 시간에 의존하는 슈뢰딩거 방정식은 정확히 풀립니다. 결과만 적으면, 시각 $t$ 에 스핀이 뒤집혀 $\chi_-(t)$ 에 있을 확률은 다음과 같습니다.
+$\chi_+(0)$ 에서 출발한 스핀의 시간에 의존하는 슈뢰딩거 방정식은 정확히 풀립니다. 회전 좌표계로 옮기면 해밀토니안이 시간에 무관해지므로 손으로 풀 수 있습니다.
+그 계에서 두 준위의 에너지 차가 $\hbar\lambda$ 입니다. 유도는 길어서 결과만 적으면, 시각 $t$ 에 스핀이 뒤집혀 $\chi_-(t)$ 에 있을 확률은 다음과 같습니다.
 
 $$
 P_{+\to-}(t) = \left[ \frac{\omega}{\lambda} \sin\alpha\, \sin\!\left(\frac{\lambda t}{2}\right) \right]^2, \qquad
