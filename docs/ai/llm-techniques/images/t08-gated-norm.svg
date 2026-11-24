@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360">
+<rect width="720" height="360" fill="#ffffff"/>
+<text x="360.0" y="28" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0f172a">반복 횟수에 따른 은닉 상태 L2 노름 변화 (4차원 예시)</text>
+<line x1="70" y1="298.0" x2="685" y2="298.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="60" y="302.0" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#64748b">0</text>
+<line x1="70" y1="237.2" x2="685" y2="237.2" stroke="#e2e8f0" stroke-width="1"/>
+<text x="60" y="241.2" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#64748b">4</text>
+<line x1="70" y1="176.5" x2="685" y2="176.5" stroke="#e2e8f0" stroke-width="1"/>
+<text x="60" y="180.5" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#64748b">8</text>
+<line x1="70" y1="115.8" x2="685" y2="115.8" stroke="#e2e8f0" stroke-width="1"/>
+<text x="60" y="119.8" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#64748b">12</text>
+<line x1="70" y1="55.0" x2="685" y2="55.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="60" y="59.0" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#64748b">16</text>
+<line x1="70" y1="55" x2="70" y2="298" stroke="#94a3b8" stroke-width="1.2"/>
+<line x1="70" y1="298" x2="685" y2="298" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="20" y="176.5" text-anchor="middle" transform="rotate(-90 20 176.5)" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12" fill="#334155">은닉 상태 L2 노름 ||h||₂</text>
+<text x="377.5" y="344" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12" fill="#334155">루프 반복 횟수 (r)</text>
+<line x1="70.0" y1="298" x2="70.0" y2="303" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="70.0" y="318" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">초기 (r=0)</text>
+<line x1="223.8" y1="298" x2="223.8" y2="303" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="223.8" y="318" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">r = 1</text>
+<line x1="377.5" y1="298" x2="377.5" y2="303" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="377.5" y="318" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">r = 2</text>
+<line x1="531.2" y1="298" x2="531.2" y2="303" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="531.2" y="318" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">r = 3</text>
+<line x1="685.0" y1="298" x2="685.0" y2="303" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="685.0" y="318" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">r = 4</text>
+<polyline points="70.0,280.0 223.8,257.0 377.5,215.9 531.2,155.2 685.0,70.5" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6 4"/>
+<polyline points="70.0,280.0 223.8,276.6 377.5,259.4 531.2,249.7 685.0,240.4" fill="none" stroke="#2563eb" stroke-width="2.8"/>
+<circle cx="70.0" cy="280.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="70.0" cy="280.0" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+<text x="78.0" y="272.0" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#334155">1.19</text>
+<circle cx="223.8" cy="257.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="223.8" cy="276.6" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+<text x="223.8" y="247.0" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="#dc2626">2.70</text>
+<text x="223.8" y="293.6" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="#2563eb">1.41</text>
+<circle cx="377.5" cy="215.9" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="377.5" cy="259.4" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+<text x="377.5" y="205.9" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="#dc2626">5.40</text>
+<text x="377.5" y="276.4" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="#2563eb">2.54</text>
+<circle cx="531.2" cy="155.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="531.2" cy="249.7" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+<text x="531.2" y="145.2" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="#dc2626">9.40</text>
+<text x="531.2" y="266.7" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="#2563eb">3.18</text>
+<circle cx="685.0" cy="70.5" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="685.0" cy="240.4" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+<text x="677.0" y="60.5" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="#dc2626">14.98</text>
+<text x="685.0" y="257.4" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" font-weight="600" fill="#2563eb">3.79</text>
+<rect x="88" y="65" width="305" height="58" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="102" y1="85" x2="132" y2="85" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6 4"/>
+<text x="142" y="89" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12" fill="#1e293b">게이트 없는 반복 (노름 급증)</text>
+<line x1="102" y1="107" x2="132" y2="107" stroke="#2563eb" stroke-width="2.8"/>
+<text x="142" y="111" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12" fill="#1e293b">Gated Progressive Updates (안정 유지)</text>
+</svg>

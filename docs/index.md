@@ -27,6 +27,15 @@ hide:
   <li class="entry">
     <div class="entry__meta">
       <time datetime="2026-11-24">2026년 11월 24일</time>
+      <span class="entry__cat">트렌드</span>
+    </div>
+    <h3 class="entry__title"><a href="trends/2026/11/24/glm-5-4/">LLM Model: GLM-5.4 아키텍처 리뷰</a></h3>
+    <p class="entry__desc">Z.ai의 첫 상용 Loop Transformer GLM-5.4를 정리합니다. 78층 중 28개 중간층을 두 번 반복 실행하는 Middle-Cycle 배치, Gated Progressive Updates, 128토큰 창 Hybrid KV Cache와 Sparse Attention Index Reuse를 LLM 핵심 기법 8장과 연결해 다룹니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-11-24">2026년 11월 24일</time>
       <span class="entry__cat">컴퓨터 과학</span>
     </div>
     <h3 class="entry__title"><a href="cs/quantum-computing/">양자 컴퓨팅</a></h3>
@@ -75,7 +84,7 @@ hide:
       <span class="entry__cat">AI</span>
     </div>
     <h3 class="entry__title"><a href="ai/llm-techniques/">LLM 핵심 기법</a></h3>
-    <p class="entry__desc">RoPE, 긴 문맥 확장(YaRN 등), 정규화와 로짓 안정화(QK-Norm 등), 옵티마이저(Adam, AdamW, Muon), 전문가 혼합(MoE), 멀티 토큰 예측(MTP), Prefill과 Decode를 7개 장으로 정리합니다.</p>
+    <p class="entry__desc">RoPE, 긴 문맥 확장(YaRN 등), 정규화와 로짓 안정화(QK-Norm 등), 옵티마이저(Adam, AdamW, Muon), 전문가 혼합(MoE), 멀티 토큰 예측(MTP), Prefill과 Decode, 루프 아키텍처를 8개 장으로 정리합니다.</p>
   </li>
 
   <li class="entry">

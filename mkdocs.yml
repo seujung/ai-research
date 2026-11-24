@@ -181,6 +181,7 @@ nav:
           - 5. 전문가 혼합(MoE): ai/llm-techniques/05-moe.md
           - 6. 멀티 토큰 예측(MTP): ai/llm-techniques/06-mtp.md
           - 7. Prefill과 Decode: ai/llm-techniques/07-prefill-decode.md
+          - 8. 루프 아키텍처: ai/llm-techniques/08-loop-architecture.md
   - 수학:
       - math/index.md
       - 선형대수:

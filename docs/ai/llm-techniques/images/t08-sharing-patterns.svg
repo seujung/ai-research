@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380">
+<rect width="760" height="380" fill="#ffffff"/>
+<text x="380.0" y="28" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0f172a">가중치 공유 패턴 비교 (유효 통과 깊이 6층 기준)</text>
+<text x="220.0" y="52" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">통과 1</text>
+<text x="302.0" y="52" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">통과 2</text>
+<text x="384.0" y="52" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">통과 3</text>
+<text x="466.0" y="52" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">통과 4</text>
+<text x="548.0" y="52" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">통과 5</text>
+<text x="630.0" y="52" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">통과 6</text>
+<text x="24" y="78" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b">비공유 (Standard)</text>
+<text x="24" y="94" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">고유 6층</text>
+<rect x="185" y="62" width="70" height="38" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="220.0" y="86" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#334155">L1</text>
+<line x1="257" y1="81.0" x2="265" y2="81.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="265,81.0 261,78.0 261,84.0" fill="#94a3b8"/>
+<rect x="267" y="62" width="70" height="38" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="302.0" y="86" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#334155">L2</text>
+<line x1="339" y1="81.0" x2="347" y2="81.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="347,81.0 343,78.0 343,84.0" fill="#94a3b8"/>
+<rect x="349" y="62" width="70" height="38" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="384.0" y="86" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#334155">L3</text>
+<line x1="421" y1="81.0" x2="429" y2="81.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="429,81.0 425,78.0 425,84.0" fill="#94a3b8"/>
+<rect x="431" y="62" width="70" height="38" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="466.0" y="86" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#334155">L4</text>
+<line x1="503" y1="81.0" x2="511" y2="81.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="511,81.0 507,78.0 507,84.0" fill="#94a3b8"/>
+<rect x="513" y="62" width="70" height="38" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="548.0" y="86" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#334155">L5</text>
+<line x1="585" y1="81.0" x2="593" y2="81.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="593,81.0 589,78.0 589,84.0" fill="#94a3b8"/>
+<rect x="595" y="62" width="70" height="38" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="630.0" y="86" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#334155">L6</text>
+<text x="24" y="134" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b">Cycle</text>
+<text x="24" y="150" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">고유 3층 × 2회</text>
+<rect x="185" y="118" width="70" height="38" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="220.0" y="142" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#1d4ed8">A</text>
+<line x1="257" y1="137.0" x2="265" y2="137.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="265,137.0 261,134.0 261,140.0" fill="#94a3b8"/>
+<rect x="267" y="118" width="70" height="38" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="302.0" y="142" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#6d28d9">B</text>
+<line x1="339" y1="137.0" x2="347" y2="137.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="347,137.0 343,134.0 343,140.0" fill="#94a3b8"/>
+<rect x="349" y="118" width="70" height="38" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="384.0" y="142" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#15803d">D</text>
+<line x1="421" y1="137.0" x2="429" y2="137.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="429,137.0 425,134.0 425,140.0" fill="#94a3b8"/>
+<rect x="431" y="118" width="70" height="38" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="466.0" y="142" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#1d4ed8">A</text>
+<line x1="503" y1="137.0" x2="511" y2="137.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="511,137.0 507,134.0 507,140.0" fill="#94a3b8"/>
+<rect x="513" y="118" width="70" height="38" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="548.0" y="142" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#6d28d9">B</text>
+<line x1="585" y1="137.0" x2="593" y2="137.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="593,137.0 589,134.0 589,140.0" fill="#94a3b8"/>
+<rect x="595" y="118" width="70" height="38" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="630.0" y="142" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#15803d">D</text>
+<text x="24" y="190" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b">Sequence</text>
+<text x="24" y="206" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">고유 3층 × 2회</text>
+<rect x="185" y="174" width="70" height="38" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="220.0" y="198" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#1d4ed8">A</text>
+<line x1="257" y1="193.0" x2="265" y2="193.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="265,193.0 261,190.0 261,196.0" fill="#94a3b8"/>
+<rect x="267" y="174" width="70" height="38" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="302.0" y="198" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#1d4ed8">A</text>
+<line x1="339" y1="193.0" x2="347" y2="193.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="347,193.0 343,190.0 343,196.0" fill="#94a3b8"/>
+<rect x="349" y="174" width="70" height="38" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="384.0" y="198" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#6d28d9">B</text>
+<line x1="421" y1="193.0" x2="429" y2="193.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="429,193.0 425,190.0 425,196.0" fill="#94a3b8"/>
+<rect x="431" y="174" width="70" height="38" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="466.0" y="198" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#6d28d9">B</text>
+<line x1="503" y1="193.0" x2="511" y2="193.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="511,193.0 507,190.0 507,196.0" fill="#94a3b8"/>
+<rect x="513" y="174" width="70" height="38" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="548.0" y="198" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#15803d">D</text>
+<line x1="585" y1="193.0" x2="593" y2="193.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="593,193.0 589,190.0 589,196.0" fill="#94a3b8"/>
+<rect x="595" y="174" width="70" height="38" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="630.0" y="198" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#15803d">D</text>
+<text x="24" y="246" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b">Middle-Cycle</text>
+<text x="24" y="262" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">고유 4층 (중간 2×2)</text>
+<rect x="185" y="230" width="70" height="38" rx="7" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+<text x="220.0" y="254" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#0369a1">P</text>
+<line x1="257" y1="249.0" x2="265" y2="249.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="265,249.0 261,246.0 261,252.0" fill="#94a3b8"/>
+<rect x="267" y="230" width="70" height="38" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="302.0" y="254" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#1d4ed8">A</text>
+<line x1="339" y1="249.0" x2="347" y2="249.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="347,249.0 343,246.0 343,252.0" fill="#94a3b8"/>
+<rect x="349" y="230" width="70" height="38" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="384.0" y="254" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#6d28d9">B</text>
+<line x1="421" y1="249.0" x2="429" y2="249.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="429,249.0 425,246.0 425,252.0" fill="#94a3b8"/>
+<rect x="431" y="230" width="70" height="38" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="466.0" y="254" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#1d4ed8">A</text>
+<line x1="503" y1="249.0" x2="511" y2="249.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="511,249.0 507,246.0 507,252.0" fill="#94a3b8"/>
+<rect x="513" y="230" width="70" height="38" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="548.0" y="254" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#6d28d9">B</text>
+<line x1="585" y1="249.0" x2="593" y2="249.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="593,249.0 589,246.0 589,252.0" fill="#94a3b8"/>
+<rect x="595" y="230" width="70" height="38" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="630.0" y="254" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#b45309">C</text>
+<rect x="263" y="226" width="324" height="46" rx="10" fill="none" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="24" y="302" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b">Middle-Sequence</text>
+<text x="24" y="318" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#64748b">고유 4층 (중간 2×2)</text>
+<rect x="185" y="286" width="70" height="38" rx="7" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+<text x="220.0" y="310" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#0369a1">P</text>
+<line x1="257" y1="305.0" x2="265" y2="305.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="265,305.0 261,302.0 261,308.0" fill="#94a3b8"/>
+<rect x="267" y="286" width="70" height="38" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="302.0" y="310" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#1d4ed8">A</text>
+<line x1="339" y1="305.0" x2="347" y2="305.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="347,305.0 343,302.0 343,308.0" fill="#94a3b8"/>
+<rect x="349" y="286" width="70" height="38" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="384.0" y="310" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#1d4ed8">A</text>
+<line x1="421" y1="305.0" x2="429" y2="305.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="429,305.0 425,302.0 425,308.0" fill="#94a3b8"/>
+<rect x="431" y="286" width="70" height="38" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="466.0" y="310" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#6d28d9">B</text>
+<line x1="503" y1="305.0" x2="511" y2="305.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="511,305.0 507,302.0 507,308.0" fill="#94a3b8"/>
+<rect x="513" y="286" width="70" height="38" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="548.0" y="310" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#6d28d9">B</text>
+<line x1="585" y1="305.0" x2="593" y2="305.0" stroke="#94a3b8" stroke-width="1.5"/>
+<polygon points="593,305.0 589,302.0 589,308.0" fill="#94a3b8"/>
+<rect x="595" y="286" width="70" height="38" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="630.0" y="310" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="13" font-weight="700" fill="#b45309">C</text>
+<rect x="185" y="345" width="14" height="14" rx="3" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2"/>
+<text x="205" y="356" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">Prelude (고유)</text>
+<rect x="310" y="345" width="14" height="14" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+<text x="330" y="356" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">Loop Block 층</text>
+<rect x="435" y="345" width="14" height="14" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+<text x="455" y="356" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">Coda (고유)</text>
+<rect x="560" y="345" width="14" height="14" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.2"/>
+<text x="580" y="356" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#475569">일반 고유 층</text>
+</svg>

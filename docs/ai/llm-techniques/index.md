@@ -14,7 +14,8 @@ tags:
 어텐션 점수가 폭주하지 않게 정규화를 넣고, 학습은 AdamW나 Muon으로 합니다.
 FFN 층은 전문가 혼합(MoE)으로 바꾸고, 다음 토큰 여러 개를 함께 예측해 생성을 빠르게 합니다.
 추론은 프롬프트를 한 번에 처리하는 prefill과 토큰을 하나씩 만드는 decode로 나뉘고, 두 단계는 병목이 다릅니다.
-이 교재는 이 기법을 7개 장으로 정리합니다.
+매개변수를 늘리지 않고 연산 깊이를 키울 때는 공유 층을 반복 실행하는 루프 아키텍처를 씁니다.
+이 교재는 이 기법을 8개 장으로 정리합니다.
 
 각 장은 개념마다 작동 원리(수식), 손으로 따라갈 수 있는 수치 예시, 그림, 짧은 코드를 붙입니다.
 모델별 설정값은 기술 보고서와 Hugging Face에 공개된 `config.json` 에서 확인한 값만 씁니다.
@@ -35,6 +36,7 @@ FFN 층은 전문가 혼합(MoE)으로 바꾸고, 다음 토큰 여러 개를 �
 | [5. 전문가 혼합(MoE)](05-moe.md) | config로 계산한 총·활성 매개변수, 정방향 계산 손계산, 토큰 선택·전문가 선택·그룹 제한 라우팅, 보조 손실·z-loss·용량·편향 조정, 세분화와 공유 전문가, 희소도, 전문가 병렬과 디코드 메모리 |
 | [6. 멀티 토큰 예측(MTP)과 추측 디코딩](06-mtp.md) | 다음 토큰 여러 개를 예측하는 학습 목표, MTP 모듈, 추측 디코딩의 수락 과정 |
 | [7. Prefill과 Decode](07-prefill-decode.md) | 추론의 두 단계, 계산 한계와 메모리 한계, TTFT·TPOT, 청크 prefill, 접두사 캐싱, prefill·decode 분리 배포 |
+| [8. 루프 아키텍처](08-loop-architecture.md) | 매개변수와 연산 깊이의 분리, 가중치 공유 패턴(Middle-Cycle 등), Gated Progressive Updates, Hybrid KV Cache와 Sparse Attention Index Reuse, 학습 전략과 적응형 깊이 |
 
 ## 각 기법을 쓰는 모델
 
@@ -47,6 +49,7 @@ FFN 층은 전문가 혼합(MoE)으로 바꾸고, 다음 토큰 여러 개를 �
 | 옵티마이저 | 보고서에 명시 없음 | AdamW (V2·V3), Muon + AdamW (V4) | AdamW (Qwen 1세대), 이후 보고서에 명시 없음 | Muon (GLM-4.5), Muon + Muon Split (GLM-5) | MuonClip = Muon + QK-Clip (K2) |
 | MoE | 128개 중 8개 + 병렬 밀집 MLP (Gemma 4 26B A4B) | 256개 중 8개 + 공유 1 (V3·V3.2) | 128개 중 8개 (Qwen3-235B), 512개 중 10개 + 공유 1 (Qwen3-Next) | 160개 중 8개 (GLM-4.5), 256개 중 8개 + 공유 1 (GLM-5) | 384개 중 8개 + 공유 1 (K2) |
 | MTP | MTP 드래프터 (Gemma 4) | MTP 모듈 1개 (V3 이후) | MTP 층 1개 (Qwen3.5), Qwen3-Next는 모델 카드에 명시 | MTP 층 1개 (GLM-4.5·5) | 없음 (K2, `num_nextn_predict_layers: 0`) |
+| 루프 아키텍처 | — | — | — | Middle-Cycle 28층×2, Gated Progressive Updates, Hybrid KV Cache (GLM-5.4) | — |
 
 ## 읽는 방법
 
@@ -54,5 +57,6 @@ FFN 층은 전문가 혼합(MoE)으로 바꾸고, 다음 토큰 여러 개를 �
 3장은 [어텐션 메커니즘 1장](../attention/01-scaled-dot-product.md)의 $\sqrt{d_k}$ 스케일을 읽은 뒤 보면 좋습니다.
 4장은 [신경망 기초 9장](../d2l/09-optimization.md)의 Adam을 전제로 합니다. 3장의 QK-Clip과도 이어집니다.
 5장과 6장은 다른 장과 독립적입니다.
+8장은 5장과 7장을 읽은 뒤 보면 좋습니다. [어텐션 메커니즘 4장](../attention/04-sliding-window.md)의 슬라이딩 창과 [6장](../attention/06-sparse-attention.md)의 희소 어텐션과도 이어집니다.
 
 본문의 수치 예시는 모두 NumPy나 PyTorch로 직접 계산해 확인했습니다.

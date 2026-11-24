@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" width="760" height="390">
+<rect width="760" height="390" fill="#ffffff"/>
+<text x="380.0" y="28" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0f172a">GLM-5.4 Loop Transformer 실행 흐름 (고유 78층 → 유효 106회 통과)</text>
+<rect x="28" y="130" width="130" height="120" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.6"/>
+<text x="93" y="162" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0369a1">Prelude</text>
+<text x="93" y="186" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="12" fill="#0c4a6e">1 ~ 26층 (26층)</text>
+<text x="93" y="210" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#334155">1회 통과</text>
+<text x="93" y="230" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#475569">초기 전역 표현 생성</text>
+<line x1="158" y1="190" x2="196" y2="190" stroke="#64748b" stroke-width="2"/>
+<polygon points="202,190 194,185 194,195" fill="#64748b"/>
+<rect x="204" y="58" width="356" height="275" rx="12" fill="#f8fafc" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="382" y="82" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="13.5" font-weight="700" fill="#1d4ed8">Loop Block: 27 ~ 54층 (28층 × 2회 반복 = 56회 통과)</text>
+<rect x="224" y="102" width="316" height="88" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="240" y="125" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#1e40af">1회차 (Pass 1): 전역 문맥 구조화</text>
+<text x="240" y="146" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#1e293b">• 보수적 게이트 g⁽¹⁾ (어려운 토큰은 더 강하게 기록)</text>
+<text x="240" y="164" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#1e293b">• DSA 인덱서로 top-k 선택 + 전역 희소 KV 캐시 저장</text>
+<text x="240" y="180" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#334155">h⁽¹⁾ = h⁽⁰⁾ + g⁽¹⁾ ⊙ F(h⁽⁰⁾)</text>
+<path d="M 382 190 L 382 216" stroke="#2563eb" stroke-width="2"/>
+<polygon points="382,222 377,214 387,214" fill="#2563eb"/>
+<text x="456" y="211" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">동일 28층 가중치 재사용</text>
+<rect x="224" y="224" width="316" height="92" rx="9" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="240" y="247" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#5b21b6">2회차 (Pass 2): 잠재 상태 정밀 보정</text>
+<text x="240" y="268" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#1e293b">• 게이트 g⁽²⁾ 개방 → 세부 추론·자기 교정 반영</text>
+<text x="240" y="286" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#1e293b">• 1회차 인덱스·희소 KV 공유 + 128토큰 슬라이딩 창 KV</text>
+<text x="240" y="303" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#334155">h⁽²⁾ = h⁽¹⁾ + g⁽²⁾ ⊙ F(h⁽¹⁾)</text>
+<line x1="560" y1="190" x2="596" y2="190" stroke="#64748b" stroke-width="2"/>
+<polygon points="602,190 594,185 594,195" fill="#64748b"/>
+<rect x="604" y="130" width="128" height="120" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+<text x="668" y="162" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="13" font-weight="700" fill="#b45309">Coda</text>
+<text x="668" y="186" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="12" fill="#78350f">55 ~ 78층 (24층)</text>
+<text x="668" y="210" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" fill="#334155">1회 통과</text>
+<text x="668" y="230" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#475569">출력 분포 생성</text>
+<rect x="28" y="346" width="704" height="30" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<text x="380.0" y="366" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12" fill="#334155">총 가중치: 78층 (~750B)   |   유효 연산 깊이: 26 + 28×2 + 24 = 106층 (+35.9%)   |   1M 문맥 추가 KV: 약 3.94 MiB</text>
+</svg>
