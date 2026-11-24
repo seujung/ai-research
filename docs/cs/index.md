@@ -19,6 +19,7 @@ tags:
 | 주제 | 교재 | 상태 | 정리 |
 | --- | --- | --- | --- |
 | 알고리즘 | Cormen, Leiserson, Rivest, Stein, *Introduction to Algorithms*, 4th ed. | 1~35장 정리 | [바로 가기](algorithms/index.md) |
+| 양자 컴퓨팅 | Kaye, Laflamme, Mosca, *An Introduction to Quantum Computing* | 1~10장 정리 | [바로 가기](quantum-computing/index.md) |
 
 ## 새 주제를 추가하는 방법
 

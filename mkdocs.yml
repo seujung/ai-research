@@ -259,6 +259,18 @@ nav:
           - 33. 머신러닝 알고리즘: cs/algorithms/33-ml-algorithms.md
           - 34. NP-완전성: cs/algorithms/34-np-completeness.md
           - 35. 근사 알고리즘: cs/algorithms/35-approximation.md
+      - 양자 컴퓨팅:
+          - cs/quantum-computing/index.md
+          - 1. 서론과 배경: cs/quantum-computing/01-introduction.md
+          - 2. 선형대수와 디랙 표기: cs/quantum-computing/02-linear-algebra-dirac.md
+          - 3. 큐비트와 양자역학의 틀: cs/quantum-computing/03-qubits-framework.md
+          - 4. 양자 계산 모델과 회로: cs/quantum-computing/04-quantum-circuits.md
+          - 5. 초고밀도 코딩과 양자 텔레포테이션: cs/quantum-computing/05-superdense-teleportation.md
+          - 6. 기초 양자 알고리즘: cs/quantum-computing/06-intro-algorithms.md
+          - 7. 초다항 가속 알고리즘: cs/quantum-computing/07-superpolynomial-algorithms.md
+          - 8. 진폭 증폭 알고리즘: cs/quantum-computing/08-amplitude-amplification.md
+          - 9. 양자 계산 복잡도와 하한: cs/quantum-computing/09-complexity-lower-bounds.md
+          - 10. 양자 오류 정정: cs/quantum-computing/10-error-correction.md
   - 물리:
       - physics/index.md
       - 양자역학:

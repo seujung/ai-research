@@ -26,6 +26,15 @@ hide:
 
   <li class="entry">
     <div class="entry__meta">
+      <time datetime="2026-11-24">2026년 11월 24일</time>
+      <span class="entry__cat">컴퓨터 과학</span>
+    </div>
+    <h3 class="entry__title"><a href="cs/quantum-computing/">양자 컴퓨팅</a></h3>
+    <p class="entry__desc">Kaye, Laflamme, Mosca의 An Introduction to Quantum Computing을 10개 장으로 정리합니다. 가역 계산과 디랙 표기, 보편 게이트, 초고밀도 코딩과 텔레포테이션, QFT·위상 추정·쇼어·그로버 알고리즘, 복잡도 하한과 양자 오류 정정을 다룹니다. N=15 인수분해와 9-큐비트 오류 정정처럼 작은 계의 계산을 끝까지 따라갑니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
       <time datetime="2026-10-29">2026년 10월 29일</time>
       <span class="entry__cat">물리</span>
     </div>
