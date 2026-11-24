@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" width="760" height="440">
+<rect width="760" height="440" fill="#ffffff"/>
+<text x="380" y="26" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="14.5" font-weight="700" fill="#0f172a">NVIDIA Mamba 하이브리드 세대별 층 비율과 LatentMoE 구조</text>
+
+<!-- Panel 1: Layer distribution -->
+<rect x="24" y="42" width="712" height="202" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+<text x="40" y="64" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#1e293b">1. 세대별 층 구성 비율 (총 층 수 기준)</text>
+
+<!-- Legend -->
+<rect x="448" y="53" width="12" height="12" rx="2" fill="#2563eb"/>
+<text x="464" y="63" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#334155">Mamba-2 (M)</text>
+<rect x="536" y="53" width="12" height="12" rx="2" fill="#d97706"/>
+<text x="552" y="63" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#334155">어텐션 (*)</text>
+<rect x="614" y="53" width="12" height="12" rx="2" fill="#7c3aed"/>
+<text x="630" y="63" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" fill="#334155">MLP / MoE (E)</text>
+
+<!-- Bar area: x=224 to x=714 (width=490) -->
+<!-- Row 1: Mamba-2-Hybrid 8B (56): 24 (42.9% -> 210), 4 (7.1% -> 35), 28 (50.0% -> 245) -->
+<text x="40" y="96" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Mamba-2-Hybrid 8B (56층)</text>
+<rect x="224" y="81" width="210" height="22" rx="3" fill="#2563eb"/>
+<text x="329" y="96" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">24 (42.9%)</text>
+<rect x="434" y="81" width="35" height="22" fill="#d97706"/>
+<text x="451.5" y="96" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#ffffff">4</text>
+<rect x="469" y="81" width="245" height="22" rx="3" fill="#7c3aed"/>
+<text x="591.5" y="96" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">밀집 MLP 28 (50.0%)</text>
+
+<!-- Row 2: Nemotron-H 56B (118): 54 (45.8% -> 224), 10 (8.5% -> 42), 54 (45.8% -> 224) -->
+<text x="40" y="128" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Nemotron-H 56B (118층)</text>
+<rect x="224" y="113" width="224" height="22" rx="3" fill="#2563eb"/>
+<text x="336" y="128" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">54 (45.8%)</text>
+<rect x="448" y="113" width="42" height="22" fill="#d97706"/>
+<text x="469" y="128" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#ffffff">10</text>
+<rect x="490" y="113" width="224" height="22" rx="3" fill="#7c3aed"/>
+<text x="602" y="128" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">밀집 FFN 54 (45.8%)</text>
+
+<!-- Row 3: Nemotron 3 Nano 30B-A3B (52): 23 (44.2% -> 217), 6 (11.5% -> 56), 23 (44.2% -> 217) -->
+<text x="40" y="160" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Nemotron 3 Nano (52층)</text>
+<rect x="224" y="145" width="217" height="22" rx="3" fill="#2563eb"/>
+<text x="332.5" y="160" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">23 (44.2%)</text>
+<rect x="441" y="145" width="56" height="22" fill="#d97706"/>
+<text x="469" y="160" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#ffffff">6 (11.5%)</text>
+<rect x="497" y="145" width="217" height="22" rx="3" fill="#7c3aed"/>
+<text x="605.5" y="160" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">MoE 23 (44.2%)</text>
+
+<!-- Row 4: Nemotron 3 Super 120B-A12B (88): 40 (45.5% -> 223), 8 (9.1% -> 44), 40 (45.5% -> 223) -->
+<text x="40" y="192" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Nemotron 3 Super (88층)</text>
+<rect x="224" y="177" width="223" height="22" rx="3" fill="#2563eb"/>
+<text x="335.5" y="192" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">40 (45.5%)</text>
+<rect x="447" y="177" width="44" height="22" fill="#d97706"/>
+<text x="469" y="192" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#ffffff">8</text>
+<rect x="491" y="177" width="223" height="22" rx="3" fill="#7c3aed"/>
+<text x="602.5" y="192" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">LatentMoE 40 (45.5%)</text>
+
+<!-- Row 5: Nemotron 3 Ultra 550B-A55B (108): 48 (44.4% -> 218), 12 (11.1% -> 54), 48 (44.4% -> 218) -->
+<text x="40" y="224" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" font-weight="600" fill="#1e293b">Nemotron 3 Ultra (108층)</text>
+<rect x="224" y="209" width="218" height="22" rx="3" fill="#2563eb"/>
+<text x="333" y="224" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">48 (44.4%)</text>
+<rect x="442" y="209" width="54" height="22" fill="#d97706"/>
+<text x="469" y="224" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#ffffff">12 (11.1%)</text>
+<rect x="496" y="209" width="218" height="22" rx="3" fill="#7c3aed"/>
+<text x="605" y="224" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600" fill="#ffffff">LatentMoE 48 (44.4%)</text>
+
+<!-- Panel 2: LatentMoE architecture -->
+<rect x="24" y="256" width="712" height="170" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+<text x="40" y="278" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#1e293b">2. Nemotron 3 Super · Ultra의 LatentMoE 연산 흐름</text>
+
+<!-- Input box -->
+<rect x="40" y="324" width="112" height="58" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.4"/>
+<text x="96" y="346" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#0369a1">입력 은닉 상태 h</text>
+<text x="96" y="363" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#0c4a6e">Super d=4,096</text>
+<text x="96" y="376" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#0c4a6e">Ultra d=8,192</text>
+
+<!-- Split arrows -->
+<path d="M 152 342 L 176 342 L 176 314 L 194 314" fill="none" stroke="#64748b" stroke-width="1.6"/>
+<polygon points="200,314 192,309 192,319" fill="#64748b"/>
+<path d="M 152 364 L 176 364 L 176 392 L 260 392" fill="none" stroke="#64748b" stroke-width="1.6"/>
+<polygon points="266,392 258,387 258,397" fill="#64748b"/>
+
+<!-- Upper branch: W_down -> Router & 512 experts -> W_up -->
+<rect x="200" y="290" width="112" height="48" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="256" y="309" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" font-weight="700" fill="#5b21b6">잠재 투영 W_down</text>
+<text x="256" y="326" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#4c1d95">1/4 폭 (1,024 / 2,048)</text>
+
+<line x1="312" y1="314" x2="334" y2="314" stroke="#7c3aed" stroke-width="1.6"/>
+<polygon points="340,314 332,309 332,319" fill="#7c3aed"/>
+
+<rect x="340" y="286" width="174" height="56" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+<text x="427" y="305" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1e40af">라우팅 전문가 (512 중 Top-22)</text>
+<text x="427" y="321" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="10.5" fill="#1e293b">잠재 공간에서 계산 · 통신 약 4배 감소</text>
+<text x="427" y="335" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#334155">ReLU² FFN (Super 2,688 / Ultra 5,120)</text>
+
+<line x1="514" y1="314" x2="536" y2="314" stroke="#7c3aed" stroke-width="1.6"/>
+<polygon points="542,314 534,309 534,319" fill="#7c3aed"/>
+
+<rect x="542" y="290" width="94" height="48" rx="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="589" y="309" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" font-weight="700" fill="#5b21b6">복원 W_up</text>
+<text x="589" y="326" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#4c1d95">원래 차원 d 복귀</text>
+
+<!-- Lower branch: Shared expert -->
+<rect x="266" y="368" width="298" height="44" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.4"/>
+<text x="415" y="387" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="11" font-weight="700" fill="#b45309">공유 전문가 1개 (원래 은닉 차원 폭 d에서 병렬 계산)</text>
+<text x="415" y="403" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="10" fill="#78350f">모든 토큰에 상시 활성화되어 공통 표현 유지</text>
+
+<!-- Merge to sum -->
+<path d="M 636 314 L 664 314 L 664 342" fill="none" stroke="#64748b" stroke-width="1.6"/>
+<path d="M 564 392 L 664 392 L 664 366" fill="none" stroke="#64748b" stroke-width="1.6"/>
+<circle cx="664" cy="354" r="12" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="664" y="358.5" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#334155">+</text>
+<line x1="676" y1="354" x2="692" y2="354" stroke="#64748b" stroke-width="1.6"/>
+<polygon points="698,354 690,349 690,359" fill="#64748b"/>
+<rect x="698" y="336" width="26" height="36" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+<text x="711" y="358" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#0f172a">y</text>
+</svg>

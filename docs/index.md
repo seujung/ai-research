@@ -29,6 +29,15 @@ hide:
       <time datetime="2026-11-24">2026년 11월 24일</time>
       <span class="entry__cat">트렌드</span>
     </div>
+    <h3 class="entry__title"><a href="trends/2026/11/24/nvidia-mamba-family/">LLM Model: NVIDIA Mamba (Nemotron) 계열 정리</a></h3>
+    <p class="entry__desc">NVIDIA의 2024년 Mamba-2-Hybrid 실증 연구에서 Nemotron-H, Nemotron Nano 2, 최신 Nemotron 3(Nano·Super·Ultra)까지의 계보를 정리합니다. Mamba-2와 소수 GQA 어텐션의 층 배치 비율, NoPE 설계, LatentMoE, NVFP4, MTP와 1M 문맥 캐시 크기를 AI 섹션의 해당 장과 연결해 다룹니다.</p>
+  </li>
+
+  <li class="entry">
+    <div class="entry__meta">
+      <time datetime="2026-11-24">2026년 11월 24일</time>
+      <span class="entry__cat">트렌드</span>
+    </div>
     <h3 class="entry__title"><a href="trends/2026/11/24/glm-5-4/">LLM Model: GLM-5.4 아키텍처 리뷰</a></h3>
     <p class="entry__desc">Z.ai의 첫 상용 Loop Transformer GLM-5.4를 정리합니다. 78층 중 28개 중간층을 두 번 반복 실행하는 Middle-Cycle 배치, Gated Progressive Updates, 128토큰 창 Hybrid KV Cache와 Sparse Attention Index Reuse를 LLM 핵심 기법 8장과 연결해 다룹니다.</p>
   </li>

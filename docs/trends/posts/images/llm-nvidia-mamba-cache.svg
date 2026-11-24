@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400">
+<rect width="760" height="400" fill="#ffffff"/>
+<text x="380" y="28" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0f172a">Nemotron 3 세대별 캐시 크기 (BF16 KV + FP32 SSM 상태 가정)</text>
+
+<!-- Plot area: x=76..616 (width=540 for 0..1024K), y=56..336 (height=280 for 0..65 GiB) -->
+<!-- Grid lines (Y: 0, 10, 20, 30, 40, 50, 60 GiB) -->
+<!-- y(v) = 336 - (v / 65) * 280 -->
+<g stroke="#e2e8f0" stroke-width="1">
+  <line x1="76" y1="336" x2="616" y2="336"/>
+  <line x1="76" y1="292.9" x2="616" y2="292.9"/>
+  <line x1="76" y1="249.8" x2="616" y2="249.8"/>
+  <line x1="76" y1="206.8" x2="616" y2="206.8"/>
+  <line x1="76" y1="163.7" x2="616" y2="163.7"/>
+  <line x1="76" y1="120.6" x2="616" y2="120.6"/>
+  <line x1="76" y1="77.5" x2="616" y2="77.5"/>
+  <!-- Vertical grid (X: 0, 256K, 512K, 768K, 1024K -> dx = 135) -->
+  <line x1="76" y1="56" x2="76" y2="336"/>
+  <line x1="211" y1="56" x2="211" y2="336"/>
+  <line x1="346" y1="56" x2="346" y2="336"/>
+  <line x1="481" y1="56" x2="481" y2="336"/>
+  <line x1="616" y1="56" x2="616" y2="336"/>
+</g>
+
+<!-- Axes -->
+<line x1="76" y1="336" x2="616" y2="336" stroke="#64748b" stroke-width="1.4"/>
+<line x1="76" y1="56" x2="76" y2="336" stroke="#64748b" stroke-width="1.4"/>
+
+<!-- Y tick labels -->
+<g font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="11.5" fill="#475569" text-anchor="end">
+  <text x="68" y="340">0</text>
+  <text x="68" y="297">10</text>
+  <text x="68" y="254">20</text>
+  <text x="68" y="211">30</text>
+  <text x="68" y="168">40</text>
+  <text x="68" y="125">50</text>
+  <text x="68" y="82">60</text>
+</g>
+<text x="26" y="196" text-anchor="middle" transform="rotate(-90 26 196)" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">시퀀스 1개의 캐시 (GiB)</text>
+
+<!-- X tick labels -->
+<g font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">
+  <text x="76" y="355">0</text>
+  <text x="211" y="355">256K</text>
+  <text x="346" y="355">512K</text>
+  <text x="481" y="355">768K</text>
+  <text x="616" y="355">1,024K (1M)</text>
+</g>
+<text x="346" y="382" text-anchor="middle" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="12.5" font-weight="600" fill="#1e293b">문맥 길이 (토큰)</text>
+
+<!-- Lines: x0=76, x1=616 -->
+<!-- 1) Hypothetical Pure GQA 60 layers (60 KiB/tok): y(0)=336, y(60)=77.54 -->
+<line x1="76" y1="336" x2="616" y2="77.5" stroke="#64748b" stroke-width="2.2" stroke-dasharray="6 4"/>
+<circle cx="616" cy="77.5" r="3.5" fill="#64748b"/>
+<text x="624" y="75" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#475569">60.0 GiB</text>
+<text x="624" y="90" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="10.5" fill="#64748b">가정: 60층 전부 GQA</text>
+
+<!-- 2) Nemotron 3 Ultra: 0.375 GiB -> 12.375 GiB: y(0.375)=334.4, y(12.375)=282.7 -->
+<line x1="76" y1="334.4" x2="616" y2="282.7" stroke="#2563eb" stroke-width="2.6"/>
+<circle cx="616" cy="282.7" r="3.8" fill="#2563eb"/>
+<text x="624" y="280" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#1d4ed8">12.38 GiB</text>
+<text x="624" y="294" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="10.5" fill="#1e40af">Ultra (550B-A55B)</text>
+
+<!-- 3) Nemotron 3 Super: 0.156 GiB -> 8.156 GiB: y(0.156)=335.3, y(8.156)=300.9 -->
+<line x1="76" y1="335.3" x2="616" y2="300.9" stroke="#d97706" stroke-width="2.6"/>
+<circle cx="616" cy="300.9" r="3.8" fill="#d97706"/>
+<text x="624" y="302" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#b45309">8.16 GiB</text>
+<text x="624" y="315" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="10.5" fill="#b45309">Super (120B-A12B)</text>
+
+<!-- 4) Nemotron 3 Nano: 0.045 GiB -> 6.045 GiB: y(0.045)=335.8, y(6.045)=310.0 -->
+<line x1="76" y1="335.8" x2="616" y2="310.0" stroke="#0d9488" stroke-width="2.6"/>
+<circle cx="616" cy="310.0" r="3.8" fill="#0d9488"/>
+<text x="624" y="328" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#0f766e">6.04 GiB</text>
+<text x="624" y="341" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="10.5" fill="#0f766e">Nano (30B-A3B)</text>
+
+<!-- Legend box top-left -->
+<rect x="90" y="64" width="296" height="92" rx="7" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="102" y1="81" x2="128" y2="81" stroke="#64748b" stroke-width="2.2" stroke-dasharray="6 4"/>
+<text x="136" y="85" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="11" fill="#334155">가정: Ultra 60개 믹서층 전부 GQA (2 KV)</text>
+
+<line x1="102" y1="101" x2="128" y2="101" stroke="#2563eb" stroke-width="2.6"/>
+<text x="136" y="105" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="11" fill="#1e293b">Ultra: GQA 12층 + Mamba-2 48층 (0.375 GiB)</text>
+
+<line x1="102" y1="121" x2="128" y2="121" stroke="#d97706" stroke-width="2.6"/>
+<text x="136" y="125" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="11" fill="#1e293b">Super: GQA 8층 + Mamba-2 40층 (0.156 GiB)</text>
+
+<line x1="102" y1="141" x2="128" y2="141" stroke="#0d9488" stroke-width="2.6"/>
+<text x="136" y="145" font-family="Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="11" fill="#1e293b">Nano: GQA 6층 + Mamba-2 23층 (0.045 GiB)</text>
+</svg>

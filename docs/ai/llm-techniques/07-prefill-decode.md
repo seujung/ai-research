@@ -325,4 +325,4 @@ decode는 GPU 하나에 전문가 하나만 두어 전문가 가중치를 읽는
 - 분리 배포는 두 단계를 다른 GPU에서 실행하고 KV 캐시를 옮깁니다. DeepSeek-V3는 prefill을 32장, decode를 320장 단위로 배포했습니다.
 - 어텐션 변형은 대부분 decode의 메모리(GQA, MLA, 슬라이딩 창, 선형 어텐션)나 긴 prefill의 연산(희소 어텐션)을 겨냥합니다.
 
-모델별 실제 설정과 비용은 트렌드의 LLM Model 글([Gemma](../../trends/posts/2026-10-20-llm-gemma.md), [DeepSeek](../../trends/posts/2026-10-20-llm-deepseek.md), [Qwen](../../trends/posts/2026-10-20-llm-qwen.md), [GLM](../../trends/posts/2026-10-20-llm-glm.md), [Kimi](../../trends/posts/2026-10-20-llm-kimi.md))에 있습니다.
+모델별 실제 설정과 비용은 트렌드의 LLM Model 글([Gemma](../../trends/posts/2026-10-20-llm-gemma.md), [DeepSeek](../../trends/posts/2026-10-20-llm-deepseek.md), [Qwen](../../trends/posts/2026-10-20-llm-qwen.md), [GLM](../../trends/posts/2026-10-20-llm-glm.md), [Kimi](../../trends/posts/2026-10-20-llm-kimi.md), [NVIDIA Mamba](../../trends/posts/2026-11-24-llm-nvidia-mamba.md))에 있습니다.

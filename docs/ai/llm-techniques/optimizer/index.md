@@ -62,7 +62,7 @@ flowchart LR
 - **Muon**: GLM-4.5·GLM-5, DeepSeek V4, Kimi K2. 행렬 매개변수에만 Muon을 쓰고, 임베딩·출력 헤드·정규화 가중치는 AdamW나 제외 목록으로 둡니다.
 - **명시 없음**: Gemma 1~3, Qwen2 이후. 같은 계열이라도 옵티마이저를 공개하지 않은 경우가 많습니다.
 
-계열별 전체 특징은 트렌드의 LLM Model 글에 있습니다: [Gemma](../../../trends/posts/2026-10-20-llm-gemma.md), [DeepSeek](../../../trends/posts/2026-10-20-llm-deepseek.md), [Qwen](../../../trends/posts/2026-10-20-llm-qwen.md), [GLM](../../../trends/posts/2026-10-20-llm-glm.md), [Kimi](../../../trends/posts/2026-10-20-llm-kimi.md).
+계열별 전체 특징은 트렌드의 LLM Model 글에 있습니다: [Gemma](../../../trends/posts/2026-10-20-llm-gemma.md), [DeepSeek](../../../trends/posts/2026-10-20-llm-deepseek.md), [Qwen](../../../trends/posts/2026-10-20-llm-qwen.md), [GLM](../../../trends/posts/2026-10-20-llm-glm.md), [Kimi](../../../trends/posts/2026-10-20-llm-kimi.md), [NVIDIA Mamba](../../../trends/posts/2026-11-24-llm-nvidia-mamba.md).
 
 ## 3. 세 옵티마이저 비교
 

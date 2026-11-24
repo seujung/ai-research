@@ -23,7 +23,7 @@ FFN 층은 전문가 혼합(MoE)으로 바꾸고, 다음 토큰 여러 개를 �
 !!! info "다른 교재와의 관계"
     - 어텐션 연산 자체(스케일드 내적, GQA, MLA, 희소·선형 어텐션)는 [어텐션 메커니즘](../attention/index.md)에서 다룹니다. 이 교재는 어텐션 바깥에서 모델 전체에 쓰이는 기법을 다룹니다.
     - 사인·코사인 위치 인코딩과 트랜스포머의 기본 구조는 [신경망 기초 8장](../d2l/08-attention-transformer.md)에, SGD와 Adam의 기초는 [신경망 기초 9장](../d2l/09-optimization.md)에 있습니다.
-    - 모델별 전체 특징은 트렌드의 LLM Model 글([Gemma](../../trends/posts/2026-10-20-llm-gemma.md), [DeepSeek](../../trends/posts/2026-10-20-llm-deepseek.md), [Qwen](../../trends/posts/2026-10-20-llm-qwen.md), [GLM](../../trends/posts/2026-10-20-llm-glm.md), [Kimi](../../trends/posts/2026-10-20-llm-kimi.md))에 있습니다.
+    - 모델별 전체 특징은 트렌드의 LLM Model 글([Gemma](../../trends/posts/2026-10-20-llm-gemma.md), [DeepSeek](../../trends/posts/2026-10-20-llm-deepseek.md), [Qwen](../../trends/posts/2026-10-20-llm-qwen.md), [GLM](../../trends/posts/2026-10-20-llm-glm.md), [Kimi](../../trends/posts/2026-10-20-llm-kimi.md), [NVIDIA Mamba](../../trends/posts/2026-11-24-llm-nvidia-mamba.md))에 있습니다.
 
 ## 목차
 
@@ -40,16 +40,16 @@ FFN 층은 전문가 혼합(MoE)으로 바꾸고, 다음 토큰 여러 개를 �
 
 ## 각 기법을 쓰는 모델
 
-| 기법 | Gemma | DeepSeek | Qwen | GLM | Kimi |
-| --- | --- | --- | --- | --- | --- |
-| RoPE 기저 주파수 | 로컬층 $10^4$, 전역층 $10^6$ (Gemma 3·4) | $10^4$ (V3·V3.2·V4) | $10^6$ (Qwen3), $10^7$ (Qwen3-Next·3.5) | $10^6$ (GLM-4.5·5), $8 \times 10^6$ (GLM-5.2) | $5 \times 10^4$ (K2) |
-| 부분 RoPE | 전역층 25% (Gemma 4 p-RoPE) | RoPE 전용 64차원 (MLA 분리 RoPE) | 25% (Qwen3-Next·3.5) | 50% (GLM-4·4.5), RoPE 전용 64차원 (GLM-5) | RoPE 전용 64차원 (K2, MLA 분리 RoPE) |
-| 긴 문맥 확장 | 전역층 선형 보간 8배 (Gemma 3) | YaRN 40배 (V3·V3.2), 16배 (V4-Pro) | YaRN, DCA (Qwen2·2.5) | 단계별 문맥 확장 학습 (GLM-5) | YaRN 32배 (K2) |
-| 로짓 안정화 | 소프트 캡핑 (Gemma 2), QK-Norm (Gemma 3), QK-Norm + V-Norm (Gemma 4) | QK RMSNorm (V4) | QK-Norm (Qwen3 이후) | QK-Norm (GLM-4.5), Muon Split (GLM-5) | QK-Clip (K2) |
-| 옵티마이저 | 보고서에 명시 없음 | AdamW (V2·V3), Muon + AdamW (V4) | AdamW (Qwen 1세대), 이후 보고서에 명시 없음 | Muon (GLM-4.5), Muon + Muon Split (GLM-5) | MuonClip = Muon + QK-Clip (K2) |
-| MoE | 128개 중 8개 + 병렬 밀집 MLP (Gemma 4 26B A4B) | 256개 중 8개 + 공유 1 (V3·V3.2) | 128개 중 8개 (Qwen3-235B), 512개 중 10개 + 공유 1 (Qwen3-Next) | 160개 중 8개 (GLM-4.5), 256개 중 8개 + 공유 1 (GLM-5) | 384개 중 8개 + 공유 1 (K2) |
-| MTP | MTP 드래프터 (Gemma 4) | MTP 모듈 1개 (V3 이후) | MTP 층 1개 (Qwen3.5), Qwen3-Next는 모델 카드에 명시 | MTP 층 1개 (GLM-4.5·5) | 없음 (K2, `num_nextn_predict_layers: 0`) |
-| 루프 아키텍처 | — | — | — | Middle-Cycle 28층×2, Gated Progressive Updates, Hybrid KV Cache (GLM-5.4) | — |
+| 기법 | Gemma | DeepSeek | Qwen | GLM | Kimi | NVIDIA Mamba |
+| --- | --- | --- | --- | --- | --- | --- |
+| RoPE 기저 주파수 | 로컬층 $10^4$, 전역층 $10^6$ (Gemma 3·4) | $10^4$ (V3·V3.2·V4) | $10^6$ (Qwen3), $10^7$ (Qwen3-Next·3.5) | $10^6$ (GLM-4.5·5), $8 \times 10^6$ (GLM-5.2) | $5 \times 10^4$ (K2) | NoPE (전 세대 위치 임베딩 생략) |
+| 부분 RoPE | 전역층 25% (Gemma 4 p-RoPE) | RoPE 전용 64차원 (MLA 분리 RoPE) | 25% (Qwen3-Next·3.5) | 50% (GLM-4·4.5), RoPE 전용 64차원 (GLM-5) | RoPE 전용 64차원 (K2, MLA 분리 RoPE) | — |
+| 긴 문맥 확장 | 전역층 선형 보간 8배 (Gemma 3) | YaRN 40배 (V3·V3.2), 16배 (V4-Pro) | YaRN, DCA (Qwen2·2.5) | 단계별 문맥 확장 학습 (GLM-5) | YaRN 32배 (K2) | Mamba-2 + 소수 NoPE GQA로 1M 확장 |
+| 로짓 안정화 | 소프트 캡핑 (Gemma 2), QK-Norm (Gemma 3), QK-Norm + V-Norm (Gemma 4) | QK RMSNorm (V4) | QK-Norm (Qwen3 이후) | QK-Norm (GLM-4.5), Muon Split (GLM-5) | QK-Clip (K2) | RMSNorm |
+| 옵티마이저 | 보고서에 명시 없음 | AdamW (V2·V3), Muon + AdamW (V4) | AdamW (Qwen 1세대), 이후 보고서에 명시 없음 | Muon (GLM-4.5), Muon + Muon Split (GLM-5) | MuonClip = Muon + QK-Clip (K2) | AdamW + WSD (Nemotron-H·3) |
+| MoE | 128개 중 8개 + 병렬 밀집 MLP (Gemma 4 26B A4B) | 256개 중 8개 + 공유 1 (V3·V3.2) | 128개 중 8개 (Qwen3-235B), 512개 중 10개 + 공유 1 (Qwen3-Next) | 160개 중 8개 (GLM-4.5), 256개 중 8개 + 공유 1 (GLM-5) | 384개 중 8개 + 공유 1 (K2) | LatentMoE 512개 중 22개 + 공유 1 (Nemotron 3 Super·Ultra) |
+| MTP | MTP 드래프터 (Gemma 4) | MTP 모듈 1개 (V3 이후) | MTP 층 1개 (Qwen3.5), Qwen3-Next는 모델 카드에 명시 | MTP 층 1개 (GLM-4.5·5) | 없음 (K2, `num_nextn_predict_layers: 0`) | 공유 가중치 MTP (Nemotron 3 Super 1층·Ultra 2층) |
+| 루프 아키텍처 | — | — | — | Middle-Cycle 28층×2, Gated Progressive Updates, Hybrid KV Cache (GLM-5.4) | — | — |
 
 ## 읽는 방법
 

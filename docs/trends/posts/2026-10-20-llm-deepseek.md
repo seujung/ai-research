@@ -14,6 +14,7 @@ links:
   - "LLM Model: Qwen 계열 정리": trends/posts/2026-10-20-llm-qwen.md
   - "LLM Model: GLM 계열 정리": trends/posts/2026-10-20-llm-glm.md
   - "LLM Model: Kimi 계열 정리": trends/posts/2026-10-20-llm-kimi.md
+  - "LLM Model: NVIDIA Mamba (Nemotron) 계열 정리": trends/posts/2026-11-24-llm-nvidia-mamba.md
 ---
 
 # LLM Model: DeepSeek 계열 정리
